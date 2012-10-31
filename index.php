@@ -1,6 +1,6 @@
 <?php
 require_once('fw/prepend.php');
-
+asdf
 $user = auth($facebook);
 $access_token = $facebook->getAccessToken();
 
