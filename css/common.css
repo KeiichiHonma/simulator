@@ -1,0 +1,36 @@
+@charset "UTF-8";
+@import url(reset.css);
+.clearfix:after {
+    content: " "; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+    min-height: 1%;
+}
+/* Hides from IE-mac \*/
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+
+.fl{
+    float:left;
+}
+
+.fr{
+    float:right;
+}
+.clear{
+    clear: both; 
+}
+body {
+	background: #eee;
+	color: #333333;
+    height:2000px;
+}
