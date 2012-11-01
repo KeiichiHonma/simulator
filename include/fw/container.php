@@ -58,7 +58,7 @@ class container
         //以下はシンプルモードでは呼ばない
         if(!$isSimple){
             $this->session = new sessionManager($cache);//セッション開始
-            //$this->db = new database();
+            $this->db = new database();
             $this->base = new base();
             $this->tail_number = time();
             $this->t->assign('tail_number',$this->tail_number);//末尾の数字

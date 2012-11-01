@@ -4,7 +4,7 @@
 //                                                2008/12/01
 //==========================================================
 
-define('DATABASE_TABLE_PREFIX', 'tab_kujapan_');
+define('DATABASE_TABLE_PREFIX', 'tab_');
 define('DATABASE_COLUMN_PREFIX', 'col_');
 define('DATABASE_OID_NAME', '_id');
 
@@ -31,11 +31,11 @@ define('DATABASE_ASC', FALSE);//昇順
 class database
 {
     //DB
-    private $strDBName        = "2kujapan";
-    private $strHostName      = "localhost";
-    private $strPort          = "3306";
-    private $strUser          = "db_apollon";
-    private $strPass          = "kyeoisihcihoi";
+    //private $strHostName      = 'instance30581.db.xeround.com:18158';
+    private $strHostName;
+    private $strDBName        = "simulator";
+    private $strUser          = "xe_hachione";
+    private $strPass          = "hyoanhmaagi";
     private $err;
     private $strErrMsg        = "";
     public  $sqlData;
@@ -46,6 +46,15 @@ class database
     private $debug             = FALSE;
     
     function __construct(){
+        $ini = parse_ini_file('/app/www/include/setting.ini', true);
+        //本番
+        if($ini['common']['isDebug'] == 0){
+            $this->strHostName = 'instance30585.db.xeround.com:19794';
+        }else{
+            $this->strHostName = 'instance30581.db.xeround.com:18158';
+        }
+var_dump($this->strHostName);
+die();
         $blnStatus = TRUE;
         $intConn = mysql_connect($this->strHostName,$this->strUser,$this->strPass);
         if( isset($intConn)){
@@ -56,8 +65,6 @@ class database
         }else{
             $blnStatus = false;
         }
-        //$blnStatus == FALSE ? $this->throwDBError() : mysql_query('SET AUTOCOMMIT=0');
-        //$blnStatus == FALSE ? die() : mysql_query('SET AUTOCOMMIT=0');
         if(!$blnStatus){
             $ini = parse_ini_file(SETTING_INI, true);
             if($ini['common']['isDebug'] == 0){//本番
