@@ -2,10 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#">
 <head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
 <meta charset="utf-8"> 
-<title>app</title>
-<link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
+
+<link type="text/css" href="/css/common.css" rel="stylesheet" media="all" />
+
+<title>{$smarty.const.APP_NAME}</title>
 </head>
 <body>
-<script type='text/javascript' src='{$smarty.const.SIMURL}/embed?uid=22'></script>
-</body>
+{foreach from=$errorlist key="key" item="value" name="errorlist"}
+{$value|nl2br}<br />
+{/foreach}
+  </body>
 </html>
