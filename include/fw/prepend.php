@@ -13,6 +13,6 @@ function shutdownHandler(){
         $mailManager->sendHalt(LOCALE.":ERROR:shutdownHandler\n",$error);
     }
 }
-//$con->readyPostCsrf();
-//$con->checkPostCsrf();
+$con->readyPostCsrf();
+$con->checkPostCsrf();
 ?>
