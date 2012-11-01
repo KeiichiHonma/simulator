@@ -1,2 +1,4 @@
-Options FollowSymLinks MultiViews
-php_value include_path ".:/app/www/include"
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
