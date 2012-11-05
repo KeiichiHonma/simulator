@@ -51,10 +51,15 @@ class database
         if($ini['common']['isDebug'] == 0){
             $this->strHostName = 'instance30585.db.xeround.com:19794';
         }else{
-            $this->strHostName = 'instance30581.db.xeround.com:18158';
+            if($ini['db']['xeround'] == 0){
+                $this->strHostName = 'localhost';
+            }else{
+                $this->strHostName = 'instance30581.db.xeround.com:18158';
+            }
+            
         }
-var_dump($this->strHostName);
-die();
+/*var_dump($this->strHostName);
+die();*/
         $blnStatus = TRUE;
         $intConn = mysql_connect($this->strHostName,$this->strUser,$this->strPass);
         if( isset($intConn)){

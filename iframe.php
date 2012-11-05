@@ -1,5 +1,6 @@
 <?php
-
+var_dump('test');
+die();
 /*
 $_GETで取得可能
 $_SERVER['HTTP_REFERER']でセキュリティチェック

@@ -7,17 +7,17 @@ class analyze
     //private $handleTagList = array('img','link','script','input','meta','title');
     //private $handleTagList = array('h1','img','a[class=view-in-itunes]');
     private $handleTagList = array('h1','img');
-    public $h1_text;
-    public $screenshots;
-    public $icon;
-    public $its_link;
+    public $h1_text = FALSE;
+    public $screenshots = FALSE;
+    public $icon = FALSE;
+    public $its_link = FALSE;
     
     public function analyzeHtmlSource($url){
         $ret = FALSE;
         unset($this->html);
         $this->html = '';
         $this->html = file_get_html($url);
-        
+        if(!$this->html) return FALSE;
         foreach ($this->handleTagList as $tag){
             foreach($this->html->find($tag) as $element){
                 switch ($tag){
@@ -54,6 +54,12 @@ class analyze
 
                 }
             }
+        }
+        //全てOKだったら許可
+        if($this->h1_text && $this->screenshots && $this->icon){
+            return TRUE;
+        }else{
+            return FALSE;
         }
     }
 }

@@ -1,6 +1,6 @@
 $(function() {
     var showFlug = false;
-    var topBtn = $('#viewer');    
+    var topBtn = $('#simulator');    
     topBtn.css('bottom', '-700px');
     var showFlug = false;
     $(window).scroll(function () {

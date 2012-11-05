@@ -1,24 +1,17 @@
 <?php
 //table
 //user
-define('T_USER',                  'wtc.tab_user');
+define('T_USER',                  'simulator.tab_user');
 define('A_USER',                  'u');
-//capsule
-define('T_CAPSULE',               'wtc.tab_capsule');
-define('A_CAPSULE',               'c');
-//relationship
-define('T_RELATIONSHIP',          'wtc.tab_relationship');
-define('A_RELATIONSHIP',          'r');
-//member
-define('T_MEMBER',                'wtc.tab_member');
-define('A_MEMBER',                'm');
-
-//news
-define('T_NEWS',                  'wtc.tab_news');
-define('A_NEWS',                  'n');
-//file
-define('T_FILES',                 'wtc.tab_files');
-define('A_FILES',                 'f');
+//application
+define('T_APPLICATION',               'simulator.tab_application');
+define('A_APPLICATION',               'a');
+//simulator
+define('T_SIMLATOR',          'simulator.tab_simulator');
+define('A_SIMLATOR',          's');
+//image
+define('T_IMAGE',          'simulator.tab_image');
+define('A_IMAGE',          'i');
 
 define('MINIMUM',        0);//最小カラム
 define('COMMON',         1);//通常含めるカラム

@@ -7,5 +7,9 @@
 </head>
 <body>
 {include file="include/common/header.inc"}
+
+<div class='title'>登録しているアプリ一覧</div>
+
+<div class='new-group'><a href="/simulators/new/">新しいアプリを登録する</a></div>
 </body>
 </html>

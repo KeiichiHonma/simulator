@@ -26,11 +26,25 @@
 .fr{
     float:right;
 }
-.clear{
+.cl{
     clear: both; 
 }
 body {
-	background: #eee;
-	color: #333333;
+    background: #eee;
+    color: #333333;
     height:2000px;
+}
+
+#center_simulator {
+    position: fixed;
+    bottom: 0%;
+    width:100%;
+    text-align:center;
+    /*border: 1px solid #000000;*/
+    padding:0px;
+    margin:0px;
+}
+
+.input{
+    margin-bottom:10px;
 }

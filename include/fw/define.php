@@ -1,11 +1,9 @@
 <?php
 define('SETTING_INI',         'setting.ini');
-define('APP_NAME',       'Wedding Time Capsule');
-
+define('APP_NAME',       'appSimulator');
+define('SITE_NAME'    , 'appSimulator');
 define('LOCALE_EN',           'en');
 define('LOCALE_JA',           'ja');
-
-define('SITE_NAME'    , 'Wedding Time Capsule');
 define('FIRSTSP',       10);
 
 //ファイル系
@@ -17,19 +15,15 @@ define('FILES_PATH',       $_SERVER['DOCUMENT_ROOT'].FILES_DIR);
 define('VALIDATE_ALLOW',  0);
 define('VALIDATE_DENY',  1);
 
-//image
-define('USER_FACE',  0);
+//scroll
+define('SCROLL_FIRST',      0);
+define('SCROLL_SECOND',     1);
+define('SCROLL_THIRD',      2);
+define('SCROLL_FORTH',      3);
+define('SCROLL_FIFTH',      4);
 
-//STATUS
-
-define('STATUS_CALL',     0);
-define('STATUS_JOIN',     1);
-define('STATUS_SPECIAL',  9);
-
-//TYPE
-define('TYPE_GUEST',      0);
-define('TYPE_WIFE',       1);
-define('TYPE_HUSBAND',    2);
-define('TYPE_MANAGER',    3);
-define('TYPE_OWNER',      4);
+//position
+define('POSITION_LEFT',      0);
+define('POSITION_CENTER',     1);
+define('POSITION_RIGHT',      2);
 ?>

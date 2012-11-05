@@ -1,10 +1,10 @@
 <?php
 define('SECRET_KEY',                 'ILUNAKEY');
 //user
-define('SESSION_U_HASH',             'WTCUHASH');
-define('SESSION_U_UID',              'WTCUUID');
-define('SESSION_U_NAME',             'WTCUNAME');
-define('SESSION_U_FACE',             'WTCUFACE');
+define('SESSION_U_HASH',             'SIM_USER_HASH');
+define('SESSION_U_UID',              'SIM_USER_UID');
+define('SESSION_U_NAME',             'SIM_USER_NAME');
+define('SESSION_U_FACE',             'SIM_USER_FACE');
 
 
 class authManager
@@ -57,12 +57,11 @@ class authManager
     // ログイン情報セット
     //------------------------------------------------------
 
-    public function setLogin($uid,$name,$face_array){
+    public function setLogin($uid,$name){
         global $con;
         $con->session->set(SESSION_U_HASH,self::makeHash($uid));
         $con->session->set(SESSION_U_UID,$uid);
         $con->session->set(SESSION_U_NAME,$name);
-        $con->session->set(SESSION_U_FACE,$face_array);
     }
     
     public function unsetLogin(){

@@ -254,13 +254,30 @@ class checkManager
         return $manager === FALSE ? TRUE : FALSE;
     }
 
-    //titleへのURL入力禁止
+    //URL
     static protected function checkUrl($param,$arg){
         $url_pattern = '(https?://[a-zA-Z0-9/_.?#&;=$+:@%~,\\-]+)';
         if (preg_match($url_pattern,$param)) {
-            return FALSE;
-        }else{
             return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+
+    static protected function checkItunesUrl($param,$arg){
+        $parse_url = parse_url($param);
+/*array(3) {
+  ["scheme"]=>
+  string(5) "https"
+  ["host"]=>
+  string(16) "itunes.apple.com"
+  ["path"]=>
+  string(46) "/jp/app/bokete-bokete-mian-bai-xie/id563446587"
+}*/
+        if ($parse_url['host'] == 'itunes.apple.com') {
+            return TRUE;
+        }else{
+            return FALSE;
         }
     }
 
@@ -476,13 +493,8 @@ class checkManager
         self::$stop = TRUE;//エラーがある場合は自動的にstop
     }
 
-    static protected function checkError($check_list,$locale_path,$app){
-        if(is_null($locale_path)){
-            require_once('locale/'.LOCALE.'/check.php');//翻訳ファイル
-        }else{
-            require_once('locale/'.LOCALE.'/'.$locale_path.'/check.php');//翻訳ファイル
-        }
-        
+    static protected function checkError($check_list,$app){
+        require_once('locale/'.LOCALE.'/'.$app.'/check.php');//翻訳ファイル
         foreach($check_list as $post_key => $check){
             self::$stop = FALSE;
             if(isset($_POST[$post_key]) && !is_array($_POST[$post_key])) $_POST[$post_key] = trim($_POST[$post_key]);//trim
@@ -490,12 +502,10 @@ class checkManager
                 self::$extends  = '';
                 if(isset($array['is_file']) && $array['is_file']){
                     if(!self::$stop && !call_user_func(array('checkManager',$array['func']),@$_FILES[$post_key],$array['arg'])){
-                        //self::setError($post_key,$array['message']);
                         self::setError($post_key,$locale[$app][$post_key][$array['type']]);
                     }
                 }else{
                     if(!self::$stop && !call_user_func(array('checkManager',$array['func']),@$_POST[$post_key],$array['arg'])){
-                        //self::setError($post_key,$array['message']);
                         self::setError($post_key,$locale[$app][$post_key][$array['type']]);
                     }
                 }
