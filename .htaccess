@@ -1,4 +1,3 @@
-Options +Multiviews
 php_value include_path ".:/app/www/include"
 php_flag display_errors On
 php_flag magic_quotes_gpc Off
