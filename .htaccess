@@ -1,7 +1,4 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php
+Options FollowSymLinks MultiViews
 php_value include_path ".:/app/www/include"
 php_flag display_errors On
 php_flag magic_quotes_gpc Off

@@ -9,7 +9,7 @@ class analyze
     private $handleTagList = array('h1','img');
     public $h1_text = FALSE;
     public $screenshots = FALSE;
-    public $icon = FALSE;
+    public $logo = FALSE;
     public $its_link = FALSE;
     
     public function analyzeHtmlSource($url){
@@ -35,16 +35,13 @@ class analyze
                     
                     */
                     
-                    if( strstr($element->alt,'iPhone Screenshot') !== FALSE ){
-                        //$screenshots = $explode(' ',$element->alt);
-                        $this->screenshots[] = trim($element->src);
-                    }elseif( strstr($element->alt,'&#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE ){
+                    if( strstr($element->alt,'iPhone Screenshot') !== FALSE || strstr($element->alt,'&#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE){
                         $this->screenshots[] = trim($element->src);
                     }
                     
                     //icon
                     if( strstr($element->src,'175x175') !== FALSE ){
-                        $this->icon = $element->src;
+                        $this->logo = $element->src;
                     }
                 break;
 /*                case 'a[class=view-in-itunes]':
@@ -56,7 +53,7 @@ class analyze
             }
         }
         //全てOKだったら許可
-        if($this->h1_text && $this->screenshots && $this->icon){
+        if($this->h1_text && $this->screenshots && $this->logo){
             return TRUE;
         }else{
             return FALSE;

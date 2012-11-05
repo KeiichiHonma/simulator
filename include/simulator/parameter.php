@@ -7,7 +7,7 @@ class simulatorParameter extends parameterManager
         parent::readyAddParameter(TRUE,time());
         $this->parameter['uid'] = $uid;
         $this->parameter['aid'] = $aid;
-        $this->setAddParameter();
+        $this->setParameter();
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 

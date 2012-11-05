@@ -7,8 +7,8 @@ define('A_USER',                  'u');
 define('T_APPLICATION',               'simulator.tab_application');
 define('A_APPLICATION',               'a');
 //simulator
-define('T_SIMLATOR',          'simulator.tab_simulator');
-define('A_SIMLATOR',          's');
+define('T_SIMULATOR',          'simulator.tab_simulator');
+define('A_SIMULATOR',          's');
 //image
 define('T_IMAGE',          'simulator.tab_image');
 define('A_IMAGE',          'i');

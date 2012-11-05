@@ -14,49 +14,22 @@ if($con->isPost){
     checkSimulatorEntry::checkError();
     $is_check = checkSimulatorEntry::safeExit();
     if($is_check){
+
+            //simulator table add////////////////////////////////////////////////////////////////
+            $aid = 1;
+            require_once('simulator/handle.php');
+            $simulator_handle = new simulatorHandle();
+            $sid = $simulator_handle->addRow($authManager->uid,$aid);
+            if(!$sid){
+                require_once('fw/errorManager.php');
+                errorManager::throwError(E_CMMN_HANDLE_STOP);
+            }
+            $con->safeExitRedirect('/simulators/view/'.$sid);
+
         //解析OKかのチェック
         include('fw/analyze.php');
         $analyze = new analyze();
         if( $analyze->analyzeHtmlSource($_POST['itunes_url']) ){
-            /*
-            imageの差分チェックをする
-            追加する際、有無を言わさず必ずitunesの画像は更新をかける。
-            画像数に違いがあった場合は、simulatorテーブルの
-            */
-            //cloudinary///////////////////////////////////////////////////////////////////////////
-            $images = array();
-            require "fw/cloudinaryUploader.php";
-            //$url = 'http://a2.mzstatic.com/us/r1000/087/Purple/v4/48/35/27/48352767-7bfd-ac11-c51b-aa92df863ed7/mzl.ecvhpptk.175x175-75.jpg';
-            //$public_id = 'q9umj3c4zyze65tqjmme';
-            foreach ($analyze->screenshots as $url){
-                $image[] = cloudinaryUploader::upload($url,$public_id);
-            }
-
-$image = array
-(
-    'images'=>array
-    (
-        '',
-        '',
-        '',
-        '',
-    ),
-    'itunes'=>array
-    (
-        array('index'=>0,'public_id'=>'123123','url'=>''),
-        array('index'=>1,'public_id'=>'123123','url'=>''),
-        array('index'=>2,'public_id'=>'123123','url'=>''),
-    ),
-    'user'=>array
-    (
-        array('index'=>3,'public_id'=>'123123','url'=>''),
-        array('index'=>4,'public_id'=>'123123','url'=>''),
-        array('index'=>5,'public_id'=>'123123','url'=>''),
-    )
-);
-            
-            
-            //application table add////////////////////////////////////////////////////////////////
             //itunes id 取り出し
             $parse = parse_url($_POST['itunes_url']);
             $ex1 = explode('?',$parse['path']);
@@ -67,27 +40,66 @@ $image = array
             if($is_match == 1){
                 $itunes_id = $match[0];
             }else{
-                //緊急
-                $itunes_id = end($ex2);
+                //itunes id 取得失敗
+                //$itunes_id = end($ex2);
             }
+            
+            //
+            include('application/logic.php');
+            $application_logic = new applicationLogic();
+            $itunes_app = $application_logic->getItunesApp($itunes_id);
+            /*
+            imageの差分チェックをする
+            追加する際、有無を言わさず必ずitunesの画像は更新をかける。
+            画像数に違いがあった場合は、simulatorテーブルの
+            */
+            //application table add////////////////////////////////////////////////////////////////
+            //cloudinary
+            require "fw/cloudinaryUploader.php";
             require_once('application/handle.php');
             $application_handle = new applicationHandle();
-            $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text);
+            if($itunes_app === FALSE){
+                //add
+                //screenshots
+                foreach ($analyze->screenshots as $url){
+                    $screenshot = cloudinaryUploader::upload($url);
+                    //$images['screenshots'][$screenshot['public_id']] = $screenshot;
+                    $images['screenshots'][] = cloudinaryUploader::upload($url);
+                }
+                //logo
+                $logo = cloudinaryUploader::upload($analyze->logo);
+                //$images['logo'][$logo['public_id']] = $logo;
+                $images['logo'] = cloudinaryUploader::upload($analyze->logo);
+                
+                $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text,$images);
+            }else{
+                //update
+                //screenshots
+                $i = 0;
+                $old_images = unserialize($itunes_app['images']);
+                
+                foreach ($analyze->screenshots as $url){
+                    $images['screenshots'][$i] = cloudinaryUploader::upload($url,isset($old_images['screenshots'][$i]) ? $old_images['screenshots'][$i]['public_id'] : null);
+                    $i++;
+                }
+                $images['logo'] = cloudinaryUploader::upload($analyze->logo,$old_images['logo']['public_id']);
+                
+                $aid = $application_handle->updateRow($itunes_app['_id'],$itunes_id,$_POST['itunes_url'],$images);
+            }
+            if(!$aid){
+                require_once('fw/errorManager.php');
+                errorManager::throwError(E_CMMN_HANDLE_STOP);
+            }
             
             //simulator table add////////////////////////////////////////////////////////////////
             require_once('simulator/handle.php');
             $simulator_handle = new simulatorHandle();
             $sid = $simulator_handle->addRow($authManager->uid,$aid);
-            
-            
-            $con->t->assign('h1_text',$analyze->h1_text);
-            $con->t->assign('screenshots',$analyze->screenshots);
-            $con->t->assign('icon',$analyze->icon);
-            $con->t->assign('itune_link',$_POST['itunes_url']);
-            $con->t->assign('count_screenshots',count($analyze->screenshots));
-            $con->t->assign('count_screenshots_on',count($analyze->screenshots) + 1);
-            
-            $con->t->assign('is_analyze',TRUE);
+            if(!$sid){
+                require_once('fw/errorManager.php');
+                errorManager::throwError(E_CMMN_HANDLE_STOP);
+            }
+            $con->safeExitRedirect('/simulators/view/'.$sid);
         }else{
             //解析できなかった
             checkSimulatorEntry::$error['error_analyze'] = '解析できませんでした。';

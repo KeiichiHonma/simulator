@@ -46,20 +46,28 @@ class database
     private $debug             = FALSE;
     
     function __construct(){
-        $ini = parse_ini_file('/app/www/include/setting.ini', true);
-        //本番
-        if($ini['common']['isDebug'] == 0){
-            $this->strHostName = 'instance30585.db.xeround.com:19794';
+        if(is_file('/app/www/include/setting.ini')){
+            $ini = parse_ini_file('/app/www/include/setting.ini', true);
         }else{
-            if($ini['db']['xeround'] == 0){
-                $this->strHostName = 'localhost';
-            }else{
-                $this->strHostName = 'instance30581.db.xeround.com:18158';
-            }
-            
+            $ini = FALSE;
         }
-/*var_dump($this->strHostName);
-die();*/
+        
+        
+        //本番
+        if(!$ini){
+            $this->strHostName = 'localhost';
+        }else{
+            if($ini['common']['isDebug'] == 0){
+                $this->strHostName = 'instance30585.db.xeround.com:19794';
+            }else{
+                if($ini['db']['xeround'] == 0){
+                    $this->strHostName = 'localhost';
+                }else{
+                    $this->strHostName = 'instance30581.db.xeround.com:18158';
+                }
+                
+            }
+        }
         $blnStatus = TRUE;
         $intConn = mysql_connect($this->strHostName,$this->strUser,$this->strPass);
         if( isset($intConn)){
@@ -471,22 +479,6 @@ die();*/
         $query = "SELECT ";
         if($this->found) $query .= 'SQL_CALC_FOUND_ROWS ';
         $toPutComma = FALSE;
-
-/*        foreach( $this->_select_columns as $table_alias => $columns )
-        {
-            foreach( $columns as $column )
-            {
-                if ( $toPutComma ) {
-                    $query .= ', ';
-                } else {
-                    $toPutComma = TRUE;
-                }
-                $column = ereg("^_id", $column) == TRUE ? $column : DATABASE_COLUMN_PREFIX.$column;
-
-                if($table_alias != '') $column = $table_alias.'.'.$column;
-                $query .= $column;
-            }
-        }*/
         //aliasはtableManagerで
         foreach( $this->_select_columns as $columns )
         {
@@ -497,8 +489,6 @@ die();*/
                 } else {
                     $toPutComma = TRUE;
                 }
-                //$column = ereg("^_id", $column) == TRUE ? $column : DATABASE_COLUMN_PREFIX.$column;
-
                 //if($table_alias != '') $column = $table_alias.'.'.$column;
                 $query .= $column;
             }
@@ -604,7 +594,6 @@ die();*/
                 //}
                 
                 $query .= $ob[0];
-                //$query .= ereg("^_id", $ob[0]) == TRUE ? $ob[0] : DATABASE_COLUMN_PREFIX.$ob[0];
                 if ( $ob[1] )//デフォルトはFALSE
                 {
                     $query .= ' DESC';//大きい順
@@ -663,7 +652,7 @@ die();*/
             } else {
                 $toPutComma = TRUE;
             }
-            $left .= ereg("^_id", $key) == TRUE ? $key : DATABASE_COLUMN_PREFIX.$key;
+            $left .= preg_match("/^_id/", $key) == 1 ? $key : DATABASE_COLUMN_PREFIX.$key;
             $right .= $this->checkValueType($val);//escape or null
         }
         $query .= '(';
@@ -692,8 +681,7 @@ die();*/
             } else {
                 $toPutComma = TRUE;
             }
-            //$query .= ' '.ereg("^_id", $key) == TRUE ? $key : DATABASE_COLUMN_PREFIX.$key.' = \''.$val.'\'';
-            $query .= ereg("^_id", $key) == TRUE ? $key : DATABASE_COLUMN_PREFIX.$key.' = '.$this->checkValueType($val);
+            $query .= preg_match("/^_id/", $key) == 1 ? $key : DATABASE_COLUMN_PREFIX.$key.' = '.$this->checkValueType($val);
         }
         if ( count( $this->_conditions ) > 0 )
         {

@@ -6,8 +6,10 @@ $is_auth = $authManager->validateLogin();
 $con->t->assign('is_auth',$is_auth);
 
 //post
+
 $con->isPost = TRUE;
 $_POST['itunes_url'] = 'https://itunes.apple.com/jp/app/bokete-bokete-mian-bai-xie/id563446587';
+
 if($con->isPost){
     //urlとしての文字列をチェック
     require_once('application/check.php');
@@ -21,7 +23,7 @@ if($con->isPost){
             //set
             $con->t->assign('h1_text',$analyze->h1_text);
             $con->t->assign('screenshots',$analyze->screenshots);
-            $con->t->assign('icon',$analyze->icon);
+            $con->t->assign('logo',$analyze->logo);
             $con->t->assign('itune_link',$_POST['itunes_url']);
             $con->t->assign('count_screenshots',count($analyze->screenshots));
             $con->t->assign('count_screenshots_on',count($analyze->screenshots) + 1);

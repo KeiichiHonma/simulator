@@ -18,11 +18,11 @@
     </div>
     
     <div class='input'>
-        <label for="simulator_site_attributes_url">■設置したいウェブサイトのURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="install_url" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.install_url}" />
+        <label for="simulator_site_attributes_url">■設置したいウェブサイトのURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="domain" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.install_url}" />
     </div>
 
     <div class='input'>
-        <label for="simulator_site_attributes_url">■リンクするURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="link_url" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.link_url}" />
+        <label for="simulator_site_attributes_url">■リンクするURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="link" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.link_url}" />
     </div>
 
     <div class='input'>
@@ -45,7 +45,7 @@
     <div id="iphone">
         <div id="app">
         <div class="icon">
-            <div style="float: left;"><img src="{$icon}" width="75" height="75" alt="" /></div>
+            <div style="float: left;"><img src="{$logo}" width="75" height="75" alt="" /></div>
             <div>{$h1_text}<br /><a href="{$itune_link}" target="_blank"><img src="/img/common/install_btn.png"  width="125" height="23" alt="" /></a></div>
         </div>
 

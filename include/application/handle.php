@@ -15,8 +15,8 @@ class applicationHandle extends handleManager
         return parent::addRow(T_APPLICATION,$this->parameter);
     }
 
-    public function updateRow($uid){
-        $this->parameter->setUpdate($uid);
+    public function updateRow($aid){
+        $this->parameter->setUpdate($aid);
         return parent::updateRow(T_APPLICATION,$this->parameter);
     }
 

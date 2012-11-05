@@ -15,5 +15,12 @@ class applicationLogic extends logicManager
         $this->validateCondition();
         return parent::getResult(T_APPLICATION);
     }
+
+    function getItunesApp($itunes_id,$type = COMMON){
+        $this->addSelectColumn(applicationTable::get($type));
+        $this->setCond('col_itunes_id',$itunes_id);
+        $this->validateCondition();
+        return parent::getResult(T_APPLICATION);
+    }
 }
 ?>

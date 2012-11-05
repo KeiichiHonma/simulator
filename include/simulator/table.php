@@ -11,11 +11,10 @@ class simulatorTable extends tableManager
             array('column'=>'aid',               'as'=>null,            'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'domain',            'as'=>null,            'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'title',             'as'=>null,            'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
-            array('column'=>'image',             'as'=>null,            'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
+            array('column'=>'images',             'as'=>null,            'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'link',              'as'=>null,            'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'scroll',            'as'=>null,            'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'position',          'as'=>null,            'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
-            array('column'=>'update',            'as'=>null,            'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'validate',          'as'=>null,            'type'=>COMMON, 'input'=>FALSE, 'group'=>null)
         );
     
