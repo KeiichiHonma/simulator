@@ -1,5 +1,5 @@
 <?php
-var_dump('test');
+var_dump($_GET);
 die();
 require_once('fw/prepend.php');
 require_once('fw/authManager.php');

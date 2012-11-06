@@ -1,4 +1,6 @@
 <?php
+var_dump('test');
+die();
 require_once('fw/prepend.php');
 require_once('fw/authManager.php');
 $authManager = new authManager();
@@ -14,18 +16,6 @@ if($con->isPost){
     checkSimulatorEntry::checkError();
     $is_check = checkSimulatorEntry::safeExit();
     if($is_check){
-
-            //simulator table add////////////////////////////////////////////////////////////////
-            $aid = 1;
-            require_once('simulator/handle.php');
-            $simulator_handle = new simulatorHandle();
-            $sid = $simulator_handle->addRow($authManager->uid,$aid);
-            if(!$sid){
-                require_once('fw/errorManager.php');
-                errorManager::throwError(E_CMMN_HANDLE_STOP);
-            }
-            $con->safeExitRedirect('/simulators/view/'.$sid);
-
         //解析OKかのチェック
         include('fw/analyze.php');
         $analyze = new analyze();
@@ -99,7 +89,7 @@ if($con->isPost){
                 require_once('fw/errorManager.php');
                 errorManager::throwError(E_CMMN_HANDLE_STOP);
             }
-            $con->safeExitRedirect('/simulators/view/'.$sid);
+            $con->safeExitRedirect('/simulators/view/sid/'.$sid);
         }else{
             //解析できなかった
             checkSimulatorEntry::$error['error_analyze'] = '解析できませんでした。';

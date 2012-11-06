@@ -8,6 +8,7 @@ class simulatorParameter extends parameterManager
         $this->parameter['uid'] = $uid;
         $this->parameter['aid'] = $aid;
         $this->setParameter();
+        $this->parameter['images'] = null;
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 

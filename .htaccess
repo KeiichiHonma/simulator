@@ -1,6 +1,0 @@
-php_value include_path ".:/app/www/include"
-php_flag display_errors On
-php_flag magic_quotes_gpc Off
-php_value date.timezone "America/New_York"
-php_value extension_dir "/app/www/include"
-php_value extension "mbstring.so"
