@@ -1,7 +1,7 @@
 <?php
 
 
-var_dump(file('apache/conf');
+var_dump(file('apache/conf'));
 die();
 //phpinfo();
 die();die();
