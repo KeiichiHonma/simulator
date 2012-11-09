@@ -35,7 +35,7 @@ function createUploader() {ldelim}
             {rdelim}
             if (responseJSON.success) {ldelim}
                 $('#thumbnail-result'+i).append('<img src="' + responseJSON.file + '" alt="' + responseJSON.file + '" width="27" height="40" />');
-                $('#thumbnail-result'+i).append('<input type="hidden" name="' + 'thumbnail-result'+ i + '" value="' + responseJSON.cloudinary + '" />');
+                $('#thumbnail-result'+i).append('<input type="hidden" name="' + 'thumbnail-result'+ i + '" value="' + i + '" />');
                 i = i+1;
                 if(i == {$smarty.const.MAX_IMAGE_COUNT}){ldelim}
                     $("#thumbnail-fine-uploader").css("display", "none");
