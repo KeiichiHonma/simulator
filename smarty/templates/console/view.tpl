@@ -14,6 +14,7 @@ function createUploader() {ldelim}
     var thumbnailuploader = new qq.FileUploader({ldelim}
         element: $('#thumbnail-fine-uploader')[0],
         action: '/console/image/fine_uploader',
+        //listElement:'<ul class="qq-upload-list-test"></ul>',
         debug: true,
         multiple: false,
         //onComplete : function(id, fileName, responseJSON){ldelim}
@@ -34,8 +35,13 @@ function createUploader() {ldelim}
                 alert(responseJSON.mes);
             {rdelim}
             if (responseJSON.success) {ldelim}
-                $('#thumbnail-result'+i).append('<img src="' + responseJSON.file + '" alt="' + responseJSON.file + '" width="27" height="40" />');
-                $('#thumbnail-result'+i).append('<input type="hidden" name="' + 'thumbnail-result'+ i + '" value="' + i + '" />');
+                //$("#thumbnail-fine-uploader").remove();
+                
+                //$("#sort").append('<li class="thumbnail-result' + i + '"></li>');
+                $("#thumbnail-fine-uploader").before('<li class="thumbnail-result' + i + '"></li>');
+                $('.thumbnail-result'+i).append('<img src="' + responseJSON.file + '" alt="' + responseJSON.file + '" width="27" height="40" />');
+                $('.thumbnail-result'+i).append('<input type="hidden" name="' + 'thumbnail-result'+ i + '" value="' + i + '" />');
+                
                 i = i+1;
                 if(i == {$smarty.const.MAX_IMAGE_COUNT}){ldelim}
                     $("#thumbnail-fine-uploader").css("display", "none");
@@ -61,25 +67,26 @@ window.onload = createUploader;
     <section>
         <form action="/console/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
             <h2>Sortable Grid</h2>
-            <ul class="sortable grid">
+            <ul id="sort" class="sortable grid">
             {if $iphone.screenshots}
                 {foreach from=$iphone.screenshots key="key" item="screenshot" name="screenshots"}
                 <li id="{$key}"><div class="block"><img src="{$screenshot.thumbnail_url}" /></div></li>
                 {/foreach}
             {/if}
             
-            {*<a href="/console/image/add"><li class="sortable-placeholder">+</li></a>*}
+            {if $count_screenshots < $smarty.const.MAX_IMAGE_COUNT}<li id="thumbnail-fine-uploader"></li>{/if}
             
-            {section name=cnt start=$count_screenshots loop=$smarty.const.MAX_IMAGE_COUNT}
+{*            {section name=cnt start=$count_screenshots loop=$smarty.const.MAX_IMAGE_COUNT}
                 <li id="thumbnail-result{$smarty.section.cnt.index}" class="thumbnail-result"></li>
-            {/section}
+            {/section}*}
             </ul>
             
-            {if $count_screenshots < $smarty.const.MAX_IMAGE_COUNT}<div id="thumbnail-fine-uploader"></div>{/if}
-            <a href="/console/image/manage">Manage images...</a>
+            {*{if $count_screenshots < $smarty.const.MAX_IMAGE_COUNT}<div id="thumbnail-fine-uploader thumbnail-result{$count_screenshots}"></div>{/if}*}
+
+{*            <a href="/console/image/manage">Manage images...</a>
             <input type="hidden" id="image_sort" name="image_sort" />
             <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-            <input type="button" value="submit" id="image_sort_submit" />
+            <input type="button" value="submit" id="image_sort_submit" />*}
         </form>
     </section>
     

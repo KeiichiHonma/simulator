@@ -66,35 +66,9 @@ if (strcmp ($res, "VERIFIED") == 0) {
     $txn_id = $_POST['txn_id'];
     $receiver_email = $_POST['receiver_email'];
     $payer_email = $_POST['payer_email'];*/
-
-
-    //存在チェック
-    //$_POST['txn_id'] = 'dfgvsdfg';
-    //$_GET['uid'] = 1;
-    if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
-        require_once('fw/container.php');
-        $con = new container();
-        require_once('paypal_payment_info/logic.php');
-        $paypal_payment_info_logic = new paypalPaymentInfoLogic();
-        $paypal = $paypal_payment_info_logic->getOneTxn($_POST['txn_id']);
-        if(!$paypal){
-            if(!isset($_POST['receipt_id'])) $_POST['receipt_id'] = '';
-            require_once('paypal_payment_info/handle.php');
-            $paypal_payment_info_handle = new paypalPaymentInfoHandle();
-            $pid = $paypal_payment_info_handle->addRow($_GET['uid']);
-            
-            //user table
-            if($pid){
-                //user情報更新
-                require_once('user/licence.php');
-                $user_licence = new userLicence();
-                $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);
-                $con->safeExit();//commit
-            }
-            //notifyを使ってのDB登録
-            mail($notify_email, "VERIFIED IPN db-add", $_POST['txn_id'].':'.serialize($_POST));
-        }
-    }
+    require_once('fw/container.php');
+    $con = new container();
+    require_once('paypal/common_process.php');
 } else if (strcmp ($res, "INVALID") == 0) {
     // log for manual investigation
     mail($notify_email, "INVALID", "$res");

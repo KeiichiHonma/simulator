@@ -238,7 +238,8 @@ class qqFileUploader {
     }
 
     function handleCloudinaryUpload($replaceOldFile = FALSE){
-        if (!$this->file){
+       return array('success'=>true,'file'=>'test');
+       if (!$this->file){
             return array('error' => 'No files were uploaded.');
         }
         
@@ -262,26 +263,44 @@ class qqFileUploader {
         }
         
         $ext = ($ext == '') ? $ext : '.' . $ext;
-        
         $this->uploadName = $filename . $ext;
         
         
         //move_uploaded_file($_FILES['qqfile']['tmp_name'], $path);
         require "fw/cloudinaryUploader.php";
         $cloudinary = cloudinaryUploader::upload($_FILES['qqfile']['tmp_name']);
+        //$cloudinary = true;
         //if ($this->file->save($uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext)){
         if ($cloudinary){
+            require_once('fw/container.php');
+            $con = new container();
+            if( !isset($_SESSION[SESSION_U_UID]) ) return false;
+            //return array('success'=>true,'mes'=>'s'.$_SESSION[SESSION_U_UID]);
+            
+            //simulatorテーブルに画像を追加
+            require_once('simulator/logic.php');
+            $simulator_logic = new simulatorLogic();
+            $simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);//applicationも入ってます。
+            $images = unserialize($simulator[0]['simulator_images']);
+            $add_image = array
+            (
+                'public_id'=>$cloudinary['public_id'],
+                'version'=>$cloudinary['version'],
+                'secure_url'=>$cloudinary['secure_url'],
+                'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
+                'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'])))
+            );
+            $images['screenshots'][] = $add_image;
 
-/*        $images['screenshots'][$i] = array
-        (
-            'public_id'=>$cloudinary['public_id'],
-            'version'=>$cloudinary['version'],
-            'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-            'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'])))
-        );*/
-
-
-            return array('success'=>true,'file'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),'cloudinary'=>serialize($cloudinary));
+            require_once('simulator/handle.php');
+            $simulator_handle = new simulatorHandle();
+            $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$images);
+            if(!$sid){
+                //rollback
+                cloudinaryUploader::rollback($images);
+            }
+            $con->safeExit();//commit
+            return array('success'=>true,'file'=>$add_image['thumbnail_url']);
         } else {
             return array('error'=> 'Could not save uploaded file.' .
                 'The upload was cancelled, or server error encountered');

@@ -1,13 +1,4 @@
 <?php
-define('SECRET_KEY',                 'ILUNAKEY');
-//user
-define('SESSION_U_HASH',             'SIM_USER_HASH');
-define('SESSION_U_UID',              'SIM_USER_UID');
-define('SESSION_U_NAME',             'SIM_USER_NAME');
-define('SESSION_U_FACE',             'SIM_USER_FACE');
-define('SESSION_U_USE_LICENCE',      'SIM_USER_USE_LICENCE');
-define('SESSION_U_MAX_LICENCE',      'SIM_USER_MAX_LICENCE');
-
 class authManager
 {
     //以下認証後のみセットされる

@@ -14,6 +14,7 @@ if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
         require_once('paypal_payment_info/handle.php');
         $paypal_payment_info_handle = new paypalPaymentInfoHandle();
         $pid = $paypal_payment_info_handle->addRow($_GET['uid']);
+        $pid = true;
         if($pid){
             //user情報更新
             $new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);
@@ -51,6 +52,7 @@ if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
                             }
                         }
                     }
+                    //simulatorテーブルに画像をコピー
                     require_once('simulator/handle.php');
                     $simulator_handle = new simulatorHandle();
                     $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_images);

@@ -4,9 +4,17 @@
 <meta charset="utf-8"> 
 <title>app</title>
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/fileuploader.css" rel="stylesheet">
+<link href="/css/testfileuploader.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="/js/fileuploader.min.js"></script>
+<script src="/js/testfileuploader.min.js"></script>
+</head>
+<body>
+<div id="thumbnail-fine-uploader"></div>
+<div id="thumbnail-result0" class="thumbnail-result"></div><br />
+<div id="thumbnail-result1" class="thumbnail-result"></div>
+<br />123<br />
+123<br />
+<ul class="test-list"></ul>
 {literal}
 <script>
 function createUploader() {
@@ -14,6 +22,9 @@ function createUploader() {
     var thumbnailuploader = new qq.FileUploader({
         element: $('#thumbnail-fine-uploader')[0],
         action: '/console/image/fine_uploader',
+        //listElement:'<ul class="test-list"></ul>',
+        //listElement:'<ul class="test-list">',
+        //listElement:'test-list',
         debug: true,
         multiple: false,
         //onComplete : function(id, fileName, responseJSON){
@@ -40,10 +51,5 @@ function createUploader() {
 window.onload = createUploader;
 </script>
 {/literal}
-</head>
-<body>
-<div id="thumbnail-fine-uploader"></div>
-<div id="thumbnail-result0" class="thumbnail-result"></div><br />
-<div id="thumbnail-result1" class="thumbnail-result"></div>
 </body>
 </html>

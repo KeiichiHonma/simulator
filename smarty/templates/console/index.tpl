@@ -11,7 +11,14 @@
 <div class='title'>登録しているアプリ一覧</div>
 <ul>
 {foreach from=$simulators key="key" item="simulator" name="simulators"}
-<li><img src="{$simulator.application_images|getCloudinaryLogo}" /><a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a></li>
+<li>
+{if !is_null($simulator.simulator_images)}
+<img src="{$simulator.simulator_images|getCloudinaryLogo}" /><a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>
+{else}
+<img src="{$simulator.application_images|getCloudinaryLogo}" /><a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>
+{/if}
+
+</li>
 {/foreach}
 </ul>
 </body>

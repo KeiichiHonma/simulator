@@ -42,6 +42,7 @@ if(!$res){
         //$keyarray[urldecode($key)] = urldecode($val);
         $_POST[urldecode($key)] = urldecode($val);
     }
+
     //購入連絡
     mail($notify_email, "PopApp-buy", serialize($_POST));
     require_once('fw/container.php');

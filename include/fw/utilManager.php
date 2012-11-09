@@ -71,7 +71,11 @@ class utilManager
         //logoは丸めるので修正
         $url = explode('/',$image_url);
         $count = count($url);
-        $url[$count-2] = implode(',',$transformations);
+        if($transformations == false){
+            unset($url[$count-2]);
+        }else{
+            $url[$count-2] = implode(',',$transformations);
+        }
         return implode('/',$url);
     }
 }
