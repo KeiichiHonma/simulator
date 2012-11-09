@@ -7,24 +7,25 @@
 define('E_CMMN_URL_WRONG',                 'SIM_CMMN_00001');
 define('E_CMMN_TOKEN_WRONG',               'SIM_CMMN_00002');
 define('E_CMMN_REQUEST_ERROR',             'SIM_CMMN_00003');
-define('E_CMMN_HANDLE_STOP',               'SIM_CMMN_00004');
-
-define('E_CMMN_APP_EXISTS',                'SIM_CMMN_00003');
-
-define('E_CMMN_INITIALIZE_RAND',           'SIM_CMMN_00005');
-define('E_CMMN_VALIDATE_TIME',             'SIM_CMMN_00006');
+define('E_CMMN_HANDLE_APP_STOP',           'SIM_CMMN_00004');
+define('E_CMMN_HANDLE_SIM_STOP',           'SIM_CMMN_00005');
+define('E_CMMN_APP_EXISTS',                'SIM_CMMN_00006');
+define('E_CMMN_INITIALIZE_RAND',           'SIM_CMMN_00007');
+define('E_CMMN_VALIDATE_TIME',             'SIM_CMMN_00008');
+define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
+define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
 
 //エラーメッセージ
 define('SIM_CMMN_00001',               'URLが不正です。');
 define('SIM_CMMN_00002',               '不正なリクエストです。クッキーが有効になっていない可能性があります。ブラウザの設定をご確認ください。');
 define('SIM_CMMN_00003',               '現在、サーバーが混んでおります。しばらく経ってから、もう一度お試しください。');
-define('SIM_CMMN_00004',               '処理が停止しました。再度実行してください。');
-
-define('SIM_CMMN_00003',               '店舗が削除されたか存在しません。');
-
-define('SIM_CMMN_00005',               '初期化中に不明なエラーが発生しました。弊社サポートセンターまでご連絡くださいませ。');
-define('SIM_CMMN_00006',               'クーポン発行可能な期間が過ぎています。<br />発行可能な期間は初回ログイン時より3か月となっております。<br />再度ご購入いただきますようお願いいたします。');
-
+define('SIM_CMMN_00004',               'applicationで処理が停止しました。再度実行してください。');
+define('SIM_CMMN_00005',               'simulatorで処理が停止しました。再度実行してください。');
+define('SIM_CMMN_00006',               'PopAppが削除されたか存在しません。');
+define('SIM_CMMN_00007',               '初期化中に不明なエラーが発生しました。弊社サポートセンターまでご連絡くださいませ。');
+define('SIM_CMMN_00008',               'クーポン発行可能な期間が過ぎています。<br />発行可能な期間は初回ログイン時より3か月となっております。<br />再度ご購入いただきますようお願いいたします。');
+define('SIM_CMMN_00009',               'userで処理が停止しました。再度実行してください。');
+define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
 // --------------------------
 // USERエラー 認証
 // --------------------------

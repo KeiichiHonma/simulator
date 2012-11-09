@@ -38,15 +38,15 @@ if( !$user = $user_logic->getUserFacebook($fbid) ){
 
             //認証情報セット
             $authManager->setLogin($uid,$fb_user[0]['name']);
-            $con->safeExitRedirect('/simulators/');
+            $con->safeExitRedirect('/console/');
         }
     }
     //ありえない
     
 }else{
     //ログイン処理
-    $authManager->setLogin($user[0]['_id'],$user[0]['col_name']);
-    $con->safeExitRedirect('/simulators/');
+    $authManager->setLogin($user[0]['_id'],$user[0]['col_name'],$user[0]['col_use_licence'],$user[0]['col_max_licence']);
+    $con->safeExitRedirect('/console/');
 }
 $con->safeExitRedirect('/');
 ?>

@@ -12,9 +12,9 @@
 <body>
 {include file="include/common/header.inc"}
 {if !$error && $is_analyze}
-    <form accept-charset="UTF-8" action="/simulators/new/add" class="group" id="new_application" method="post">
+    <form accept-charset="UTF-8" action="/console/new/add" class="group" id="new_application" method="post">
     <div class='input'>
-        <label for="simulator_site_attributes_url">■アプリの説明を入力してください。</label><br /><input id="simulator_title" maxlength="255" name="title" size="80" type="text" value="{$smarty.post.title}" />
+        <label for="simulator_site_attributes_url">■アプリの名前を入力してください。</label><br /><input id="simulator_title" maxlength="255" name="title" size="80" type="text" value="{$smarty.post.title}" />
     </div>
     
     <div class='input'>
@@ -44,7 +44,7 @@
 
     <div id="iphone">
         <div id="app">
-        <div class="icon">
+        <div class="top-box">
             <div style="float: left;"><img src="{$logo}" width="75" height="75" alt="" /></div>
             <div>{$h1_text}<br /><a href="{$itune_link}" target="_blank"><img src="/img/common/install_btn.png"  width="125" height="23" alt="" /></a></div>
         </div>
@@ -78,7 +78,7 @@
     </div>
     <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
 {else}
-<form accept-charset="UTF-8" action="/applications/new/" class="group" id="new_application" method="post">
+<form accept-charset="UTF-8" action="/console/new/" class="group" id="new_application" method="post">
 <div class='input'>
     <div class="clearfix string required">
     {$error.itunes_url|error_message}

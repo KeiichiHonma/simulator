@@ -9,9 +9,9 @@ define('A_APPLICATION',               'a');
 //simulator
 define('T_SIMULATOR',          'simulator.tab_simulator');
 define('A_SIMULATOR',          's');
-//image
-define('T_IMAGE',          'simulator.tab_image');
-define('A_IMAGE',          'i');
+//paypal payment
+define('T_PAYPAL_PAYMENT',          'simulator.tab_paypal_payment_info');
+define('A_PAYPAL_PAYMENT',          'P');
 
 define('MINIMUM',        0);//最小カラム
 define('COMMON',         1);//通常含めるカラム

@@ -1,26 +1,32 @@
 <?php
-var_dump('test');
-die();
 /*
 $_GETで取得可能
 $_SERVER['HTTP_REFERER']でセキュリティチェック
 */
-
+if(!isset($_GET['sid']) || !is_numeric($_GET['sid'])) die();
 require_once('fw/prepend.php');
-include('fw/analyze.php');
-$analyze = new analyze();
-$url = 'https://itunes.apple.com/jp/app/bokete-bokete-mian-bai-xie/id563446587';
-//$analyze->analyzeHtmlSource('https://itunes.apple.com/jp/app/wu-liaode-quan-juan!burakkujakkuniyoroshiku/id556416566?l=en&mt=8');
-$analyze->analyzeHtmlSource($url);
+//$sid = $con->base->getPath('sid',TRUE);
+$sid = $_GET['sid'];
 
-$con->t->assign('h1_text',$analyze->h1_text);
-$con->t->assign('screenshots',$analyze->screenshots);
-$con->t->assign('icon',$analyze->icon);
-$con->t->assign('itune_link',$url);
-/*var_dump(count($analyze->screenshots));
-die();*/
-$con->t->assign('count_screenshots',count($analyze->screenshots));
-$con->t->assign('count_screenshots_on',count($analyze->screenshots) + 1);
+require_once('fw/utilManager.php');
+require_once('simulator/logic.php');
+$simulator_logic = new simulatorLogic();
+$simulator = $simulator_logic->getAppSimulator($sid);
 
+require_once('simulator/util.php');
+$con->t->assign('iphone',simulatorUtil::getIphone($simulator));
+/*$images = unserialize($simulator[0]['application_images']);
+
+//title
+$con->t->assign('title',$simulator[0]['col_title']);
+
+//screenshots
+$con->t->assign('screenshots',$images['screenshots']);
+$count = count($images['screenshots']);
+$con->t->assign('count_screenshots',$count);
+$con->t->assign('count_screenshots_on',$count + 1);
+//logo
+$con->t->assign('logo',$images['logo']);
+$con->t->assign('itune_link',$simulator[0]['col_itunes_url']);*/
 $con->append();
 ?>

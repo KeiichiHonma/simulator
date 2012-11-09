@@ -5,7 +5,8 @@ define('SESSION_U_HASH',             'SIM_USER_HASH');
 define('SESSION_U_UID',              'SIM_USER_UID');
 define('SESSION_U_NAME',             'SIM_USER_NAME');
 define('SESSION_U_FACE',             'SIM_USER_FACE');
-
+define('SESSION_U_USE_LICENCE',      'SIM_USER_USE_LICENCE');
+define('SESSION_U_MAX_LICENCE',      'SIM_USER_MAX_LICENCE');
 
 class authManager
 {
@@ -14,6 +15,8 @@ class authManager
     public $uid;
     public $user;
     public $face;
+    public $count;
+    public $licence;
     
     function __construct(){
 
@@ -41,15 +44,19 @@ class authManager
     }
 
     public function validateLogin($isMust = false){
+        $is_auth = true;
         if(!$this->isLogin()){
             if($isMust == true){
                 global $con;
                 $con->base->redirectPage('auth/facebook');
             }else{
+                $is_auth = false;
                 return false;
             }
         }
         $this->readyUser();
+        global $con;
+        $con->t->assign('is_auth',$is_auth);
         return true;
     }
     
@@ -57,13 +64,25 @@ class authManager
     // ログイン情報セット
     //------------------------------------------------------
 
-    public function setLogin($uid,$name){
+    public function setLogin($uid,$name,$use_licence = 0,$max_licence = MAX_LICENCE_FREE){
         global $con;
         $con->session->set(SESSION_U_HASH,self::makeHash($uid));
         $con->session->set(SESSION_U_UID,$uid);
         $con->session->set(SESSION_U_NAME,$name);
+        $con->session->set(SESSION_U_USE_LICENCE,$use_licence);
+        $con->session->set(SESSION_U_MAX_LICENCE,$max_licence);
     }
-    
+
+    public function setUseLicence($use_licence){
+        global $con;
+        $con->session->set(SESSION_U_USE_LICENCE,$use_licence);
+    }
+
+    public function setMaxLicence($max_licence){
+        global $con;
+        $con->session->set(SESSION_U_MAX_LICENCE,$max_licence);
+    }
+
     public function unsetLogin(){
         if (isset($_COOKIE[WTC_SESSION_NAME])) {
             setcookie(WTC_SESSION_NAME, '', time() - 1800, '/');
@@ -81,9 +100,13 @@ class authManager
         $this->uid = $con->session->get(SESSION_U_UID);
         $this->user = $con->session->get(SESSION_U_NAME);
         $this->face = $con->session->get(SESSION_U_FACE);
-/*        $con->t->assign('login_uid',$this->uid);
-        $con->t->assign('login_user',$this->user);
-        return !$this->uid || !$this->user ? FALSE : TRUE;*/
+        $this->use_licence = $con->session->get(SESSION_U_USE_LICENCE);
+        $this->max_licence = $con->session->get(SESSION_U_MAX_LICENCE);
+
+        //app add check
+        if($this->use_licence < $this->max_licence){
+            $con->t->assign('is_app_add',true);
+        }
     }
 
 }

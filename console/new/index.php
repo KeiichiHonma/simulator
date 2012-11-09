@@ -2,13 +2,7 @@
 require_once('fw/prepend.php');
 require_once('fw/authManager.php');
 $authManager = new authManager();
-$is_auth = $authManager->validateLogin();
-$con->t->assign('is_auth',$is_auth);
-
-//post
-
-$con->isPost = TRUE;
-$_POST['itunes_url'] = 'https://itunes.apple.com/jp/app/bokete-bokete-mian-bai-xie/id563446587';
+$authManager->validateLogin(TRUE);
 
 if($con->isPost){
     //urlとしての文字列をチェック

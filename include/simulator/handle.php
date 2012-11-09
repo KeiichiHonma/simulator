@@ -15,8 +15,13 @@ class simulatorHandle extends handleManager
         return parent::addRow(T_SIMULATOR,$this->parameter);
     }
 
-    public function updateRow($uid){
-        $this->parameter->setUpdate($uid);
+    public function updateRow($sid){
+        $this->parameter->setUpdate($sid);
+        return parent::updateRow(T_SIMULATOR,$this->parameter);
+    }
+
+    public function updateImagesRow($sid,$images){
+        $this->parameter->setImagesUpdate($sid,$images);
         return parent::updateRow(T_SIMULATOR,$this->parameter);
     }
 

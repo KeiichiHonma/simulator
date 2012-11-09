@@ -1,11 +1,8 @@
 <?php
-var_dump($_GET);
-die();
 require_once('fw/prepend.php');
 require_once('fw/authManager.php');
 $authManager = new authManager();
-$is_auth = $authManager->validateLogin();
-$con->t->assign('is_auth',$is_auth);
-
+$authManager->validateLogin(TRUE);
+$con->t->assign('uid',$authManager->uid);
 $con->append();
 ?>

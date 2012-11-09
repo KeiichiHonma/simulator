@@ -12,9 +12,8 @@ class simulatorParameter extends parameterManager
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 
-    //管理者のみ実行可能
-    public function setUpdate($uid){
-        parent::readyUpdateParameter($uid);
+    public function setUpdate($sid){
+        parent::readyUpdateParameter($sid);
         $this->parameter['status'] = $_POST['status'];
         $this->parameter['given_name'] = $_POST['given_name'];
         $this->parameter['buyer_email'] = $_POST['buyer_email'];
@@ -25,6 +24,12 @@ class simulatorParameter extends parameterManager
         $this->parameter['validate'] = $_POST['validate'];
         $this->parameter['validate_time'] = $_POST['validate_time'];
     }
+
+    public function setImagesUpdate($sid,$images){
+        parent::readyUpdateParameter($sid);
+        $this->parameter['images'] = serialize($images);
+    }
+
 
     public function setDelete(){
         parent::readyDeleteParameter($simulator_auth->uid);

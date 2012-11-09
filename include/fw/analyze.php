@@ -35,7 +35,7 @@ class analyze
                     
                     */
                     
-                    if( strstr($element->alt,'iPhone Screenshot') !== FALSE || strstr($element->alt,'&#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE){
+                    if( strstr($element->alt,'iPhone Screenshot') !== FALSE || strstr($element->alt,'iPhone &#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE){
                         $this->screenshots[] = trim($element->src);
                     }
                     

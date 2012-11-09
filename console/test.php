@@ -5,5 +5,6 @@ $authManager = new authManager();
 $is_auth = $authManager->validateLogin();
 $con->t->assign('is_auth',$is_auth);
 
+
 $con->append();
 ?>

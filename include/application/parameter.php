@@ -9,15 +9,15 @@ class applicationParameter extends parameterManager
         $this->parameter['itunes_id'] = $itunes_id;
         $this->parameter['itunes_url'] = $itunes_url;
         $this->parameter['name'] = $name;
-        $this->parameter['image'] = serialize($image);
+        $this->parameter['images'] = serialize($cloudinary_images);
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 
     //管理者のみ実行可能
-    public function setUpdate($aid,$name){
+    public function setUpdate($aid,$name,$cloudinary_images){
         parent::readyUpdateParameter($aid);
         $this->parameter['name'] = $name;
-        $this->parameter['image'] = serialize($image);
+        $this->parameter['images'] = serialize($cloudinary_images);
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 

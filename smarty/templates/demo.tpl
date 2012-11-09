@@ -6,6 +6,6 @@
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-<script type='text/javascript' src='{$smarty.const.SIMURL}/embed?uid=22'></script>
+<script type='text/javascript' src='{$smarty.const.SIMURL}/embed?sid=4'></script>
 </body>
 </html>

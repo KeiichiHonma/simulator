@@ -6,10 +6,25 @@
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-{include file="include/common/header.inc"}
-
-<div class='title'>登録しているアプリ一覧</div>
-
-<div class='new-group'><a href="/simulators/new/">新しいアプリを登録する</a></div>
+<h2>Confirm your informations</h2>
+<table>
+    <tbody>
+        <tr>
+            <td>Name:
+            <td>{$firstName} {$lastName}
+        </tr>
+        <tr>
+            <td>Email:
+            <td>{$email}
+        </tr>
+        <tr>
+            <td>Your payment:
+            <td>{$smarty.session.Payment_Amount}
+        </tr>
+    <tbody>
+</table>
+<form action='confirmation' METHOD='POST'>
+<input type="submit" value="Review"/>
+</form>
 </body>
 </html>

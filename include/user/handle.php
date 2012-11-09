@@ -20,6 +20,16 @@ class userHandle extends handleManager
         return parent::updateRow(T_USER,$this->parameter);
     }
 
+    public function updateUseLicenceRow($uid,$use_licence){
+        $this->parameter->setUseLicenceUpdate($uid,$use_licence);
+        return parent::updateRow(T_USER,$this->parameter);
+    }
+
+    public function updateMaxLicenceRow($uid,$max_licence){
+        $this->parameter->setMaxLicenceUpdate($uid,$max_licence);
+        return parent::updateRow(T_USER,$this->parameter);
+    }
+
     public function updateLastLoginRow($uid){
         $this->parameter->setLastLoginUpdate($uid);
         //$this->setDebug();
