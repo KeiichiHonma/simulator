@@ -44,6 +44,9 @@ class database
     private $found             = FALSE;
     public  $rows              = 0;
     private $debug             = FALSE;
+    public  $cloudinary_image  = FALSE;//rollback用
+    
+    public  $isThrowDBError = false;
     
     function __construct(){
         if(is_file('/app/www/include/setting.ini')){
@@ -125,9 +128,8 @@ class database
         $this->makeDebug();
 
         if($con->isDebug){
-            $con->t->assign('errorlist', $this->err);
-            $this->rollback();//ロールバック
-            $con->t->display('debug.tpl');
+            $errorlist = $this->err;
+            $page = 'debug';
         }else{
             $body = '';
             foreach ($this->err as $key => $value){
@@ -150,12 +152,23 @@ class database
             if($con->ini['common']['isMail'] == 1) $this->sendError();
             
             $data['str'] = $con->common_locale['unknown_error'];
-            $con->t->assign('errorlist', $data);
-            $this->rollback();//ロールバック
-            $con->t->display('error.tpl');
+            $errorlist = $data;
+            $page = 'error';
         }
-
-        die();
+        if($con->db->cloudinary_image){
+            require_once "fw/cloudinaryUploader.php";
+            cloudinaryUploader::rollback($con->db->cloudinary_image);
+        }
+        $this->rollback();//ロールバック
+        
+        if($this->isThrowDBError == false){
+            $con->t->assign('errorlist', $errorlist);
+            $con->t->display($page.'.tpl');
+            die();
+        }else{
+            //処理を続ける
+        }
+        
     }
 
     function sendError(){

@@ -3,11 +3,10 @@
 <head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
 <meta charset="utf-8"> 
 <title>app</title>
-    <script src="http://lagoscript.org/javascripts/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="/js/jquery.flickable-1.0b3.min.js" type="text/javascript"></script>
-    <script src="/js/iphone.js" type="text/javascript"></script>
-    <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/css/iphone.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
+{include file="include/common/iphone_header.inc"}
 </head>
 <body>
 {include file="include/common/header.inc"}
@@ -28,10 +27,10 @@
     <div class='input'>
         ■表示するスクロールの位置を選択してください。<br />
         <input type="radio" id="scroll1" name="scroll" value="{$smarty.const.SCROLL_FIRST}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_FIRST) == 0} checked{/if} /><label for="scroll1">1</label>
-        <input type="radio" id="scroll2" name="scroll" value="{$smarty.const.SCROLL_SECOND}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_SECOND) == 0} checked{/if} /><label for="scroll2">2</label>
-        <input type="radio" id="scroll3" name="scroll" value="{$smarty.const.SCROLL_THIRD}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_THIRD) == 0} checked{/if} /><label for="scroll3">3</label>
-        <input type="radio" id="scroll4" name="scroll" value="{$smarty.const.SCROLL_FORTH}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_FORTH) == 0} checked{/if} /><label for="scroll4">4</label>
-        <input type="radio" id="scroll5" name="scroll" value="{$smarty.const.SCROLL_FIFTH}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_FIFTH) == 0} checked{/if} /><label for="scroll5">5</label>
+        <input type="radio" id="scroll2" name="scroll" value="{$smarty.const.SCROLL_TOP}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_TOP) == 0} checked{/if} /><label for="scroll2">2</label>
+        <input type="radio" id="scroll3" name="scroll" value="{$smarty.const.SCROLL_HALF}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_HALF) == 0} checked{/if} /><label for="scroll3">3</label>
+        <input type="radio" id="scroll4" name="scroll" value="{$smarty.const.SCROLL_BOTTOM}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_BOTTOM) == 0} checked{/if} /><label for="scroll4">4</label>
+        <input type="radio" id="scroll5" name="scroll" value="{$smarty.const.SCROLL_END}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_END) == 0} checked{/if} /><label for="scroll5">5</label>
     </div>
 
     <div class='input'>
@@ -40,16 +39,15 @@
         <input type="radio" id="position2" name="position" value="{$smarty.const.POSITION_CENTER}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_CENTER) == 0} checked{/if} /><label for="position2">center</label>
         <input type="radio" id="position3" name="position" value="{$smarty.const.POSITION_RIGHT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_RIGHT) == 0} checked{/if} /><label for="position3">right</label>
     </div>
-
-
-    <div id="iphone">
+{include file="include/common/iphone5.inc"}
+{*    <div id="iphone">
         <div id="app">
         <div class="top-box">
             <div style="float: left;"><img src="{$logo}" width="75" height="75" alt="" /></div>
             <div>{$h1_text}<br /><a href="{$itune_link}" target="_blank"><img src="/img/common/install_btn.png"  width="125" height="23" alt="" /></a></div>
         </div>
 
-        <div id="flickable4">
+        <div id="flickable">
             <ul>
             {if $screenshots}
             {foreach from=$screenshots key="key" item="screenshot" name="screenshots"}
@@ -59,42 +57,25 @@
             </ul>
         </div>
         <div style="clear:both;"></div>
-        <table id="select_box"> 
-        <tbody>
-            {if $count_screenshots}
-                {section name=cnt start=1  loop=$count_screenshots_on}
-                    {if $smarty.section.cnt.index == 1 || $smarty.section.cnt.index == 4 || $smarty.section.cnt.index == 7}
-                    <tr>
-                    {/if}
-                    <td><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a></td>
-                    {if $count_screenshots == $smarty.section.cnt.index || $smarty.section.cnt.index == 3 || $smarty.section.cnt.index == 6 || $smarty.section.cnt.index == 9}
-                    </tr>
-                    {/if}
-                {/section}
+            <ul id="select_box">
+            {if $screenshots}
+            {foreach from=$screenshots key="key" item="screenshot" name="screenshots"}
+            <li><a href="#" id="select{$smarty.foreach.screenshots.iteration}">{$smarty.foreach.screenshots.iteration}</a></li>
+            {/foreach}
             {/if}
-        </tbody>
-        </table>
+            </ul>
+        </div>
+    </div>*}
+    <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
+
+    <div class='actions'>
+        <div align='center' class='align_center'>
+        <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
+        <input class="" name="commit" type="submit" value="登録する" />
         </div>
     </div>
-    <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
-{else}
-<form accept-charset="UTF-8" action="/console/new/" class="group" id="new_application" method="post">
-<div class='input'>
-    <div class="clearfix string required">
-    {$error.itunes_url|error_message}
-    <label for="itunes_url">任意のアプリケーションのURL(itunes.apple.com)を入力してください。</label>
-    <input id="itunes_url" maxlength="255" name="itunes_url" placeholder="https://itunes.apple.com/" required="required" maxlength="255" size="50" type="text" />
-    </div>
-</div>
+    </form>
 {/if}
-
-<div class='actions'>
-    <div align='center' class='align_center'>
-    <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-    <input class="" name="commit" type="submit" value="登録する" />
-    </div>
-</div>
-</form>
 
 </body>
 </html>

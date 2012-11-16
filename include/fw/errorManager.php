@@ -9,7 +9,7 @@ class errorManager
 {
     public $error = array();
     
-    static public function throwError($error_code){
+    static public function throwError($error_code,$is_phone = false){
         global $con;
         
         $err['msg'] = constant($error_code);
@@ -18,7 +18,7 @@ class errorManager
 
         // display it
         $con->t->assign('locale',$con->locale);
-        $con->t->display('error.tpl');
+        $con->t->display($is_phone ? 'phone_error.tpl' : 'error.tpl');
         die();
     }
 }

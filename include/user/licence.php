@@ -36,22 +36,5 @@ class userLicence
             }
         }
     }
-    
-    public function updateLoginMaxLicence($new_max,$uid = false){
-        if($uid){
-            $user = $this->logic->getOneUser($uid);
-            if($user){
-                $this->user = $user;
-                $new_max = $user[0]['col_max_licence'];
-            }
-        }
-        //ライセンス数再セット
-        require_once('fw/authManager.php');
-        $authManager = new authManager();
-        if($authManager->validateLogin() && $new_max !== FALSE) $authManager->setMaxLicence($new_max);
-    }
-
-
-
 }
 ?>

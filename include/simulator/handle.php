@@ -9,8 +9,8 @@ class simulatorHandle extends handleManager
         $this->parameter = new simulatorParameter();
     }
     
-    public function addRow($uid,$aid){
-        $this->parameter->setAdd($uid,$aid);
+    public function addRow($uid,$aid,$direction = DIRECTION_VERTICAL){
+        $this->parameter->setAdd($uid,$aid,$direction);
         //return parent::addDebug(T_USER,$this->parameter);
         return parent::addRow(T_SIMULATOR,$this->parameter);
     }
@@ -20,8 +20,8 @@ class simulatorHandle extends handleManager
         return parent::updateRow(T_SIMULATOR,$this->parameter);
     }
 
-    public function updateImagesRow($sid,$images){
-        $this->parameter->setImagesUpdate($sid,$images);
+    public function updateImagesRow($sid,$mobile_images,$console_images){
+        $this->parameter->setImagesUpdate($sid,$mobile_images,$console_images);
         return parent::updateRow(T_SIMULATOR,$this->parameter);
     }
 

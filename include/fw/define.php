@@ -1,7 +1,7 @@
 <?php
 define('SETTING_INI',         'setting.ini');
-define('APP_NAME',       'appSimulator');
-define('SITE_NAME'    , 'appSimulator');
+define('APP_NAME',       'popApps');
+define('SITE_NAME'    , 'popApps');
 define('LOCALE_EN',           'en');
 define('LOCALE_JA',           'ja');
 define('FIRSTSP',       10);
@@ -32,10 +32,16 @@ define('LICENCE_ADVANCE',   2);
 define('LICENCE_PLUS',      3);
 
 //licence name
-define('NAME_LICENCE_FREE',      'PopApp Free Plan');
-define('NAME_LICENCE_BASIC',     'PopApp Basic Plan');
-define('NAME_LICENCE_ADVANCE',   'PopApp Advance Plan');
-define('NAME_LICENCE_PLUS',      'PopApp Plus Plan');
+define('NAME_LICENCE_FREE',      'Free Plan');
+define('NAME_LICENCE_BASIC',     'Basic Plan');
+define('NAME_LICENCE_ADVANCE',   'Advance Plan');
+define('NAME_LICENCE_PLUS',      'Plus Plan');
+
+//licence cost
+define('COST_LICENCE_FREE',      0);
+define('COST_LICENCE_BASIC',     9);
+define('COST_LICENCE_ADVANCE',   15);
+define('COST_LICENCE_PLUS',      9);
 
 //max licence
 define('MAX_LICENCE_FREE',      1);
@@ -51,16 +57,21 @@ define('LICENCE_OVER',      2);
 define('MAX_IMAGE_COUNT',   9);
 
 //scroll
-define('SCROLL_FIRST',      0);
-define('SCROLL_SECOND',     1);
-define('SCROLL_THIRD',      2);
-define('SCROLL_FORTH',      3);
-define('SCROLL_FIFTH',      4);
+define('SCROLL_FIRST',     0);
+define('SCROLL_TOP',       1);
+define('SCROLL_HALF',      2);
+define('SCROLL_BOTTOM',    3);
+define('SCROLL_END',       4);
 
 //position
 define('POSITION_LEFT',      0);
 define('POSITION_CENTER',     1);
 define('POSITION_RIGHT',      2);
+
+
+//direction
+define('DIRECTION_VERTICAL',      0);
+define('DIRECTION_HORIZON',     1);
 
 //logo
 define('CLOUDINARY_LOGO_SETTING',      'w_75,h_75,c_fill,r_12');

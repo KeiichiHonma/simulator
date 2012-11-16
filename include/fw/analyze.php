@@ -11,6 +11,8 @@ class analyze
     public $screenshots = FALSE;
     public $logo = FALSE;
     public $its_link = FALSE;
+    public $direction = DIRECTION_VERTICAL;
+    public $direction_count = array('horizon'=>0,'vertical'=>0);
     
     public function analyzeHtmlSource($url){
         $ret = FALSE;
@@ -37,6 +39,13 @@ class analyze
                     
                     if( strstr($element->alt,'iPhone Screenshot') !== FALSE || strstr($element->alt,'iPhone &#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE){
                         $this->screenshots[] = trim($element->src);
+                        //縦横チェック
+                        list($width, $height, $type, $attr) = getimagesize( trim($element->src) );
+                        if($width > $height){
+                            $this->direction_count['horizon']++;
+                        }else{
+                            $this->direction_count['vertical']++;
+                        }
                     }
                     
                     //icon
@@ -54,6 +63,10 @@ class analyze
         }
         //全てOKだったら許可
         if($this->h1_text && $this->screenshots && $this->logo){
+            if($this->direction_count['horizon'] > $this->direction_count['vertical']){
+                $this->direction = DIRECTION_HORIZON;
+            }else{
+            }
             return TRUE;
         }else{
             return FALSE;

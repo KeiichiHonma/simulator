@@ -45,7 +45,7 @@ if( !$user = $user_logic->getUserFacebook($fbid) ){
     
 }else{
     //ログイン処理
-    $authManager->setLogin($user[0]['_id'],$user[0]['col_name'],$user[0]['col_use_licence'],$user[0]['col_max_licence']);
+    $authManager->setLogin($user[0]['_id'],$user[0]['col_name']);
     $con->safeExitRedirect('/console/');
 }
 $con->safeExitRedirect('/');

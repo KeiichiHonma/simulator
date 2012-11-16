@@ -1,6 +1,8 @@
 <?php
-//存在チェック
+//dbエラーで停止しない
+$con->db->isThrowDBError = false;
 
+//存在チェック
 if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
     require_once('paypal_payment_info/logic.php');
     $paypal_payment_info_logic = new paypalPaymentInfoLogic();
@@ -26,56 +28,39 @@ if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
                 $simulator = $simulator_logic->getUserSimulator($user_licence->user[0]['_id']);//applicationも入ってます。
                 if($simulator){
                     require "fw/cloudinaryUploader.php";
-                    $images = unserialize($simulator[0]['application_images']);
-                    $new_images = array();
+                    $images = unserialize($simulator[0]['application_mobile_images']);
+                    $new_mobile_images = array();
+                    $new_console_images = array();
                     foreach ($images as $key => $image){
                         if($key == 'logo'){
                             $cloudinary = cloudinaryUploader::upload($image['secure_url']);
-                            $new_images['logo'] = array
-                            (
-                                'public_id'=>$cloudinary['public_id'],
-                                'version'=>$cloudinary['version'],
-                                'secure_url'=>$cloudinary['secure_url'],
-                                'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING))
-                            );
+                            $new_mobile_images['logo'] = utilManager::getLogoParam($cloudinary);
                         }elseif($key == 'screenshots'){
                             foreach ($image as $key2 => $screenshot){
                                 $cloudinary = cloudinaryUploader::upload($screenshot['secure_url']);
-                                $new_images['screenshots'][] = array
-                                (
-                                    'public_id'=>$cloudinary['public_id'],
-                                    'version'=>$cloudinary['version'],
-                                    'secure_url'=>$cloudinary['secure_url'],
-                                    'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-                                    'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'])))
-                                );
+                                $new_mobile_images['screenshots'][] = utilManager::getMobileImageParam($cloudinary);
+                                $new_console_images['screenshots'][] = utilManager::getConsoleImageParam($cloudinary);
                             }
                         }
                     }
                     //simulatorテーブルに画像をコピー
                     require_once('simulator/handle.php');
                     $simulator_handle = new simulatorHandle();
-                    $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_images);
+                    $con->db->cloudinary_image = $new_mobile_images;//rollback 準備
+                    $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_mobile_images,$new_console_images);
                     if(!$sid){
                         //rollback
-                        cloudinaryUploader::rollback($images);
+                        cloudinaryUploader::rollback($new_mobile_images);
                     }
                 }
             }
             //ライセンス数再セット
-            if(!$is_notify){
-                $user_licence->updateLoginMaxLicence($new_max);
-            }else{
+            if($is_notify){
                 //notifyを使ってのDB登録
                 mail($notify_email, "VERIFIED IPN db-add", $_POST['txn_id'].':'.serialize($_POST));
             }
-
             $con->safeExit();//commit
         }
-    }else{
-        //既にnotify側で登録があるので
-        //ライセンス数再セット
-        if(!$is_notify) $user_licence->updateLoginMaxLicence(false,$_GET['uid']);
     }
 }
 ?>

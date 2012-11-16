@@ -55,23 +55,11 @@ class authManager
     // ログイン情報セット
     //------------------------------------------------------
 
-    public function setLogin($uid,$name,$use_licence = 0,$max_licence = MAX_LICENCE_FREE){
+    public function setLogin($uid,$name){
         global $con;
         $con->session->set(SESSION_U_HASH,self::makeHash($uid));
         $con->session->set(SESSION_U_UID,$uid);
         $con->session->set(SESSION_U_NAME,$name);
-        $con->session->set(SESSION_U_USE_LICENCE,$use_licence);
-        $con->session->set(SESSION_U_MAX_LICENCE,$max_licence);
-    }
-
-    public function setUseLicence($use_licence){
-        global $con;
-        $con->session->set(SESSION_U_USE_LICENCE,$use_licence);
-    }
-
-    public function setMaxLicence($max_licence){
-        global $con;
-        $con->session->set(SESSION_U_MAX_LICENCE,$max_licence);
     }
 
     public function unsetLogin(){
@@ -91,13 +79,6 @@ class authManager
         $this->uid = $con->session->get(SESSION_U_UID);
         $this->user = $con->session->get(SESSION_U_NAME);
         $this->face = $con->session->get(SESSION_U_FACE);
-        $this->use_licence = $con->session->get(SESSION_U_USE_LICENCE);
-        $this->max_licence = $con->session->get(SESSION_U_MAX_LICENCE);
-
-        //app add check
-        if($this->use_licence < $this->max_licence){
-            $con->t->assign('is_app_add',true);
-        }
     }
 
 }

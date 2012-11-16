@@ -9,14 +9,14 @@ class applicationHandle extends handleManager
         $this->parameter = new applicationParameter();
     }
     
-    public function addRow($itunes_id,$itunes_url,$name,$cloudinary_images){
-        $this->parameter->setAdd($itunes_id,$itunes_url,$name,$cloudinary_images);
+    public function addRow($itunes_id,$itunes_url,$name,$mobile_images,$console_images){
+        $this->parameter->setAdd($itunes_id,$itunes_url,$name,$mobile_images,$console_images);
         //return parent::addDebug(T_USER,$this->parameter);
         return parent::addRow(T_APPLICATION,$this->parameter);
     }
 
-    public function updateRow($aid,$name,$cloudinary_images){
-        $this->parameter->setUpdate($aid,$name,$cloudinary_images);
+    public function updateRow($aid,$name,$mobile_images,$console_images){
+        $this->parameter->setUpdate($aid,$name,$mobile_images,$console_images);
         return parent::updateRow(T_APPLICATION,$this->parameter);
     }
 

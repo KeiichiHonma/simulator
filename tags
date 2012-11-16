@@ -5,11 +5,12 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
 ALL	include\fw\tableManager.php	/^define('ALL',            3);\/\/通常含めないカラム$/;"	d
-APP_NAME	include\fw\define.php	/^define('APP_NAME',       'appSimulator');$/;"	d
+APP_NAME	include\fw\define.php	/^define('APP_NAME',       'popApps');$/;"	d
 A_APPLICATION	include\fw\tableManager.php	/^define('A_APPLICATION',               'a');$/;"	d
 A_PAYPAL_PAYMENT	include\fw\tableManager.php	/^define('A_PAYPAL_PAYMENT',          'P');$/;"	d
 A_SIMULATOR	include\fw\tableManager.php	/^define('A_SIMULATOR',          's');$/;"	d
 A_USER	include\fw\tableManager.php	/^define('A_USER',                  'u');$/;"	d
+AjaxUpload	js\ajaxupload.3.5.js	/^AjaxUpload.prototype = {$/;"	c
 AlreadyExists	include\cloudinary\api.php	/^  class AlreadyExists extends Error {}$/;"	c
 Api	include\cloudinary\api.php	/^class Api {$/;"	c
 ApiTest	include\cloudinary\api_test.php	/^class ApiTest extends PHPUnit_Framework_TestCase {$/;"	c
@@ -82,6 +83,8 @@ E_MAIL_NOT_SEND	include\locale\en\error_code.php	/^define('E_MAIL_NOT_SEND',    
 E_MAIL_NOT_SEND	include\locale\ja\error_code.php	/^define('E_MAIL_NOT_SEND',                  'KUJAPAN_SYSTEM_00012');$/;"	d
 E_MANAGER_ACCESS_WRONG	include\fw\error_code.php	/^define('E_MANAGER_ACCESS_WRONG',                   'KUJAPAN_MANAGER_00001');$/;"	d
 E_MANAGER_AUTH_PARAM_UNSET	include\fw\error_code.php	/^define('E_MANAGER_AUTH_PARAM_UNSET',               'KUJAPAN_MANAGER_00002');$/;"	d
+E_PHONE_DOMAIN_EXISTS	include\locale\en\error_code.php	/^define('E_PHONE_DOMAIN_EXISTS',               'SIM_PHONE_00002');$/;"	d
+E_PHONE_POPAPPS_EXISTS	include\locale\en\error_code.php	/^define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');$/;"	d
 E_SYSTEM_COUPON_EXISTS	include\fw\error_code.php	/^define('E_SYSTEM_COUPON_EXISTS',             'KUJAPAN_SYSTEM_00018');$/;"	d
 E_SYSTEM_CSV_WRONG	include\fw\error_code.php	/^define('E_SYSTEM_CSV_WRONG',               'KUJAPAN_SYSTEM_00014');$/;"	d
 E_SYSTEM_CSV_WRONG	include\locale\en\error_code.php	/^define('E_SYSTEM_CSV_WRONG',               'SIM_SYSTEM_00014');$/;"	d
@@ -236,6 +239,7 @@ LOCALE	include\fw\container.php	/^                define('LOCALE',LOCALE_EN);\/\
 LOCALE	include\fw\container.php	/^                define('LOCALE',LOCALE_JA);\/\/日本語$/;"	d
 LOCALE_EN	include\fw\define.php	/^define('LOCALE_EN',           'en');$/;"	d
 LOCALE_JA	include\fw\define.php	/^define('LOCALE_JA',           'ja');$/;"	d
+MAX_IMAGE_COUNT	include\fw\define.php	/^define('MAX_IMAGE_COUNT',   9);$/;"	d
 MAX_LICENCE_ADVANCE	include\fw\define.php	/^define('MAX_LICENCE_ADVANCE',   10);$/;"	d
 MAX_LICENCE_BASIC	include\fw\define.php	/^define('MAX_LICENCE_BASIC',     5);$/;"	d
 MAX_LICENCE_FREE	include\fw\define.php	/^define('MAX_LICENCE_FREE',      1);$/;"	d
@@ -266,24 +270,24 @@ QdmailUserFunc	include\fw\qdmail.php	/^class QdmailUserFunc extends QdmailBase{$
 READ_ONLY_CALLS	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    static $READ_ONLY_CALLS =$/;"	v
 RateLimited	include\cloudinary\api.php	/^  class RateLimited extends Error {}$/;"	c
 Response	include\cloudinary\api.php	/^  class Response extends \\ArrayObject {$/;"	c
-SCROLL_FIFTH	include\fw\define.php	/^define('SCROLL_FIFTH',      4);$/;"	d
-SCROLL_FIRST	include\fw\define.php	/^define('SCROLL_FIRST',      0);$/;"	d
-SCROLL_FORTH	include\fw\define.php	/^define('SCROLL_FORTH',      3);$/;"	d
-SCROLL_SECOND	include\fw\define.php	/^define('SCROLL_SECOND',     1);$/;"	d
-SCROLL_THIRD	include\fw\define.php	/^define('SCROLL_THIRD',      2);$/;"	d
-SECRET_KEY	include\fw\authManager.php	/^define('SECRET_KEY',                 'ILUNAKEY');$/;"	d
+SCROLL_BOTTOM	include\fw\define.php	/^define('SCROLL_BOTTOM',    3);$/;"	d
+SCROLL_END	include\fw\define.php	/^define('SCROLL_END',       4);$/;"	d
+SCROLL_FIRST	include\fw\define.php	/^define('SCROLL_FIRST',     0);$/;"	d
+SCROLL_HALF	include\fw\define.php	/^define('SCROLL_HALF',      2);$/;"	d
+SCROLL_TOP	include\fw\define.php	/^define('SCROLL_TOP',       1);$/;"	d
+SECRET_KEY	include\fw\define.php	/^define('SECRET_KEY',                 'ILUNAKEY');$/;"	d
 SERVER_NAME_CN	include\fw\container.php	/^                    define('SERVER_NAME_CN',      'wtc.813.co.jp');$/;"	d
 SERVER_NAME_CN	include\fw\container.php	/^                define('SERVER_NAME_CN',      'www.wtc.com');$/;"	d
 SERVER_NAME_EN	include\fw\container.php	/^                define('SERVER_NAME_EN',      'wtc.813.co.jp');$/;"	d
 SERVER_NAME_JA	include\fw\container.php	/^                    define('SERVER_NAME_JA',      'ja.wtc.813.co.jp');$/;"	d
 SERVER_NAME_JA	include\fw\container.php	/^                define('SERVER_NAME_JA',      'ja.wtc.813.co.jp');$/;"	d
 SERVER_NAME_JA	include\fw\container.php	/^                define('SERVER_NAME_JA',      'ja.wtc.com');$/;"	d
-SESSION_U_FACE	include\fw\authManager.php	/^define('SESSION_U_FACE',             'SIM_USER_FACE');$/;"	d
-SESSION_U_HASH	include\fw\authManager.php	/^define('SESSION_U_HASH',             'SIM_USER_HASH');$/;"	d
-SESSION_U_MAX_LICENCE	include\fw\authManager.php	/^define('SESSION_U_MAX_LICENCE',      'SIM_USER_MAX_LICENCE');$/;"	d
-SESSION_U_NAME	include\fw\authManager.php	/^define('SESSION_U_NAME',             'SIM_USER_NAME');$/;"	d
-SESSION_U_UID	include\fw\authManager.php	/^define('SESSION_U_UID',              'SIM_USER_UID');$/;"	d
-SESSION_U_USE_LICENCE	include\fw\authManager.php	/^define('SESSION_U_USE_LICENCE',      'SIM_USER_USE_LICENCE');$/;"	d
+SESSION_U_FACE	include\fw\define.php	/^define('SESSION_U_FACE',             'SIM_USER_FACE');$/;"	d
+SESSION_U_HASH	include\fw\define.php	/^define('SESSION_U_HASH',             'SIM_USER_HASH');$/;"	d
+SESSION_U_MAX_LICENCE	include\fw\define.php	/^define('SESSION_U_MAX_LICENCE',      'SIM_USER_MAX_LICENCE');$/;"	d
+SESSION_U_NAME	include\fw\define.php	/^define('SESSION_U_NAME',             'SIM_USER_NAME');$/;"	d
+SESSION_U_UID	include\fw\define.php	/^define('SESSION_U_UID',              'SIM_USER_UID');$/;"	d
+SESSION_U_USE_LICENCE	include\fw\define.php	/^define('SESSION_U_USE_LICENCE',      'SIM_USER_USE_LICENCE');$/;"	d
 SETTING_INI	include\fw\define.php	/^define('SETTING_INI',         'setting.ini');$/;"	d
 SIMURL	include\fw\container.php	/^        define('SIMURL',            'http:\/\/'.$_SERVER['SERVER_NAME']);$/;"	d
 SIMURLSSL	include\fw\container.php	/^        define('SIMURLSSL',         'https:\/\/'.$_SERVER['SERVER_NAME']);$/;"	d
@@ -293,11 +297,13 @@ SIM_CMMN_00002	include\locale\en\error_code.php	/^define('SIM_CMMN_00002',      
 SIM_CMMN_00003	include\locale\en\error_code.php	/^define('SIM_CMMN_00003',               '現在、サーバーが混んでおります。しばらく経ってから、もう一度お試しください。');$/;"	d
 SIM_CMMN_00004	include\locale\en\error_code.php	/^define('SIM_CMMN_00004',               'applicationで処理が停止しました。再度実行してください。');$/;"	d
 SIM_CMMN_00005	include\locale\en\error_code.php	/^define('SIM_CMMN_00005',               'simulatorで処理が停止しました。再度実行してください。');$/;"	d
-SIM_CMMN_00006	include\locale\en\error_code.php	/^define('SIM_CMMN_00006',               'PopAppが削除されたか存在しません。');$/;"	d
+SIM_CMMN_00006	include\locale\en\error_code.php	/^define('SIM_CMMN_00006',               'popAppが削除されたか存在しません。');$/;"	d
 SIM_CMMN_00007	include\locale\en\error_code.php	/^define('SIM_CMMN_00007',               '初期化中に不明なエラーが発生しました。弊社サポートセンターまでご連絡くださいませ。');$/;"	d
 SIM_CMMN_00008	include\locale\en\error_code.php	/^define('SIM_CMMN_00008',               'クーポン発行可能な期間が過ぎています。<br \/>発行可能な期間は初回ログイン時より3か月となっております。<br \/>再度ご購入いただきますようお願いいたします。');$/;"	d
 SIM_CMMN_00009	include\locale\en\error_code.php	/^define('SIM_CMMN_00009',               'userで処理が停止しました。再度実行してください。');$/;"	d
 SIM_CMMN_00010	include\locale\en\error_code.php	/^define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');$/;"	d
+SIM_PHONE_00001	include\locale\en\error_code.php	/^define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');$/;"	d
+SIM_PHONE_00002	include\locale\en\error_code.php	/^define('SIM_PHONE_00002',               '使用可能なドメインではありません。');$/;"	d
 SIM_SESSION_NAME	include\fw\sessionManager.php	/^define('SIM_SESSION_NAME',  'SIMSESSID');$/;"	d
 SIM_SYSTEM_00001	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00001',              'ディレクトリが存在しません');$/;"	d
 SIM_SYSTEM_00002	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00002',              'ディレクトリへの書き込み権限がありません');$/;"	d
@@ -313,7 +319,7 @@ SIM_SYSTEM_00011	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00011',  
 SIM_SYSTEM_00012	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00012',              'メールの送信に失敗しました．');$/;"	d
 SIM_SYSTEM_00014	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00014',              'CSVファイルが不正です');$/;"	d
 SIM_SYSTEM_00015	include\locale\en\error_code.php	/^define('SIM_SYSTEM_00015',              'パラメータが不正です');$/;"	d
-SITE_NAME	include\fw\define.php	/^define('SITE_NAME'    , 'appSimulator');$/;"	d
+SITE_NAME	include\fw\define.php	/^define('SITE_NAME'    , 'popApps');$/;"	d
 SMARTY_CORE_DIR	include\smarty\Smarty.class.php	/^    define('SMARTY_CORE_DIR', SMARTY_DIR . 'internals' . DIRECTORY_SEPARATOR);$/;"	d
 SMARTY_DIR	include\smarty\Smarty.class.php	/^    define('SMARTY_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR);$/;"	d
 SMARTY_PHP_ALLOW	include\smarty\Smarty.class.php	/^define('SMARTY_PHP_ALLOW',      3);$/;"	d
@@ -381,6 +387,8 @@ __construct	include\fw\container.php	/^    function __construct($isSimple = FALS
 __construct	include\fw\database.php	/^    function __construct(){$/;"	f
 __construct	include\fw\fileManager.php	/^    function __construct($file_upload){$/;"	f
 __construct	include\fw\fileManager.php	/^    function __construct(){$/;"	f
+__construct	include\fw\fineUploder.php	/^    function __construct(array $allowedExtensions = null, $sizeLimit = null){$/;"	f
+__construct	include\fw\handleUploder.php	/^    function __construct(array $allowedExtensions = null, $sizeLimit = null){$/;"	f
 __construct	include\fw\mailManager.php	/^    function __construct(){$/;"	f
 __construct	include\fw\qdmail.php	/^    function __construct( $param = null ){$/;"	f
 __construct	include\fw\sessionManager.php	/^    function __construct($cache = FALSE){$/;"	f
@@ -966,11 +974,13 @@ addAttachment	include\fw\qdmail.php	/^    function addAttachment($path, $name = 
 addAvgColumn	include\fw\database.php	/^    function addAvgColumn($column,$cname,$alias = NULL){$/;"	f
 addBcc	include\fw\qdmail.php	/^    function addBcc($address, $name = null){$/;"	f
 addCc	include\fw\qdmail.php	/^    function addCc($address, $name = null){$/;"	f
+addClass	js\ajaxupload.3.5.js	/^function addClass(ele,cls) {$/;"	f
 addCondition	include\fw\database.php	/^    function addCondition( $condition )$/;"	f
 addCountColumn	include\fw\database.php	/^    function addCountColumn($column,$cname,$alias = NULL,$isDistinct = FALSE){$/;"	f
 addCustomHeader	include\fw\qdmail.php	/^    function addCustomHeader($name, $value){$/;"	f
 addDebug	include\fw\handleManager.php	/^    protected function addDebug($table,$parameter){$/;"	f
 addEmbeddedImage	include\fw\qdmail.php	/^    function addEmbeddedImage($path, $cid, $name = '', $encoding = 'base64', $type = 'application\/octet-stream'){$/;"	f
+addEvent	js\ajaxupload.3.5.js	/^function addEvent(el, type, fn){$/;"	f
 addFile	include\fw\fileManager.php	/^    public function addFile($loop_number){$/;"	f
 addFile	include\fw\fileManager.php	/^    public function addFile(){$/;"	f
 addGroupByColumn	include\fw\database.php	/^    function addGroupByColumn($col_name)$/;"	f
@@ -979,7 +989,7 @@ addHeader	include\fw\qdmail.php	/^    function addHeader( $header_name = null , 
 addJoin	include\fw\database.php	/^    function addJoin( $table_info, $conditions = NULL,$alias = NULL,$type = DATABASE_INNER_JOIN )$/;"	f
 addOrderColumn	include\fw\database.php	/^    function addOrderColumn( $col_name, $reverse = FALSE )$/;"	f
 addReplyTo	include\fw\qdmail.php	/^    function addReplyTo($address, $name = null){$/;"	f
-addRow	include\application\handle.php	/^    public function addRow($itunes_id,$itunes_url,$name,$cloudinary_images){$/;"	f
+addRow	include\application\handle.php	/^    public function addRow($itunes_id,$itunes_url,$name,$mobile_images,$console_images){$/;"	f
 addRow	include\file\handle.php	/^    public function addRow($file_object,$loop_number = FALSE){$/;"	f
 addRow	include\fw\handleManager.php	/^    public function addRow($table,$parameter){$/;"	f
 addRow	include\image\handle.php	/^    public function addRow($aid,$uid,$cloudinary){$/;"	f
@@ -992,6 +1002,7 @@ addStringAttachment	include\fw\qdmail.php	/^    function addStringAttachment($da
 addSubQuery	include\fw\database.php	/^    function addSubQuery($query)$/;"	f
 addUnionQuery	include\fw\database.php	/^    function addUnionQuery($query)$/;"	f
 addValue	include\fw\database.php	/^    function addValue($values){$/;"	f
+add_image	include\fw\fineUploder.php	/^            $add_image = array$/;"	v
 add_message	include\fw\qdmail.php	/^    function errorSpecify( $func , $line , $add_message = null){$/;"	v
 add_tag	include\cloudinary\uploader.php	/^        public static function add_tag($tag, $public_ids = array(), $options = array())$/;"	f
 addr	include\fw\qdmail.php	/^                $addr = $this->extractAddr( $addr );$/;"	v
@@ -1025,12 +1036,12 @@ af_count_key	include\fw\fileManager.php	/^    public  $af_count_key = 'af_count'
 aft	include\fw\qdmail.php	/^            $aft = isset($this->deco_def[$this->deco_kind]['CID_AFTER']) ? $this->deco_def[$this->deco_kind]['CID_AFTER']:'';$/;"	v
 agent	include\smarty\plugins\function.fetch.php	/^                                $agent = $param_value;$/;"	v
 agent	include\smarty\plugins\function.fetch.php	/^                $agent = "Smarty Template Engine ".$smarty->_version;$/;"	v
+aid	console\new\add.php	/^                $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text,$mobile_images,$console_images);$/;"	v
+aid	console\new\add.php	/^                $aid = $application_handle->updateRow($application[0]['_id'],$_POST['title'],$mobile_images,$console_images);$/;"	v
 aid	include\smarty\plugins\modifier.unserialize_date.php	/^            $aid = $school_util->member_seminar_property->aid;$/;"	v
 aid	include\smarty\plugins\modifier.unserialize_date.php	/^        $aid = $school_property->aid;$/;"	v
 aid	include\smarty\plugins\modifier.unserialize_date.php	/^        \/\/    $aid = $member_auth->member_aid;$/;"	v
 aid	include\smarty\plugins\modifier.unserialize_date.php	/^    $aid = FALSE;$/;"	v
-aid	simulators\new\add.php	/^                $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text,$cloudinary_images);$/;"	v
-aid	simulators\new\add.php	/^                $aid = $application_handle->updateRow($itunes_app[0]['_id'],$analyze->h1_text,$cloudinary_images);$/;"	v
 air_text	include\fw\mailTemplate.php	/^            $air_text = '';$/;"	v
 air_text	include\fw\mailTemplate.php	/^        $air_text = '';$/;"	v
 airline	include\fw\mailTemplate.php	/^            $airline = new airlineLogic();$/;"	v
@@ -1045,6 +1056,16 @@ all_seconds	include\smarty\plugins\function.html_select_time.php	/^        $all_
 allowBlankHeader	include\fw\qdmail.php	/^    function allowBlankHeader( $bool = null ){$/;"	f
 allow_blank_header	include\fw\qdmail.php	/^    var $allow_blank_header        = false;$/;"	v
 allowed	include\smarty\Smarty.class.php	/^    function register_object($object, &$object_impl, $allowed = array(), $smarty_args = true, $block_methods = array())$/;"	v
+allowedExtensions	console\image\fine_uploader.php	/^$allowedExtensions = array("jpeg", "jpg", "gif");$/;"	v
+allowedExtensions	console\image\upload.php	/^    $allowedExtensions = array("jpeg", "jpg", "gif");$/;"	v
+allowedExtensions	include\fw\fineUploder.php	/^            $allowedExtensions = array();$/;"	v
+allowedExtensions	include\fw\fineUploder.php	/^        $allowedExtensions = array_map("strtolower", $allowedExtensions);$/;"	v
+allowedExtensions	include\fw\fineUploder.php	/^    function __construct(array $allowedExtensions = null, $sizeLimit = null){$/;"	v
+allowedExtensions	include\fw\fineUploder.php	/^$allowedExtensions = array();$/;"	v
+allowedExtensions	include\fw\handleUploder.php	/^            $allowedExtensions = array();$/;"	v
+allowedExtensions	include\fw\handleUploder.php	/^        $allowedExtensions = array_map("strtolower", $allowedExtensions);$/;"	v
+allowedExtensions	include\fw\handleUploder.php	/^    function __construct(array $allowedExtensions = null, $sizeLimit = null){$/;"	v
+allowedExtensions	include\fw\handleUploder.php	/^$allowedExtensions = array();$/;"	v
 allowed_funcs	include\smarty\plugins\function.math.php	/^    $allowed_funcs = array('int','abs','ceil','cos','exp','floor','log','log10',$/;"	v
 allwaysBcc	include\fw\qdmail.php	/^    function allwaysBcc( $option = null ){$/;"	f
 allways_bcc	include\fw\qdmail.php	/^    var    $allways_bcc    = null ;$/;"	v
@@ -1060,9 +1081,9 @@ alt_key	include\fw\fileManager.php	/^    protected $alt_key = 'alt';$/;"	v
 alt_tw	include\file\parameter.php	/^    public $alt_tw = '';$/;"	v
 alt_update	include\fw\fileManager.php	/^    private $alt_update = FALSE;$/;"	v
 amount	paypal\success.php	/^    $amount = $keyarray['payment_gross'];$/;"	v
+analyze	console\new\add.php	/^        $analyze = new analyze();$/;"	v
+analyze	console\new\index.php	/^        $analyze = new analyze();$/;"	v
 analyze	include\fw\analyze.php	/^class analyze$/;"	c
-analyze	simulators\new\add.php	/^        $analyze = new analyze();$/;"	v
-analyze	simulators\new\index.php	/^        $analyze = new analyze();$/;"	v
 analyzeAddr	include\fw\qdmail.php	/^    function analyzeAddr( $addr , $name ){$/;"	f
 analyzeHtmlSource	include\fw\analyze.php	/^    public function analyzeHtmlSource($url){$/;"	f
 and	include\fw\logicManager.php	/^    protected $and = null;$/;"	v
@@ -1093,12 +1114,13 @@ append	include\fw\mailManager.php	/^    private function append(){$/;"	f
 append	include\smarty\Smarty.class.php	/^    function append($tpl_var, $value=null, $merge=false)$/;"	f
 append	include\smarty\plugins\function.popup.php	/^    $append = '';$/;"	v
 append_by_ref	include\smarty\Smarty.class.php	/^    function append_by_ref($tpl_var, &$value, $merge=false)$/;"	f
+application	console\new\add.php	/^            $application = $application_logic->getItunesApp($itunes_id);$/;"	v
 applicationHandle	include\application\handle.php	/^class applicationHandle extends handleManager$/;"	c
 applicationLogic	include\application\logic.php	/^class applicationLogic extends logicManager$/;"	c
 applicationParameter	include\application\parameter.php	/^class applicationParameter extends parameterManager$/;"	c
 applicationTable	include\application\table.php	/^class applicationTable extends tableManager$/;"	c
-application_handle	simulators\new\add.php	/^            $application_handle = new applicationHandle();$/;"	v
-application_logic	simulators\new\add.php	/^            $application_logic = new applicationLogic();$/;"	v
+application_handle	console\new\add.php	/^            $application_handle = new applicationHandle();$/;"	v
+application_logic	console\new\add.php	/^            $application_logic = new applicationLogic();$/;"	v
 area	include\smarty\plugins\modifier.unserialize_seminar_info.php	/^                    $area = $school_property->area_logic->sub_area_info[$array['said']]['col_name'].'\/';$/;"	v
 area	include\smarty\plugins\modifier.unserialize_seminar_info.php	/^        $area = '';$/;"	v
 area_logic	include\smarty\plugins\modifier.unserialize_date.php	/^            $area_logic = $school_util->member_seminar_property->area_logic;$/;"	v
@@ -1187,15 +1209,18 @@ auth	include\facebook\authApi.php	/^    public function auth($path = '\/',$isMos
 authApi	auth\facebook.php	/^$authApi = new authApi();$/;"	v
 authApi	include\facebook\authApi.php	/^class authApi  extends apiManager$/;"	c
 authManager	auth\facebook.php	/^$authManager = new authManager();$/;"	v
+authManager	console\image\delete.php	/^$authManager = new authManager();$/;"	v
+authManager	console\image\sort.php	/^$authManager = new authManager();$/;"	v
+authManager	console\image\upload.php	/^$authManager = new authManager();$/;"	v
+authManager	console\index.php	/^$authManager = new authManager();$/;"	v
+authManager	console\new\add.php	/^$authManager = new authManager();$/;"	v
+authManager	console\new\index.php	/^$authManager = new authManager();$/;"	v
+authManager	console\test.php	/^$authManager = new authManager();$/;"	v
+authManager	console\view.php	/^$authManager = new authManager();$/;"	v
 authManager	include\fw\authManager.php	/^class authManager$/;"	c
 authManager	include\fw\checkManager.php	/^        $authManager = new authManager();$/;"	v
 authManager	include\user\licence.php	/^        $authManager = new authManager();$/;"	v
 authManager	paypal\index.php	/^$authManager = new authManager();$/;"	v
-authManager	simulators\image\sort.php	/^$authManager = new authManager();$/;"	v
-authManager	simulators\index.php	/^$authManager = new authManager();$/;"	v
-authManager	simulators\new\add.php	/^$authManager = new authManager();$/;"	v
-authManager	simulators\new\index.php	/^$authManager = new authManager();$/;"	v
-authManager	simulators\view.php	/^$authManager = new authManager();$/;"	v
 auth_token	paypal\success.php	/^$auth_token = "yLxXq_Us-4dh7_aA7zxx18Xp8NFk9V1wQrYnQy-hyxpNYG02aeFbDt8_VJW";$/;"	v
 autoBoth	include\fw\qdmail.php	/^    function autoBoth( $bool = null ){$/;"	f
 autoDecoJudge	include\fw\qdmail.php	/^    function autoDecoJudge( $bool = null ){$/;"	f
@@ -1237,6 +1262,8 @@ before_week	include\smarty\plugins\modifier.make_message_judge_new.php	/^    $be
 begin	include\fw\database.php	/^            $begin = '(';$/;"	v
 begin	include\fw\database.php	/^        $begin = '';$/;"	v
 begin_tag_pos	include\fw\simple_html_dom.php	/^        $begin_tag_pos = $this->pos;$/;"	v
+bl	console\image\delete.php	/^$bl = $authManager->validateLogin();$/;"	v
+bl	console\image\upload.php	/^$bl = $authManager->validateLogin();$/;"	v
 bl	include\fw\base.php	/^                $bl = ereg($pa, $value);$/;"	v
 bl	include\fw\checkManager.php	/^        $bl = $authManager->validatePassword( $_POST[$arg['old_password']], $manager[0]['col_salt'], $manager[0]['col_password'] );$/;"	v
 bl	include\fw\checkManager.php	/^        $bl = $authManager->validatePassword( $_POST[$arg['old_password']], $user[0]['col_salt'], $user[0]['col_password'] );$/;"	v
@@ -1467,6 +1494,8 @@ checkPermissions	include\facebook\apiManager.php	/^    public function checkPerm
 checkPostCsrf	include\fw\container.php	/^    public function checkPostCsrf(){$/;"	f
 checkPrefix	include\fw\utilManager.php	/^    static public function checkPrefix($column,$as = null,$alias = null){$/;"	f
 checkReportDate	include\fw\checkManager.php	/^    static protected function checkReportDate($param,$arg){$/;"	f
+checkServerSettings	include\fw\fineUploder.php	/^    private function checkServerSettings(){        $/;"	f
+checkServerSettings	include\fw\handleUploder.php	/^    private function checkServerSettings(){        $/;"	f
 checkSimulatorEntry	include\simulator\check.php	/^class checkSimulatorEntry extends checkManager$/;"	c
 checkStatus	include\fw\checkManager.php	/^    static protected function checkStatus($param,$arg){$/;"	f
 checkSystemError	include\fw\checkManager.php	/^    static protected function checkSystemError($check_list){$/;"	f
@@ -1540,13 +1569,19 @@ close	include\smarty\plugins\modifier.unserialize_seminar_info.php	/^        $cl
 cloud_name	include\cloudinary\api.php	/^    $cloud_name = \\Cloudinary::option_get($options, "cloud_name", \\Cloudinary::config_get("cloud_name"));$/;"	v
 cloud_name	include\cloudinary\cloudinary.php	/^        $cloud_name = Cloudinary::config_get("cloud_name");$/;"	v
 cloud_name	include\cloudinary\cloudinary.php	/^        $cloud_name = Cloudinary::option_consume($options, "cloud_name", Cloudinary::config_get("cloud_name"));$/;"	v
+cloudinary	console\new\add.php	/^                    $cloudinary = cloudinaryUploader::upload($url);$/;"	v
+cloudinary	console\new\add.php	/^                    $cloudinary = cloudinaryUploader::upload($url,isset($old_mobile_images['screenshots'][$i]) ? $old_mobile_images['screenshots'][$i]['public_id'] : null);$/;"	v
+cloudinary	console\new\add.php	/^                $cloudinary = cloudinaryUploader::upload($analyze->logo);$/;"	v
+cloudinary	console\new\add.php	/^                $cloudinary = cloudinaryUploader::upload($analyze->logo,isset($old_mobile_images['logo']['public_id']) ? $old_mobile_images['logo']['public_id'] : null);$/;"	v
 cloudinary	include\cloudinary\cloudinary.php	/^        $cloudinary = Cloudinary::option_get($options, "upload_prefix", Cloudinary::config_get("upload_prefix", "https:\/\/api.cloudinary.com"));$/;"	v
-cloudinary	simulators\new\add.php	/^                    $cloudinary = cloudinaryUploader::upload($url);$/;"	v
-cloudinary	simulators\new\add.php	/^                    $cloudinary = cloudinaryUploader::upload($url,$public_id);\/\/画像更新$/;"	v
-cloudinary	simulators\new\add.php	/^                $cloudinary = cloudinaryUploader::upload($analyze->logo);$/;"	v
-cloudinary	simulators\new\add.php	/^                $cloudinary = cloudinaryUploader::upload($analyze->logo,$old_images['logo']['public_id']);$/;"	v
+cloudinary	include\fw\fineUploder.php	/^        $cloudinary = cloudinaryUploader::upload($_FILES['qqfile']['tmp_name']);$/;"	v
+cloudinary	include\fw\handleUploder.php	/^        $cloudinary = cloudinaryUploader::destroy($public_id);$/;"	v
+cloudinary	include\fw\handleUploder.php	/^        $cloudinary = cloudinaryUploader::upload($_FILES['uploadfile']['tmp_name']);$/;"	v
+cloudinary	include\paypal\common_process.php	/^                                $cloudinary = cloudinaryUploader::upload($screenshot['secure_url']);$/;"	v
+cloudinary	include\paypal\common_process.php	/^                            $cloudinary = cloudinaryUploader::upload($image['secure_url']);$/;"	v
 cloudinaryUploader	include\fw\cloudinaryUploader.php	/^class cloudinaryUploader {$/;"	c
 cloudinary_api_url	include\cloudinary\cloudinary.php	/^    public static function cloudinary_api_url($action = 'upload', $options = array()) {$/;"	f
+cloudinary_image	include\fw\database.php	/^    public  $cloudinary_image  = FALSE;\/\/rollback用$/;"	v
 cloudinary_js_config	include\cloudinary\cloudinary.php	/^function cloudinary_js_config() {$/;"	f
 cloudinary_upload_url	include\cloudinary\uploader.php	/^        $cloudinary_upload_url = Cloudinary::cloudinary_api_url("upload", $options);$/;"	v
 cloudinary_url	include\cloudinary\cloudinary.php	/^    public static function cloudinary_url($source, &$options=array()) {$/;"	f
@@ -1633,8 +1668,12 @@ compiled_ref	include\smarty\Smarty_Compiler.class.php	/^                $compile
 compiled_tags	include\smarty\Smarty_Compiler.class.php	/^        $compiled_tags = array();$/;"	v
 compiler_class	include\smarty\Smarty.class.php	/^    var $compiler_class        =   'Smarty_Compiler';$/;"	v
 compiler_file	include\smarty\Smarty.class.php	/^    var $compiler_file        =    'Smarty_Compiler.class.php';$/;"	v
+con	console\image\delete.php	/^$con = new container();$/;"	v
+con	console\image\upload.php	/^$con = new container();$/;"	v
+con	include\fw\fineUploder.php	/^            $con = new container();$/;"	v
 con	include\fw\prepend.php	/^$con = new container();$/;"	v
-con	paypal\notify.php	/^        $con = new container();$/;"	v
+con	paypal\notify.php	/^    $con = new container();$/;"	v
+con	paypal\success.php	/^    $con = new container();$/;"	v
 conditions	include\fw\database.php	/^            $conditions = $info['on'];$/;"	v
 conditions	include\fw\database.php	/^    function addJoin( $table_info, $conditions = NULL,$alias = NULL,$type = DATABASE_INNER_JOIN )$/;"	v
 config	include\cloudinary\cloudinary.php	/^            $config = array("cloud_name" => $uri["host"],$/;"	v
@@ -1653,6 +1692,12 @@ config_load	include\smarty\Smarty.class.php	/^    function config_load($file, $s
 config_overwrite	include\smarty\Smarty.class.php	/^    var $config_overwrite = true;$/;"	v
 config_read_hidden	include\smarty\Smarty.class.php	/^    var $config_read_hidden = false;$/;"	v
 config_vars	include\smarty\plugins\function.assign_debug_info.php	/^        $config_vars = $smarty->_config[0];$/;"	v
+console_image	include\fw\handleUploder.php	/^            $console_image = utilManager::getConsoleImageParam($cloudinary);$/;"	v
+console_images	console\image\sort.php	/^        $console_images = unserialize($simulator[0]['application_console_images']);$/;"	v
+console_images	console\image\sort.php	/^        $console_images = unserialize($simulator[0]['simulator_console_images']);$/;"	v
+console_images	include\fw\handleUploder.php	/^            $console_images = unserialize($simulator[0]['simulator_console_images']);$/;"	v
+console_images	include\fw\utilManager.php	/^                $console_images = unserialize($simulator[0]['application_console_images']);$/;"	v
+console_images	include\fw\utilManager.php	/^                $console_images = unserialize($simulator[0]['simulator_console_images']);$/;"	v
 constructSessionVariableName	include\facebook-facebook-php-sdk\src\facebook.php	/^  protected function constructSessionVariableName($key) {$/;"	f
 constructor	include\smarty\Smarty.class.php	/^     * The class constructor.$/;"	c
 constructor	include\smarty\Smarty_Compiler.class.php	/^     * The class constructor.$/;"	c
@@ -1722,7 +1767,6 @@ copy_until	include\fw\simple_html_dom.php	/^    protected function copy_until($c
 copy_until_char	include\fw\simple_html_dom.php	/^    protected function copy_until_char($char) {$/;"	f
 copy_until_char_escape	include\fw\simple_html_dom.php	/^    protected function copy_until_char_escape($char) {$/;"	f
 corres_charset	include\fw\qdmail.php	/^    var $corres_charset                = array($/;"	v
-count	iframe.php	/^$count = count($images['screenshots']);$/;"	v
 count	include\Jsphon\Decoder.php	/^            $count = count($api_setting);$/;"	v
 count	include\facebook\apiManager.php	/^        $count = count($this->queries);$/;"	v
 count	include\fw\positionManager.php	/^        $count = count($pages);$/;"	v
@@ -1734,8 +1778,8 @@ count	include\fw\simple_html_dom.php	/^            $count = 0;$/;"	v
 count	include\fw\simple_html_dom.php	/^        $count = count($this->parent->children);$/;"	v
 count	include\fw\simple_html_dom.php	/^        $count = preg_match_all($pattern, $this->doc, $matches, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);$/;"	v
 count	include\fw\systemPosition.php	/^        $count = count(parent::$position);$/;"	v
+count	include\fw\utilManager.php	/^        $count = count($mobile_images['screenshots']);$/;"	v
 count	include\fw\utilManager.php	/^        $count = count($url);$/;"	v
-count	include\simulator\util.php	/^        $count = count($images['screenshots']);$/;"	v
 count	include\smarty\Config_File.class.php	/^        for ($i=0, $count=count($lines); $i<$count; $i++) {$/;"	v
 count	include\smarty\Smarty_Compiler.class.php	/^        for ($i = 0, $count = count($match); $i < $count; $i++) {$/;"	v
 count	include\smarty\internals\core.write_compiled_include.php	/^            for ($i=0, $count = count($tokens); $i < $count; $i++) {$/;"	v
@@ -1903,6 +1947,7 @@ deny_flag	include\fw\checkManager.php	/^            $deny_flag = preg_match('('.
 deny_word	include\fw\checkManager.php	/^    static private $deny_word = null;$/;"	v
 depth	include\smarty\plugins\modifier.debug_print_var.php	/^function smarty_modifier_debug_print_var($var, $depth = 0, $length = 40)$/;"	v
 derived_resource_id	include\cloudinary\api_test.php	/^    $derived_resource_id = $resource["derived"][0]["id"];$/;"	v
+destroy	console\image\delete.php	/^    $destroy = new handleDestroy();$/;"	v
 destroy	include\cloudinary\uploader.php	/^        public static function destroy($public_id, $options = array())$/;"	f
 destroy	include\fw\cloudinaryUploader.php	/^    public function destroy($public_id, $options = array()) {$/;"	f
 destroySession	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function destroySession() {$/;"	f
@@ -1925,6 +1970,8 @@ dir2	include\fw\base.php	/^        $dir2 = '0';$/;"	v
 direct	include\fw\qdmail.php	/^                $direct = $par['DIRECT'];$/;"	v
 direct	include\fw\qdmail.php	/^                $direct = $par[6];$/;"	v
 direct	include\fw\qdmail.php	/^            $direct = null;$/;"	v
+direction	popapps.php	/^        $direction = 'horizon';$/;"	v
+direction	popapps.php	/^        $direction = 'vertical';$/;"	v
 display	include\smarty\Smarty.class.php	/^    function display($resource_name, $cache_id = null, $compile_id = null)$/;"	f
 display_days	include\smarty\plugins\function.html_select_date.php	/^    $display_days    = true;$/;"	v
 display_hours	include\smarty\plugins\function.html_select_time.php	/^    $display_hours      = true;$/;"	v
@@ -2066,6 +2113,8 @@ error_stack	include\fw\qdmail.php	/^    var $error_stack    = array();$/;"	v
 error_type	include\smarty\Config_File.class.php	/^    function _trigger_error_msg($error_msg, $error_type = E_USER_WARNING)$/;"	v
 error_type	include\smarty\Smarty.class.php	/^    function trigger_error($error_msg, $error_type = E_USER_WARNING)$/;"	v
 error_type	include\smarty\Smarty_Compiler.class.php	/^    function _syntax_error($error_msg, $error_type = E_USER_ERROR, $file=null, $line=null)$/;"	v
+errorlist	include\fw\database.php	/^            $errorlist = $data;$/;"	v
+errorlist	include\fw\database.php	/^            $errorlist = $this->err;$/;"	v
 errorlogFilename	include\fw\qdmail.php	/^    function errorlogFilename( $option = null ){$/;"	f
 errorlogLevel	include\fw\qdmail.php	/^    function errorlogLevel( $option = null ){$/;"	f
 errorlogPath	include\fw\qdmail.php	/^    function errorlogPath( $option = null ){$/;"	f
@@ -2089,9 +2138,9 @@ escape_post	include\smarty\plugins\modifier.make_form_gray.php	/^               
 escape_post	include\smarty\plugins\modifier.mobile_make_form.php	/^        $escape_post = isset($_POST[$setting[$i]['name']]) ? htmlspecialchars($_POST[$setting[$i]['name']]) : '';\/\/post$/;"	v
 establishCSRFTokenState	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function establishCSRFTokenState() {$/;"	f
 ex	include\smarty\plugins\modifier.mobile_google_static_map.php	/^$ex = explode(',',$latLng);\/\/緯度経度に分ける 緯度は2つめ、経度は1つ目$/;"	v
-ex1	simulators\new\add.php	/^            $ex1 = explode('?',$parse['path']);$/;"	v
-ex1_param	simulators\new\add.php	/^            $ex1_param = $ex1 === FALSE ? $parse['path'] : $ex1[0];$/;"	v
-ex2	simulators\new\add.php	/^            $ex2 = explode('\/',$ex1_param);$/;"	v
+ex1	console\new\add.php	/^            $ex1 = explode('?',$parse['path']);$/;"	v
+ex1_param	console\new\add.php	/^            $ex1_param = $ex1 === FALSE ? $parse['path'] : $ex1[0];$/;"	v
+ex2	console\new\add.php	/^            $ex2 = explode('\/',$ex1_param);$/;"	v
 ex_path	include\fw\base.php	/^        $ex_path = explode('\/',$_SERVER['PATH_INFO']);$/;"	v
 exception	include\facebook-facebook-php-sdk\tests\tests.php	/^      $exception = $e;$/;"	v
 exception	include\facebook-facebook-php-sdk\tests\tests.php	/^    $exception = null;$/;"	v
@@ -2124,6 +2173,10 @@ expr_type	include\smarty\Smarty_Compiler.class.php	/^            $expr_type = ar
 ext	include\file\handle.php	/^        if(is_null($ext)) $ext = $this->parameter->file_extension;$/;"	v
 ext	include\file\parameter.php	/^    public $ext = '';$/;"	v
 ext	include\fw\checkManager.php	/^            $ext = strtolower(substr($param['name'],-3));$/;"	v
+ext	include\fw\fineUploder.php	/^        $ext = ($ext == '') ? $ext : '.' . $ext;$/;"	v
+ext	include\fw\fineUploder.php	/^        $ext = @$pathinfo['extension'];        \/\/ hide notices if extension is empty$/;"	v
+ext	include\fw\handleUploder.php	/^        $ext = ($ext == '') ? $ext : '.' . $ext;$/;"	v
+ext	include\fw\handleUploder.php	/^        $ext = @$pathinfo['extension'];        \/\/ hide notices if extension is empty$/;"	v
 extends	include\fw\checkManager.php	/^    static protected $extends = '';$/;"	v
 extra	include\smarty\plugins\function.html_checkboxes.php	/^    $extra = '';$/;"	v
 extra	include\smarty\plugins\function.html_image.php	/^    $extra = '';$/;"	v
@@ -2205,6 +2258,7 @@ file	include\fw\base.php	/^            $file = substr( $fid, $limit, 3 );$/;"	v
 file	include\fw\base.php	/^        $file = '';$/;"	v
 file	include\smarty\Smarty.class.php	/^            $file = null, $line = null, $error_type = E_USER_ERROR)$/;"	v
 file	include\smarty\plugins\function.html_image.php	/^    $file = '';$/;"	v
+fileFromPath	js\ajaxupload.3.5.js	/^function fileFromPath(file){$/;"	f
 fileUploadSupport	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected $fileUploadSupport = false;$/;"	v
 file_add	include\fw\fileManager.php	/^    private $file_add = FALSE;$/;"	v
 file_commit	include\file\handle.php	/^    public function file_commit(){$/;"	f
@@ -2235,6 +2289,8 @@ file_update	include\fw\fileManager.php	/^    private $file_update = FALSE;$/;"	v
 file_upload	include\fw\checkManager.php	/^    static public $file_upload = FALSE;$/;"	v
 file_upload	include\fw\fileManager.php	/^    private $file_upload = FALSE;$/;"	v
 file_width	include\file\parameter.php	/^    public $file_width  = 0;$/;"	v
+filename	include\fw\fineUploder.php	/^        $filename = $pathinfo['filename'];$/;"	v
+filename	include\fw\handleUploder.php	/^        $filename = $pathinfo['filename'];$/;"	v
 filename	include\fw\qdmail.php	/^            $filename = $this->debug_report_path . $this->name.'_debug_report_'.date("Y_m_d_H_i_s") . '.txt';$/;"	v
 filename	include\fw\qdmail.php	/^        $filename    =    $tp ? $this->log_filename:$this->errorlog_filename;$/;"	v
 filename	include\fw\qdmail.php	/^        $filename = $this->mimeEncode( $one['NAME'] , $charset , $org_charset , 20 );$/;"	v
@@ -2260,10 +2316,11 @@ flag	include\fw\qdmail.php	/^            $flag = true;$/;"	v
 flag	include\fw\qdmail.php	/^        $flag = false;$/;"	v
 flag_wrp	include\fw\qdmail.php	/^        $flag_wrp = ( 'TEXT' == $is_text ) ? true:false;$/;"	v
 flags	include\cloudinary\cloudinary.php	/^        $flags = implode(Cloudinary::build_array(Cloudinary::option_consume($options, "flags")), ".");$/;"	v
-flickable	js\jquery.flickable-1.0b3-jq1.6.js	/^	flickable.prototype = {$/;"	c
-flickable.create	js\jquery.flickable-1.0b3-jq1.6.js	/^	flickable.prototype.create.prototype = flickable.prototype;$/;"	m
+flickable	js\jquery.flickable-1.0b3-jq1.6.js	/^    flickable.prototype = {$/;"	c
+flickable.create	js\jquery.flickable-1.0b3-jq1.6.js	/^    flickable.prototype.create.prototype = flickable.prototype;$/;"	m
 floatV	include\Jsphon\Decoder\Tokenizer.php	/^            $floatV = (float)$m[0];$/;"	v
 fn.sortable	js\jquery.sortable.js	/^var dragging, placeholders = $();$/;"	f
+fn.spinner	js\jquery.spinner.js	/^\/*$/;"	f
 fname	include\file\parameter.php	/^                $fname = $fname_tmp2['1'];$/;"	v
 fname	include\file\parameter.php	/^            $fname = mb_convert_encoding($loop_number !== FALSE ? $upload_file['name'][$loop_number] : $upload_file['name'],'utf-8',"auto");$/;"	v
 fname_tmp	include\file\parameter.php	/^            $fname_tmp = strrchr($fname,"\\\\");$/;"	v
@@ -2350,6 +2407,7 @@ get	include\paypal_payment_info\table.php	/^    static public function get($type
 get	include\simulator\table.php	/^    static public function get($type = COMMON){$/;"	f
 get	include\smarty\Config_File.class.php	/^    function get($file_name, $section_name = NULL, $var_name = NULL)$/;"	f
 get	include\user\table.php	/^    static public function get($type = COMMON){$/;"	f
+get	js\ajaxupload.3.5.js	/^function get(element){$/;"	f
 getAccess	include\fw\systemPosition.php	/^    static function getAccess(){$/;"	f
 getAccessToken	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getAccessToken() {$/;"	f
 getAccessTokenFromCode	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getAccessTokenFromCode($code, $redirect_uri = null) {$/;"	f
@@ -2370,6 +2428,7 @@ getAppSimulator	include\simulator\logic.php	/^    function getAppSimulator($sid,
 getApplicationAccessToken	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getApplicationAccessToken() {$/;"	f
 getAttribute	include\fw\simple_html_dom.php	/^    function getAttribute($name) {return $this->__get($name);}$/;"	f
 getBody	include\fw\qdmail.php	/^    function getBody(){$/;"	f
+getBox	js\ajaxupload.3.5.js	/^function getBox(el){$/;"	f
 getCSRFStateToken	include\facebook-facebook-php-sdk\tests\tests.php	/^  public function getCSRFStateToken() {$/;"	f
 getCarrier	include\fw\formManager.php	/^    public function getCarrier($key = null){$/;"	f
 getCharset	include\fw\qdmail.php	/^    function getCharset(){$/;"	f
@@ -2378,6 +2437,7 @@ getCloudinaryTransformationsURL	include\fw\utilManager.php	/^    static public f
 getCode	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getCode() {$/;"	f
 getCode	include\fw\handleManager.php	/^    public function getCode($table,$id){$/;"	f
 getCodeList	include\fw\handleManager.php	/^    public function getCodeList($table){$/;"	f
+getConsoleImageParam	include\fw\utilManager.php	/^    static public function getConsoleImageParam($cloudinary){$/;"	f
 getContentType	include\fw\qdmail.php	/^    function getContentType(){$/;"	f
 getCount	include\fw\logicManager.php	/^    protected function getCount($table,$column_name,$alias = null){$/;"	f
 getCountDebug	include\fw\logicManager.php	/^    protected function getCountDebug($table,$column_name,$alias = null){$/;"	f
@@ -2391,6 +2451,7 @@ getElementsById	include\fw\simple_html_dom.php	/^    function getElementsById($i
 getElementsByTagName	include\fw\simple_html_dom.php	/^    function getElementsByTagName($name, $idx=-1) {return $this->find($name, $idx);}$/;"	f
 getElementsByTagName	include\fw\simple_html_dom.php	/^    function getElementsByTagName($name, $idx=null) {return $this->find($name, $idx);}$/;"	f
 getEncoding	include\fw\qdmail.php	/^    function getEncoding(){$/;"	f
+getExt	js\ajaxupload.3.5.js	/^function getExt(file){$/;"	f
 getFilePath	include\file\handle.php	/^    public function getFilePath($fid,$ext){$/;"	f
 getFilePath	include\fw\base.php	/^    public function getFilePath($fid,$ext,$isMobile = FALSE){$/;"	f
 getFileUploadSupport	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getFileUploadSupport() {$/;"	f
@@ -2406,7 +2467,7 @@ getInput	include\paypal_payment_info\table.php	/^    static public function getI
 getInput	include\simulator\table.php	/^    static public function getInput(){$/;"	f
 getInput	include\user\table.php	/^    static public function getInput(){$/;"	f
 getInstance	include\fw\qdmail.php	/^    function & getInstance(){$/;"	f
-getIphone	include\simulator\util.php	/^    static public function getIphone($simulator){$/;"	f
+getIphone	include\fw\utilManager.php	/^    static public function getIphone($simulator,$isConsole = false){$/;"	f
 getItunesApp	include\application\logic.php	/^    function getItunesApp($itunes_id,$type = COMMON){$/;"	f
 getLocale	include\fw\tableManager.php	/^    static protected function getLocale($table_info,$type){$/;"	f
 getLocaleAlias	include\fw\tableManager.php	/^    static protected function getLocaleAlias($table_info,$type_alias){$/;"	f
@@ -2414,12 +2475,19 @@ getLocaleFile	include\fw\container.php	/^    public function getLocaleFile($file
 getLoginStatusUrl	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getLoginStatusUrl($params=array()) {$/;"	f
 getLoginType	include\fw\formManager.php	/^    public function getLoginType($key = null){$/;"	f
 getLoginUrl	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getLoginUrl($params=array()) {$/;"	f
+getLogoParam	include\fw\utilManager.php	/^    static public function getLogoParam($cloudinary){$/;"	f
 getLogoutUrl	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getLogoutUrl($params=array()) {$/;"	f
 getMailer	include\fw\qdmail.php	/^    function getMailer(){$/;"	f
 getMetadataCookie	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getMetadataCookie() {$/;"	f
 getMetadataCookieName	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getMetadataCookieName() {$/;"	f
+getMobileImageParam	include\fw\utilManager.php	/^    static public function getMobileImageParam($cloudinary){$/;"	f
 getMobileTextStyle	include\smarty\plugins\modifier.mobile_make_form.php	/^    function getMobileTextStyle($m_text_style,$add_style = ''){$/;"	f
 getMobileTextStyle	include\smarty\plugins\modifier.mobile_make_form.php	/^\/*    function getMobileTextStyle($m_text_style){$/;"	f
+getMouseCoords	js\ajaxupload.3.5.js	/^function getMouseCoords(e){        $/;"	f
+getName	include\fw\fineUploder.php	/^    public function getName() {$/;"	f
+getName	include\fw\fineUploder.php	/^    public function getName(){$/;"	f
+getName	include\fw\handleUploder.php	/^    public function getName() {$/;"	f
+getName	include\fw\handleUploder.php	/^    public function getName(){$/;"	f
 getName	include\fw\systemPosition.php	/^    static function getName(){$/;"	f
 getNotificationMail	include\fw\formManager.php	/^    public function getNotificationMail($key = null){$/;"	f
 getNotificationMailForAccess	include\fw\formManager.php	/^    public function getNotificationMailForAccess($key = null){$/;"	f
@@ -2456,6 +2524,8 @@ getRows	include\fw\logicManager.php	/^    protected function getRows($table,$con
 getSender	include\fw\qdmail.php	/^    function getSender(){$/;"	f
 getSignedRequest	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getSignedRequest() {$/;"	f
 getSignedRequestCookieName	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getSignedRequestCookieName() {$/;"	f
+getSize	include\fw\fineUploder.php	/^    public function getSize() {$/;"	f
+getSize	include\fw\handleUploder.php	/^    public function getSize() {$/;"	f
 getSpArray	include\fw\base.php	/^    private function getSpArray($page_arg,$sp,$isCurrent = FALSE){$/;"	f
 getSpecial	include\fw\tableManager.php	/^    static protected function getSpecial($table_info,$assign_columns){$/;"	f
 getSubQuery	include\fw\logicManager.php	/^    protected function getSubQuery($table,$alias = null){$/;"	f
@@ -2465,7 +2535,10 @@ getToken	include\fw\csrf.php	/^    public static function getToken()$/;"	f
 getTokenValue	include\Jsphon\Decoder\Tokenizer.php	/^    function getTokenValue()$/;"	f
 getTraceSafe	include\Jsphon\Exception.php	/^    public function getTraceSafe()$/;"	f
 getType	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getType() {$/;"	f
+getUID	js\ajaxupload.3.5.js	/^var getUID = function(){$/;"	f
 getUnionQuery	include\fw\database.php	/^    function getUnionQuery($all = '')$/;"	f
+getUploadName	include\fw\fineUploder.php	/^    public function getUploadName(){$/;"	f
+getUploadName	include\fw\handleUploder.php	/^    public function getUploadName(){$/;"	f
 getUrl	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function getUrl($name, $path='', $params=array()) {$/;"	f
 getUser	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function getUser() {$/;"	f
 getUser	include\facebook\userApi.php	/^    public function getUser(){$/;"	f
@@ -2511,18 +2584,28 @@ halt_debug	include\fw\mailManager.php	/^    private $halt_debug = array$/;"	v
 halt_real	include\fw\mailManager.php	/^    private $halt_real = array$/;"	v
 han_kata_kana	include\smarty\plugins\modifier.mobile_make_form.php	/^            $han_kata_kana ='-wap-input-format:&quot;*&lt;ja:hk&gt;&quot;;-wap-input-format:*M;';\/\/半角ｶﾅ$/;"	v
 han_kata_kana	include\smarty\plugins\modifier.mobile_make_form.php	/^        $han_kata_kana ='-wap-input-format:&quot;*&lt;ja:hk&gt;&quot;;-wap-input-format:*M;';\/\/半角ｶﾅ$/;"	v
+handleCloudinaryDestroy	include\fw\handleUploder.php	/^    function handleCloudinaryDestroy($public_id){$/;"	f
+handleCloudinaryUpload	include\fw\fineUploder.php	/^    function handleCloudinaryUpload($replaceOldFile = FALSE){$/;"	f
+handleCloudinaryUpload	include\fw\handleUploder.php	/^    function handleCloudinaryUpload($replaceOldFile = FALSE){$/;"	f
+handleDestroy	include\fw\handleUploder.php	/^class handleDestroy {$/;"	c
 handleFALSE	include\fw\base.php	/^    public function handleFALSE($result,$page = ''){$/;"	f
 handleInternalError	include\Jsphon\Decoder.php	/^    function handleInternalError($err)$/;"	f
 handleManager	include\fw\handleManager.php	/^class handleManager extends database$/;"	c
 handleTagList	include\fw\analyze.php	/^    \/\/private $handleTagList = array('h1','img','a[class=view-in-itunes]');$/;"	v
 handleTagList	include\fw\analyze.php	/^    \/\/private $handleTagList = array('img','link','script','input','meta','title');$/;"	v
 handleTagList	include\fw\analyze.php	/^    private $handleTagList = array('h1','img');$/;"	v
+handleUpload	include\fw\fineUploder.php	/^    function handleUpload($uploadDirectory, $replaceOldFile = FALSE){$/;"	f
+handleUpload	include\fw\handleUploder.php	/^    function handleUpload($uploadDirectory, $replaceOldFile = FALSE){$/;"	f
+handleUploadedFileForm	include\fw\handleUploder.php	/^class handleUploadedFileForm {$/;"	c
+handleUploadedFileXhr	include\fw\handleUploder.php	/^class handleUploadedFileXhr {$/;"	c
+handleUploader	include\fw\handleUploder.php	/^class handleUploader {$/;"	c
 has	include\smarty\Smarty_Compiler.class.php	/^         * First we check if the block function has already been registered$/;"	f
 has	include\smarty\Smarty_Compiler.class.php	/^         * First we check if the compiler function has already been registered$/;"	f
 has	include\smarty\Smarty_Compiler.class.php	/^         * First we check if the custom function has already been registered$/;"	f
 has	include\smarty\internals\core.load_plugins.php	/^         * whether the dynamically registered plugin function has been$/;"	f
 hasAttribute	include\fw\simple_html_dom.php	/^    function hasAttribute($name) {return $this->__isset($name);}$/;"	f
-hasScroll	js\jquery.flickable-1.0b3-jq1.6.js	/^	function hasScroll(elem) {$/;"	f
+hasClass	js\ajaxupload.3.5.js	/^function hasClass(ele,cls){$/;"	f
+hasScroll	js\jquery.flickable-1.0b3-jq1.6.js	/^    function hasScroll(elem) {$/;"	f
 has_layer	include\cloudinary\cloudinary.php	/^        $has_layer = Cloudinary::option_get($options, "underlay") || Cloudinary::option_get($options, "overlay");$/;"	v
 hash	include\fw\parameterManager.php	/^        $hash = sha1( $salt . $password );$/;"	v
 have_function	include\smarty\Smarty_Compiler.class.php	/^                $have_function = false;$/;"	v
@@ -2561,6 +2644,7 @@ height	include\smarty\plugins\modifier.mobile_google_static_map.php	/^$height = 
 height	include\smarty\plugins\modifier.mobile_img.php	/^        $height = $height *2;$/;"	v
 height	include\smarty\plugins\modifier.mobile_question_icon.php	/^        $height = 30;$/;"	v
 height	include\smarty\plugins\modifier.mobile_question_icon.php	/^    $height = 15;$/;"	v
+height	popapps.php	/^        $height = 579;$/;"	v
 height_per	include\fw\utilManager.php	/^        $height_per =  round($max_height \/ $height,2);$/;"	v
 height_per	include\smarty\plugins\modifier.getCloudinaryFit.php	/^    $height_per =  round($max_height \/ $height,2);$/;"	v
 host	include\cloudinary\cloudinary.php	/^            $host = $cname ? $cname : ($private_cdn ? $cloud_name . "-" : "") . "res.cloudinary.com";$/;"	v
@@ -2599,6 +2683,7 @@ htmlescape_unhtmlescape	include\smarty\plugins\modifier.html_special_escape.php	
 http	include\fw\positionManager.php	/^                        $http = $array['ssl'] ? SIMURLSSL : SIMURL;$/;"	v
 http	include\fw\positionManager.php	/^                        $http = $before_array['index']['ssl'] ? SIMURLSSL : SIMURL;$/;"	v
 http	include\fw\positionManager.php	/^                    $http = $array['ssl'] ? SIMURLSSL : SIMURL;$/;"	v
+i	console\new\add.php	/^                $i = 0;$/;"	v
 i	include\Jsphon\Decoder.php	/^            foreach($u16sur[0] as $i => $escSeq) {$/;"	v
 i	include\Jsphon\Decoder.php	/^        foreach($matches[0] as $i => $escSeq) {$/;"	v
 i	include\Jsphon\Decoder.php	/^        foreach($u16[0] as $i => $escSeq) {$/;"	v
@@ -2624,7 +2709,6 @@ i	include\smarty\plugins\modifier.unserialize_genre.php	/^                $i = 1
 i	include\smarty\plugins\modifier.unserialize_genre.php	/^    $i = 0;$/;"	v
 i	include\smarty\plugins\modifier.unserialize_hub.php	/^    $i = 0;$/;"	v
 i	include\smarty\plugins\modifier.unserialize_seminar_info.php	/^    $i = 1;$/;"	v
-i	simulators\new\add.php	/^                $i = 0;$/;"	v
 i2	include\smarty\plugins\modifier.make_form.php	/^                        }elseif((strlen($escape_post) == 0 || !isset($escape_post)) && $i2 == 0){$/;"	v
 i2	include\smarty\plugins\modifier.make_form.php	/^                $i2 = 0;$/;"	v
 i2	include\smarty\plugins\modifier.make_form.php	/^\/*                    elseif((strlen($escape_post) == 0 || !isset($escape_post)) && $i2 == 0){$/;"	v
@@ -2654,12 +2738,8 @@ imageHandle	include\image\handle.php	/^class imageHandle extends handleManager$/
 imageLogic	include\image\logic.php	/^class imageLogic extends logicManager$/;"	c
 imageParameter	include\image\parameter.php	/^class imageParameter extends parameterManager$/;"	c
 imageTable	include\image\table.php	/^class imageTable extends tableManager$/;"	c
-images	include\simulator\util.php	/^            $images = unserialize($simulator[0]['application_images']);$/;"	v
-images	include\simulator\util.php	/^            $images = unserialize($simulator[0]['simulator_images']);$/;"	v
-images	simulators\image\sort.php	/^        $images = unserialize($simulator[0]['application_images']);$/;"	v
-images	simulators\image\sort.php	/^        $images = unserialize($simulator[0]['simulator_images']);$/;"	v
-images	simulators\view.php	/^    $images = unserialize($simulator[0]['application_images']);$/;"	v
-images	simulators\view.php	/^    $images = unserialize($simulator[0]['simulator_images']);$/;"	v
+images	include\fw\fineUploder.php	/^            $images = unserialize($simulator[0]['simulator_images']);$/;"	v
+images	include\paypal\common_process.php	/^                    $images = unserialize($simulator[0]['application_mobile_images']);$/;"	v
 img	include\cloudinary\uploadertest.php	/^        $img = 'http:\/\/a4.mzstatic.com\/us\/r1000\/092\/Purple\/v4\/85\/70\/9d\/85709d9f-c9ca-1513-68df-f957e16b8791\/mzm.omtlzjin.175x175-75.jpg';\/\/iphone logo$/;"	v
 img	include\smarty\plugins\modifier.judgeSave.php	/^            $img = '\/img\/common\/bt_add_mylist';$/;"	v
 img	include\smarty\plugins\modifier.judgeSave.php	/^            $img = '\/img\/common\/bt_add_mylist_m';$/;"	v
@@ -2699,6 +2779,9 @@ inner	include\smarty\plugins\function.html_table.php	/^    $inner = 'cols';$/;"	
 innertext	include\fw\simple_html_dom.php	/^    function innertext() {$/;"	f
 input	include\facebook-facebook-php-sdk\tests\tests.php	/^    $input = 'Facebook rocks';$/;"	v
 input	include\fw\fileManager.php	/^    public function input(){$/;"	f
+input	include\fw\fineUploder.php	/^        $input = fopen("php:\/\/input", "r");$/;"	v
+input	include\fw\handleUploder.php	/^        $input = fopen("php:\/\/input", "r");$/;"	v
+input	js\ajaxupload.3.5.js	/^        var input = d.createElement("input");$/;"	v
 inputManager	include\fw\fileManager.php	/^class inputManager$/;"	c
 input_style	include\smarty\plugins\modifier.mobile_make_form.php	/^        $input_style = $m_text_style['input'];$/;"	v
 insert	include\fw\database.php	/^    function insert($table){$/;"	f
@@ -2718,6 +2801,7 @@ intV	include\Jsphon\Decoder\Tokenizer.php	/^            $intV   = (int)$m[0];$/;
 internalErrorCallback	include\Jsphon\Decoder\Tokenizer.php	/^    function Jsphon_Decoder_Tokenizer($source, $internalErrorCallback=null)$/;"	v
 ip	include\fw\container.php	/^                $ip = '192.168.0.52';$/;"	v
 ip	include\fw\container.php	/^                $ip = '210.189.109.177';$/;"	v
+iphone	console\view.php	/^$iphone = utilManager::getIphone($simulator,true);$/;"	v
 is	include\facebook-facebook-php-sdk\src\base_facebook.php	/^ * a majority of the functionality needed, but the class is abstract$/;"	c
 is	include\facebook-facebook-php-sdk\tests\tests.php	/^      'getCurrentUrl function is changing the current URL');$/;"	f
 is	include\smarty\Smarty.class.php	/^     * This function is for advanced use only, not normally needed.$/;"	f
@@ -2751,6 +2835,8 @@ isStage	include\fw\container.php	/^    public $isStage = FALSE;$/;"	v
 isSystem	include\fw\container.php	/^    public $isSystem = FALSE;$/;"	v
 isSystem	include\smarty\plugins\modifier.make_message_url.php	/^            return $isSystem == SMARTY_BOOL_ON ? $message['col_link'] == 1 ? $title :  '<a href="\/system\/message\/view\/msid\/'.$message['_id'].'">'.$title.'<\/a>' : $message['col_link'] == 1 ? $title :  '<a href="\/mypage\/message\/view\/msid\/'.$message['_id'].'">'.$title.'<\/a>';$/;"	v
 isSystem	include\smarty\plugins\modifier.mobile_message_url.php	/^            return $isSystem == SMARTY_BOOL_ON ? $message['col_link'] == 1 ? $title :  '<a href="\/system\/message\/view\/msid\/'.$message['_id'].$guid.'">'.$title.'<\/a>' : $message['col_link'] == 1 ? $title :  '<a href="'.CAURL.'\/mypage\/message\/view\/msid\/'.$message['_id'].'">'.$title.'<\/a>';$/;"	v
+isThrowDBError	include\fw\container.php	/^    public $isThrowDBError = true;$/;"	v
+isThrowDBError	include\fw\database.php	/^    public  $isThrowDBError = false;$/;"	v
 isVideoPost	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function isVideoPost($path, $method = 'GET') {$/;"	f
 isWin	include\fw\qdmail.php	/^    function isWin(){$/;"	f
 is_any	include\fw\fileManager.php	/^    protected $is_any = FALSE;\/\/ファイル更新と情報更新が別ロジックの場合$/;"	v
@@ -2758,17 +2844,20 @@ is_arg	include\smarty\Smarty_Compiler.class.php	/^                    $is_arg = 
 is_arg_stack	include\smarty\Smarty_Compiler.class.php	/^        $is_arg_stack = array();$/;"	v
 is_arg_start	include\smarty\Smarty_Compiler.class.php	/^                        $is_arg_start = $i-1;$/;"	v
 is_arg_start	include\smarty\Smarty_Compiler.class.php	/^                        $is_arg_start = array_pop($is_arg_stack);$/;"	v
+is_auth	console\test.php	/^$is_auth = $authManager->validateLogin();$/;"	v
 is_auth	include\fw\authManager.php	/^                $is_auth = false;$/;"	v
 is_auth	include\fw\authManager.php	/^        $is_auth = true;$/;"	v
 is_cached	include\smarty\Smarty.class.php	/^    function is_cached($tpl_file, $cache_id = null, $compile_id = null)$/;"	f
-is_check	simulators\new\add.php	/^    $is_check = checkSimulatorEntry::safeExit();$/;"	v
-is_check	simulators\new\index.php	/^            $is_check = checkItunesURL::safeExit();$/;"	v
-is_check	simulators\new\index.php	/^    $is_check = checkItunesURL::safeExit();$/;"	v
+is_check	console\new\add.php	/^    $is_check = checkSimulatorEntry::safeExit();$/;"	v
+is_check	console\new\index.php	/^            $is_check = checkItunesURL::safeExit();$/;"	v
+is_check	console\new\index.php	/^    $is_check = checkItunesURL::safeExit();$/;"	v
 is_commit	include\fw\fileManager.php	/^    private $is_commit = FALSE;$/;"	v
 is_create	include\fw\qdmail.php	/^    var    $is_create            = false;$/;"	v
 is_html	include\fw\qdmail.php	/^    var $is_html        = null ;$/;"	v
-is_match	simulators\new\add.php	/^            $is_match = preg_match("\/[0-9]+\/",end($ex2),$match);$/;"	v
+is_match	console\new\add.php	/^            $is_match = preg_match("\/[0-9]+\/",end($ex2),$match);$/;"	v
 is_multiquery	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public $is_multiquery = false;$/;"	v
+is_notify	paypal\notify.php	/^$is_notify = true;$/;"	v
+is_notify	paypal\success.php	/^$is_notify = false;$/;"	v
 is_qmail	include\fw\qdmail.php	/^    var $is_qmail            =  null;$/;"	v
 is_section_delete	include\fw\fileManager.php	/^    protected $is_section_delete = TRUE;\/\/セクション削除機能の可否$/;"	v
 is_text	include\fw\qdmail.php	/^    function makeContentText( $content , $is_text = 'TEXT' ){$/;"	v
@@ -2781,8 +2870,7 @@ item_name	paypal\notify.php	/^\/*    $item_name = $_POST['item_name'];$/;"	v
 item_number	paypal\notify.php	/^    $item_number = $_POST['item_number'];$/;"	v
 itemname	paypal\success.php	/^    $itemname = $keyarray['item_name'];$/;"	v
 its_link	include\fw\analyze.php	/^    public $its_link = FALSE;$/;"	v
-itunes_app	simulators\new\add.php	/^            $itunes_app = $application_logic->getItunesApp($itunes_id);$/;"	v
-itunes_id	simulators\new\add.php	/^                $itunes_id = $match[0];$/;"	v
+itunes_id	console\new\add.php	/^                $itunes_id = $match[0];$/;"	v
 j	include\fw\database.php	/^                    for( $j=0; $j<$intRows; $j++){$/;"	v
 j	include\fw\qdmail.php	/^        $j = 0;$/;"	v
 j	include\smarty\internals\core.write_cache_file.php	/^        $j = 0;$/;"	v
@@ -2792,6 +2880,11 @@ join_pair	include\cloudinary\cloudinary.php	/^        $join_pair = function($key
 join_pair	include\cloudinary\cloudinary.php	/^        $join_pair = function($key, $value) { return $key . "='" . $value . "'"; };$/;"	v
 join_pair	include\cloudinary\cloudinary.php	/^        $join_pair = function($key, $value) { return $key . "_" . $value; };$/;"	v
 join_pair	include\cloudinary\uploader.php	/^                $join_pair = function($key, $value) { return $key . ": " . $value; };$/;"	v
+js	popapps.php	/^        $js = 'b';$/;"	v
+js	popapps.php	/^        $js = 'e';$/;"	v
+js	popapps.php	/^        $js = 'f';$/;"	v
+js	popapps.php	/^        $js = 'h';$/;"	v
+js	popapps.php	/^        $js = 't';$/;"	v
 js_encode	include\smarty\plugins\function.mailto.php	/^        $js_encode = '';$/;"	v
 json	include\Jsphon\Decoder.php	/^ * $json =& new Jsphon_Decoder();$/;"	v
 json	include\Jsphon\Encoder.php	/^            $json = preg_replace('\/[\\x80-\\xFF]\/', '', $json);$/;"	v
@@ -2815,6 +2908,7 @@ kana_content_relation	include\fw\qdmail.php	/^    var $kana_content_relation =  
 keep	include\fw\qdmail.php	/^            $keep = $instance[0]->keep_parameter;$/;"	v
 keepParameter	include\fw\qdmail.php	/^    function keepParameter( $bool = null ){$/;"	f
 keep_parameter	include\fw\qdmail.php	/^    var $keep_parameter        = array(false);$/;"	v
+key	console\image\sort.php	/^    foreach ($new_keys as $key => $index){$/;"	v
 key	include\Jsphon\Decoder.php	/^            foreach ($array['fql_result_set'] as $key => $value){$/;"	v
 key	include\cloudinary\uploader.php	/^        foreach ($params as $key => $value) {$/;"	v
 key	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    foreach ($params as $key => $value) {$/;"	v
@@ -2832,6 +2926,7 @@ key	include\fw\database.php	/^        foreach ($this->err['msg'] as $key => $val
 key	include\fw\database.php	/^        foreach( $this->_values as $key => $val )$/;"	v
 key	include\fw\formManager.php	/^            foreach ($form_data as $key => $array){$/;"	v
 key	include\fw\handleManager.php	/^        foreach ($pair as $key => $value){$/;"	v
+key	include\fw\handleUploder.php	/^            foreach ($mobile_images['screenshots'] as $key => $value){$/;"	v
 key	include\fw\mailManager.php	/^            foreach ($shutdown_error as $key => $value){$/;"	v
 key	include\fw\mailManager.php	/^        foreach ($form->trigger as $key => $value){$/;"	v
 key	include\fw\mailTemplate.php	/^            foreach ($j_not_thank as $key => $value){$/;"	v
@@ -2865,6 +2960,7 @@ key	include\fw\simple_html_dom.php	/^            $key = '___noise___'.sprintf('%
 key	include\fw\simple_html_dom.php	/^        foreach($this->attr as $key=>$val) {$/;"	v
 key	include\fw\systemPosition.php	/^            foreach ($positions as $key => $array){$/;"	v
 key	include\fw\utilManager.php	/^        foreach ($param as $key => $value){$/;"	v
+key	include\paypal\common_process.php	/^                    foreach ($images as $key => $image){$/;"	v
 key	include\smarty\Smarty.class.php	/^            foreach ($tpl_var as $key => $val) {$/;"	v
 key	include\smarty\Smarty_Compiler.class.php	/^            $key  = $this->_dequote($attrs['key']);$/;"	v
 key	include\smarty\Smarty_Compiler.class.php	/^            $key = null;$/;"	v
@@ -2891,8 +2987,8 @@ key	include\smarty\plugins\modifier.unserialize_date.php	/^    foreach ($date as
 key	include\smarty\plugins\modifier.unserialize_hub.php	/^    foreach ($date as $key => $array){$/;"	v
 key	include\smarty\plugins\modifier.unserialize_seminar_info.php	/^    foreach ($date as $key => $array){$/;"	v
 key	paypal\notify.php	/^foreach ($myPost as $key => $value) {        $/;"	v
-key	simulators\image\sort.php	/^    foreach ($new_keys as $key => $index){$/;"	v
 key2	include\fw\database.php	/^                    foreach ($value as $key2 => $value2){$/;"	v
+key2	include\paypal\common_process.php	/^                            foreach ($image as $key2 => $screenshot){$/;"	v
 keyUpper	include\fw\qdmail.php	/^    function keyUpper( $array ){$/;"	f
 key_part	include\smarty\Smarty_Compiler.class.php	/^            $key_part = "\\$this->_tpl_vars['$key'] => ";$/;"	v
 key_part	include\smarty\Smarty_Compiler.class.php	/^            $key_part = '';$/;"	v
@@ -2915,6 +3011,8 @@ labels	include\smarty\plugins\function.html_radios.php	/^    $labels = true;$/;"
 lang	include\fw\qdmail.php	/^    function setMbParameter( $lang = null , $internal_enc = null , $detect = null ){$/;"	v
 lang_def	include\fw\qdmail.php	/^    var    $lang_def            = "ja";$/;"	v
 language	include\fw\qdmail.php	/^    var $language            = 'ja';$/;"	v
+last	include\fw\fineUploder.php	/^        $last = strtolower($str[strlen($str)-1]);$/;"	v
+last	include\fw\handleUploder.php	/^        $last = strtolower($str[strlen($str)-1]);$/;"	v
 lastChild	include\fw\simple_html_dom.php	/^    function lastChild() {return $this->last_child();}$/;"	f
 lastChild	include\fw\simple_html_dom.php	/^    function lastChild() {return $this->root->last_child();}$/;"	f
 lastJudge	include\fw\container.php	/^    public $lastJudge = TRUE;\/\/ロールバックかコミットの判断$/;"	v
@@ -3167,6 +3265,12 @@ minute_interval	include\smarty\plugins\function.html_select_time.php	/^    $minu
 minutes_empty	include\smarty\plugins\function.html_select_time.php	/^    $minutes_empty      = false;$/;"	v
 minutes_format	include\smarty\plugins\function.html_select_time.php	/^    $minutes_format     = true;$/;"	v
 mksize	include\fw\base.php	/^            $mksize = strlen( $e_marker );$/;"	v
+mobile_image	include\fw\handleUploder.php	/^            $mobile_image = utilManager::getMobileImageParam($cloudinary);$/;"	v
+mobile_images	console\image\sort.php	/^        $mobile_images = unserialize($simulator[0]['application_mobile_images']);$/;"	v
+mobile_images	console\image\sort.php	/^        $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);$/;"	v
+mobile_images	include\fw\handleUploder.php	/^            $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);$/;"	v
+mobile_images	include\fw\utilManager.php	/^            $mobile_images = unserialize($simulator[0]['application_mobile_images']);$/;"	v
+mobile_images	include\fw\utilManager.php	/^            $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);$/;"	v
 mode	include\smarty\plugins\modifier.mobile_make_form.php	/^            $mode = ' mode="';$/;"	v
 modifiers	include\smarty\Smarty_Compiler.class.php	/^                $modifiers = empty($modifiers) ? $_default_mod_string : $_default_mod_string . '|' . $modifiers;$/;"	v
 modifiers	include\smarty\Smarty_Compiler.class.php	/^            $modifiers = $match[2];$/;"	v
@@ -3253,15 +3357,20 @@ net_real	include\fw\mailManager.php	/^    private $net_real = array$/;"	v
 new	include\fw\utilManager.php	/^            $new = self::checkPrefix($key,$alias);$/;"	v
 newMsg	include\facebook-facebook-php-sdk\tests\tests.php	/^      $newMsg = (strlen($msg) ? ($msg.' ') : '').'Key: '.$key;$/;"	v
 new_cid	include\fw\qdmail.php	/^            $new_cid =  $prefix $/;"	v
+new_console_images	console\image\sort.php	/^    $new_console_images = array();$/;"	v
+new_console_images	include\fw\handleUploder.php	/^            $new_console_images = array();$/;"	v
+new_console_images	include\paypal\common_process.php	/^                    $new_console_images = array();$/;"	v
 new_height	include\fw\utilManager.php	/^                $new_height = ceil($width_per * $height);$/;"	v
 new_height	include\fw\utilManager.php	/^            $new_height = ceil($width_per * $height);$/;"	v
 new_height	include\smarty\plugins\modifier.getCloudinaryFit.php	/^            $new_height = ceil($width_per * $height);$/;"	v
 new_height	include\smarty\plugins\modifier.getCloudinaryFit.php	/^        $new_height = ceil($width_per * $height);$/;"	v
-new_images	simulators\image\sort.php	/^    $new_images = array();$/;"	v
-new_keys	simulators\image\sort.php	/^if($con->isPost && isset($_POST['image_sort']) && $new_keys = explode(',',$_POST['image_sort']) ){$/;"	v
-new_max	include\user\licence.php	/^            if($user) $new_max = $user[0]['col_max_licence'];$/;"	v
-new_max	paypal\success.php	/^                $new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);$/;"	v
-new_max_licence	include\user\licence.php	/^            $new_max_licence = $user[0]['col_max_licence'] == 1 ? 0 + $plus : $user[0]['col_max_licence'] + $plus;$/;"	v
+new_keys	console\image\sort.php	/^if($con->isPost && isset($_POST['image_sort']) && $new_keys = explode(',',$_POST['image_sort']) ){$/;"	v
+new_max	include\paypal\common_process.php	/^            $new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);$/;"	v
+new_max	include\user\licence.php	/^                $new_max = $user[0]['col_max_licence'];$/;"	v
+new_max_licence	include\user\licence.php	/^            $new_max_licence = $user[0]['col_max_licence'] == MAX_LICENCE_FREE ? 0 + $plus : $user[0]['col_max_licence'] + $plus;$/;"	v
+new_mobile_images	console\image\sort.php	/^    $new_mobile_images = array();$/;"	v
+new_mobile_images	include\fw\handleUploder.php	/^            $new_mobile_images = array();$/;"	v
+new_mobile_images	include\paypal\common_process.php	/^                    $new_mobile_images = array();$/;"	v
 new_tokens	include\smarty\Smarty_Compiler.class.php	/^                    $new_tokens = $this->_parse_is_expr($is_arg, array_slice($tokens, $i+1));$/;"	v
 newline	include\smarty\Smarty_Compiler.class.php	/^                $newline = $this->_additional_newline;$/;"	v
 newline	include\smarty\Smarty_Compiler.class.php	/^        $newline = '';$/;"	v
@@ -3312,7 +3421,7 @@ obj3	cloudinary_test\test2.php	/^$obj3 = new MyClass;$/;"	v
 object_vars	include\smarty\plugins\modifier.debug_print_var.php	/^            $object_vars = get_object_vars($var);$/;"	v
 offset	include\fw\database.php	/^    function limit( $offset = 0, $limit = 21 )$/;"	v
 okUrl	include\facebook-facebook-php-sdk\tests\tests.php	/^    $okUrl = 'http:\/\/fbrell.com\/here1';$/;"	v
-old_images	simulators\new\add.php	/^                $old_images = unserialize($itunes_app[0]['col_images']);$/;"	v
+old_mobile_images	console\new\add.php	/^                $old_mobile_images = unserialize($application[0]['col_mobile_images']);$/;"	v
 once	include\smarty\Smarty.class.php	/^    function _include($filename, $once=false, $params=null)$/;"	v
 once_var	include\smarty\Smarty_Compiler.class.php	/^        $once_var = (empty($attrs['once']) || $attrs['once']=='false') ? 'false' : 'true';$/;"	v
 one	include\fw\qdmail.php	/^                        $one = null;$/;"	v
@@ -3508,7 +3617,11 @@ overwrite	include\smarty\Config_File.class.php	/^    var $overwrite        =    
 pa	include\fw\base.php	/^        $pa = '[a-zA-Z0-9_\\(\\)\\.\\\/\\~\\%\\:\\#\\?=&\\;\\-\\+\\,]{'.$brLength.',}';$/;"	v
 pa	include\smarty\plugins\modifier.make_strim_square.php	/^    $pa = '[a-zA-Z0-9_\\(\\)\\.\\\/\\~\\%\\:\\#\\?=&\\;\\-\\+\\,]{'.$brLength.',}';$/;"	v
 page	include\fw\commonPosition.php	/^    static protected $page = array$/;"	v
+page	include\fw\database.php	/^            $page = 'debug';$/;"	v
+page	include\fw\database.php	/^            $page = 'error';$/;"	v
 page	include\fw\systemPosition.php	/^    static protected $page = array$/;"	v
+page	phone.php	/^        $page = 'horizon';$/;"	v
+page	phone.php	/^        $page = 'vertical';$/;"	v
 page_count	include\fw\base.php	/^            $page_count = ceil($count \/ $this->sp_value);$/;"	v
 pages	include\fw\positionManager.php	/^        $pages = explode('\/',$con->pagepath);$/;"	v
 pair	include\facebook-facebook-php-sdk\src\base_facebook.php	/^      $pair = explode('=', $part, 2);$/;"	v
@@ -3554,8 +3667,8 @@ parent	include\fw\simple_html_dom.php	/^    function parent() {$/;"	f
 parent	include\fw\simple_html_dom.php	/^    public $parent = null;$/;"	v
 parentNode	include\fw\simple_html_dom.php	/^    function parentNode() {return $this->parent();}$/;"	f
 parent_lower	include\fw\simple_html_dom.php	/^            $parent_lower = strtolower($this->parent->tag);$/;"	v
+parse	console\new\add.php	/^            $parse = parse_url($_POST['itunes_url']);$/;"	v
 parse	include\fw\simple_html_dom.php	/^    protected function parse() {$/;"	f
-parse	simulators\new\add.php	/^            $parse = parse_url($_POST['itunes_url']);$/;"	v
 parseSignedRequest	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function parseSignedRequest($signed_request) {$/;"	f
 parse_attr	include\fw\simple_html_dom.php	/^    protected function parse_attr($node, $name, &$space) {$/;"	f
 parse_contents	include\smarty\Config_File.class.php	/^    function parse_contents($contents)$/;"	f
@@ -3583,6 +3696,8 @@ path_filename	include\fw\qdmail.php	/^            $path_filename = $this->attach
 path_filename	include\fw\qdmail.php	/^            $path_filename = isset($par['PATH']) ? $par['PATH']:$par[0];$/;"	v
 path_prefix	include\smarty\plugins\function.html_image.php	/^    $path_prefix = '';$/;"	v
 path_sp	include\fw\base.php	/^    public $path_sp = '';$/;"	v
+pathinfo	include\fw\fineUploder.php	/^        $pathinfo = pathinfo($this->file->getName());$/;"	v
+pathinfo	include\fw\handleUploder.php	/^        $pathinfo = pathinfo($this->file->getName());$/;"	v
 paths	include\fw\positionManager.php	/^        $paths = explode('\/',$con->pagepath);$/;"	v
 pattern	include\fw\simple_html_dom.php	/^        $pattern = "\/([\\w-:\\*]*)(?:\\#([\\w-]+)|\\.([\\w-]+))?(?:\\[@?(!?[\\w-]+)(?:([!*^$]?=)[\\"']?(.*?)[\\"']?)?\\])?([\\\/, ]+)\/is";$/;"	v
 payer_email	paypal\notify.php	/^    $payer_email = $_POST['payer_email'];*\/$/;"	v
@@ -3592,16 +3707,13 @@ payload	include\facebook-facebook-php-sdk\tests\tests.php	/^    $payload = $fb->
 payment_amount	paypal\notify.php	/^    $payment_amount = $_POST['mc_gross'];$/;"	v
 payment_currency	paypal\notify.php	/^    $payment_currency = $_POST['mc_currency'];$/;"	v
 payment_status	paypal\notify.php	/^    $payment_status = $_POST['payment_status'];$/;"	v
-paypal	paypal\notify.php	/^        $paypal = $paypal_payment_info_logic->getOneTxn($_POST['txn_id']);$/;"	v
-paypal	paypal\success.php	/^        $paypal = $paypal_payment_info_logic->getOneTxn($_POST['txn_id']);$/;"	v
+paypal	include\paypal\common_process.php	/^    $paypal = $paypal_payment_info_logic->getOneTxn($_POST['txn_id']);$/;"	v
 paypalPaymentInfoHandle	include\paypal_payment_info\handle.php	/^class paypalPaymentInfoHandle extends handleManager$/;"	c
 paypalPaymentInfoLogic	include\paypal_payment_info\logic.php	/^class paypalPaymentInfoLogic extends logicManager$/;"	c
 paypalPaymentInfoParameter	include\paypal_payment_info\parameter.php	/^class paypalPaymentInfoParameter extends parameterManager$/;"	c
 paypalPaymentInfoTable	include\paypal_payment_info\table.php	/^class paypalPaymentInfoTable extends tableManager$/;"	c
-paypal_payment_info_handle	paypal\notify.php	/^            $paypal_payment_info_handle = new paypalPaymentInfoHandle();$/;"	v
-paypal_payment_info_handle	paypal\success.php	/^            $paypal_payment_info_handle = new paypalPaymentInfoHandle();$/;"	v
-paypal_payment_info_logic	paypal\notify.php	/^        $paypal_payment_info_logic = new paypalPaymentInfoLogic();$/;"	v
-paypal_payment_info_logic	paypal\success.php	/^        $paypal_payment_info_logic = new paypalPaymentInfoLogic();$/;"	v
+paypal_payment_info_handle	include\paypal\common_process.php	/^        $paypal_payment_info_handle = new paypalPaymentInfoHandle();$/;"	v
+paypal_payment_info_logic	include\paypal\common_process.php	/^    $paypal_payment_info_logic = new paypalPaymentInfoLogic();$/;"	v
 permissions	include\facebook\apiManager.php	/^    public $permissions = array$/;"	v
 permissions_comma	include\facebook\apiManager.php	/^    public $permissions_comma = '';$/;"	v
 persisted_access_token	include\facebook-facebook-php-sdk\src\base_facebook.php	/^        !($user && $persisted_access_token == $access_token)) {$/;"	v
@@ -3610,8 +3722,8 @@ pgp	include\fw\qdmail.php	/^    function pgp( $bool = null ){$/;"	f
 pgp	include\fw\qdmail.php	/^    var $pgp                        =    false;$/;"	v
 php_handling	include\smarty\Smarty.class.php	/^    var $php_handling    =  SMARTY_PHP_PASSTHRU;$/;"	v
 php_resource	include\smarty\internals\core.process_cached_inserts.php	/^            $php_resource = $_params['php_resource'];$/;"	v
-pid	paypal\notify.php	/^            $pid = $paypal_payment_info_handle->addRow($_GET['uid']);$/;"	v
-pid	paypal\success.php	/^            $pid = $paypal_payment_info_handle->addRow($_GET['uid']);$/;"	v
+pid	include\paypal\common_process.php	/^        $pid = $paypal_payment_info_handle->addRow($_GET['uid']);$/;"	v
+pid	include\paypal\common_process.php	/^        $pid = true;$/;"	v
 plugin	include\smarty\Smarty_Compiler.class.php	/^         * compiler should now emit code to load custom function plugin for this$/;"	f
 plugin	include\smarty\internals\core.display_debug_console.php	/^ * Smarty debug_console function plugin$/;"	f
 plugin	include\smarty\plugins\compiler.assign.php	/^ * Smarty {assign} compiler function plugin$/;"	f
@@ -3646,6 +3758,12 @@ plus	include\user\licence.php	/^                    $plus = MAX_LICENCE_ADVANCE;
 plus	include\user\licence.php	/^                    $plus = MAX_LICENCE_BASIC;$/;"	v
 point	include\fw\qdmail.php	/^        $point = $start + $length;$/;"	v
 pointer	include\fw\qdmail.php	/^        $pointer = 1;$/;"	v
+popapps_math	js\popapps\b.js	/^var popapps_math = 0.33;/;"	v
+popapps_math	js\popapps\e.js	/^var popapps_math = 0;/;"	v
+popapps_math	js\popapps\f.js	/^var popapps_math = 1;/;"	v
+popapps_math	js\popapps\h.js	/^var popapps_math = 0.5;/;"	v
+popapps_math	js\popapps\t.js	/^var popapps_math = 0.66;/;"	v
+popapps_url	console\view.php	/^$popapps_url = SIMURLSSL.'\/popapps?sid='.$sid;$/;"	v
 port	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $port =$/;"	v
 port	include\smarty\plugins\function.fetch.php	/^                    $port = $uri_parts['port'];$/;"	v
 port	include\smarty\plugins\function.fetch.php	/^                    $port = 80;$/;"	v
@@ -3653,8 +3771,13 @@ pos	include\fw\simple_html_dom.php	/^        $pos = $this->pos;$/;"	v
 pos_old	include\fw\simple_html_dom.php	/^            $pos_old = $this->pos;$/;"	v
 pos_old	include\fw\simple_html_dom.php	/^        $pos_old = $this->pos;$/;"	v
 position	include\fw\positionManager.php	/^    static public $position = array();$/;"	v
+position	popapps.php	/^        $position = 'center';$/;"	v
+position	popapps.php	/^        $position = 'left';$/;"	v
+position	popapps.php	/^        $position = 'right';$/;"	v
 positionManager	include\fw\positionManager.php	/^class positionManager$/;"	c
 positionTrim	include\fw\positionManager.php	/^    static function positionTrim($string){$/;"	f
+postSize	include\fw\fineUploder.php	/^        $postSize = $this->toBytes(ini_get('post_max_size'));$/;"	v
+postSize	include\fw\handleUploder.php	/^        $postSize = $this->toBytes(ini_get('post_max_size'));$/;"	v
 post_key	include\fw\checkManager.php	/^        foreach($check_list as $post_key => $check){$/;"	v
 postfix	include\smarty\Smarty_Compiler.class.php	/^                    $postfix = "} array_pop(\\$this->_tag_stack);";$/;"	v
 postfix	include\smarty\Smarty_Compiler.class.php	/^                    $postfix = '';$/;"	v
@@ -3713,7 +3836,6 @@ publicGetSignedRequestCookieName	include\facebook-facebook-php-sdk\tests\tests.p
 publicGetState	include\facebook-facebook-php-sdk\tests\tests.php	/^  public function publicGetState() {$/;"	f
 publicParseSignedRequest	include\facebook-facebook-php-sdk\tests\tests.php	/^  public function publicParseSignedRequest($input) {$/;"	f
 publicSetPersistentData	include\facebook-facebook-php-sdk\tests\tests.php	/^  public function publicSetPersistentData($key, $value) {$/;"	f
-public_id	simulators\new\add.php	/^                    $public_id = isset($old_images['screenshots'][$i]) ? $old_images['screenshots'][$i]['public_id'] : null;$/;"	v
 public_ids	include\cloudinary\api_test.php	/^    $public_ids = array_map($func, $result["resources"]);  $/;"	v
 public_ids	include\cloudinary\uploader.php	/^        public static function add_tag($tag, $public_ids = array(), $options = array())$/;"	v
 public_ids	include\cloudinary\uploader.php	/^        public static function call_tags_api($tag, $command, $public_ids = array(), &$options = array())$/;"	v
@@ -3731,6 +3853,9 @@ qdmail_array_combine	include\fw\qdmail.php	/^    function qdmail_array_combine( 
 qdmail_md	include\fw\qdmail.php	/^    function qdmail_md( $col = null , $start = 33 , $end = 126 ){$/;"	f
 qdmail_preg_replace	include\fw\qdmail.php	/^    function qdmail_preg_replace( $reg , $rep , $cont ){$/;"	f
 qdmail_system_charset	include\fw\qdmail.php	/^    var $qdmail_system_charset         = 'utf-8';$/;"	v
+qqFileUploader	include\fw\fineUploder.php	/^class qqFileUploader {$/;"	c
+qqUploadedFileForm	include\fw\fineUploder.php	/^class qqUploadedFileForm {$/;"	c
+qqUploadedFileXhr	include\fw\fineUploder.php	/^class qqUploadedFileXhr {$/;"	c
 queries	include\facebook\apiManager.php	/^    public  $queries = array();$/;"	v
 queries	include\smarty\plugins\modifier.mobile_google_static_map.php	/^$queries = array();$/;"	v
 query	include\facebook-facebook-php-sdk\src\base_facebook.php	/^        $query = '?'.implode($retained_params, '&');$/;"	v
@@ -3783,6 +3908,8 @@ readyUpdateParameter	include\fw\parameterManager.php	/^    protected function re
 readyUpload	include\file\handle.php	/^    public function readyUpload($fid){$/;"	f
 readyUploadToRemove	include\file\handle.php	/^    public function readyUploadToRemove($fid){$/;"	f
 readyUser	include\fw\authManager.php	/^    public function readyUser()$/;"	f
+realSize	include\fw\fineUploder.php	/^        $realSize = stream_copy_to_stream($input, $temp);$/;"	v
+realSize	include\fw\handleUploder.php	/^        $realSize = stream_copy_to_stream($input, $temp);$/;"	v
 rec	include\fw\qdmail.php	/^        static $rec = 0 ;$/;"	v
 receiver	include\fw\qdmail.php	/^        $receiver = QdmailReceiver::start( 'direct' , $template );$/;"	v
 receiver_email	paypal\notify.php	/^    $receiver_email = $_POST['receiver_email'];$/;"	v
@@ -3815,6 +3942,7 @@ remarks	include\smarty\plugins\modifier.make_form.php	/^        if(!is_null($set
 remarks	include\smarty\plugins\modifier.make_form_gray.php	/^        if(!is_null($setting[$i]['remarks'])) $remarks = $setting[$i]['remarks'];$/;"	v
 remarks	include\smarty\plugins\modifier.mobile_make_form.php	/^        $remarks = $setting[0]['m_remarks'];$/;"	v
 removeAttribute	include\fw\simple_html_dom.php	/^    function removeAttribute($name) {$this->__set($name, null);}$/;"	f
+removeClass	js\ajaxupload.3.5.js	/^function removeClass(ele,cls) {$/;"	f
 remove_callback	include\fw\simple_html_dom.php	/^    function remove_callback() {$/;"	f
 remove_noise	include\fw\simple_html_dom.php	/^    protected function remove_noise($pattern, $remove_tag=false) {$/;"	f
 remove_tag	include\cloudinary\uploader.php	/^        public static function remove_tag($tag, $public_ids = array(), $options = array())$/;"	f
@@ -3841,6 +3969,10 @@ replaceBodyStructure	include\fw\qdmail.php	/^    function replaceBodyStructure( 
 replaceCid	include\fw\qdmail.php	/^    function replaceCid( $content ){$/;"	f
 replaceDef	include\fw\qdmail.php	/^    function replaceDef( $array = null ){$/;"	f
 replaceInput	include\fw\checkManager.php	/^    static public function replaceInput($param,$arg){$/;"	f
+replaceOldFile	include\fw\fineUploder.php	/^     * @param string $replaceOldFile=true$/;"	v
+replaceOldFile	include\fw\fineUploder.php	/^    function handleUpload($uploadDirectory, $replaceOldFile = FALSE){$/;"	v
+replaceOldFile	include\fw\handleUploder.php	/^     * @param string $replaceOldFile=true$/;"	v
+replaceOldFile	include\fw\handleUploder.php	/^    function handleUpload($uploadDirectory, $replaceOldFile = FALSE){$/;"	v
 replaceTab	include\fw\checkManager.php	/^    static public function replaceTab($param,$arg){$/;"	f
 replaceWithToPriority	include\fw\qdmail.php	/^    function replaceWithToPriority( $bool = null ){$/;"	f
 replaceWord	include\fw\qdmail.php	/^    function replaceWord( $array = null , $add = false ){$/;"	f
@@ -3896,6 +4028,9 @@ response	include\facebook-facebook-php-sdk\tests\tests.php	/^    $response = $fa
 response_data	include\cloudinary\uploader.php	/^            $response_data = $response;$/;"	v
 response_params	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $response_params = array();$/;"	v
 restore_noise	include\fw\simple_html_dom.php	/^    function restore_noise($text) {$/;"	f
+result	console\image\delete.php	/^    $result = $destroy->handleCloudinaryDestroy($_POST['public_id']);$/;"	v
+result	console\image\fine_uploader.php	/^$result = $uploader->handleCloudinaryUpload();$/;"	v
+result	console\image\upload.php	/^    $result = $uploader->handleCloudinaryUpload();$/;"	v
 result	include\Jsphon\Decoder.php	/^                $result = $this->_decodeJSValue($tknz);$/;"	v
 result	include\Jsphon\Decoder.php	/^                $result = $this->_decodeJSValueEx($tknz);$/;"	v
 result	include\Jsphon\Decoder.php	/^                $result = $this->_decodeJSValueEx($tknz,$api_setting['index']);$/;"	v
@@ -3934,8 +4069,10 @@ result	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $result = c
 result	include\facebook-facebook-php-sdk\src\base_facebook.php	/^\/*    $result = json_decode($this->_oauthRequest($/;"	v
 result	include\facebook-facebook-php-sdk\tests\tests.php	/^      $result = $e->getResult();$/;"	v
 result	include\fw\base.php	/^            $result = mb_strcut( $e_str, 0, $strimbyte-$mksize, $TMP_ENC );$/;"	v
+result	include\fw\fineUploder.php	/^$result = $uploader->handleUpload('uploads\/');$/;"	v
 result	include\fw\formManager.php	/^                                $result = call_user_func(array($class_obj,$value2));$/;"	v
 result	include\fw\formManager.php	/^                            $result = call_user_func(array($class_obj,$value));$/;"	v
+result	include\fw\handleUploder.php	/^$result = $uploader->handleUpload('uploads\/');$/;"	v
 result	include\fw\logicManager.php	/^        $result = self::getResult($table,$alias);$/;"	v
 result	include\fw\logicManager.php	/^        return $result === FALSE ? FALSE : $result[0][$column_name];$/;"	v
 result	include\fw\simple_html_dom.php	/^                $result = array();$/;"	v
@@ -4066,13 +4203,17 @@ said	include\smarty\plugins\modifier.unserialize_date.php	/^        \/\/    $sai
 said	include\smarty\plugins\modifier.unserialize_date.php	/^    $said = FALSE;$/;"	v
 salt	include\fw\parameterManager.php	/^        $salt = $this->static_genSalt();$/;"	v
 salt	include\fw\qdmail.php	/^    var $salt                = 'qdmail';$/;"	v
+save	include\fw\fineUploder.php	/^    public function save($path) {    $/;"	f
+save	include\fw\fineUploder.php	/^    public function save($path) {$/;"	f
+save	include\fw\handleUploder.php	/^    public function save($path) {    $/;"	f
+save	include\fw\handleUploder.php	/^    public function save($path) {$/;"	f
 save	include\fw\simple_html_dom.php	/^    function save($filepath='',$isICP,$replace = null) {$/;"	f
 save	include\smarty\plugins\modifier.judgeSave.php	/^    $save = $con->getSave();$/;"	v
 saveURLFile	include\file\handle.php	/^    public function saveURLFile($uid,$url){$/;"	f
 scopeParams	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $scopeParams = isset($params['scope']) ? $params['scope'] : null;$/;"	v
 scope_params_as_array	include\facebook-facebook-php-sdk\tests\tests.php	/^    $scope_params_as_array = array('email','sms','read_stream');$/;"	v
 screenshots	include\fw\analyze.php	/^    public $screenshots = FALSE;$/;"	v
-script	js\jquery.flickable-1.0b3-jq1.6.js	/^	function script(elem) {$/;"	f
+script	js\jquery.flickable-1.0b3-jq1.6.js	/^    function script(elem) {$/;"	f
 search	include\smarty\Smarty_Compiler.class.php	/^        $search = "~{$ldq}\\*(.*?)\\*{$rdq}|{$ldq}\\s*literal\\s*{$rdq}(.*?){$ldq}\\s*\/literal\\s*{$rdq}|{$ldq}\\s*php\\s*{$rdq}(.*?){$ldq}\\s*\/php\\s*{$rdq}~s";$/;"	v
 search	include\smarty\plugins\function.mailto.php	/^    $search = array('%40', '%2C');$/;"	v
 search	include\smarty\plugins\modifier.regex_replace.php	/^        $search = substr($search, 0, -strlen($match[1])) . preg_replace('![e\\s]+!', '', $match[1]);$/;"	v
@@ -4156,7 +4297,7 @@ session_var_name	include\facebook-facebook-php-sdk\src\facebook.php	/^    $sessi
 set	include\fw\parameterManager.php	/^    public function set($key,$value){$/;"	f
 set	include\fw\sessionManager.php	/^    public function set($key,$value){$/;"	f
 setAccessToken	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  public function setAccessToken($access_token) {$/;"	f
-setAdd	include\application\parameter.php	/^    public function setAdd($itunes_id,$itunes_url,$name,$cloudinary_images){$/;"	f
+setAdd	include\application\parameter.php	/^    public function setAdd($itunes_id,$itunes_url,$name,$mobile_images,$console_images){$/;"	f
 setAdd	include\file\parameter.php	/^    public function setAdd(){$/;"	f
 setAdd	include\image\parameter.php	/^    public function setAdd($aid,$uid,$cloudinary){$/;"	f
 setAdd	include\paypal_payment_info\parameter.php	/^    public function setAdd($uid){$/;"	f
@@ -4201,7 +4342,7 @@ setGlobalNavi	include\fw\positionManager.php	/^    static function setGlobalNavi
 setHostname	include\fw\qdmail.php	/^    function setHostname($hostname){}$/;"	f
 setIlunaTo	include\fw\mailManager.php	/^    private function setIlunaTo(){$/;"	f
 setImagesUpdate	include\paypal_payment_info\parameter.php	/^    public function setImagesUpdate($sid,$images){$/;"	f
-setImagesUpdate	include\simulator\parameter.php	/^    public function setImagesUpdate($sid,$images){$/;"	f
+setImagesUpdate	include\simulator\parameter.php	/^    public function setImagesUpdate($sid,$mobile_images,$console_images){$/;"	f
 setIndexColumn	include\fw\database.php	/^    public function setIndexColumn($column){$/;"	f
 setInquiryTo	include\fw\mailManager.php	/^    private function setInquiryTo($mail){$/;"	f
 setLastLoginParameter	include\application\parameter.php	/^    public function setLastLoginParameter(){$/;"	f
@@ -4245,7 +4386,7 @@ setUp	include\cloudinary\api_test.php	/^  public function setUp() {$/;"	f
 setUp	include\cloudinary\cloudinary_test.php	/^    public function setUp() {$/;"	f
 setUp	include\cloudinary\uploader_test.php	/^    public function setUp() {$/;"	f
 setUp	include\facebook-facebook-php-sdk\tests\tests.php	/^  protected function setUp() {$/;"	f
-setUpdate	include\application\parameter.php	/^    public function setUpdate($aid,$name,$cloudinary_images){$/;"	f
+setUpdate	include\application\parameter.php	/^    public function setUpdate($aid,$name,$mobile_images,$console_images){$/;"	f
 setUpdate	include\file\parameter.php	/^    public function setUpdate($fid){$/;"	f
 setUpdate	include\image\parameter.php	/^    public function setUpdate($uid){$/;"	f
 setUpdate	include\paypal_payment_info\parameter.php	/^    public function setUpdate($sid){$/;"	f
@@ -4272,12 +4413,14 @@ show_attr	include\fw\simple_html_dom.php	/^function dump_html_tree($node, $show_
 show_attr_value	include\smarty\Smarty_Compiler.class.php	/^                        $show_attr_value = "(bool)$attr_value";$/;"	v
 show_attr_value	include\smarty\Smarty_Compiler.class.php	/^                        $show_attr_value = $attr_value ? 'true' : 'false';$/;"	v
 shutdownHandler	include\fw\prepend.php	/^function shutdownHandler(){$/;"	f
-sid	iframe.php	/^$sid = $_GET['sid'];$/;"	v
-sid	simulators\image\sort.php	/^    $sid = $simulator_handle->updateImagesRow($sid,$new_images);$/;"	v
-sid	simulators\image\sort.php	/^$sid = $con->base->getPath('sid',TRUE);$/;"	v
-sid	simulators\new\add.php	/^                $sid = $itunes_app[0]['_id'];$/;"	v
-sid	simulators\new\add.php	/^                $sid = $simulator_handle->addRow($authManager->uid,$aid);$/;"	v
-sid	simulators\view.php	/^$sid = $con->base->getPath('sid',TRUE);$/;"	v
+sid	console\image\sort.php	/^    $sid = $simulator_handle->updateImagesRow($sid,$new_mobile_images,$new_console_images);$/;"	v
+sid	console\image\sort.php	/^$sid = $con->base->getPath('sid',TRUE);$/;"	v
+sid	console\new\add.php	/^                $sid = $simulator[0]['_id'];$/;"	v
+sid	console\new\add.php	/^                $sid = $simulator_handle->addRow($authManager->uid,$aid);$/;"	v
+sid	console\view.php	/^$sid = $con->base->getPath('sid',TRUE);$/;"	v
+sid	include\fw\fineUploder.php	/^            $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$images);$/;"	v
+sid	include\fw\handleUploder.php	/^            $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$mobile_images,$console_images);$/;"	v
+sid	include\paypal\common_process.php	/^                    $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_mobile_images,$new_console_images);$/;"	v
 sig	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $sig = self::base64UrlDecode($encoded_sig);$/;"	v
 sign	include\fw\logicManager.php	/^    protected $sign = '>=';$/;"	v
 sign	include\fw\qdmail.php	/^    function sign( $string = null ){$/;"	f
@@ -4292,30 +4435,49 @@ simple_html_dom	include\fw\simple_html_dom.php	/^class simple_html_dom {$/;"	c
 simple_html_dom_node	include\fw\simple_html_dom.php	/^class simple_html_dom_node {$/;"	c
 simple_params	include\cloudinary\cloudinary.php	/^        $simple_params = array("x"=>"x", "y"=>"y", "r"=>"radius", "d"=>"default_image", "g"=>"gravity", $/;"	v
 simple_replace	include\fw\qdmail.php	/^    var $simple_replace    = false;$/;"	v
-simulator	iframe.php	/^$simulator = $simulator_logic->getAppSimulator($sid);$/;"	v
-simulator	simulators\image\sort.php	/^    $simulator = $simulator_logic->getAppSimulator($sid);$/;"	v
-simulator	simulators\view.php	/^$simulator = $simulator_logic->getAppSimulator($sid);$/;"	v
+simulator	console\image\sort.php	/^    $simulator = $simulator_logic->getAppSimulator($sid);$/;"	v
+simulator	console\new\add.php	/^            $simulator = $simulator_logic->getUserAppSimulator($authManager->uid,$aid);$/;"	v
+simulator	console\view.php	/^$simulator = $simulator_logic->getAppSimulator($sid);$/;"	v
+simulator	include\fw\fineUploder.php	/^            $simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);\/\/applicationも入ってます。$/;"	v
+simulator	include\fw\handleUploder.php	/^            $simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);\/\/applicationも入ってます。$/;"	v
+simulator	include\paypal\common_process.php	/^                $simulator = $simulator_logic->getUserSimulator($user_licence->user[0]['_id']);\/\/applicationも入ってます。$/;"	v
+simulator	phone.php	/^$simulator = $simulator_logic->getAppSimulator($_GET['sid']);$/;"	v
 simulatorHandle	include\simulator\handle.php	/^class simulatorHandle extends handleManager$/;"	c
 simulatorLogic	include\simulator\logic.php	/^class simulatorLogic extends logicManager$/;"	c
 simulatorParameter	include\simulator\parameter.php	/^class simulatorParameter extends parameterManager$/;"	c
 simulatorTable	include\simulator\table.php	/^class simulatorTable extends tableManager$/;"	c
-simulatorUtil	include\simulator\util.php	/^class simulatorUtil extends logicManager$/;"	c
-simulator_handle	simulators\image\sort.php	/^    $simulator_handle = new simulatorHandle();$/;"	v
-simulator_handle	simulators\new\add.php	/^            $simulator_handle = new simulatorHandle();$/;"	v
-simulator_logic	iframe.php	/^$simulator_logic = new simulatorLogic();$/;"	v
-simulator_logic	simulators\image\sort.php	/^    $simulator_logic = new simulatorLogic();$/;"	v
-simulator_logic	simulators\index.php	/^$simulator_logic = new simulatorLogic();$/;"	v
-simulator_logic	simulators\new\add.php	/^            $simulator_logic = new simulatorLogic();$/;"	v
-simulator_logic	simulators\view.php	/^$simulator_logic = new simulatorLogic();$/;"	v
-simulators	simulators\index.php	/^$simulators = $simulator_logic->getUserSimulator($authManager->uid);$/;"	v
+simulator_handle	console\image\sort.php	/^    $simulator_handle = new simulatorHandle();$/;"	v
+simulator_handle	console\new\add.php	/^                $simulator_handle = new simulatorHandle();$/;"	v
+simulator_handle	include\fw\fineUploder.php	/^            $simulator_handle = new simulatorHandle();$/;"	v
+simulator_handle	include\fw\handleUploder.php	/^            $simulator_handle = new simulatorHandle();$/;"	v
+simulator_handle	include\paypal\common_process.php	/^                    $simulator_handle = new simulatorHandle();$/;"	v
+simulator_logic	console\image\sort.php	/^    $simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	console\index.php	/^$simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	console\new\add.php	/^            $simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	console\view.php	/^$simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	include\fw\fineUploder.php	/^            $simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	include\fw\handleUploder.php	/^            $simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	include\paypal\common_process.php	/^                $simulator_logic = new simulatorLogic();$/;"	v
+simulator_logic	phone.php	/^$simulator_logic = new simulatorLogic();$/;"	v
+simulators	console\index.php	/^$simulators = $simulator_logic->getUserSimulator($authManager->uid);$/;"	v
 single_eager	include\cloudinary\uploader.php	/^                $single_eager = implode("\/", array_filter(array(\\Cloudinary::generate_transformation_string($transformation), $format)));      $/;"	v
 singleton	include\Jsphon\Error.php	/^    function &singleton()$/;"	f
 size	include\cloudinary\cloudinary.php	/^        $size = Cloudinary::option_consume($options, "size");$/;"	v
+size	include\fw\fineUploder.php	/^            $size = max(1, $this->sizeLimit \/ 1024 \/ 1024) . 'KB';$/;"	v
+size	include\fw\fineUploder.php	/^        $size = $this->file->getSize();$/;"	v
+size	include\fw\handleUploder.php	/^            $size = max(1, $this->sizeLimit \/ 1024 \/ 1024) . 'KB';$/;"	v
+size	include\fw\handleUploder.php	/^        $size = $this->file->getSize();$/;"	v
 size	include\fw\qdmail.php	/^    function size( $kind = null ){$/;"	f
 size	include\fw\qdmail.php	/^    var $size            = array();$/;"	v
 sizeAll	include\fw\qdmail.php	/^    function sizeAll(){$/;"	f
 sizeBody	include\fw\qdmail.php	/^    function sizeBody(){$/;"	f
 sizeHeader	include\fw\qdmail.php	/^    function sizeHeader(){$/;"	f
+sizeLimit	console\image\fine_uploader.php	/^$sizeLimit = 0.5 * 1024 * 1024;$/;"	v
+sizeLimit	console\image\upload.php	/^    $sizeLimit = 0.5 * 1024 * 1024;$/;"	v
+sizeLimit	include\fw\fineUploder.php	/^            $sizeLimit = $this->toBytes(ini_get('upload_max_filesize'));$/;"	v
+sizeLimit	include\fw\fineUploder.php	/^$sizeLimit = 10 * 1024 * 1024;$/;"	v
+sizeLimit	include\fw\handleUploder.php	/^            $sizeLimit = $this->toBytes(ini_get('upload_max_filesize'));$/;"	v
+sizeLimit	include\fw\handleUploder.php	/^$sizeLimit = 10 * 1024 * 1024;$/;"	v
 size_string	include\smarty\plugins\modifier.make_qa_list.php	/^    $size_string = '';$/;"	v
 size_string	include\smarty\plugins\modifier.make_qa_list.php	/^    if($isLarge == SMARTY_BOOL_ON) $size_string = '_l';$/;"	v
 skip	include\fw\qdmail.php	/^                    $skip = true;$/;"	v
@@ -4647,6 +4809,8 @@ tag_modifier	include\smarty\Smarty_Compiler.class.php	/^        $tag_modifier = 
 tag_options	include\cloudinary\uploader.php	/^        $tag_options = array_merge($html_options, array("type" => "file", "name" => "file",$/;"	v
 tags	include\cloudinary\api.php	/^  function tags($options=array()) {$/;"	f
 tags	include\cloudinary\api_test.php	/^    $tags = $result["tags"];$/;"	v
+target	include\fw\fineUploder.php	/^        $target = fopen($path, "w");        $/;"	v
+target	include\fw\handleUploder.php	/^        $target = fopen($path, "w");        $/;"	v
 target	include\fw\qdmail.php	/^        $target = mb_substr( $line , $start , $length , $enc ) ;$/;"	v
 target_char	include\fw\qdmail.php	/^            $target_char = $this->charset_content;$/;"	v
 target_char	include\fw\qdmail.php	/^            $target_char = isset($content['_CHARSET']) $/;"	v
@@ -4657,6 +4821,8 @@ target_charset	include\fw\qdmail.php	/^            $target_charset = null;$/;"	v
 td_attr	include\smarty\plugins\function.html_table.php	/^    $td_attr = '';$/;"	v
 te_st	include\fw\qdmail.php	/^        $te_st = reset($param);$/;"	v
 tearDown	include\facebook-facebook-php-sdk\tests\tests.php	/^  protected function tearDown() {$/;"	f
+temp	include\fw\fineUploder.php	/^        $temp = tmpfile();$/;"	v
+temp	include\fw\handleUploder.php	/^        $temp = tmpfile();$/;"	v
 temp	include\fw\qdmail.php	/^            $temp = $this->deco_def[$this->deco_kind]['HTML_EXTERNAL'];$/;"	v
 temp	include\fw\qdmail.php	/^            $temp = array($/;"	v
 temp	include\fw\qdmail.php	/^            $temp = array_change_key_case( array_merge($def,$cont) , CASE_UPPER);$/;"	v
@@ -4682,6 +4848,7 @@ template_header	include\smarty\Smarty_Compiler.class.php	/^        $template_hea
 template_tags	include\smarty\Smarty_Compiler.class.php	/^        $template_tags = $_match[1];$/;"	v
 temporaryPath	include\fw\qdmail.php	/^    function temporaryPath( $option = null ){$/;"	f
 temporary_path	include\fw\qdmail.php	/^    var $temporary_path        = null;$/;"	v
+test	include\fw\utilManager.php	/^    static public function test(){$/;"	f
 test01_resource_types	include\cloudinary\api_test.php	/^  function test01_resource_types() {$/;"	f
 test02_resources	include\cloudinary\api_test.php	/^  function test02_resources() {$/;"	f
 test03_resources_cursor	include\cloudinary\api_test.php	/^  function test03_resources_cursor() {$/;"	f
@@ -4842,11 +5009,15 @@ text_trim_len	include\smarty\plugins\modifier.make_qa_list.php	/^            $te
 text_trim_len	include\smarty\plugins\modifier.make_qa_list.php	/^            $text_trim_len = 192;$/;"	v
 text_trim_len	include\smarty\plugins\modifier.make_qa_list.php	/^            $text_trim_len = 200;$/;"	v
 th_attr	include\smarty\plugins\function.html_table.php	/^    $th_attr = '';$/;"	v
+that	include\fw\fineUploder.php	/^     * Internal function that checks if server's may sizes match the$/;"	f
+that	include\fw\handleUploder.php	/^     * Internal function that checks if server's may sizes match the$/;"	f
 that	include\smarty\Smarty.class.php	/^     * get or set an array of cached attributes for function that is$/;"	f
+these	include\fw\fineUploder.php	/^            $these = implode(', ', $this->allowedExtensions);$/;"	v
+these	include\fw\handleUploder.php	/^            $these = implode(', ', $this->allowedExtensions);$/;"	v
 this_varname	include\smarty\internals\core.write_compiled_include.php	/^    $this_varname = ((double)phpversion() >= 5.0) ? '_smarty' : 'this';$/;"	v
 throwAPIException	include\facebook-facebook-php-sdk\src\base_facebook.php	/^  protected function throwAPIException($result) {$/;"	f
 throwDBError	include\fw\database.php	/^    private function throwDBError(){$/;"	f
-throwError	include\fw\errorManager.php	/^    static public function throwError($error_code){$/;"	f
+throwError	include\fw\errorManager.php	/^    static public function throwError($error_code,$is_phone = false){$/;"	f
 throw_error	include\fw\csrf.php	/^    public static function validateToken( $token, $throw_error = TRUE )$/;"	v
 time	include\application\parameter.php	/^        $time = time();$/;"	v
 time	include\file\handle.php	/^        $time = time();$/;"	v
@@ -4907,6 +5078,9 @@ to	include\smarty\Smarty.class.php	/^     * Registers an output filter function 
 to	include\smarty\Smarty.class.php	/^     * Registers block function to be used in templates$/;"	f
 to	include\smarty\Smarty.class.php	/^     * Registers custom function to be used in templates$/;"	f
 to	include\smarty\internals\core.write_compiled_include.php	/^        \/* add function to compiled include *\/$/;"	f
+toBytes	include\fw\fineUploder.php	/^    private function toBytes($str){$/;"	f
+toBytes	include\fw\handleUploder.php	/^    private function toBytes($str){$/;"	f
+toElement	js\ajaxupload.3.5.js	/^var toElement = function(){$/;"	f
 toPut	include\fw\base.php	/^                                $toPut = TRUE;$/;"	v
 toPut	include\fw\base.php	/^                            $toPut = TRUE;$/;"	v
 toPut	include\fw\base.php	/^                    $toPut = FALSE;$/;"	v
@@ -5011,7 +5185,6 @@ uc_digits	include\smarty\plugins\modifier.capitalize.php	/^function smarty_modif
 uc_digits	include\smarty\plugins\modifier.capitalize.php	/^function smarty_modifier_capitalize_ucfirst($string, $uc_digits = null)$/;"	v
 uid	auth\facebook.php	/^                $uid = $user_handle->addRow($fb_user[0]['uid'],$fb_user[0]['name'],$fb_user[0]['email']);$/;"	v
 uid	include\facebook\authApi.php	/^        $uid = $this->facebook->getUser();$/;"	v
-uid	simulators\new\add.php	/^                $uid = $user_handle->updateUseLicenceRow($authManager->uid,$user_logic->use_licence + 1);$/;"	v
 uid_query	include\facebook\userApi.php	/^            $uid_query = 'uid in ('.implode(',',$uid).')';$/;"	v
 uid_query	include\facebook\userApi.php	/^        $uid_query = '';$/;"	v
 undone	include\fw\qdmail.php	/^    function undone(){$/;"	f
@@ -5035,14 +5208,14 @@ update	include\fw\database.php	/^    function update($table){$/;"	f
 updateDebug	include\fw\handleManager.php	/^    protected function updateDebug($table,$parameter){$/;"	f
 updateFile	include\fw\fileManager.php	/^    public function updateFile($loop_number,$isUploadFile = TRUE){$/;"	f
 updateFile	include\fw\fileManager.php	/^    public function updateFile(){$/;"	f
-updateImagesRow	include\simulator\handle.php	/^    public function updateImagesRow($sid,$images){$/;"	f
+updateImagesRow	include\simulator\handle.php	/^    public function updateImagesRow($sid,$mobile_images,$console_images){$/;"	f
 updateLastLoginRow	include\application\handle.php	/^    public function updateLastLoginRow($uid){$/;"	f
 updateLastLoginRow	include\user\handle.php	/^    public function updateLastLoginRow($uid){$/;"	f
 updateLocaleValue	include\fw\container.php	/^    public function updateLocaleValue($key,$value){$/;"	f
 updateLoginMaxLicence	include\user\licence.php	/^    public function updateLoginMaxLicence($new_max,$uid = false){$/;"	f
 updateMaxLicence	include\user\licence.php	/^    public function updateMaxLicence($uid,$item_name){$/;"	f
 updateMaxLicenceRow	include\user\handle.php	/^    public function updateMaxLicenceRow($uid,$max_licence){$/;"	f
-updateRow	include\application\handle.php	/^    public function updateRow($aid,$name,$cloudinary_images){$/;"	f
+updateRow	include\application\handle.php	/^    public function updateRow($aid,$name,$mobile_images,$console_images){$/;"	f
 updateRow	include\file\handle.php	/^    public function updateRow($fid,$file_object = null,$loop_number = FALSE){$/;"	f
 updateRow	include\fw\handleManager.php	/^    public function updateRow($table,$parameter){$/;"	f
 updateRow	include\image\handle.php	/^    public function updateRow($uid){$/;"	f
@@ -5057,6 +5230,12 @@ upload	include\cloudinary\uploader.php	/^        public static function upload($
 upload	include\fw\cloudinaryUploader.php	/^    public function upload($url,$public_id = null) {$/;"	f
 uploadFile	include\fw\fileManager.php	/^        $uploadFile = $isUploadFile ? $_FILES[$this->file_key] : null;$/;"	v
 uploadFile	include\fw\fileManager.php	/^        $uploadFile = $this->file_upload ? $_FILES[$this->file_key] : null;$/;"	v
+uploadSize	include\fw\fineUploder.php	/^        $uploadSize = $this->toBytes(ini_get('upload_max_filesize'));        $/;"	v
+uploadSize	include\fw\handleUploder.php	/^        $uploadSize = $this->toBytes(ini_get('upload_max_filesize'));        $/;"	v
+uploader	console\image\fine_uploader.php	/^$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);$/;"	v
+uploader	console\image\upload.php	/^    $uploader = new handleUploader($allowedExtensions, $sizeLimit);$/;"	v
+uploader	include\fw\fineUploder.php	/^$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);$/;"	v
+uploader	include\fw\handleUploder.php	/^$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);$/;"	v
 uri	include\cloudinary\api.php	/^    $uri = array("derived_resources");$/;"	v
 uri	include\cloudinary\api.php	/^    $uri = array("resources", $resource_type);$/;"	v
 uri	include\cloudinary\api.php	/^    $uri = array("resources", $resource_type, "tags", $tag);$/;"	v
@@ -5114,15 +5293,12 @@ userLogic	include\user\logic.php	/^class userLogic extends logicManager$/;"	c
 userParameter	include\user\parameter.php	/^class userParameter extends parameterManager$/;"	c
 userTable	include\user\table.php	/^class userTable extends tableManager$/;"	c
 user_access_token	include\facebook-facebook-php-sdk\src\base_facebook.php	/^    $user_access_token = $this->getUserAccessToken();$/;"	v
-user_app_simulator	simulators\new\add.php	/^            $user_app_simulator = $simulator_logic->getUserAppSimulator($authManager->uid,$aid);$/;"	v
 user_handle	auth\facebook.php	/^                $user_handle = new userHandle();$/;"	v
-user_handle	simulators\new\add.php	/^                $user_handle = new userHandle();$/;"	v
+user_handle	console\new\add.php	/^                $user_handle = new userHandle();$/;"	v
 user_info	include\facebook-facebook-php-sdk\src\base_facebook.php	/^      $user_info = $this->api('\/me');$/;"	v
-user_licence	paypal\notify.php	/^                $user_licence = new userLicence();$/;"	v
-user_licence	paypal\success.php	/^        $user_licence = new userLicence();$/;"	v
+user_licence	include\paypal\common_process.php	/^    $user_licence = new userLicence();$/;"	v
 user_logic	auth\facebook.php	/^$user_logic = new userLogic();$/;"	v
-user_logic	simulators\new\add.php	/^$user_logic = new userLogic();$/;"	v
-user_logic	simulators\new\index.php	/^$user_logic = new userLogic();$/;"	v
+user_logic	console\new\add.php	/^$user_logic = new userLogic();$/;"	v
 uses	include\facebook-facebook-php-sdk\src\base_facebook.php	/^   * The Facebook class uses PHP sessions to provide a primitive$/;"	c
 utf16char	include\Jsphon\Encoder.php	/^            $utf16char = mb_convert_encoding($utf8char, 'UTF-16', 'UTF-8');$/;"	v
 utf16sur	include\Jsphon\Encoder.php	/^        $utf16sur = '[\\xF0-\\xF3][\\x80-\\xBF]{3}|\\xF4[\\x80-\\x8F][\\x80-\\xBF]{2}';$/;"	v
@@ -5139,6 +5315,8 @@ utilManager	include\fw\utilManager.php	/^class utilManager$/;"	c
 val	include\facebook-facebook-php-sdk\tests\tests.php	/^    $val = '42';$/;"	v
 val	include\facebook-facebook-php-sdk\tests\tests.php	/^    $val = 42;$/;"	v
 val	include\fw\database.php	/^            \/\/if(!is_numeric($val)) $val = mysql_escape_string($val);$/;"	v
+val	include\fw\fineUploder.php	/^        $val = trim($str);$/;"	v
+val	include\fw\handleUploder.php	/^        $val = trim($str);$/;"	v
 val	include\fw\simple_html_dom.php	/^            if ($val===null || $val===false)$/;"	v
 val	include\fw\simple_html_dom.php	/^            if(!empty($m[2])) {$key='id'; $val=$m[2];}$/;"	v
 val	include\fw\simple_html_dom.php	/^            if(!empty($m[3])) {$key='class'; $val=$m[3];}$/;"	v
@@ -5175,6 +5353,8 @@ var	include\Jsphon\Decoder.php	/^ * $var = $json->decode($value);$/;"	v
 var	include\Jsphon\Jsphon.php	/^ * $var =  Jsphon::decode($json);$/;"	v
 var	include\fw\qdmail.php	/^    function debugReport( $var = null ){$/;"	v
 var	include\smarty\plugins\function.mailto.php	/^    foreach ($params as $var=>$value) {$/;"	v
+var.f	js\ajaxupload.3.5.js	/^        var f = function(){$/;"	f
+var.getOffset	js\ajaxupload.3.5.js	/^    var getOffset = function(el){$/;"	f
 var_expr	include\smarty\Smarty_Compiler.class.php	/^                $var_expr = $_complete_var;$/;"	v
 var_expr	include\smarty\Smarty_Compiler.class.php	/^            $var_expr = strtr($var_expr, $_replace);$/;"	v
 var_name	include\smarty\Config_File.class.php	/^                $var_name = rtrim($match[1]);$/;"	v
@@ -5216,6 +5396,7 @@ width	include\smarty\plugins\modifier.mobile_google_static_map.php	/^$width = 24
 width	include\smarty\plugins\modifier.mobile_img.php	/^        $width = $width *2;$/;"	v
 width	include\smarty\plugins\modifier.mobile_question_icon.php	/^        $width = 30;$/;"	v
 width	include\smarty\plugins\modifier.mobile_question_icon.php	/^    $width = 15;$/;"	v
+width	popapps.php	/^        $width = 240;$/;"	v
 widthSubStr	include\fw\qdmail.php	/^    function widthSubStr( $line , $start , $length , $enc ){$/;"	f
 width_per	include\fw\utilManager.php	/^        $width_per =  round($max_width \/ $width,2);$/;"	v
 width_per	include\smarty\plugins\modifier.getCloudinaryFit.php	/^    $width_per =  round($max_width \/ $width,2);$/;"	v

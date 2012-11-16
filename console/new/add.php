@@ -46,7 +46,7 @@ if($con->isPost){
             */
             //application table add////////////////////////////////////////////////////////////////
             //cloudinary
-            require "fw/cloudinaryUploader.php";
+            require_once "fw/cloudinaryUploader.php";
             require_once('application/handle.php');
             $application_handle = new applicationHandle();
             if($application === FALSE){
@@ -54,56 +54,36 @@ if($con->isPost){
                 //screenshots
                 foreach ($analyze->screenshots as $url){
                     $cloudinary = cloudinaryUploader::upload($url);
-                    $images['screenshots'][] = array
-                    (
-                        'public_id'=>$cloudinary['public_id'],
-                        'version'=>$cloudinary['version'],
-                        'secure_url'=>$cloudinary['secure_url'],
-                        'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-                        'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'])))
-                    );
+                    $mobile_images['screenshots'][] = utilManager::getMobileImageParam($cloudinary);
+                    $console_images['screenshots'][] = utilManager::getConsoleImageParam($cloudinary);
                 }
                 
                 //logo
                 $cloudinary = cloudinaryUploader::upload($analyze->logo);
-                $images['logo'] = array
-                (
-                    'public_id'=>$cloudinary['public_id'],
-                    'version'=>$cloudinary['version'],
-                    'secure_url'=>$cloudinary['secure_url'],
-                    'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING))
-                );
-                $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text,$images);
+                $mobile_images['logo'] = utilManager::getLogoParam($cloudinary);
+                $con->db->cloudinary_image = $mobile_images;//rollback 準備
+                $aid = $application_handle->addRow($itunes_id,$_POST['itunes_url'],$analyze->h1_text,$mobile_images,$console_images);
             }else{
                 //update
                 //screenshots
                 $i = 0;
-                $old_images = unserialize($application[0]['col_images']);
+                $old_mobile_images = unserialize($application[0]['col_mobile_images']);
+                //$old_images = unserialize($application[0]['col_console_images']);
+                
                 foreach ($analyze->screenshots as $url){
-                    $cloudinary = cloudinaryUploader::upload($url,isset($old_images['screenshots'][$i]) ? $old_images['screenshots'][$i]['public_id'] : null);
-                    $images['screenshots'][$i] = array
-                    (
-                        'public_id'=>$cloudinary['public_id'],
-                        'version'=>$cloudinary['version'],
-                        'secure_url'=>$cloudinary['secure_url'],
-                        'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-                        'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'])))
-                    );
+                    $cloudinary = cloudinaryUploader::upload($url,isset($old_mobile_images['screenshots'][$i]) ? $old_mobile_images['screenshots'][$i]['public_id'] : null);
+                    $mobile_images['screenshots'][$i] = utilManager::getMobileImageParam($cloudinary);
+                    $console_images['screenshots'][$i] = utilManager::getConsoleImageParam($cloudinary);
                     $i++;
                 }
-                $cloudinary = cloudinaryUploader::upload($analyze->logo,isset($old_images['logo']['public_id']) ? $old_images['logo']['public_id'] : null);
-                $images['logo'] = array
-                (
-                    'public_id'=>$cloudinary['public_id'],
-                    'version'=>$cloudinary['version'],
-                    'secure_url'=>$cloudinary['secure_url'],
-                    'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING))
-                );
-                $aid = $application_handle->updateRow($application[0]['_id'],$_POST['title'],$images);
+                $cloudinary = cloudinaryUploader::upload($analyze->logo,isset($old_mobile_images['logo']['public_id']) ? $old_mobile_images['logo']['public_id'] : null);
+                $mobile_images['logo'] = utilManager::getLogoParam($cloudinary);
+                $con->db->cloudinary_image = $mobile_images;//rollback 準備
+                $aid = $application_handle->updateRow($application[0]['_id'],$_POST['title'],$mobile_images,$console_images);
             }
             if(!$aid){
                 //rollback
-                cloudinaryUploader::rollback($images);
+                cloudinaryUploader::rollback($mobile_images);
                 require_once('fw/errorManager.php');
                 errorManager::throwError(E_CMMN_HANDLE_APP_STOP);
             }
@@ -116,10 +96,10 @@ if($con->isPost){
             if(!$simulator){
                 require_once('simulator/handle.php');
                 $simulator_handle = new simulatorHandle();
-                $sid = $simulator_handle->addRow($authManager->uid,$aid);
+                $sid = $simulator_handle->addRow($authManager->uid,$aid,$analyze->direction);
                 if(!$sid){
                     //rollback
-                    cloudinaryUploader::rollback($images);
+                    cloudinaryUploader::rollback($mobile_images);
                     require_once('fw/errorManager.php');
                     errorManager::throwError(E_CMMN_HANDLE_SIM_STOP);
                 }
@@ -134,7 +114,7 @@ if($con->isPost){
             $con->safeExitRedirect('/console/view/sid/'.$sid);
         }else{
             //解析できなかった
-            checkSimulatorEntry::$error['error_analyze'] = '解析できませんでした。';
+            checkSimulatorEntry::$error['error_analyze'] = 'can\'t analyze';
         }
     }
 }

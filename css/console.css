@@ -1,0 +1,247 @@
+.input{
+    margin-bottom:10px;
+}
+
+.layout
+{
+  width: 100 % ;
+}
+
+.layout td
+{
+  vertical-align: top;
+}
+
+/* Line 1 */
+.layout td.sidebar
+{
+  /*width: 340px;*/
+  /*width: 240px;*/
+  /*margin-left: 20px;*/
+}
+
+.sort_section{
+    width:190px;
+    height:210px;
+    border: 1px solid #aaa;
+    position: relative;
+}
+
+.sort_btn{
+    margin: 0px;
+    padding: 0x;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#main
+{
+    width: 916px;
+    border: 1px solid #aaa;
+}
+#main .section
+{
+    /*z-index: 10000;*/
+    margin: 5px 0 5px 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    -moz-box-shadow: 2px 2px 4px #aaa;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 4px#aaa;
+    -webkit-border-radius: 6px;
+    box-shadow: 2px 2px 4px #aaa;
+    background - color: white;
+    position: relative;
+}
+
+
+#main .section h3
+{
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  padding-bottom: 7px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #bbbbbb;
+  font-size: 18px;
+  font-weight: bold;
+  color: #325376;
+}
+
+#main .section .info {
+    width: 218px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+#main .section .image {
+    overflow: hidden;
+    margin: 5px 0;
+    position: relative;
+}
+
+#main .section .info .item {
+    margin: 10px 0;
+}
+#main .section .info .item .label {
+    float: left;
+    color: #555;
+    font-size:11px;
+    font-weight:bold;
+    color:#215b98;
+}#main .section .info .item .value {
+    float: right;
+    font-weight: bold;
+    color: #555;
+    font-size:11px;
+    max-width:318px;
+    overflow:hidden;
+    word-wrap:break-word;
+}#main .section .info .item .value .box_opener {
+    color: #0260c4;
+    text-align:right;
+    cursor:pointer;
+}#main .section .info .item .samples {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    right: 0;
+    z - index: 100;
+}#main .section .info .item .samples .sample {
+    font-size: 11px;
+    color:#555;
+    text-align:left;
+    margin:2px 0;
+}#main .section .info .item: after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+#main .section .info .item .value .embed_code {
+    clear:both;
+    width:200px;
+    height:auto;
+}
+
+#main .selected_plan
+{
+    width:218px;
+}
+#main .selected_plan .title
+{
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.upgrade_prompt
+{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #bbbbbb;
+}
+
+#main .selected_plan .details li
+{
+  width: 300px;
+  display: block;
+}
+#main .selected_plan .details .value strong, #main .selected_plan .details .label strong
+{
+  font-size: 13px;
+  font-weight: bold;
+}
+.upgrade_prompt .title
+{
+  font-weight: bold;
+  color: #8e1d06;
+}
+
+#main .selected_plan .details .value, #main .selected_plan .details .label
+{
+  font-size: 13px;
+  line-height: 24px;
+}
+#main .selected_plan .details .value{
+    color:#E88327;
+    float:left;
+    padding-right:5px;
+}
+#main .selected_plan .details .label
+{
+
+}
+.upgrade_prompt ul li
+{
+  margin-bottom: 10px;
+}
+
+.admin a
+{
+  color: #0f6fb8;
+}
+
+.upgrade_prompt ul li a
+{
+  font-weight: bold;
+  font-size: 13px;
+  color: #325376;
+}
+
+.upgrade_prompt ul li .details
+{
+  color: #666666;
+  font-size: 12px;
+}
+
+/*action*/
+#upload{
+    text-align:center;
+    color:#3366cc;
+    margin: 0px;
+    padding: 0x;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.darkbg{
+    background:#ddd !important;
+}
+#status{
+    font-family:Arial; padding:5px;
+}
+ul#files{
+    list-style:none;
+    padding:0;
+    margin:0;
+    margin: auto;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ul#files li{
+    float:left;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    background: #FFFFFF;
+    margin: 5px;
+    padding: 5px;
+    
+}
+ul#files li a{
+    height:32px;/*for spin*/
+}
+
+.success{background:#99f099; border:1px solid #339933;}
+.error{background:#f0c6c3; border:1px solid #cc6622;}

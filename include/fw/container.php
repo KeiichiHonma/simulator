@@ -8,6 +8,7 @@ require_once('fw/csrf.php');//csrf処理
 class container
 {
     public $db = null;
+    public $isThrowDBError = true;
     public $t = null;
     public $base = null;
     //public $common_locale;//共通翻訳ファイル

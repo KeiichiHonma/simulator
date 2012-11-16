@@ -4,96 +4,66 @@
 <meta charset="utf-8"> 
 <title>app</title>
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/sortable.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/fileuploader.css" rel="stylesheet">
 {include file="include/common/iphone_header.inc"}
-<script src="/js/fileuploader.min.js"></script>
-<script>
-function createUploader() {ldelim}
-    var i = {$count_screenshots};
-    var thumbnailuploader = new qq.FileUploader({ldelim}
-        element: $('#thumbnail-fine-uploader')[0],
-        action: '/console/image/fine_uploader',
-        //listElement:'<ul class="qq-upload-list-test"></ul>',
-        debug: true,
-        multiple: false,
-        //onComplete : function(id, fileName, responseJSON){ldelim}
-            //alert(responseJSON.greeting);
-            //console.log(c)
-        //{rdelim} //outputs: success: true, greeting: ;hello world'
-        //allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
-        //sizeLimit: 51200,
-        onComplete: function(id, fileName, responseJSON) {ldelim}
-            if(i >= {$smarty.const.MAX_IMAGE_COUNT}){ldelim}
-                alert('ng');
-                return false;
-            {rdelim}
-            if (responseJSON.error) {ldelim}
-                alert(responseJSON.error);
-            {rdelim}
-            if (responseJSON.mes) {ldelim}
-                alert(responseJSON.mes);
-            {rdelim}
-            if (responseJSON.success) {ldelim}
-                //$("#thumbnail-fine-uploader").remove();
-                
-                //$("#sort").append('<li class="thumbnail-result' + i + '"></li>');
-                $("#thumbnail-fine-uploader").before('<li class="thumbnail-result' + i + '"></li>');
-                $('.thumbnail-result'+i).append('<img src="' + responseJSON.file + '" alt="' + responseJSON.file + '" width="27" height="40" />');
-                $('.thumbnail-result'+i).append('<input type="hidden" name="' + 'thumbnail-result'+ i + '" value="' + i + '" />');
-                
-                i = i+1;
-                if(i == {$smarty.const.MAX_IMAGE_COUNT}){ldelim}
-                    $("#thumbnail-fine-uploader").css("display", "none");
-                {rdelim}
-                
-            {rdelim}
-        {rdelim}
-    {rdelim});
-{rdelim}
-window.onload = createUploader;
-</script>
+<script type="text/javascript" src="/js/jquery.spinner.js"></script>
+<script type="text/javascript" src="/js/ajaxupload.3.5.js" ></script>
+<script type="text/javascript" src="/js/console.js" ></script>
 </head>
 <body>
 {include file="include/common/header.inc"}
 
 <div id='main'>
-<table class='layout dashboard'>
+<table class='layout'>
 <tr>
-<td>
-{include file="include/common/iphone.inc"}
+<td width="20%">
+{include file="include/common/iphone5.inc"}
 </td>
-<td>
-    <section>
-        <form action="/console/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
-            <h2>Sortable Grid</h2>
-            <ul id="sort" class="sortable grid">
-            {if $iphone.screenshots}
-                {foreach from=$iphone.screenshots key="key" item="screenshot" name="screenshots"}
-                <li id="{$key}"><div class="block"><img src="{$screenshot.thumbnail_url}" /></div></li>
+<td width="60%">
+
+    <div class='section'>
+        <h3>pop Apps Images</h3>
+        <div class='image clearfix'>
+        スクリーンショットをアップしてください。
+            <ul id="files">
+            {if $iphone.console.screenshots}
+                {foreach from=$iphone.console.screenshots key="key" item="screenshot" name="screenshots"}
+                <li id="files_{$screenshot.public_id}"><a href="#" id="{$screenshot.public_id}" class="delete">Delete</a><br /><img src="{$screenshot.transformations_url}" /></li>
                 {/foreach}
             {/if}
-            
-            {if $count_screenshots < $smarty.const.MAX_IMAGE_COUNT}<li id="thumbnail-fine-uploader"></li>{/if}
-            
-{*            {section name=cnt start=$count_screenshots loop=$smarty.const.MAX_IMAGE_COUNT}
-                <li id="thumbnail-result{$smarty.section.cnt.index}" class="thumbnail-result"></li>
-            {/section}*}
             </ul>
-            
-            {*{if $count_screenshots < $smarty.const.MAX_IMAGE_COUNT}<div id="thumbnail-fine-uploader thumbnail-result{$count_screenshots}"></div>{/if}*}
+            <div id="upload"><span id="upload_btn">Upload image...<span></div>
+            {*<br /><span id="status" ></span>*}
+        </div>
+    </div>
 
-{*            <a href="/console/image/manage">Manage images...</a>
-            <input type="hidden" id="image_sort" name="image_sort" />
-            <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-            <input type="button" value="submit" id="image_sort_submit" />*}
-        </form>
-    </section>
-    
-</td>
-<td class='sidebar'>
     <div class='section'>
-        <h3>App Details</h3>
+        <h3>images Sort</h3>
+        <div class="sort_section">
+            <form action="/console/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
+                <ul id="sort" class="sortable grid">
+                {if $iphone.console.screenshots}
+                    {foreach from=$iphone.console.screenshots key="key" item="screenshot" name="screenshots"}
+                    <li id="sort_{$screenshot.public_id}" class="{$key}"><img src="{$screenshot.thumbnail_url}" /></li>
+                    {/foreach}
+                {/if}
+                </ul>
+                <div class='sort_btn'>
+                <input type="hidden" id="image_sort" name="image_sort" />
+                <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
+                <input type="button" value="submit" id="image_sort_submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</td>
+<td class='sidebar' width="20%">
+    <div class='section'>
+        <h3>pop Apps Details</h3>
         <div class='info'>
             <div class='item clearfix'>
                 <div class='label'>App name:</div>
@@ -104,8 +74,15 @@ window.onload = createUploader;
                 <div class='value'>{$simulator.0.col_itunes_id}</div>
             </div>
             <div class='item clearfix'>
-                <div class='label'>URL</div>
+                <div class='label'>itunes URL</div>
                 <div class='value'>{$simulator.0.col_itunes_url}</div>
+            </div>
+            <div class='item clearfix'>
+                <div class='label'>code</div>
+                <div class='value'>
+                <textarea class="embed_code" rows="5"><script type='text/javascript' src='{$popapps_url|escape:"html"}'></script></textarea>
+                <br />上記のコードをウェブサイトに設置します。
+                </div>
             </div>
         </div>
     </div>

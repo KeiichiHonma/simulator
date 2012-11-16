@@ -1,6 +1,6 @@
 <?php
 // --------------------------
-// 共通エラー
+// english
 // --------------------------
 
 //エラー宣言
@@ -15,17 +15,28 @@ define('E_CMMN_VALIDATE_TIME',             'SIM_CMMN_00008');
 define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
 define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
 
+//phone error
+define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
+define('E_PHONE_DOMAIN_EXISTS',               'SIM_PHONE_00002');
+define('E_PHONE_SCREENSHOTS_EXISTS',          'SIM_PHONE_00003');
+
 //エラーメッセージ
 define('SIM_CMMN_00001',               'URLが不正です。');
 define('SIM_CMMN_00002',               '不正なリクエストです。クッキーが有効になっていない可能性があります。ブラウザの設定をご確認ください。');
 define('SIM_CMMN_00003',               '現在、サーバーが混んでおります。しばらく経ってから、もう一度お試しください。');
 define('SIM_CMMN_00004',               'applicationで処理が停止しました。再度実行してください。');
 define('SIM_CMMN_00005',               'simulatorで処理が停止しました。再度実行してください。');
-define('SIM_CMMN_00006',               'PopAppが削除されたか存在しません。');
+define('SIM_CMMN_00006',               'popAppが削除されたか存在しません。');
 define('SIM_CMMN_00007',               '初期化中に不明なエラーが発生しました。弊社サポートセンターまでご連絡くださいませ。');
 define('SIM_CMMN_00008',               'クーポン発行可能な期間が過ぎています。<br />発行可能な期間は初回ログイン時より3か月となっております。<br />再度ご購入いただきますようお願いいたします。');
 define('SIM_CMMN_00009',               'userで処理が停止しました。再度実行してください。');
 define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
+
+//電話エラーメッセージ 3行まで
+define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');
+define('SIM_PHONE_00002',               '使用可能なドメインではありません。');
+define('SIM_PHONE_00003',               'スクリーンショットが削除されたか存在しません。');
+
 // --------------------------
 // USERエラー 認証
 // --------------------------

@@ -230,8 +230,6 @@ class Cloudinary {
 
 
 // Examples
-// cl_image_tag("israel.png", array("width"=>100, "height"=>100, "alt"=>"hello") # W/H are not sent to cloudinary
-// cl_image_tag("israel.png", array("width"=>100, "height"=>100, "alt"=>"hello", "crop"=>"fit") # W/H are sent to cloudinary
 function cl_image_tag($source, $options = array()) {
     $source = cloudinary_url_internal($source, $options);
     if (isset($options["html_width"])) $options["width"] = Cloudinary::option_consume($options, "html_width");
