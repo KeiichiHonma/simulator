@@ -9,7 +9,7 @@ class applicationHandle extends handleManager
         $this->parameter = new applicationParameter();
     }
     
-    public function addRow($itunes_id,$itunes_url,$name,$mobile_images,$console_images){
+    public function addRow($itunes_id,$itunes_url,$name,$mobile_images = null,$console_images = null){
         $this->parameter->setAdd($itunes_id,$itunes_url,$name,$mobile_images,$console_images);
         //return parent::addDebug(T_USER,$this->parameter);
         return parent::addRow(T_APPLICATION,$this->parameter);

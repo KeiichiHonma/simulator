@@ -36,6 +36,7 @@ $con->t->assign('popapps_url',$popapps_url);
 //iphone
 $iphone = utilManager::getIphone($simulator,true);
 $con->t->assign('iphone',$iphone);
+
 $con->t->assign('count_screenshots',$iphone['mobile']['count_screenshots']);
 $con->append();
 ?>

@@ -3,14 +3,14 @@ require_once('fw/parameterManager.php');
 require_once('simulator/table.php');
 class simulatorParameter extends parameterManager
 {
-    public function setAdd($uid,$aid,$direction){
+    public function setAdd($uid,$aid,$mobile_images,$console_images,$direction){
         parent::readyAddParameter(TRUE,time());
         $this->parameter['uid'] = $uid;
         $this->parameter['aid'] = $aid;
         $this->setParameter();
         $this->parameter['direction'] = $direction;
-        $this->parameter['mobile_images'] = null;
-        $this->parameter['console_images'] = null;
+        $this->parameter['mobile_images'] = is_null($mobile_images) ? null : serialize($mobile_images);
+        $this->parameter['console_images'] = is_null($console_images) ? null : serialize($console_images);
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 

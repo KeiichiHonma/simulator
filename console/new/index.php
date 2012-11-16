@@ -4,8 +4,8 @@ require_once('fw/authManager.php');
 $authManager = new authManager();
 $authManager->validateLogin(TRUE);
 
-$con->isPost = true;
-$_POST['itunes_url'] = 'https://itunes.apple.com/jp/app/3dirasuto-ar/id468637238?mt=8';
+//$con->isPost = true;
+//$_POST['itunes_url'] = 'https://itunes.apple.com/jp/app/3dirasuto-ar/id468637238?mt=8';
 if($con->isPost){
     //urlとしての文字列をチェック
     require_once('application/check.php');

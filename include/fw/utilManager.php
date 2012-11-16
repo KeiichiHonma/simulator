@@ -1,9 +1,6 @@
 <?php
 class utilManager
 {
-    static public function test(){
-        return '2';
-    }
     static public function checkPrefix($column,$as = null,$alias = null){
         if(preg_match("/^_id/", $column) == 1){
             if(!is_null($alias)){
@@ -41,8 +38,8 @@ class utilManager
     
     static public function getCloudinaryFit($width,$height,array $max_image_size){
         $string = 'w_';
-        $width_per =  round($max_width / $width,2);
-        $height_per =  round($max_height / $height,2);
+        $width_per =  round($max_image_size['max_width'] / $width,2);
+        $height_per =  round($max_image_size['max_height'] / $height,2);
         if($width_per > 1){
             //倍率そのまま
             if($height_per > 1){
@@ -110,7 +107,7 @@ class utilManager
             'version'=>$cloudinary['version'],
             'secure_url'=>$cloudinary['secure_url'],
             'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-            'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'],array(128,128))))
+            'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'],array('max_width'=>128,'max_height'=>128))))
         );
     }
 

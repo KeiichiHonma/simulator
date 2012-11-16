@@ -9,8 +9,8 @@ class applicationParameter extends parameterManager
         $this->parameter['itunes_id'] = $itunes_id;
         $this->parameter['itunes_url'] = $itunes_url;
         $this->parameter['name'] = $name;
-        $this->parameter['mobile_images'] = serialize($mobile_images);
-        $this->parameter['console_images'] = serialize($console_images);
+        $this->parameter['mobile_images'] = is_null($mobile_images) ? null : serialize($mobile_images);
+        $this->parameter['console_images'] = is_null($console_images) ? null : serialize($console_images);
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 

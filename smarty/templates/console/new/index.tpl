@@ -13,7 +13,7 @@
 {if !$error && $is_analyze}
     <form accept-charset="UTF-8" action="/console/new/add" class="group" id="new_application" method="post">
     <div class='input'>
-        <label for="simulator_site_attributes_url">■アプリの名前を入力してください。</label><br /><input id="simulator_title" maxlength="255" name="title" size="80" type="text" value="{$smarty.post.title}" />
+        <label for="simulator_site_attributes_url">■アプリの名前を入力してください。</label><br /><input id="simulator_title" maxlength="255" name="title" size="80" type="text" value="{$iphone.title}" />
     </div>
     
     <div class='input'>
@@ -21,7 +21,7 @@
     </div>
 
     <div class='input'>
-        <label for="simulator_site_attributes_url">■リンクするURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="link" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.link_url}" />
+        <label for="simulator_site_attributes_url">■リンクするURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="link" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$iphone.link}" />
     </div>
 
     <div class='input'>
@@ -39,33 +39,33 @@
         <input type="radio" id="position2" name="position" value="{$smarty.const.POSITION_CENTER}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_CENTER) == 0} checked{/if} /><label for="position2">center</label>
         <input type="radio" id="position3" name="position" value="{$smarty.const.POSITION_RIGHT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_RIGHT) == 0} checked{/if} /><label for="position3">right</label>
     </div>
-{include file="include/common/iphone5.inc"}
-{*    <div id="iphone">
+    <div id="iphone">
         <div id="app">
-        <div class="top-box">
-            <div style="float: left;"><img src="{$logo}" width="75" height="75" alt="" /></div>
-            <div>{$h1_text}<br /><a href="{$itune_link}" target="_blank"><img src="/img/common/install_btn.png"  width="125" height="23" alt="" /></a></div>
-        </div>
+            <div class="top-box">
+                <div style="float: left;"><img src="/im/logo?url={$iphone.logo.transformations_url|escape|urlencode}" width="75" height="75" /></div>
+                <div width="125">{$iphone.title}<br /><a href="{$iphone.link}" target="_blank"><img src="/img/phone/appstore"  width="125" height="42" alt="" /></a></div>
+            </div>
 
-        <div id="flickable">
-            <ul>
-            {if $screenshots}
-            {foreach from=$screenshots key="key" item="screenshot" name="screenshots"}
-            <li><div class="block"><img src="{$screenshot}"alt=""  width='190' height='338' /></div></li>
-            {/foreach}
-            {/if}
-            </ul>
+            <div id="flickable">
+                <ul id="flickable_ul">
+                {if $iphone.mobile.screenshots}
+                {foreach from=$iphone.mobile.screenshots key="key" item="screenshot" name="screenshots"}
+                <li id="flick_{$screenshot.public_id}"><div class="block"><img src="/im/screenshot?url={$screenshot.transformations_url|escape|urlencode}&direction={$iphone.direction}" /></div></li>
+                {/foreach}
+                {/if}
+                </ul>
+            </div>
+            
+            <div style="clear:both;"></div>
+                <ul id="select_box"> 
+                    {if $iphone.mobile.count_screenshots}
+                        {section name=cnt start=1  loop=$iphone.mobile.count_screenshots_on}
+                            <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a><li/>
+                        {/section}
+                    {/if}
+                </ul>
         </div>
-        <div style="clear:both;"></div>
-            <ul id="select_box">
-            {if $screenshots}
-            {foreach from=$screenshots key="key" item="screenshot" name="screenshots"}
-            <li><a href="#" id="select{$smarty.foreach.screenshots.iteration}">{$smarty.foreach.screenshots.iteration}</a></li>
-            {/foreach}
-            {/if}
-            </ul>
-        </div>
-    </div>*}
+    </div>
     <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
 
     <div class='actions'>
