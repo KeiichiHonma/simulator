@@ -39,26 +39,7 @@ $(function(){
 </head>
 
 <body>
-
-<!-- 
-//////////////////////////////////////////////////////////////////////////////
-header
-//////////////////////////////////////////////////////////////////////////////
--->
-<div id="header">
-    <div id="inner01" class="cf">
-        <div class="logo"><a href="index.html">popApps</a></div>
-        <div class="nav">
-            <ul class="cf">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#a_features">Features</a></li>
-                <li><a href="#a_plans">Plans</a></li>
-                <li><a href="#a_faq">FAQ</a></li>
-                <li class="fb"><a href=""><img src="/img/common/icon_header_01.jpg" alt="facebook" />Sign in</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+{include file="include/common/header.inc"}
 <div id="topContentArea">
     <div id="inner01" class="cf">
         <div class="left">
@@ -252,26 +233,6 @@ is the same in Apple's Reminders app.</p>
 
     </div>
 </div>
-<!-- 
-//////////////////////////////////////////////////////////////////////////////
-footer
-//////////////////////////////////////////////////////////////////////////////
--->
-<div id="footer">
-    <div id="inner01" class="cf">
-        <p>&copy; 81 Inc. All Rights Reserved.</p>
-        <ul>
-            <li><a href="#header">Home</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
-        </ul>
-    </div>
-</div>
-<!-- 
-//////////////////////////////////////////////////////////////////////////////
-script
-//////////////////////////////////////////////////////////////////////////////
--->
-
+{include file="include/common/footer.inc"}
 </body>
 </html>

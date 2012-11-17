@@ -18,16 +18,19 @@
     <div id='main' class="clearfix">
         <div class='fl'>
             {include file="include/common/iphone5.inc"}
+        </div>
+        <div class='fr'>
             <div class="boxArea">
-            {include file="include/console/detail.inc"}
+            {include file="include/console/setting.inc"}
             </div>
         </div>
-        
-        <div class="boxArea">
-            {include file="include/console/sort.inc"}
-            {include file="include/console/setting.inc"}
+        <div class='cl'>
+            <div class="boxArea fl">
+                {include file="include/console/sort.inc"}
+                {include file="include/console/detail.inc"}
+            </div>
         </div>
-        
+
         <div class='fl'>
             <div class="boxArea width100">
                 {include file="include/console/image.inc"}

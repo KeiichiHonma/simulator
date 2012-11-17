@@ -1,45 +1,92 @@
-.input{
-    margin-bottom:10px;
-}
-
-.layout
-{
-  width: 100 % ;
-}
-
-.layout td
-{
-  vertical-align: top;
-}
-
-/* Line 1 */
-.layout td.sidebar
-{
-  /*width: 340px;*/
-  /*width: 240px;*/
-  /*margin-left: 20px;*/
-}
-
-.sort_section{
-    width:190px;
-    height:210px;
-    border: 1px solid #aaa;
-    position: relative;
-}
-
-.sort_btn{
-    margin: 0px;
-    padding: 0x;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-
 #main
 {
-    width: 916px;
+    width: 996px;
     border: 1px solid #aaa;
+    margin: 0 auto;
 }
+
+#contents .boxArea {
+	margin: 0 0 40px;
+}
+#contents .boxArea div {
+	/*width: 240px;*/
+}
+
+#contents .boxArea .box-detail{
+    margin-top:10px;
+    width: 240px;
+}
+#contents .boxArea .box-sort{
+    float: left;
+    position: relative;
+    width: 240px;
+}
+#contents .boxArea .box-setting{
+    float: right;
+    width: 480px;
+}
+#contents .boxArea .box03{ float: right;}
+
+#contents .boxArea div h3 {
+	color: #248cc1;
+	font-size: 22px;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+}
+#contents .boxArea div p {
+	padding: 12px 16px 16px;
+}
+#contents .width100 .boxTemp
+{
+    width:755px;
+    /*border: 1px solid #CCCCCC;*/
+}
+
+#contents .boxTemp .embed_code {
+    clear:both;
+    width:350px;
+    height:auto;
+    border: 1px solid #CCCCCC;
+}
+
+#contents .boxArea .info {
+    overflow: hidden;
+    margin: 5px 0;
+    padding: 12px 16px 16px;
+}
+
+#contents .boxArea .image {
+    overflow: hidden;
+    margin: 0px;
+    padding: 12px 16px 16px;
+    position: relative;
+    /*border: 1px solid #CCCCCC;*/
+}
+
+#contents .boxArea .info .item {
+    margin: 10px 0;
+}
+#contents .boxArea .info .item .label {
+    float: left;
+    color: #555;
+    font-size:11px;
+    font-weight:bold;
+    color:#215b98;
+}#contents .boxArea .info .item .value {
+    float: right;
+    font-weight: bold;
+    color: #555;
+    font-size:11px;
+    /*max-width:318px;*/
+    overflow:hidden;
+    word-wrap:break-word;
+}#contents .boxArea .info .item: after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
 #main .section
 {
     /*z-index: 10000;*/
@@ -101,21 +148,6 @@
     max-width:318px;
     overflow:hidden;
     word-wrap:break-word;
-}#main .section .info .item .value .box_opener {
-    color: #0260c4;
-    text-align:right;
-    cursor:pointer;
-}#main .section .info .item .samples {
-    position: absolute;
-    width: 300px;
-    top: 0;
-    right: 0;
-    z - index: 100;
-}#main .section .info .item .samples .sample {
-    font-size: 11px;
-    color:#555;
-    text-align:left;
-    margin:2px 0;
 }#main .section .info .item: after {
     display: block;
     clear: both;
@@ -209,6 +241,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    /*background:#ddd !important;*/
 }
 
 .darkbg{

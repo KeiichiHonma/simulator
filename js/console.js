@@ -64,6 +64,7 @@ $(function(){
     new AjaxUpload(btnUpload, {
         action: '/console/image/upload',
         name: 'uploadfile',
+        data: {'sid':btnUpload.attr('class')},
         onSubmit: function(file, ext){
              if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
                 // extension is not allowed 
@@ -102,7 +103,8 @@ $(function(){
                 
                 $(this).sb();
             } else{
-                $('<li></li>').appendTo('#new_files').text(responseObj.error).addClass('error');
+                alert(responseObj.error);
+                $('<li></li>').appendTo('#files').text(responseObj.error).addClass('error');
             }
             $('#upload').spinner('remove');
             $('#upload_btn').show();

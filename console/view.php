@@ -38,5 +38,10 @@ $iphone = utilManager::getIphone($simulator,true);
 $con->t->assign('iphone',$iphone);
 
 $con->t->assign('count_screenshots',$iphone['mobile']['count_screenshots']);
-$con->append();
+if($simulator[0]['col_direction'] == DIRECTION_HORIZON){
+    $page = 'horizon';
+}else{
+    $page = 'vertical';
+}
+$con->append('console/'.$page);
 ?>

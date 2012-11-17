@@ -239,6 +239,7 @@ class handleUploader {
     }
 
     function handleCloudinaryUpload($replaceOldFile = FALSE){
+        if(!isset($_POST['sid']) || !is_numeric($_POST['sid'])) return array('error' => 'No sid');
        if (!$this->file){
             return array('error' => 'No files were uploaded.');
         }
@@ -264,8 +265,6 @@ class handleUploader {
         
         $ext = ($ext == '') ? $ext : '.' . $ext;
         $this->uploadName = $filename . $ext;
-
-        //move_uploaded_file($_FILES['uploadfile']['tmp_name'], $path);
         require "fw/cloudinaryUploader.php";
         $cloudinary = cloudinaryUploader::upload($_FILES['uploadfile']['tmp_name']);
         //$cloudinary = true;
@@ -279,18 +278,20 @@ class handleUploader {
             //simulatorテーブルに画像を追加
             require_once('simulator/logic.php');
             $simulator_logic = new simulatorLogic();
-            $simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);//applicationも入ってます。
-            $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);
-            $console_images = unserialize($simulator[0]['simulator_console_images']);
-            $mobile_image = utilManager::getMobileImageParam($cloudinary);
+            
+            $simulator = $simulator_logic->getOneSimulator($_POST['sid']);
+            if(!$simulator) return array('error' => 'No popApps');
+            $mobile_images = unserialize($simulator[0]['col_mobile_images']);
+            $console_images = unserialize($simulator[0]['col_console_images']);
+            $mobile_image = utilManager::getMobileImageParam($cloudinary,$simulator[0]['col_direction']);
             $mobile_images['screenshots'][] = $mobile_image;
 
-            $console_image = utilManager::getConsoleImageParam($cloudinary);
+            $console_image = utilManager::getConsoleImageParam($cloudinary,$simulator[0]['col_direction']);
             $console_images['screenshots'][] = $console_image;
             require_once('simulator/handle.php');
             $simulator_handle = new simulatorHandle();
             $con->db->cloudinary_image = $mobile_images;//rollback 準備
-            $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$mobile_images,$console_images);
+            $sid = $simulator_handle->updateImagesRow($simulator[0]['_id'],$mobile_images,$console_images);
             if(!$sid){
                 //rollback
                 cloudinaryUploader::rollback($mobile_images);

@@ -43,7 +43,7 @@
 <ul>
 {foreach from=$simulators key="key" item="simulator" name="simulators"}
 <li>
-{if !is_null($simulator.simulator_images)}
+{if !is_null($simulator.simulator_mobile_images)}
 <img src="{$simulator.simulator_mobile_images|getCloudinaryLogo}" /><a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>
 {else}
 <img src="{$simulator.application_mobile_images|getCloudinaryLogo}" /><a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>

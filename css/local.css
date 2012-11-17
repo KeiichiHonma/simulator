@@ -199,7 +199,7 @@ a:hover {
 #contents .featureArea div p {
 	padding: 12px 16px 16px;
 }
-#contents .width100 .boxTemp {
+#contents .width100 .. {
 	width: 100%;
 }
 #contents .width100 .boxTemp p.center {
