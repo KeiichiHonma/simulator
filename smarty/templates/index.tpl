@@ -11,31 +11,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" type="text/css" media="all" href="/css/master.css" />
 <!-- js -->
-{literal}
-<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    $('a[href^=#]').click(function() {
-        var speed = 1000;
-        var href= $(this).attr("href");
-        var target = $(href == "#" || href == "" ? 'html' : href);
-        var position = target.offset().top;
-        $($.browser.safari ? 'body' : 'html').animate({scrollTop:position}, speed, 'swing');
-        return false;
-    });
-});
-$(function(){
-    $('[src*="_off."]')
-        .mouseover(function()
-        {$(this).attr("src",$(this).attr("src").replace(/^(.+)_off(\.[a-z]+)$/,"$1_on$2"));})
-        .mouseout(function()
-        {$(this).attr("src",$(this).attr("src").replace(/^(.+)_on(\.[a-z]+)$/,"$1_off$2"));})
-        .each(function(init)
-        {$("<img>").attr("src",$(this).attr("src").replace(/^(.+)_off(\.[a-z]+)$/,"$1_on$2"));})
-});
-</script>
-<!--[if IE 6]><script src="/js/DD_belatedPNG.js"></script><script>DD_belatedPNG.fix('img, .png');</script><![endif]-->
-{/literal}
+{include file="include/common/javascript.inc"}
 </head>
 
 <body>
@@ -106,7 +82,7 @@ contents
         
         <!-- anchor--><div id="a_plans"> </div><!-- anchor-->
 
-        <h2>Choose a pop Apps Plan</h2>
+        <h2>Choose a Plan</h2>
         <div class="chooseArea mb60 cf">
             
             <!-- free str -->
@@ -210,8 +186,7 @@ contents
             <p class="question">Q. Do location-based reminders work on all iPhone models?</p>
             <span class="arrow"><img src="/img/common/icon_faq_01.png" alt="" /></span>
             <div class="boxTemp mb20">
-                <p>To take advantage of Checkmark's location-based reminders feature you'll need to be using an iPhone 4 or 4S.<br />Due to hardware limitations the iPhone 3GS and older are not capable of setting location-based reminders (this 
-is the same in Apple's Reminders app.</p>
+                <p>To take advantage of Checkmark's location-based reminders feature you'll need to be using an iPhone 4 or 4S.<br />Due to hardware limitations the iPhone 3GS and older are not capable of setting location-based reminders (this is the same in Apple's Reminders app.</p>
             </div>
             <!-- question end -->
             <!-- question str -->

@@ -7,8 +7,6 @@
         $('#select_box li a').click(function() {
             var index = $(this).text() - 1;
             element.flickable('select', index);
-
-
             $('#select_box li a').css("background-color", "#ffffff");
             $('#select_box li a').hover(function(){
                 $(this).css('background-color','#1b508c');

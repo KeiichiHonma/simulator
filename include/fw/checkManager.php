@@ -83,32 +83,6 @@ class checkManager
         return $param <= $date ? FALSE : TRUE;
     }
 
-    //有効期限エラー
-    static protected function checkReportDate($param,$arg){
-        if(is_null($param)) return TRUE;//nullだったらOK
-
-        $now = time();
-        $now_year = date("Y",$now);
-        $now_month = date("m",$now);
-        $now_day = date("d",$now);
-        
-        $validate_year = date("Y",$param);
-        $validate_month = date("m",$param);
-        $validate_day = date("d",$param);
-
-        $ng_time = mktime(23, 59, 59, $now_month,$now_day,$now_year);
-
-        if($now_year == $validate_year && $now_month == $validate_month && $now_day == $validate_day){
-            //当日NG
-            return FALSE;
-        }elseif($param <= $ng_time){
-            //前日より前NG
-            return FALSE;
-        }else{
-            return TRUE;
-        }
-    }
-
     //今日の日付のまま、時間等指定せずに登録ボタンを押した場合のエラー
     static protected function checkTodayDateBlank($param,$arg){
         //今日

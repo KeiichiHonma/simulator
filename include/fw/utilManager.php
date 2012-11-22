@@ -48,7 +48,7 @@ class utilManager
             }else{
                 $new_height = ceil($width_per * $height);
                 
-                if($new_height > $max_height){
+                if($new_height > $max_image_size['max_height']){
                     //倍率下げても高さが高い場合
                     return $string.$height_per;
                 }else{
@@ -58,7 +58,7 @@ class utilManager
         }else{
             $new_height = ceil($width_per * $height);
             
-            if($new_height > $max_height){
+            if($new_height > $max_image_size['max_height']){
                 //倍率下げても高さが高い場合
                 return $string.$height_per;
             }else{

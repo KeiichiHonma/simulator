@@ -140,6 +140,10 @@ if($con->isPost){
             //解析できなかった
             checkSimulatorEntry::$error['error_analyze'] = 'can\'t analyze';
         }
+    }else{
+        $con->append('console/');
     }
+}else{
+    $con->safeExitRedirect('/');
 }
 ?>

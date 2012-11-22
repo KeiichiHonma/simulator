@@ -16,11 +16,8 @@
     list-style: none;
     border: 1px solid #CCC;
     background: #F6F6F6;
-    font-family: "Tahoma";
-    color: #1C94C4;
     margin: 5px;
-    padding: 5px;
-    height: 22px;
+    padding: 6px;
 }
 .handles span {
     cursor: move;
@@ -28,13 +25,22 @@
 li.disabled {
     opacity: 0.5;
 }
-.sortable.grid li {
+.sortable.grid.direction0 li {
     line-height: 40px;
     float: left;
     width: 40px;
     height: 40px;
     text-align: center;
 }
+
+.sortable.grid.direction1 li {
+    line-height: 40px;
+    float: left;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+}
+
 li.highlight {
     background: #FEE25F;
 }

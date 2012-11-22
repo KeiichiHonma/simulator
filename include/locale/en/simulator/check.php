@@ -8,23 +8,30 @@ $locale = array
             'must'=>'必須です。',
             'length'=>'長さが不正です。'
         ),
-        'install_url'=>array
+        'domain'=>array
         (
             'must'=>'必須です。',
             'url_validate'=>'URLが不正です'
         ),
-        'link_url'=>array
+        'link'=>array
         (
             'must'=>'必須です。',
             'url_validate'=>'URLが不正です'
         ),
         'scroll'=>array
         (
-            'must'=>'必須です。'
+            'must'=>'必須です。',
+            'int'=>'不正な値です。',
         ),
         'position'=>array
         (
-            'must'=>'必須です。'
+            'must'=>'必須です。',
+            'int'=>'不正な値です。',
+        ),
+        'direction'=>array
+        (
+            'must'=>'必須です。',
+            'int'=>'不正な値です。',
         ),
     )
 );

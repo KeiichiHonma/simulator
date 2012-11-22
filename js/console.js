@@ -1,17 +1,17 @@
 /*delete*/
 $(function() {
     $('a.delete').live('click', function() {
-        //console.log($(this).parent("li"));
         if( confirm('Are you sure you want to delete this image?') ){
             var $this = $(this);
             var opts = {
                 onStart: function() {
                     var li = $this.parent("li");
                     public_id = $(this).attr("id");
+                    files=$('#files');
                     $('#'+public_id).hide();
                     jQuery . post(
                         '/console/image/delete',
-                        { 'public_id' : public_id },
+                        { 'public_id' : public_id,'sid':files.attr('class') },
                         function( response, textStatus ) {
                             if( response.success ) {
                                 var count_n = $("#files li").length;

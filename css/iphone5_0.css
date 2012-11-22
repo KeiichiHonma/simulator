@@ -1,7 +1,9 @@
 #iphone {
-    background:url("/img/phone/iphone5.png") 0px 75px no-repeat;
+    /*background:url("/img/phone/iphone5.png") 0px 75px no-repeat;*/
+    background:url("/img/phone/iphone5.png") 0px 89px no-repeat;
     width:240px;
-    height:579px;
+    /*height:579px;*/
+    height:593px;
     padding:0px;
     margin:0px;
 }
@@ -12,24 +14,16 @@
     left:18px;
 }
 .error-box{
-    width:208px;
-    height:75px;
     margin-bottom:72px;
-    font-size: 77%;
 }
 
 .top-box{
-    width:208px;
-    height:75px;
-    /*border: 1px solid #CCC;*/
     margin-bottom:72px;
-    font-size: 77%;
-
 }
-
 #flickable {
     width: 208px;
     height: 370px;
+    /*border: 1px solid #CCC;*/
     overflow: hidden;
     float: left;
     margin: 0;
@@ -55,6 +49,16 @@
     margin: 0;
     padding:0;
 }
+
+#flickable .block .logo{
+    width: 75px;
+    height: 75px;
+    text-align:center;
+    float:left;
+    margin: 0;
+    padding:0;
+}
+
 #flickable h4 {
     /*color: #FFF;*/
     color: #000000;
@@ -84,6 +88,7 @@
     vertical-align: middle;
     float:left;
 }
+
 #select_box li a {
     text-decoration: none;
     color: #000000;
@@ -93,11 +98,15 @@
     height: 10px;
     margin: 2px;
     display:block;
-    text-indent: -9000px; /* 文字はあっちへ行け */
+    text-indent: -9000px;
     border-radius: 1px;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
 }
+#select_box li a#select1 {
+    background-color:#1b508c;
+}
+
 #select1:hover {background-color:#1b508c}
 #select2:hover {background-color:#1b508c}
 #select3:hover {background-color:#1b508c}
@@ -107,3 +116,15 @@
 #select7:hover {background-color:#1b508c}
 #select8:hover {background-color:#1b508c}
 #select9:hover {background-color:#1b508c}
+
+#powered {
+    color: #1b508c;
+    font-size:12px;
+    position:relative;
+    top:5px;
+    left:85px;
+}
+
+#powered a{
+    color: #1b508c;
+}

@@ -239,8 +239,9 @@ class handleUploader {
     }
 
     function handleCloudinaryUpload($replaceOldFile = FALSE){
-        if(!isset($_POST['sid']) || !is_numeric($_POST['sid'])) return array('error' => 'No sid');
-       if (!$this->file){
+        if(!isset($_POST['sid']) || !is_numeric($_POST['sid'])) return array('error' => 'No sid.');
+
+        if (!$this->file){
             return array('error' => 'No files were uploaded.');
         }
         
@@ -262,7 +263,23 @@ class handleUploader {
             $these = implode(', ', $this->allowedExtensions);
             return array('error' => 'File has an invalid extension, it should be one of '. $these . '.');
         }
+
+        require_once('simulator/logic.php');
+        $simulator_logic = new simulatorLogic();
         
+        $simulator = $simulator_logic->getOneSimulator($_POST['sid']);
+        if(!$simulator) return array('error' => 'No popApps');
+        
+        //縦横チェック
+        list($width, $height, $type, $attr) = getimagesize( $_FILES['uploadfile']['tmp_name'] );
+        if($simulator[0]['col_direction'] == DIRECTION_HORIZON && $width < $height){
+            return array('error' => 'Please specify a picture with long width.');
+        }
+
+        if($simulator[0]['col_direction'] == DIRECTION_VERTICAL && $width > $height){
+            return array('error' => 'Please specify a picture with long height.');
+        }
+
         $ext = ($ext == '') ? $ext : '.' . $ext;
         $this->uploadName = $filename . $ext;
         require "fw/cloudinaryUploader.php";
@@ -276,11 +293,6 @@ class handleUploader {
             }
             
             //simulatorテーブルに画像を追加
-            require_once('simulator/logic.php');
-            $simulator_logic = new simulatorLogic();
-            
-            $simulator = $simulator_logic->getOneSimulator($_POST['sid']);
-            if(!$simulator) return array('error' => 'No popApps');
             $mobile_images = unserialize($simulator[0]['col_mobile_images']);
             $console_images = unserialize($simulator[0]['col_console_images']);
             $mobile_image = utilManager::getMobileImageParam($cloudinary,$simulator[0]['col_direction']);
@@ -307,10 +319,10 @@ class handleUploader {
 }
 class handleDestroy {
 
-    function handleCloudinaryDestroy($public_id){
-       if (!$public_id){
-            return array('error' => 'No files.');
-        }
+    function handleCloudinaryDestroy($public_id,$sid){
+        if(!isset($sid) || !is_numeric($sid)) return array('error' => 'No sid.');
+        if (!$public_id) return array('error' => 'No files.');
+        
         require "fw/cloudinaryUploader.php";
         $cloudinary = cloudinaryUploader::destroy($public_id);
         if ($cloudinary){
@@ -322,9 +334,11 @@ class handleDestroy {
             //simulatorテーブルに画像を追加
             require_once('simulator/logic.php');
             $simulator_logic = new simulatorLogic();
-            $simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);//applicationも入ってます。
-            $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);
-            $console_images = unserialize($simulator[0]['simulator_console_images']);
+            //$simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);//applicationも入ってます。
+            $simulator = $simulator_logic->getOneSimulator($sid);
+            
+            $mobile_images = unserialize($simulator[0]['col_mobile_images']);
+            $console_images = unserialize($simulator[0]['col_console_images']);
             $new_mobile_images = array();
             $new_console_images = array();
             
@@ -338,7 +352,7 @@ class handleDestroy {
             
             require_once('simulator/handle.php');
             $simulator_handle = new simulatorHandle();
-            $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$mobile_images,$console_images);
+            $sid = $simulator_handle->updateImagesRow($simulator[0]['_id'],$mobile_images,$console_images);
             if(!$sid){
                 return array('error'=> 'Could not save uploaded file.');
             }

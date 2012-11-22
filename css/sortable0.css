@@ -1,0 +1,42 @@
+.connected, .sortable, .exclude, .handles {
+    margin: auto;
+    padding: 0;
+    width: 190px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sortable.grid {
+    overflow: hidden;
+}
+.connected li, .sortable li, .exclude li, .handles li {
+    list-style: none;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    margin: 5px;
+    padding: 5px;
+}
+.handles span {
+    cursor: move;
+}
+li.disabled {
+    opacity: 0.5;
+}
+.sortable.grid li {
+    line-height: 40px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+li.highlight {
+    background: #FEE25F;
+}
+li.sortable-placeholder {
+    border: 1px dashed #CCC;
+    background: none;
+}

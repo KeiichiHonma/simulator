@@ -26,22 +26,5 @@ class userLogic extends logicManager
         //return parent::getDebug(T_USER);
         return parent::getResult(T_USER);
     }
-
-    function checkLicence($uid,$type = COMMON){
-        $this->addSelectColumn(userTable::get($type));
-        $this->setCond('_id',$uid);
-        $this->validateCondition();
-        $user = parent::getResult(T_USER);
-        $this->use_licence = $user[0]['col_use_licence'];
-        $this->max_licence = $user[0]['col_max_licence'];
-        
-        if($user[0]['col_use_licence'] < $user[0]['col_max_licence']){
-            return LICENCE_NEW;
-        }elseif ($user[0]['col_use_licence'] == $user[0]['col_max_licence']){
-            return LICENCE_EQUAL;
-        }else{
-            return LICENCE_OVER;
-        }
-    }
 }
 ?>

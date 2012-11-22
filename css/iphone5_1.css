@@ -1,30 +1,18 @@
 #iphone{
-    background:url("/img/phone/iphone5_h.png") 0px 75px no-repeat;
+    /*background:url("/img/phone/iphone5_h.png") 0px 75px no-repeat;*/
+    background:url("/img/phone/iphone5_h.png") 0px 89px no-repeat;
     width:504px;
-    height:315px;
+    /*height:315px;*/
+    height:329px;
     padding:0px;
     margin:0px;
-    /*border: 1px solid #CCC;*/
 }
 #app{
     position: relative;
     top:0px;
     left:72px;
 }
-.error-box{
-    width:208px;
-    height:75px;
-    margin-bottom:72px;
-    font-size: 77%;
-}
 
-.top-box{
-    width:280px;/*208+72*/
-    height:75px;
-    margin:0px;
-    padding:0px;
-    font-size: 77%;
-}
 
 #flickable{
     top:14px;
@@ -93,10 +81,13 @@
     height: 10px;
     margin: 2px;
     display:block;
-    text-indent: -9000px; /* 文字はあっちへ行け */
+    text-indent: -9000px;
     border-radius: 1px;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
+}
+#select_box li a#select1 {
+    background-color:#1b508c;
 }
 #select1:hover {background-color:#1b508c}
 #select2:hover {background-color:#1b508c}
@@ -107,3 +98,15 @@
 #select7:hover {background-color:#1b508c}
 #select8:hover {background-color:#1b508c}
 #select9:hover {background-color:#1b508c}
+
+#powered {
+    color: #1b508c;
+    font-size:12px;
+    position:relative;
+    top:-25px;
+    left:300px;
+}
+
+#powered a{
+    color: #1b508c;
+}

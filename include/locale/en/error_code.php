@@ -14,6 +14,7 @@ define('E_CMMN_INITIALIZE_RAND',           'SIM_CMMN_00007');
 define('E_CMMN_VALIDATE_TIME',             'SIM_CMMN_00008');
 define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
 define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
+define('E_CMMN_HANDLE_ITUNES_STOP',           'SIM_CMMN_00011');
 
 //phone error
 define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
@@ -31,6 +32,7 @@ define('SIM_CMMN_00007',               '初期化中に不明なエラーが発�
 define('SIM_CMMN_00008',               'クーポン発行可能な期間が過ぎています。<br />発行可能な期間は初回ログイン時より3か月となっております。<br />再度ご購入いただきますようお願いいたします。');
 define('SIM_CMMN_00009',               'userで処理が停止しました。再度実行してください。');
 define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
+define('SIM_CMMN_00011',               'itunesに掲載されているアプリを取得することができませんでした。');
 
 //電話エラーメッセージ 3行まで
 define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');

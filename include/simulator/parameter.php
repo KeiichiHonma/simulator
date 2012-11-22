@@ -14,17 +14,14 @@ class simulatorParameter extends parameterManager
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 
-    public function setUpdate($sid){
+    public function setUpdate($sid,$direction,$mobile_images,$console_images){
         parent::readyUpdateParameter($sid);
-        $this->parameter['status'] = $_POST['status'];
-        $this->parameter['given_name'] = $_POST['given_name'];
-        $this->parameter['buyer_email'] = $_POST['buyer_email'];
-        $this->parameter['customer_no'] = $_POST['customer_no'];
-        $this->parameter['account'] = $_POST['account'];
-        $this->parameter['buyer_id'] = $_POST['buyer_id'];
-        $this->parameter['trade_no'] = $_POST['trade_no'];
-        $this->parameter['validate'] = $_POST['validate'];
-        $this->parameter['validate_time'] = $_POST['validate_time'];
+        $this->setParameter();
+        $this->parameter['direction'] = $direction;
+        if($mobile_images !== false && $console_images !== false ){
+            $this->parameter['mobile_images'] = serialize($mobile_images);
+            $this->parameter['console_images'] = serialize($console_images);
+        }
     }
 
     public function setImagesUpdate($sid,$mobile_images,$console_images){

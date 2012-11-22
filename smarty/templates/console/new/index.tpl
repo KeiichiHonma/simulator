@@ -3,79 +3,172 @@
 <head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
 <meta charset="utf-8"> 
 <title>app</title>
-
+<link rel="stylesheet" type="text/css" media="all" href="/css/master.css" />
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
-{include file="include/common/iphone_header.inc"}
+{include file="include/common/javascript.inc"}
 </head>
 <body>
 {include file="include/common/header.inc"}
-{if !$error && $is_analyze}
-    <form accept-charset="UTF-8" action="/console/new/add" class="group" id="new_application" method="post">
-    <div class='input'>
-        <label for="simulator_site_attributes_url">■アプリの名前を入力してください。</label><br /><input id="simulator_title" maxlength="255" name="title" size="80" type="text" value="{$iphone.title}" />
-    </div>
-    
-    <div class='input'>
-        <label for="simulator_site_attributes_url">■設置したいウェブサイトのURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="domain" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$smarty.post.install_url}" />
-    </div>
-
-    <div class='input'>
-        <label for="simulator_site_attributes_url">■リンクするURLを入力してください。</label><br /><input id="simulator_site_attributes_url" maxlength="255" name="link" placeholder="http://www.example.com/" required="required" size="80" type="url" value="{$iphone.link}" />
-    </div>
-
-    <div class='input'>
-        ■表示するスクロールの位置を選択してください。<br />
-        <input type="radio" id="scroll1" name="scroll" value="{$smarty.const.SCROLL_FIRST}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_FIRST) == 0} checked{/if} /><label for="scroll1">1</label>
-        <input type="radio" id="scroll2" name="scroll" value="{$smarty.const.SCROLL_TOP}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_TOP) == 0} checked{/if} /><label for="scroll2">2</label>
-        <input type="radio" id="scroll3" name="scroll" value="{$smarty.const.SCROLL_HALF}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_HALF) == 0} checked{/if} /><label for="scroll3">3</label>
-        <input type="radio" id="scroll4" name="scroll" value="{$smarty.const.SCROLL_BOTTOM}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_BOTTOM) == 0} checked{/if} /><label for="scroll4">4</label>
-        <input type="radio" id="scroll5" name="scroll" value="{$smarty.const.SCROLL_END}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_END) == 0} checked{/if} /><label for="scroll5">5</label>
-    </div>
-
-    <div class='input'>
-        ■表示する場所を選択してください。<br />
-        <input type="radio" id="position1" name="position" value="{$smarty.const.POSITION_LEFT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_LEFT) == 0} checked{/if} /><label for="position1">left</label>
-        <input type="radio" id="position2" name="position" value="{$smarty.const.POSITION_CENTER}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_CENTER) == 0} checked{/if} /><label for="position2">center</label>
-        <input type="radio" id="position3" name="position" value="{$smarty.const.POSITION_RIGHT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_RIGHT) == 0} checked{/if} /><label for="position3">right</label>
-    </div>
-    <div id="iphone">
-        <div id="app">
-            <div class="top-box">
-                <div style="float: left;"><img src="/im/logo?url={$iphone.logo.transformations_url|escape|urlencode}" width="75" height="75" /></div>
-                <div width="125">{$iphone.title}<br /><a href="{$iphone.link}" target="_blank"><img src="/img/phone/appstore"  width="125" height="42" alt="" /></a></div>
+<div id="contents">
+    <div id='main' class="clearfix">
+        <div class='fl'>
+{if !$page_analyze}
+            <div class="boxArea">
+                <div class="boxTemp box-manage-setting">
+                    <h3>New App Add</h3>
+                    <div class='info'>
+                        {$error.analyze|error_message}
+                        <form accept-charset="UTF-8" action="/console/new/" class="group" id="new_application" method="post">
+                        <fieldset>
+                        <div class='settings_section'>
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_domain">itunes url:</label>
+                                </div>
+                                <div class='input'>
+                                    <input name="itunes_url" size="30" type="text" value="{$smarty.post.itunes_url}" />
+                                    <div class='form_error'>{$error.itunes_url|error_message}</div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="btn">
+                            <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
+                            <input type="hidden" name="method" value="analyze" />
+                            <input type="image" alt="Next" src="/img/common/next_off.png" onClick="void(this.form.submit());return false;"/>
+                        </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <div id="flickable">
-                <ul id="flickable_ul">
-                {if $iphone.mobile.screenshots}
-                {foreach from=$iphone.mobile.screenshots key="key" item="screenshot" name="screenshots"}
-                <li id="flick_{$screenshot.public_id}"><div class="block"><img src="/im/screenshot?url={$screenshot.transformations_url|escape|urlencode}&direction={$iphone.direction}" /></div></li>
-                {/foreach}
-                {/if}
-                </ul>
-            </div>
-            
-            <div style="clear:both;"></div>
-                <ul id="select_box"> 
-                    {if $iphone.mobile.count_screenshots}
-                        {section name=cnt start=1  loop=$iphone.mobile.count_screenshots_on}
-                            <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a><li/>
-                        {/section}
-                    {/if}
-                </ul>
-        </div>
-    </div>
-    <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
-
-    <div class='actions'>
-        <div align='center' class='align_center'>
-        <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-        <input class="" name="commit" type="submit" value="登録する" />
-        </div>
-    </div>
-    </form>
 {/if}
+{if $page_analyze}
+            <div class="boxArea">
+                <div class="boxTemp box-manage-setting">
+                    <h3>pop Apps Settings</h3>
+                    <div class='info'>
+                        <form accept-charset="UTF-8" action="/console/new/" class="group" id="new_application" method="post">
+                        <fieldset>
+                        <div class='settings_section'>
+                            <div class='row'>
+                                    <div class='title'>
+                                    <label for="popapps_images">Images</label>
+                                    </div>
+                                    <ul class="screenshots clearfix">
+                                    {foreach from=$iphone.mobile.screenshots key="key" item="screenshot" name="screenshots"}
+                                    <li><img src="/im/screenshot?url={$screenshot.transformations_url|escape|urlencode}&direction={$iphone.direction}" /></li>
+                                    {/foreach}
+                                    <li><img src="/im/logo?url={$iphone.logo.transformations_url|escape|urlencode}" width="75" height="75" /></li>
+                                    </ul>
+                            </div>
 
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_domain">Domain:</label>
+                                </div>
+                                <div class='input'>
+                                    <input name="domain" size="30" type="text" value="{$smarty.post.domain}" />
+                                    <div class='form_error'>{$error.domain|error_message}</div>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_title">Title:</label>
+                                </div>
+                                <div class='input'>
+                                    <input name="title" size="30" type="text" value="{$smarty.post.title}" />
+                                    <div class='form_error'>{$error.title|error_message}</div>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_link">Link:</label>
+                                </div>
+                                <div class='input'>
+                                    <input name="link" size="30" type="text" value="{$smarty.post.link}" />
+                                    <div class='form_error'>{$error.link|error_message}</div>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_scroll">Scroll:</label>
+                                </div>
+                                <div class='input'>
+                                    <ul class='enum_set'>
+                                        <li>
+                                        <input id="popapps_scroll_{$smarty.const.SCROLL_FIRST}" name="scroll" type="radio" value="{$smarty.const.SCROLL_FIRST}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_FIRST) == 0} checked{/if} />
+                                        <label for="popapps_scroll_{$smarty.const.SCROLL_FIRST}">Beginning</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_scroll_{$smarty.const.SCROLL_TOP}" name="scroll" type="radio" value="{$smarty.const.SCROLL_TOP}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_TOP) == 0} checked{/if} />
+                                        <label for="popapps_scroll_{$smarty.const.SCROLL_TOP}">Top</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_scroll_{$smarty.const.SCROLL_HALF}" name="scroll" type="radio" value="{$smarty.const.SCROLL_HALF}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_HALF) == 0} checked{/if} />
+                                        <label for="popapps_scroll_{$smarty.const.SCROLL_HALF}">Half</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_scroll_{$smarty.const.SCROLL_BOTTOM}" name="scroll" type="radio" value="{$smarty.const.SCROLL_BOTTOM}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_BOTTOM) == 0} checked{/if} />
+                                        <label for="popapps_scroll_{$smarty.const.SCROLL_BOTTOM}">Bottom</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_scroll_{$smarty.const.SCROLL_END}" name="scroll" type="radio" value="{$smarty.const.SCROLL_END}"{if strcasecmp($smarty.post.scroll,$smarty.const.SCROLL_END) == 0} checked{/if} />
+                                        <label for="popapps_scroll_{$smarty.const.SCROLL_END}">Page End</label>
+                                        </li>
+                                    </ul>
+                                    <div class='form_error'>{$error.scroll|error_message}</div>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='label'>
+                                <label for="popapps_position">Position:</label>
+                                </div>
+                                <div class='input'>
+                                    <ul class='enum_set'>
+                                        <li>
+                                        <input id="popapps_position_{$smarty.const.POSITION_LEFT}" name="position" type="radio" value="{$smarty.const.POSITION_LEFT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_LEFT) == 0} checked{/if} />
+                                        <label for="popapps_position_{$smarty.const.POSITION_LEFT}">Left</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_position_{$smarty.const.POSITION_CENTER}" name="position" type="radio" value="{$smarty.const.POSITION_CENTER}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_CENTER) == 0} checked{/if} />
+                                        <label for="popapps_position_{$smarty.const.POSITION_CENTER}">Center</label>
+                                        </li>
+                                        <li>
+                                        <input id="popapps_position_{$smarty.const.POSITION_RIGHT}" name="position" type="radio" value="{$smarty.const.POSITION_RIGHT}"{if strcasecmp($smarty.post.position,$smarty.const.POSITION_RIGHT) == 0} checked{/if} />
+                                        <label for="popapps_position_{$smarty.const.POSITION_RIGHT}">Right</label>
+                                        </li>
+                                    </ul>
+                                    <div class='form_error'>{$error.position|error_message}</div>
+                                </div>
+                            </div>
+                        </div>
+                        </fieldset>
+                        <div class="btn">
+                            <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
+                            <input type="hidden" name="itunes_url" value="{$smarty.post.itunes_url}" />
+                            <input type="hidden" name="method" value="create" />
+                            <input type="image" alt="Previous" src="/img/common/previous_off.png" onClick="history.back();return false;"/>
+                            <input type="image" alt="Create" src="/img/common/create_off.png" onClick="void(this.form.submit());return false;"/>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+{/if}
+        </div>
+        
+        <div class='fl'>
+            <div class="boxArea">
+            {include file="include/console/detail.inc"}
+            {include file="include/console/licence.inc"}
+            </div>
+        </div>
+    </div>
+</div>
+{include file="include/common/footer.inc"}
 </body>
 </html>

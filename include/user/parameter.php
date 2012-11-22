@@ -24,6 +24,17 @@ class userParameter extends parameterManager
         parent::readyUpdateParameter($uid);
         $this->parameter['use_licence'] = $use_licence;
     }
+    
+    public function setImagesUpdate($uid,$user_images){
+        parent::readyUpdateParameter($uid);
+        $this->parameter['user_images'] = serialize($user_images);
+    }
+
+    public function setUseLicenceImagesUpdate($uid,$use_licence,$user_images){
+        parent::readyUpdateParameter($uid);
+        $this->parameter['use_licence'] = $use_licence;
+        $this->parameter['user_images'] = serialize($user_images);
+    }
 
     public function setMaxLicenceUpdate($uid,$max_licence){
         parent::readyUpdateParameter($uid);

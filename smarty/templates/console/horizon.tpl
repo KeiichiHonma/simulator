@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/css/master.css" />
 <link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/sortable.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/sortable1.css" rel="stylesheet" type="text/css" media="all" />
 {include file="include/common/iphone_header.inc"}
 <script type="text/javascript" src="/js/jquery.spinner.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.js" ></script>
@@ -17,7 +17,14 @@
 <div id="contents">
     <div id='main' class="clearfix">
         <div class='fl'>
-            {include file="include/common/iphone5.inc"}
+            <div class="boxArea">
+            <div class="boxTemp box-phone-horizon">
+                <h3>Preview</h3>
+                <div class="phone">
+                {include file="include/common/iphone5.inc"}
+                </div>
+            </div>
+            </div>
         </div>
         <div class='fr'>
             <div class="boxArea">
@@ -32,7 +39,7 @@
         </div>
 
         <div class='fl'>
-            <div class="boxArea width100">
+            <div class="boxArea">
                 {include file="include/console/image.inc"}
             </div>
         </div>

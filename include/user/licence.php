@@ -6,6 +6,9 @@ class userLicence
     public $logic;
     public $handle;
     public $user;
+    public $use_licence;
+    public $max_licence;
+    public $is_add = false;
     
     function __construct(){
         $this->logic = new userLogic();
@@ -35,6 +38,30 @@ class userLicence
                 return $new_max_licence;
             }
         }
+    }
+    
+    public function setUserLicence($uid){
+        $user = $this->logic->getOneUser($uid);
+        if($user){
+            global $con;
+            $this->use_licence = $user[0]['col_use_licence'];
+            $this->max_licence = $user[0]['col_max_licence'];
+        
+            //app add check
+            if($user[0]['col_use_licence'] < $user[0]['col_max_licence']){
+                $this->is_add = true;
+                $con->t->assign('is_app_add',true);
+            }
+            //plan check
+            if($user[0]['col_max_licence'] == 1){
+                $con->t->assign('is_free',true);
+                $con->t->assign('max_licence',1);
+            }else{
+                $con->t->assign('max_licence',$user[0]['col_max_licence']);
+            }
+            $con->t->assign('use_licence',$user[0]['col_use_licence']);
+        }
+
     }
 }
 ?>

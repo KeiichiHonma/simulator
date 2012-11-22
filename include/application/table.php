@@ -10,8 +10,8 @@ class applicationTable extends tableManager
             array('column'=>'itunes_id',         'as'=>null,                        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'itunes_url',        'as'=>null,                        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'name',              'as'=>null,                        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
-            array('column'=>'mobile_images',     'as'=>'application_mobile_images', 'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
-            array('column'=>'console_images',    'as'=>'application_console_images','type'=>COMMON, 'input'=>TRUE,  'group'=>null),
+            array('column'=>'mobile_images',     'as'=>'application_mobile_images', 'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
+            array('column'=>'console_images',    'as'=>'application_console_images','type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'validate',          'as'=>null,                        'type'=>COMMON, 'input'=>FALSE, 'group'=>null)
         );
     
