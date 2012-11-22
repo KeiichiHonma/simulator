@@ -7,10 +7,6 @@ $authManager->validateLogin(TRUE);
 require_once('user/logic.php');
 $user_logic = new userLogic();
 $user = $user_logic->getOneUser($authManager->uid);
-
-//require_once('user/licence.php');
-//$user_licence = new userLicence();
-//$user_licence->setUserLicence($authManager->uid);
 if($user[0]['col_use_licence'] >= $user[0]['col_max_licence']){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_CMMN_LICENCE_OVER);
@@ -18,15 +14,8 @@ if($user[0]['col_use_licence'] >= $user[0]['col_max_licence']){
 
 
 if($con->isPost){
-    if($_POST['method'] == 'analyze'){
-        require_once('console/new/analyze.php');
-    }elseif($_POST['method'] == 'create'){
-        $max_licence = $user_licence->max_licence;
-        $use_licence = $user_licence->use_licence;
-        require_once('console/new/create.php');
-    }else{
-        $con->safeExitRedirect('/');
-    }
+    require_once('console/new/handle.php');
+    $new_handle = new newHandle($user,$_POST['method'],$_POST['itunes_url']);
 }
 //debug//
 if($con->isDebug){

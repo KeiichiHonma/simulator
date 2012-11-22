@@ -9,15 +9,39 @@ logo
             <ul id="flickable_ul">
             <li id="flick_home_1">
                 <div class="block">
-                {foreach from=$simulators key="key" item="simulator" name="simulators"}
-                <div class="logo">{if !is_null($simulator.simulator_mobile_images)}<img src="{$simulator.simulator_mobile_images|getCloudinaryLogo}" />{else}<img src="{$simulator.application_mobile_images|getCloudinaryLogo}" />{/if}
+                {if $user_images}
+                {foreach from=$user_images key="key" item="user_images" name="user_images"}
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
+                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
                 {*<a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>*}
                 </div>
                 {/foreach}
+                {/if}
                 </div>
             </li>
             </ul>
         </div>
-        <div id="powered">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>
     </div>
 </div>

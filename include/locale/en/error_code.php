@@ -14,8 +14,8 @@ define('E_CMMN_INITIALIZE_RAND',           'SIM_CMMN_00007');
 define('E_CMMN_VALIDATE_TIME',             'SIM_CMMN_00008');
 define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
 define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
-define('E_CMMN_HANDLE_ITUNES_STOP',           'SIM_CMMN_00011');
-
+define('E_CMMN_HANDLE_ITUNES_STOP',        'SIM_CMMN_00011');
+define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00012');
 //phone error
 define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
 define('E_PHONE_DOMAIN_EXISTS',               'SIM_PHONE_00002');
@@ -33,6 +33,7 @@ define('SIM_CMMN_00008',               'クーポン発行可能な期間が過�
 define('SIM_CMMN_00009',               'userで処理が停止しました。再度実行してください。');
 define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
 define('SIM_CMMN_00011',               'itunesに掲載されているアプリを取得することができませんでした。');
+define('SIM_CMMN_00012',               'userで処理が停止しました。再度実行してください。');
 
 //電話エラーメッセージ 3行まで
 define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');

@@ -51,11 +51,10 @@
 }
 
 #flickable .block .logo{
-    width: 75px;
-    height: 75px;
-    text-align:center;
+    width: 42px;
+    height: 42px;
     float:left;
-    margin: 0;
+    margin: 16px 0px 0px 8px;
     padding:0;
 }
 

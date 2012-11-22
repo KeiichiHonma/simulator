@@ -33,6 +33,7 @@
                     <span><a href="/console/new/"><img src="/img/common/create_off.png" alt="Create"></a></span>
                 </div>
                 {/if}
+                {if $simulators}
                 <table>
                 {foreach from=$simulators key="key" item="simulator" name="simulators"}
                 <tr>
@@ -43,6 +44,7 @@
                 </tr>
                 {/foreach}
                 </table>
+                {/if}
             </div>
         </div>
         <div class='fl'>

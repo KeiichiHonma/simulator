@@ -163,7 +163,6 @@
         
         <div class='fl'>
             <div class="boxArea">
-            {include file="include/console/detail.inc"}
             {include file="include/console/licence.inc"}
             </div>
         </div>
