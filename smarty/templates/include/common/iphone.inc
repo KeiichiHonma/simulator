@@ -19,7 +19,7 @@
             <ul id="select_box"> 
                 {if $iphone.mobile.count_screenshots}
                     {section name=cnt start=1  loop=$iphone.mobile.count_screenshots_on}
-                        <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a><li/>
+                        <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a></li>
                     {/section}
                 {/if}
             </ul>

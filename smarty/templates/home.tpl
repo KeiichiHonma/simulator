@@ -8,6 +8,6 @@
 {include file="include/common/iphone_header.inc"}
 </head>
 <body style="background-color: transparent;padding:0;margin:0;">
-{include file="include/common/iphone5.inc"}
+{include file="include/common/iphone5_home.inc"}
 </body>
 </html>

@@ -16,10 +16,16 @@ define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
 define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
 define('E_CMMN_HANDLE_ITUNES_STOP',        'SIM_CMMN_00011');
 define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00012');
+define('E_CMMN_USER_EXISTS',               'SIM_CMMN_00013');
+define('E_CMMN_SORT_IMAGES_STOP',           'SIM_CMMN_00014');
+define('E_CMMN_SORT_USERS_STOP',           'SIM_CMMN_00015');
+
+
 //phone error
 define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
 define('E_PHONE_DOMAIN_EXISTS',               'SIM_PHONE_00002');
 define('E_PHONE_SCREENSHOTS_EXISTS',          'SIM_PHONE_00003');
+define('E_PHONE_USER_EXISTS',                 'SIM_PHONE_00004');
 
 //エラーメッセージ
 define('SIM_CMMN_00001',               'URLが不正です。');
@@ -34,11 +40,14 @@ define('SIM_CMMN_00009',               'userで処理が停止しました。再
 define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
 define('SIM_CMMN_00011',               'itunesに掲載されているアプリを取得することができませんでした。');
 define('SIM_CMMN_00012',               'userで処理が停止しました。再度実行してください。');
-
+define('SIM_CMMN_00013',               'userが削除されたか存在しません。');
+define('SIM_CMMN_00014',               'imageのソートで処理が停止しました。再度実行してください。');
+define('SIM_CMMN_00015',               'user-imageのソートで処理が停止しました。再度実行してください。');
 //電話エラーメッセージ 3行まで
 define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');
 define('SIM_PHONE_00002',               '使用可能なドメインではありません。');
 define('SIM_PHONE_00003',               'スクリーンショットが削除されたか存在しません。');
+define('SIM_PHONE_00004',               'ロゴが削除されたか存在しません。');
 
 // --------------------------
 // USERエラー 認証

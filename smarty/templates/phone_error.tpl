@@ -19,7 +19,8 @@
             </div>
             <div id="flickable">
                 <ul id="flickable_ul">
-                    <li><div class="block"><img src="/img/phone/demo/demo1.jpg" /></div></li>
+                    <li><div class="block"><img src="/img/phone/under_construction.jpg" /></div></li>
+{*                    <li><div class="block"><img src="/img/phone/demo/demo1.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo2.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo3.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo4.jpg" /></div></li>
@@ -27,10 +28,10 @@
                     <li><div class="block"><img src="/img/phone/demo/demo6.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo7.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo8.jpg" /></div></li>
-                    <li><div class="block"><img src="/img/phone/demo/demo9.jpg" /></div></li>
+                    <li><div class="block"><img src="/img/phone/demo/demo9.jpg" /></div></li>*}
                 </ul>
             </div>
-            <div style="clear:both;"></div>
+{*            <div style="clear:both;"></div>
 
             <table id="select_box"> 
             <tbody>
@@ -50,7 +51,7 @@
                     <td><a href="#" id="select9">9</a></td>
                 </tr>
             </tbody>
-            </table>
+            </table>*}
         </div>
     </div>
 </body>

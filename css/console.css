@@ -16,7 +16,6 @@
 #contents .boxArea .box-phone-vertical{
     margin:5px;
     padding:0px 5px 5px 5px;
-    width: 250px;
 }
 
 #contents .boxArea .box-phone-vertical .phone{
@@ -24,10 +23,64 @@
     width: 240px;
 }
 
+/*home*/
+#select_box-home {
+    padding: 5px;
+    margin: 5px;
+}
+
+#select_box-home li{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#select_box-home li a {
+    padding: 0px;
+    margin: 0px;
+    display:block;
+    width: 80px;
+    height: 100px;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    color: #CCCCCC;
+    font-size:30px;
+    line-height:100px;
+}
+#select_box-home li a#select1 {
+    border-top: 1px solid #CCC;
+    background-color:#1b508c;
+}
+
+#select_box-home #select1:hover {background-color:#1b508c}
+#select_box-home #select2:hover {background-color:#1b508c}
+#select_box-home #select3:hover {background-color:#1b508c}
+#select_box-home #select4:hover {background-color:#1b508c}
+#select_box-home #select5:hover {background-color:#1b508c}
+#select_box-home #select6:hover {background-color:#1b508c}
+#select_box-home #select7:hover {background-color:#1b508c}
+#select_box-home #select8:hover {background-color:#1b508c}
+#select_box-home #select9:hover {background-color:#1b508c}
+
+#contents .boxArea .box-phone-vertical table.home-display{
+    text-align:center;
+    margin:10px 0px;
+}
+
+#contents .boxArea .box-phone-vertical .embed_code textarea{
+    clear:both;
+    width:350px;
+    height:auto;
+    border: 1px solid #CCCCCC;
+    font-weight:normal;
+    font-size:14px;
+}
+
 #contents .boxArea .box-phone-horizon{
     margin:5px;
     padding:0px 5px 5px 5px;
-    width: 514px;
 }
 
 #contents .boxArea .box-phone-horizon .phone{
@@ -46,6 +99,15 @@
     width: 250px;
     text-align:center;
 }
+
+#contents .boxArea .box-sort-home{
+    position: relative;
+    margin:5px;
+    padding:0px 5px 5px 5px;
+    width: 310px;
+    text-align:center;
+}
+
 #contents .boxArea .box-setting{
     float: right;
     width: 440px;
@@ -167,7 +229,7 @@
 }
 
 /*action*/
-#manage-settings{
+.console-action{
     text-align:right;
     color:#3366cc;
     margin: 0px;
@@ -303,7 +365,6 @@ ul#files li a{
 --------------------------------------------------*/
 #contents .chooseApp {
     margin:5px;
-    float:left;
 }
 #contents .chooseApp .boxTemp {
     width: 260px;
@@ -334,7 +395,6 @@ ul#files li a{
     padding-bottom: 6px;
     border-bottom: solid 1px #eee;
 }
-
 .sort_btn {
     margin: 12px 12px 0px;
     padding-top: 6px;

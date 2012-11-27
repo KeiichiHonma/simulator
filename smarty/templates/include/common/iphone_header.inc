@@ -3,3 +3,4 @@
 <script src="/js/iphone.js" type="text/javascript"></script>
 <link href="/css/iphone.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/iphone5_{$iphone.direction|default:0}.css" rel="stylesheet" type="text/css" media="all" />
+{if !$is_console}<link href="/css/position/{$iphone.position|default:0}.css" rel="stylesheet" type="text/css" media="all" />{/if}

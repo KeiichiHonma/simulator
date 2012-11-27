@@ -112,23 +112,25 @@ class newHandle extends analyze
             //有料プランの人が追加した場合は画像はnullで追加
             $application_handle = new applicationHandle();
             $this->aid = $application_handle->addRow($this->itunes_id,$this->itunes_url,$this->h1_text,$this->mobile_images,$this->console_images);
-            //$this->makeUserImages($this->aid);
+            if(!$this->aid) $this->throwError(E_CMMN_HANDLE_APP_STOP);
         }else{
             //無料ユーザー
             //public_idからapplication table update
             if($this->max_licence == 1){
                 $old_mobile_images = unserialize($application[0]['col_mobile_images']);
-                $old_user_images = unserialize($this->user[0]['col_images']);
-                
+
                 $this->makeImages($old_mobile_images);
                 //有料プランの人が追加した場合は画像はnullで追加
                 $application_handle = new applicationHandle();
                 //有料プランの人が更新する場合ははない。無料ユーザーの画像が消えてしまうので。
                 $this->aid = $application_handle->updateRow($application[0]['_id'],$this->iphone['title'],$this->mobile_images,$this->console_images);
-                //$this->makeUserImages($this->aid,$old_user_images);
+                if(!$this->aid) $this->throwError(E_CMMN_HANDLE_APP_STOP);
+            }else{
+                $this->aid = $application[0]['_id'];
             }
+            
         }
-        if(!$this->aid) $this->throwError(E_CMMN_HANDLE_APP_STOP);
+        
     }
 
     private function simulatorSection(){
@@ -193,13 +195,15 @@ class newHandle extends analyze
         $con->db->cloudinary_image = $mobile_images;//rollback 準備
     }
 
-    private function makeUserImages($sid,$old_user_images = null){
+    private function makeUserImages($sid){
+        $this->user_images = is_null($this->user[0]['col_user_images']) ? array() : unserialize($this->user[0]['col_user_images']);
         //home画面用logo = 背景色に黒を設定
-        $public_id = isset($old_user_images[$sid]['public_id']) ? $old_user_images[$sid]['public_id'] : null;
+        $public_id = isset($this->user_images[$sid]['public_id']) ? $this->user_images[$sid]['public_id'] : null;
         $im_logo_url = SIMURL.'/im/logo?url='.urlencode($this->logo);
         $im_logo_cloudinary = cloudinaryUploader::upload($im_logo_url,$public_id);
         $con->db->cloudinary_image[] = $im_logo_cloudinary;
-        $this->user_images[$sid] = $im_logo_cloudinary;
+        //$this->user_images[$sid] = $im_logo_cloudinary;
+        $this->user_images[$sid] = utilManager::getUserImageParam($im_logo_cloudinary,$this->mobile_images['logo']);
         $this->user_image_update = true;
     }
 

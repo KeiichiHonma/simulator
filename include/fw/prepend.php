@@ -15,4 +15,6 @@ function shutdownHandler(){
 }
 $con->readyPostCsrf();
 $con->checkPostCsrf();
+
+$con->t->assign('is_console',$con->isConsole);
 ?>

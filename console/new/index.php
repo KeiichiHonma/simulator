@@ -19,8 +19,8 @@ if($con->isPost){
 }
 //debug//
 if($con->isDebug){
-/*    $_POST['domain'] = 'http://simulator.813.co.jp/';
-    $_POST['link']    = 'https://itunes.apple.com/jp/app/bokete-bokete-mian-bai-xie/id563446587';
+    $_POST['domain'] = 'http://simulator.813.co.jp/';
+/*    $_POST['link']    = 'https://itunes.apple.com/jp/app/bokete-bokete-mian-bai-xie/id563446587';
     $_POST['scroll'] = SCROLL_BOTTOM;
     $_POST['position'] = POSITION_RIGHT;*/
 }

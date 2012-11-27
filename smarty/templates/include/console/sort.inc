@@ -13,7 +13,7 @@
         <input type="hidden" id="image_sort" name="image_sort" />
         <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
         {*<input type="button" value="submit" id="image_sort_submit" />*}
-        <input type="image" alt="Save" src="/img/common/save_off.png" onClick="void(this.form.submit());return false;"/>
+        <input type="image" id="image_sort_submit" alt="Save" src="/img/common/save_off.png" />
         </div>
     </form>
 </div>

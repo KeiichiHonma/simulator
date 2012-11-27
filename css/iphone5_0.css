@@ -1,9 +1,15 @@
 #iphone {
-    /*background:url("/img/phone/iphone5.png") 0px 75px no-repeat;*/
     background:url("/img/phone/iphone5.png") 0px 89px no-repeat;
     width:240px;
-    /*height:579px;*/
     height:593px;
+    padding:0px;
+    margin:0px;
+}
+
+#iphone-home {
+    background:url("/img/phone/iphone5.png") 0px 0px no-repeat;
+    width:240px;
+    height:504px;
     padding:0px;
     margin:0px;
 }
@@ -13,6 +19,14 @@
     top:0px;
     left:18px;
 }
+
+#app-home{
+    position: relative;
+    top:0px;
+    left:18px;
+    padding-top:72px;
+}
+
 .error-box{
     margin-bottom:72px;
 }
@@ -41,7 +55,7 @@
     float: left;
 }
 #flickable .block {
-    color: #000000;
+    color: #FFFFFF;
     width: 208px;
     height: 370px;
     text-align:center;
@@ -60,7 +74,7 @@
 
 #flickable h4 {
     /*color: #FFF;*/
-    color: #000000;
+    color: #FFFFFF;
     margin: 0;
     padding:0;
 }
@@ -86,12 +100,13 @@
     text-align: center;
     vertical-align: middle;
     float:left;
+    list-style:none;
 }
 
 #select_box li a {
     text-decoration: none;
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #4E4E4E;
+    background-color: #4E4E4E;
     line-height:10px;
     width: 10px;
     height: 10px;
@@ -103,18 +118,18 @@
     -moz-border-radius: 1px;
 }
 #select_box li a#select1 {
-    background-color:#1b508c;
+    background-color:#FFFFFF;
 }
 
-#select1:hover {background-color:#1b508c}
-#select2:hover {background-color:#1b508c}
-#select3:hover {background-color:#1b508c}
-#select4:hover {background-color:#1b508c}
-#select5:hover {background-color:#1b508c}
-#select6:hover {background-color:#1b508c}
-#select7:hover {background-color:#1b508c}
-#select8:hover {background-color:#1b508c}
-#select9:hover {background-color:#1b508c}
+#select1:hover {background-color:#FFFFFF}
+#select2:hover {background-color:#FFFFFF}
+#select3:hover {background-color:#FFFFFF}
+#select4:hover {background-color:#FFFFFF}
+#select5:hover {background-color:#FFFFFF}
+#select6:hover {background-color:#FFFFFF}
+#select7:hover {background-color:#FFFFFF}
+#select8:hover {background-color:#FFFFFF}
+#select9:hover {background-color:#FFFFFF}
 
 #powered {
     color: #1b508c;

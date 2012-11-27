@@ -1,47 +1,25 @@
-<div id="iphone">
-    <div id="app">
-        <div class="top-box">
-            <div class="arrow_box">
-logo
-            </div>
-        </div>
+<div id="iphone-home">
+    <div id="app-home">
         <div id="flickable">
             <ul id="flickable_ul">
-            <li id="flick_home_1">
-                <div class="block">
-                {if $user_images}
-                {foreach from=$user_images key="key" item="user_images" name="user_images"}
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                <div class="logo"><img src="{$user_images.secure_url}" width="42" height="42" /></div>
-                {*<a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>*}
-                </div>
+                {foreach from=$iphone.user_images_chunk key="key" item="user_images" name="user_images_chunk"}
+                <li>
+                    <div class="block">
+                    {foreach from=$user_images key="sid" item="user_images" name="user_images"}
+                    <div class="logo">{if $is_console}<img src="{$user_images.secure_url}" width="42" height="42" />{else}<a href="/phone?sid={$sid}"><img src="{$user_images.secure_url}" width="42" height="42" /></a>{/if}</div>
+                    {/foreach}
+                    </div>
+                </li>
                 {/foreach}
-                {/if}
-                </div>
-            </li>
             </ul>
         </div>
+        {if $iphone.user_display_count > 2}
+        <div style="clear:both;"></div>
+        <ul id="select_box">
+            {section name=cnt start=1  loop=$iphone.user_display_count}
+                <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a></li>
+            {/section}
+        </ul>
+        {/if}
     </div>
 </div>

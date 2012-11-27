@@ -53,8 +53,22 @@ define('LICENCE_NEW',       0);
 define('LICENCE_EQUAL',     1);
 define('LICENCE_OVER',      2);
 
+//iphone5 size
+define('IPHONE5_VERTICAL_WIDTH',   240);
+define('IPHONE5_VERTICAL_HEIGHT',   593);
+
+define('IPHONE5_HORIZON_WIDTH',   504);
+define('IPHONE5_HORIZON_HEIGHT',   329);
+
+define('IPHONE5_HOME_WIDTH',   504);
+define('IPHONE5_HOME_HEIGHT',   504);
+
 //max image count
 define('MAX_IMAGE_COUNT',   9);
+
+//max logo count
+define('MAX_LOGO_COUNT',   24);
+//define('MAX_LOGO_COUNT',   8);
 
 //scroll
 define('SCROLL_FIRST',     0);

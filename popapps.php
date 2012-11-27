@@ -46,26 +46,27 @@ switch ($_GET['s']){
 }
 
 //iphone direction
-if( !isset($_GET['d']) ) $_GET['d'] = 'v';
+if( !isset($_GET['d']) ) $_GET['d'] = DIRECTION_VERTICAL;
 switch ($_GET['d']){
     case DIRECTION_VERTICAL:
-        $direction = DIRECTION_VERTICAL;
-        $width = 240;
-        $height = 579;
+        $width = IPHONE5_VERTICAL_WIDTH;
+        $height = IPHONE5_VERTICAL_HEIGHT;
+        $bottom_position = '-593';
     break;
     case DIRECTION_HORIZON:
-        $direction = DIRECTION_HORIZON;
-        $width = 579;
-        $height = 240;
+        //横タイプ 入れ替え
+        $width = IPHONE5_HORIZON_WIDTH;
+        $height = IPHONE5_HORIZON_HEIGHT;
+        $bottom_position = '-593';
     break;
     default:
-        $direction = DIRECTION_VERTICAL;
-        $width = 240;
-        $height = 579;
+        $width = IPHONE5_VERTICAL_WIDTH;
+        $height = IPHONE5_VERTICAL_HEIGHT;
+        $bottom_position = '-593';
     break;
 }
 
-print "document.write(\"<link rel='stylesheet' href='http://\"+fqdn+\"/css/simulator.css' type='text/css' media='all' /><script type='text/javascript' src='http://\"+fqdn+\"/js/popapps/".$js."'></script><script type='text/javascript' src='http://\"+fqdn+\"/js/simulator.js'></script><div id='popapps-simulator' style='position: fixed;".$position.": 20px;padding:0px;margin:0px;'><iframe src='http://\"+fqdn+\"/phone?sid=".$_GET['sid']."&d=".$direction."' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='".$width."' height='".$height."'></iframe></div>\");";
+print "document.write(\"<link rel='stylesheet' href='http://\"+fqdn+\"/css/simulator.css' type='text/css' media='all' /><script type='text/javascript' src='http://\"+fqdn+\"/js/popapps/".$js."'></script><script type='text/javascript' src='http://\"+fqdn+\"/js/simulator.js'></script><div id='popapps-simulator' style='position: fixed;bottom:".$bottom_position."px;".$position.": 5px;padding:0px;margin:0px;'><div id='popapps-title' class='bgBlue'><img src='http://\"+fqdn+\"/img/phone/icon.gif' />popApps<div id='open-btn'><img src='http://\"+fqdn+\"/img/phone/open-btn.gif' /></div><div id='close-btn'><img src='http://\"+fqdn+\"/img/phone/close-btn.gif' /></div></div><iframe src='http://\"+fqdn+\"/phone?sid=".$_GET['sid']."' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='".$width."' height='".$height."' allowtransparency='true'></iframe></div>\");";
 
 print "}";
 ?>

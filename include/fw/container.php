@@ -20,7 +20,7 @@ class container
     public $isDebug = FALSE;
     public $isStage = FALSE;
     public $isMaintenance = FALSE;
-    public $isSystem = FALSE;
+    public $isConsole = FALSE;
     public $lastJudge = TRUE;//ロールバックかコミットの判断
     public $session;
     public $csrf;
@@ -48,13 +48,13 @@ class container
         $this->checkIni();
         $this->t->readyTemplate($this->isDebug);
         
-        //is system ?
-        $this->isSystem = preg_match("/^system/", $matches[1]) == 1 ? TRUE : FALSE;
+        //is console ?
+        $this->isConsole = preg_match("/^console/", $matches[1]) == 1 ? TRUE : FALSE;
         //locale
         $this->checkLocale();
 
         //position include.ロケール変数が必要
-        $this->isSystem ? require_once('fw/systemPosition.php') : require_once('fw/commonPosition.php');
+        $this->isConsole ? require_once('fw/systemPosition.php') : require_once('fw/commonPosition.php');
 
         //以下はシンプルモードでは呼ばない
         if(!$isSimple){
@@ -77,9 +77,7 @@ class container
                 define('LOCALE',LOCALE_EN);//英語
             break;
         }
-        if($this->isSystem){
-            require_once('locale/'.LOCALE.'/system/support.php');
-        }elseif(file_exists($_SERVER['DOCUMENT_ROOT'].'/include/locale/'.LOCALE.$_SERVER['SCRIPT_NAME'])){
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].'/include/locale/'.LOCALE.$_SERVER['SCRIPT_NAME'])){
             require_once('locale/'.LOCALE.$_SERVER['SCRIPT_NAME']);//ファイル別翻訳ファイル
         }
 

@@ -1,7 +1,7 @@
 .connected, .sortable, .exclude, .handles {
     margin: auto;
     padding: 0;
-    width: 190px;
+    width: 250px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -36,7 +36,31 @@ li.disabled {
 li.highlight {
     background: #FEE25F;
 }
+
 li.sortable-placeholder {
     border: 1px dashed #CCC;
     background: none;
+}
+
+#display_number {
+    padding: 0px;
+    margin: 0px;
+}
+
+#display_number li{
+    padding: 6px;
+    margin: 7px 5px;
+    display:block;
+    width: 40px;
+    height: 260px;/*40*6+20*/
+    border: 1px solid #CCC;
+/*    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;*/
+    color: #CCCCCC;
+    font-size:30px;
+    line-height:260px;
+}
+#display_number li.n1 {
+    border-top: 1px solid #CCC;
 }

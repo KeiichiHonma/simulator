@@ -5,7 +5,7 @@ if(isset($_GET['url'])){
     $image->readImageFile($handle);
     //$image->thumbnailImage(75, 75,true);
     $image->thumbnailImage(57, 57,true);
-    $image->roundCorners(6, 6);
+    $image->roundCorners(5, 5);
     $image->paintOpaqueImage(new ImagickPixel('rgba( 0, 0, 0, 0.0)'), new ImagickPixel('black'), 0);
     echo $image;
 }

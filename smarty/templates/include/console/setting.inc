@@ -32,6 +32,6 @@
             <br />上記のコードをウェブサイトに設置します。
             </div>
         </div>
-        <div id="manage-settings"><a href="/console/settings/sid/{$simulator.0.simulator_id}">Manage Settings...</a></div>
+        <div class="console-action"><a href="/console/settings/sid/{$simulator.0.simulator_id}">Manage Settings...</a></div>
     </div>
 </div>

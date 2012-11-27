@@ -111,12 +111,23 @@ class utilManager
         );
     }
 
+    static public function getUserImageParam($cloudinary,$logo){
+        return array
+        (
+            'public_id'=>$cloudinary['public_id'],
+            'version'=>$cloudinary['version'],
+            'secure_url'=>$cloudinary['secure_url'],
+            'thumbnail_url'=>$logo['thumbnail_url']
+        );
+    }
+
     static public function getLogoParam($cloudinary){
         return array
         (
             'public_id'=>$cloudinary['public_id'],
             'version'=>$cloudinary['version'],
             'secure_url'=>$cloudinary['secure_url'],
+            'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
             'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING))
         );
     }
@@ -150,8 +161,23 @@ class utilManager
         $iphone['logo'] = $mobile_images['logo'];
         //link
         $iphone['link'] = $simulator[0]['col_link'];
+        //position
+        $iphone['position'] = $simulator[0]['col_position'];
         //direction
         $iphone['direction'] = $simulator[0]['col_direction'];
+        return $iphone;
+    }
+    
+    static public function getIphoneHome($user){
+        //position
+        $iphone['position'] = $user[0]['col_position'];
+        
+        //logo
+        $iphone['user_images'] = unserialize($user[0]['col_user_images']);
+        if(is_array($iphone['user_images']) && count($iphone['user_images']) > 0){
+            $iphone['user_images_chunk'] = array_chunk($iphone['user_images'],MAX_LOGO_COUNT,TRUE);//画面数計算
+            $iphone['user_display_count'] = count($iphone['user_images_chunk'])+1;
+        }
         return $iphone;
     }
 }

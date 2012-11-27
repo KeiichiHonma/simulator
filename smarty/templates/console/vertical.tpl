@@ -8,6 +8,13 @@
 <link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/sortable0.css" rel="stylesheet" type="text/css" media="all" />
 {include file="include/common/iphone_header.inc"}
+{literal}
+<style type="text/css">
+.arrow_box {
+        border: 1px solid #CCCCCC;
+}
+</style>
+{/literal}
 <script type="text/javascript" src="/js/jquery.spinner.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.js" ></script>
 <script type="text/javascript" src="/js/console.js" ></script>
@@ -19,10 +26,11 @@
         <div class='fl'>
             <div class="boxArea">
             <div class="boxTemp box-phone-vertical">
-                <h3>Preview</h3>
+                <h3>pop Apps</h3>
                 <div class="phone">
                 {include file="include/common/iphone5.inc"}
                 </div>
+                <div class="console-action"><a href="/console/view_preview/sid/{$simulator.0.simulator_id}" target="_blank">Preview...</a></div>
             </div>
             {include file="include/console/detail.inc"}
             </div>

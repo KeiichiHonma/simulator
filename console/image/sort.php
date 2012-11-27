@@ -33,7 +33,7 @@ if($con->isPost && isset($_POST['image_sort']) && $new_keys = explode(',',$_POST
     $sid = $simulator_handle->updateImagesRow($sid,$new_mobile_images,$new_console_images);
     if(!$sid){
         require_once('fw/errorManager.php');
-        errorManager::throwError(E_CMMN_HANDLE_SIM_STOP);
+        errorManager::throwError(E_CMMN_SORT_IMAGES_STOP);
     }
 
     $con->safeExitRedirect('/console/view/sid/'.$simulator[0]['simulator_id']);

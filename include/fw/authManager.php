@@ -48,6 +48,7 @@ class authManager
         $this->readyUser();
         global $con;
         $con->t->assign('is_auth',$is_auth);
+        $con->t->assign('uid',$this->uid);
         return true;
     }
     

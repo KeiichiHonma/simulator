@@ -9,6 +9,11 @@ class userParameter extends parameterManager
         $this->parameter['fbid'] = $fbid;
         $this->parameter['name'] = $name;
         $this->parameter['mail'] = $mail;
+        
+        $this->parameter['title'] = '';
+        $this->parameter['scroll'] = 3;
+        $this->parameter['position'] = 2;//right
+        
         $this->parameter['use_licence'] = 0;//最初は0
         $this->parameter['max_licence'] = 1;//最初は1
         $this->parameter['last_login'] = $time;

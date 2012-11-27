@@ -223,10 +223,12 @@ a:hover {
 	font-size: 20px;
 	font-weight: bold;
 	color: #fff;
-	-webkit-border-top-left-radius: 4px;  
-    -webkit-border-top-right-radius: 4px;  
-    -moz-border-radius-topleft: 4px;  
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
     -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
 }
 #contents .chooseArea .bgFree { background: url(../img/common/bg_choose_01.jpg) repeat; }
 #contents .chooseArea .bgBlue { background: url(../img/common/bg_choose_02.jpg) repeat; }

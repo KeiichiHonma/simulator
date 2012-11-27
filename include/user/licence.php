@@ -41,9 +41,8 @@ class userLicence
     }
     
     public function setUserLicence($uid){
-        $user = $this->logic->getOneUser($uid);
-        if($user){
-            $this->user = $user;
+        $this->user = $this->logic->getOneUser($uid);
+        if($this->user){
             global $con;
             $this->use_licence = $user[0]['col_use_licence'];
             $this->max_licence = $user[0]['col_max_licence'];
