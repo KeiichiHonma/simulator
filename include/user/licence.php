@@ -15,14 +15,15 @@ class userLicence
         $this->handle = new userHandle();
     }
     
-    public function updateMaxLicence($uid,$item_name){
+    //public function updateMaxLicence($uid,$item_name){
+    public function updateMaxLicence($uid,$item_number){
         $this->user = $this->logic->getOneUser($uid);
         if($this->user){
-            switch ($item_name){
-                case NAME_LICENCE_BASIC:
+            switch ($item_number){
+                case LICENCE_BASIC:
                     $plus = MAX_LICENCE_BASIC;
                 break;
-                case NAME_LICENCE_ADVANCE:
+                case LICENCE_ADVANCE:
                     $plus = MAX_LICENCE_ADVANCE;
                 break;
                 default:

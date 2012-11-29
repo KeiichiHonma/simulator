@@ -19,7 +19,8 @@ if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
         $pid = true;
         if($pid){
             //user情報更新
-            $new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);
+            //$new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_name']);
+            $new_max = $user_licence->updateMaxLicence($_GET['uid'],$_POST['item_number']);
 
             //free→basic advance限定。ユーザーが既にアプリを登録していた場合はアプリの画像をユーザー用に再度アップしなおす。
             if($user_licence->user[0]['col_max_licence'] == MAX_LICENCE_FREE && $user_licence->user[0]['col_use_licence'] == 1){
