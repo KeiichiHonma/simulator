@@ -27,7 +27,7 @@
  */
 function smarty_modifier_error_message($message,$br = '<br />')
 {
-    if(isset($message)) return '<span class="error_alert">'.$message.'</span>'.$br;
+    if(isset($message)) return '<span class="error_alert">'.nl2br($message).'</span>'.$br;
 }
 
 /* vim: set expandtab: */

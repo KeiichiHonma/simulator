@@ -3,6 +3,7 @@
         var element = $('#flickable').flickable({
           section: 'li'
         });
+        //$('#flickable').flickable('refresh');
 
         $('#select_box li a').click(function() {
             var index = $(this).text() - 1;

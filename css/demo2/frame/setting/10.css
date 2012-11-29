@@ -1,0 +1,20 @@
+/*#demo2-iphone {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}*/
+#demo2-iphone-home {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+.demo2-top-box{
+    position: relative;
+    top:0px;
+    left:-54px;/*72-18*/
+}
+.demo2-error-box{
+    position: relative;
+    top:0px;
+    left:-54px;/*72-18*/
+}

@@ -97,15 +97,3 @@
 #select7:hover {background-color:#FFFFFF}
 #select8:hover {background-color:#FFFFFF}
 #select9:hover {background-color:#FFFFFF}
-
-#powered {
-    color: #ffffff;
-    font-size:12px;
-    position:relative;
-    top:-25px;
-    left:307px;
-}
-
-#powered a{
-    color: #ffffff;
-}

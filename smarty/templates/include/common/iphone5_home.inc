@@ -1,5 +1,6 @@
 <div id="iphone-home">
     <div id="app-home">
+
         <div id="flickable">
             <ul id="flickable_ul">
                 {foreach from=$iphone.user_images_chunk key="key" item="user_images" name="user_images_chunk"}
@@ -21,6 +22,6 @@
             {/section}
         </ul>
         {/if}
-        {if  $iphone.user_display_count == 2}<div id="powered-home">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>{/if}
+        {*{if  $iphone.user_display_count == 2}<div id="powered-home">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>{/if}*}
     </div>
 </div>

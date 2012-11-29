@@ -66,6 +66,7 @@ class analyze
             if($this->direction_count['horizon'] > $this->direction_count['vertical']){
                 $this->direction = DIRECTION_HORIZON;
             }else{
+            
             }
             return TRUE;
         }else{

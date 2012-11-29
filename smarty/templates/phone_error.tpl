@@ -19,7 +19,7 @@
             </div>
             <div id="flickable">
                 <ul id="flickable_ul">
-                    <li><div class="block"><img src="/img/phone/under_construction.jpg" /></div></li>
+                    <li><div class="block"><img src="/img/phone/under_construction{$iphone.direction|default:0}.jpg" /></div></li>
 {*                    <li><div class="block"><img src="/img/phone/demo/demo1.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo2.jpg" /></div></li>
                     <li><div class="block"><img src="/img/phone/demo/demo3.jpg" /></div></li>

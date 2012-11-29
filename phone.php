@@ -19,21 +19,23 @@ require_once('fw/utilManager.php');
 require_once('simulator/logic.php');
 $simulator_logic = new simulatorLogic();
 $simulator = $simulator_logic->getAppSimulator($_GET['sid']);
+$iphone = utilManager::getIphone($simulator);
+$con->t->assign('iphone',$iphone);
+
 if(!$simulator){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_POPAPPS_EXISTS,true);
 }
 
-//domain
 //実行サーバーと同じドメインだったらOK
-if( stristr( $_SERVER['HTTP_REFERER'],$_SERVER['SERVER_NAME']) === FALSE && stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_domain'] ) === FALSE ){
-//if( stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_domain'] ) !== FALSE ){
+//if( stristr( $_SERVER['HTTP_REFERER'],$_SERVER['SERVER_NAME']) === FALSE && stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_url'] ) === FALSE ){
+//if( stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_url'] ) !== FALSE ){
+if( !utilManager::checkDomain($simulator[0]['col_url'],$_SERVER['HTTP_REFERER']) ){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_DOMAIN_EXISTS,true);
 }
-$iphone = utilManager::getIphone($simulator);
 
-$con->t->assign('iphone',$iphone);
+
 if($iphone['mobile']['count_screenshots'] == 0){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_SCREENSHOTS_EXISTS,true);

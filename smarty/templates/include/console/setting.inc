@@ -6,8 +6,8 @@
             <div class='value'>{if strcasecmp($simulator.0.col_direction,1) == 0}Horizon{else}Vertical{/if}</div>
         </div>
         <div class='item clearfix'>
-            <div class='label'>Domain</div>
-            <div class='value'>{$simulator.0.col_domain}</div>
+            <div class='label'>URL</div>
+            <div class='value'>{$simulator.0.col_url}</div>
         </div>
 {*        <div class='item clearfix'>
             <div class='label'>Title:</div>

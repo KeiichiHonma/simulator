@@ -19,7 +19,7 @@ if(!$user){
     errorManager::throwError(E_CMMN_USER_EXISTS);
 }
 
-//domain
+//url
 require_once('simulator/logic.php');
 $simulator_logic = new simulatorLogic();
 $simulators = $simulator_logic->getUserSimulator($_GET['uid']);
@@ -30,7 +30,11 @@ if(!$simulators){
 }
 $isOK = FALSE;
 foreach ($simulators as $key => $simulator){
-    if( stristr( $_SERVER['HTTP_REFERER'],$_SERVER['SERVER_NAME']) !== FALSE || stristr( $_SERVER['HTTP_REFERER'],$simulator['col_domain'] ) !== FALSE ) $isOK = TRUE;
+    if( !utilManager::checkDomain($simulator[0]['col_url'],$_SERVER['HTTP_REFERER']) ){
+        $isOK = TRUE;
+        break;
+    }
+    //if( stristr( $_SERVER['HTTP_REFERER'],$_SERVER['SERVER_NAME']) !== FALSE || stristr( $_SERVER['HTTP_REFERER'],$simulator['col_url'] ) !== FALSE ) $isOK = TRUE;
 }
 $isOK = TRUE;
 if( !$isOK ){

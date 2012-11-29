@@ -32,16 +32,16 @@ class newHandle extends analyze
         $this->max_licence = $user[0]['col_max_licence'];
         $this->use_licence = $user[0]['col_use_licence'];
         
-        $this->readyHandle();
-
-        if($this->method == 'analyze'){
-            $this->doAnalyze();
-        }elseif($this->method == 'create'){
-            $this->doCreate();
-        }else{
-            //不正
-            global $con;
-            $con->safeExitRedirect('/');
+        if($this->readyHandle()){
+            if($this->method == 'analyze'){
+                $this->doAnalyze();
+            }elseif($this->method == 'create'){
+                $this->doCreate();
+            }else{
+                //不正
+                global $con;
+                $con->safeExitRedirect('/');
+            }
         }
     }
     
@@ -59,15 +59,15 @@ class newHandle extends analyze
                 errorManager::throwError(E_CMMN_DUPLICATION_SIM);
             }
         }
-
+        return $is_check;
     }
     
     private function doAnalyze(){
         $this->analyze_result = $this->analyzeHtmlSource($this->itunes_url);
         if(!$this->analyze_result){
-            //解析できなかった
+            //解析できなかった or ipad用のアプリだった場合等
             //error追加
-            checkItunesURL::$error['analyze'] = 'can\'t analyze';
+            checkItunesURL::$error['analyze'] = "The appointed application cannot be used. \n A required [iPhone Screenshot] or [logo] were not able to be acquired.";
             $is_check = checkItunesURL::safeExit();
         }else{
             //iphone画面用にセット

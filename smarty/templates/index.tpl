@@ -21,6 +21,32 @@
 <script src="/js/demo/direction/0.js" type="text/javascript"></script>
 <script src="/js/demo/popapps.js" type="text/javascript"></script>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/js/jquery.flickable-1.0b3-jq1.6.js" type="text/javascript"></script>
+
+<script src="/js/demo/iphone.js" type="text/javascript"></script>
+<link href="/css/demo/iphone.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/demo/iphone5_0.css" rel="stylesheet" type="text/css" media="all" />
+
+{*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/js/jquery.flickable-1.0b3-jq1.6.js" type="text/javascript"></script>
+<script src="/js/iphone.js" type="text/javascript"></script>
+<link href="/css/iphone.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/iphone5_0.css" rel="stylesheet" type="text/css" media="all" />*}
+
+{*<link href="/css/frame/setting/02.css" rel="stylesheet" type="text/css" media="all" />*}
+
+<link href="/css/demo2/popapps.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/demo2/setting/10.css" rel="stylesheet" type="text/css" media="all" />
+
+<script src="/js/demo2/scroll/h.js" type="text/javascript"></script>
+<script src="/js/demo2/direction/1.js" type="text/javascript"></script>
+<script src="/js/demo2/popapps.js" type="text/javascript"></script>
+
+<script src="/js/demo2/iphone.js" type="text/javascript"></script>
+<link href="/css/demo2/iphone.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/demo2/iphone5_1.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/demo2/frame/setting/10.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 
@@ -33,18 +59,12 @@
             <p>Can appear as if there in front of the user's actual iphone, conjures up images of apps available, we encourage the installation.</p>
         </div>
         <div class="demo-section">
-            <div id='demo-popapps-simulator' style='position: absolute;bottom:-598px;right: 60px;padding:0px;margin:0px;'>
-                <div id='demo-popapps-title' class='bgBlue'>
-                    <img src='/img/phone/icon.gif' />popApps
-                    <div id='demo-open-btn'><img src='/img/phone/open-btn.gif' /></div>
-                    <div id='demo-close-btn'><img src='/img/phone/close-btn.gif' /></div>
-                </div>
-                <iframe src='http://simulator.813.co.jp/phone?demo=0' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='240' height='593' allowtransparency='true'></iframe>
-            </div>
+            {include file="include/demo/demo1.inc"}
         </div>
+
     </div>
 </div>
-
+{include file="include/demo/demo2.inc"}
 {*<script type='text/javascript' src='https://simulator.813.co.jp/popapps_home?uid=1&s=2'></script>
 *}
 <!-- 
@@ -229,6 +249,6 @@ contents
     </div>
 </div>
 {include file="include/common/footer.inc"}
-
+<script type='text/javascript' src='https://simulator.813.co.jp/popapps_home?uid=1&s=4'></script>
 </body>
 </html>

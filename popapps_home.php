@@ -9,7 +9,7 @@ print "} else {";
 if( isset($_GET['uid']) && is_numeric($_GET['uid']) ){
     $page = 'home?uid='.$_GET['uid'].'&d='.DIRECTION_VERTICAL;
     $width = IPHONE5_HOME_WIDTH;
-    $height = IPHONE5_HOME_HEIGHT;
+    $height = IPHONE5_VERTICAL_HEIGHT;
 }else{
     die();
 }

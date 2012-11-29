@@ -36,6 +36,7 @@ $(function() {
 });
 </script>
 {/literal}
+{include file="include/console/double_click_stop.inc"}
 </head>
 <body>
 {include file="include/common/header.inc"}
@@ -145,8 +146,8 @@ $(function() {
                     <h3>Home Display Settings</h3>
                     <div class='info'>
                         <div class='item clearfix'>
-                            <div class='label'>Domain</div>
-                            <div class='value'>設定済みのドメイン全て</div>
+                            <div class='label'>Web Site</div>
+                            <div class='value'>設定済みのwebサイト全て</div>
                         </div>
                         <div class='item clearfix'>
                             <div class='label'>Scroll</div>

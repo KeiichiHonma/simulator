@@ -1,0 +1,1 @@
+<div class="console-action"><a href="{$smarty.const.SIMURLSSL}/console/popapps/view_preview/sid/{$simulator.0.simulator_id}" target="_blank">Preview...</a></div>

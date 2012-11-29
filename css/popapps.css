@@ -1,0 +1,31 @@
+#popapps-simulator #popapps-title {
+    font-family: 'Bree Serif', Helvetica,Helvetica,sans-serif;
+    width:204px;
+    height:20px;
+    line-height:17px;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#popapps-simulator .home {
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#popapps-simulator #popapps-title img{
+    float:left;
+    padding-right:10px;
+}
+#popapps-simulator .bgBlue { background: url("https://simulator.813.co.jp/img/common/bg_choose_02.jpg") repeat; }

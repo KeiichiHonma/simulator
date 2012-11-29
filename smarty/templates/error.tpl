@@ -1,15 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#">
-<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
-<meta charset="utf-8"> 
-
-<link type="text/css" href="/css/common.css" rel="stylesheet" media="all" />
-
-<title>{$smarty.const.APP_NAME}</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- title -->
+<title>title</title>
+<!-- css -->
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" media="all" href="/css/master.css" />
+<link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+{include file="include/common/javascript.inc"}
 </head>
+
 <body>
-{foreach from=$errorlist key="key" item="value" name="errorlist"}
-{$value|nl2br}<br />
-{/foreach}
+{include file="include/common/header.inc"}
+<div id="errorArea">
+
+</div>
+<br class="cl"/>
+<!-- 
+//////////////////////////////////////////////////////////////////////////////
+contents
+//////////////////////////////////////////////////////////////////////////////
+-->
+<div id="contents" class="">
+    <div id="inner02" class="mmt cf">
+        <h2 class="pt60">Warning</h2>
+        <div class="featureArea width100 cf">
+            <div class="boxTemp mb60">
+                <img src="/img/common/pic_error.png" alt="error" />
+                <h3>{foreach from=$errorlist key="key" item="value" name="errorlist"}{$value|nl2br}<br />{/foreach}</h3>
+                <p class="center">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <br class="cl"/>
+</div>
+{include file="include/common/footer.inc"}
+
 </body>
 </html>

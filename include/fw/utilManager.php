@@ -225,7 +225,34 @@ class utilManager
         return $home_url;
     }
 
+    static public function checkDomain($url,$referer){
+        //return FALSE;
+        $seiki = '/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i';
+        if (preg_match($seiki, $url)) {
+        } else {
+            return FALSE;
+        }
+        if (preg_match($seiki, $referer)) {
+        } else {
+            return FALSE;
+        }
 
+        //domain取得
+        $seiki2 = '@^(?:https?://)?([^/]+)@i';
+        if ($url_domain = preg_match($seiki2, $url)) {
+        } else {
+            return FALSE;
+        }
+
+        $seiki2 = '@^(?:https?://)?([^/]+)@i';
+        if ($referer_domain = preg_match($seiki2, $referer)) {
+        } else {
+            return FALSE;
+        }
+
+        if( stristr( $referer,$_SERVER['SERVER_NAME']) === TRUE || strcasecmp($url_domain,$referer_domain) == 0 ) return TRUE;
+        return FALSE;
+    }
 
 }
 ?>

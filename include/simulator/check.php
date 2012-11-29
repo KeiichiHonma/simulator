@@ -10,7 +10,7 @@ class checkSimulatorEntry extends checkManager
             array('type'=>'length','func'=>'checkLength','arg'=>array('start'=>1,'end'=>80)),
             array('message'=>null,'func'=>'replaceInput','arg'=>'title')
             ),*/
-        'domain'=>array
+        'url'=>array
             (
             array('type'=>'must','func'=>'checkMust','arg'=>null),
             array('type'=>'url_validate','func'=>'checkUrl','arg'=>null),
@@ -51,7 +51,7 @@ class checkSimulatorUpdate extends checkManager
             array('type'=>'length','func'=>'checkLength','arg'=>array('start'=>1,'end'=>80)),
             array('message'=>null,'func'=>'replaceInput','arg'=>'title')
             ),*/
-        'domain'=>array
+        'url'=>array
             (
             array('type'=>'must','func'=>'checkMust','arg'=>null),
             array('type'=>'url_validate','func'=>'checkUrl','arg'=>null),

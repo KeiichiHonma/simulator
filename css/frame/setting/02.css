@@ -1,0 +1,23 @@
+#iphone {
+    
+    /*position: absolute;*/
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    /*padding-left:100px;*/
+}
+#iphone-home {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+.top-box{
+    position: relative;
+    top:0px;
+    left:0px;
+}
+.error-box{
+    position: relative;
+    top:0px;
+    left:0px;
+}

@@ -9,7 +9,7 @@ class simulatorTable extends tableManager
             array('column'=>'mtime',             'as'=>null,                      'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
             array('column'=>'uid',               'as'=>null,                      'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'aid',               'as'=>null,                      'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
-            array('column'=>'domain',            'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
+            array('column'=>'url',               'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'title',             'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'link',              'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'scroll',            'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),

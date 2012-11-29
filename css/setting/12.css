@@ -1,0 +1,22 @@
+#popapps-simulator #popapps-title {
+    /*margin-left:282px;*//*72+210*/
+    position: absolute;
+    right: 11px;
+    top: -24px;
+}
+#open-btn {
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#close-btn {
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

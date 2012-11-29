@@ -504,7 +504,6 @@
 
         dragStop: function(event) {
             var self = this;
-
             if (event.type === 'touchend' && event.originalEvent.touches.length > 1) {
                 return;
             }
@@ -517,7 +516,6 @@
                 }).bind('click.flickable', function(event) {
                     return self.clickHandler(event);
                 });
-
             this.flick();
         },
 
@@ -529,6 +527,7 @@
                 friction = options.friction;
 
             // Make sure that the method is executed only once
+            
             clearInterval(this.inertia);
 
             $.each(inertialVelocity, function(axis, velocity) {
@@ -572,6 +571,19 @@
                         distance = destination - scrollPos;
                         friction = false;
                     }
+                    index = $.inArray(Math.min.apply(Math, distances), distances);
+                    select_id = index + 1;
+                    select_a = $('#select'+select_id);
+                    $('#select_box li a').css("background-color", "#4E4E4E");
+                    
+                    //$('#select_box li a').hover(function(){
+                        //select_a.css('background-color','#FFFFFF');
+                    //}, function(){
+                        //select_a.css('background-color','#4E4E4E');
+                    //});
+                    
+                    select_a.css('background-color','#FFFFFF');
+                    //select_a.unbind("mouseenter").unbind("mouseleave");
                 }
             }
 

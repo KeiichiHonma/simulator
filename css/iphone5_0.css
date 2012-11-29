@@ -7,9 +7,9 @@
 }
 
 #iphone-home {
-    background:url("/img/phone/iphone5_black_vertical.png") 0px 0px no-repeat;
+    background:url("/img/phone/iphone5_black_vertical.png") 0px 89px no-repeat;
     width:240px;
-    height:504px;
+    height:593px;
     padding:0px;
     margin:0px;
 }
@@ -24,7 +24,7 @@
     position: relative;
     top:0px;
     left:21px;
-    padding-top:75px;
+    padding-top:164px;/*89+75*/
 }
 
 .error-box{
@@ -32,7 +32,6 @@
 }
 
 .top-box{
-    /*margin-bottom:72px;*/
     margin-bottom:75px;
 }
 #flickable {
@@ -132,27 +131,3 @@
 #select7:hover {background-color:#FFFFFF}
 #select8:hover {background-color:#FFFFFF}
 #select9:hover {background-color:#FFFFFF}
-
-#powered {
-    color: #ffffff;
-    font-size:12px;
-    position:relative;
-    top:8px;
-    left:85px;
-}
-
-#powered a{
-    color: #ffffff;
-}
-
-#powered-home {
-    color: #ffffff;
-    font-size:12px;
-    position:relative;
-    top:15px;
-    left:55px;
-}
-
-#powered-home a{
-    color: #ffffff;
-}

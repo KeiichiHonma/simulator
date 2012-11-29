@@ -82,3 +82,12 @@ img {
 .top-box td.appstore{
     padding:0px 2px 0px 0px;
 }
+
+#powered {
+    color: #248CC1;
+    font-size:12px;
+}
+
+#powered a{
+    color: #248CC1;
+}
