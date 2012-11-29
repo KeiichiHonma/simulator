@@ -19,7 +19,7 @@ define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00012');
 define('E_CMMN_USER_EXISTS',               'SIM_CMMN_00013');
 define('E_CMMN_SORT_IMAGES_STOP',           'SIM_CMMN_00014');
 define('E_CMMN_SORT_USERS_STOP',           'SIM_CMMN_00015');
-
+define('E_CMMN_DUPLICATION_SIM',           'SIM_CMMN_00016');
 
 //phone error
 define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
@@ -43,6 +43,8 @@ define('SIM_CMMN_00012',               'userで処理が停止しました。再
 define('SIM_CMMN_00013',               'userが削除されたか存在しません。');
 define('SIM_CMMN_00014',               'imageのソートで処理が停止しました。再度実行してください。');
 define('SIM_CMMN_00015',               'user-imageのソートで処理が停止しました。再度実行してください。');
+define('SIM_CMMN_00016',               '既に登録済みのアプリです。');
+
 //電話エラーメッセージ 3行まで
 define('SIM_PHONE_00001',               'popAppが削除されたか存在しません。');
 define('SIM_PHONE_00002',               '使用可能なドメインではありません。');

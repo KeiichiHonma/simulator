@@ -1,4 +1,4 @@
-<div class="boxTemp box-detail">
+<div class="boxTemp box-detail detail{$iphone.direction|default:0}">
     <h3>pop Apps Details</h3>
     <div class='info'>
         <div class='item clearfix'>

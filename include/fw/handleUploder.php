@@ -230,7 +230,7 @@ class handleUploader {
         $this->uploadName = $filename . $ext;
         
         if ($this->file->save($uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext)){
-            return array('success'=>true,'file'=>'/console/image/uploads/'.$filename . $ext);
+            return array('success'=>true,'file'=>'/console/popapps/image/uploads/'.$filename . $ext);
         } else {
             return array('error'=> 'Could not save uploaded file.' .
                 'The upload was cancelled, or server error encountered');
@@ -266,9 +266,17 @@ class handleUploader {
 
         require_once('simulator/logic.php');
         $simulator_logic = new simulatorLogic();
-        
+
         $simulator = $simulator_logic->getOneSimulator($_POST['sid']);
         if(!$simulator) return array('error' => 'No popApps');
+        
+        //枚数チェック
+        $mobile_images = unserialize($simulator[0]['col_mobile_images']);
+        $console_images = unserialize($simulator[0]['col_console_images']);
+        if( count( $console_images['screenshots'] ) > 9){
+            return array('error' => 'It is over the number of pictures.');
+        }
+        
         
         //縦横チェック
         list($width, $height, $type, $attr) = getimagesize( $_FILES['uploadfile']['tmp_name'] );
@@ -293,9 +301,8 @@ class handleUploader {
             }
             
             //simulatorテーブルに画像を追加
-            $mobile_images = unserialize($simulator[0]['col_mobile_images']);
-            $console_images = unserialize($simulator[0]['col_console_images']);
             $mobile_image = utilManager::getMobileImageParam($cloudinary,$simulator[0]['col_direction']);
+            
             $mobile_images['screenshots'][] = $mobile_image;
 
             $console_image = utilManager::getConsoleImageParam($cloudinary,$simulator[0]['col_direction']);

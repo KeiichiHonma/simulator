@@ -10,8 +10,18 @@
 <!-- css -->
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" type="text/css" media="all" href="/css/master.css" />
+<link href="/css/common.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 {include file="include/common/javascript.inc"}
+
+<link href="/css/demo/popapps.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/demo/setting/02.css" rel="stylesheet" type="text/css" media="all" />
+
+<script src="/js/demo/scroll/f.js" type="text/javascript"></script>
+<script src="/js/demo/direction/0.js" type="text/javascript"></script>
+<script src="/js/demo/popapps.js" type="text/javascript"></script>
+
+
 </head>
 
 <body>
@@ -22,10 +32,21 @@
             <h1>Watch the iphone app before installing.</h1>
             <p>Can appear as if there in front of the user's actual iphone, conjures up images of apps available, we encourage the installation.</p>
         </div>
-        <div class="right">
+        <div class="demo-section">
+            <div id='demo-popapps-simulator' style='position: absolute;bottom:-598px;right: 60px;padding:0px;margin:0px;'>
+                <div id='demo-popapps-title' class='bgBlue'>
+                    <img src='/img/phone/icon.gif' />popApps
+                    <div id='demo-open-btn'><img src='/img/phone/open-btn.gif' /></div>
+                    <div id='demo-close-btn'><img src='/img/phone/close-btn.gif' /></div>
+                </div>
+                <iframe src='http://simulator.813.co.jp/phone?demo=0' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='240' height='593' allowtransparency='true'></iframe>
+            </div>
         </div>
     </div>
 </div>
+
+{*<script type='text/javascript' src='https://simulator.813.co.jp/popapps_home?uid=1&s=2'></script>
+*}
 <!-- 
 //////////////////////////////////////////////////////////////////////////////
 contents
@@ -36,10 +57,10 @@ contents
     <div id="performanceArea" class="cf">
         <div id="inner01" class="cf">
             
-            <span class="point01 mt45">
+            <span class="point01 mt10">
                 <p><em>fly out of the bottom of the window</em>Can appear as if there in front of the user's actual iphone, conjures up images.</p>
             </span>
-            <span class="point02 mt20">
+            <span class="point02 mt10">
                 <p><em>You can scroll the page </em>Can appear as if there in front of the user's actual iphone, conjures up images.</p>
             </span>
             
@@ -176,7 +197,6 @@ contents
             <!-- plus end -->
         </div>
         
-
         <!-- anchor--><div id="a_faq"> </div><!-- anchor-->
 
         <h2>FAQ</h2>
@@ -209,5 +229,6 @@ contents
     </div>
 </div>
 {include file="include/common/footer.inc"}
+
 </body>
 </html>

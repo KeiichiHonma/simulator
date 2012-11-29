@@ -20,9 +20,9 @@ class userParameter extends parameterManager
         $this->parameter['validate'] = VALIDATE_ALLOW;
     }
 
-    public function setUpdate($uid,$licence){
+    public function setUpdate($uid){
         parent::readyUpdateParameter($uid);
-        $this->parameter['licence'] = $licence;
+        $this->setParameter();
     }
 
     public function setUseLicenceUpdate($uid,$use_licence){
@@ -58,6 +58,13 @@ class userParameter extends parameterManager
 
     public function setLastLoginParameter(){
         $this->parameter['last_login'] = time();
+    }
+
+    public function setParameter(){
+        $columns = userTable::getInput();//特殊な形できます
+        foreach($columns as $column){
+            $this->parameter[$column] = $_POST[$column];
+        }
     }
 }
 ?>

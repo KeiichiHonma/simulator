@@ -47,7 +47,8 @@ if(isset($_POST['txn_id']) && is_numeric($_GET['uid'])){
                     require_once('simulator/handle.php');
                     $simulator_handle = new simulatorHandle();
                     $con->db->cloudinary_image = $new_mobile_images;//rollback 準備
-                    $sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_mobile_images,$new_console_images);
+                    //$sid = $simulator_handle->updateImagesRow($simulator[0]['simulator_id'],$new_mobile_images,$new_console_images);
+                    $sid = $simulator_handle->updatePaymentRow($simulator[0]['simulator_id'],$new_mobile_images,$new_console_images);//licenceも更新してます。
                     if(!$sid){
                         //rollback
                         cloudinaryUploader::rollback($new_mobile_images);

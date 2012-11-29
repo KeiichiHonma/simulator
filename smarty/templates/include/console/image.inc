@@ -1,7 +1,7 @@
-<div class="boxTemp box-images">
+<div class="boxTemp box-images images{$iphone.direction|default:0}">
     <h3>pop Apps Images</h3>
     <p class="center">スクリーンショットをアップしてください。</p>
-    <div class='image clearfix'>
+    <div class="image-section section{$iphone.direction|default:0} clearfix">
         <ul id="files" class="{$simulator.0.simulator_id}">
         {if $iphone.console.screenshots}
             {foreach from=$iphone.console.screenshots key="key" item="screenshot" name="screenshots"}
@@ -9,7 +9,11 @@
             {/foreach}
         {/if}
         </ul>
-        <div id="upload" class="{$simulator.0.simulator_id}"><span id="upload_btn">Upload image...<span></div>
+        {*{if $count_screenshots < 9}<div id="parent_upload"><div id="upload" class="{$simulator.0.simulator_id}"><span id="upload_btn">Upload image...<span></div></div>{/if}*}
+        <div id="parent_upload" class="clearfix">
+            <div id="upload" class="{$simulator.0.simulator_id}"><span id="upload_btn">Upload image...<span></div>
+        </div>
+        {*<div id="upload" class="{$simulator.0.simulator_id}"><span id="upload_btn">Upload image...<span></div>*}
         {*<br /><span id="status" ></span>*}
     </div>
 </div>

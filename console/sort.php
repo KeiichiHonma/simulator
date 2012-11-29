@@ -10,7 +10,7 @@ if($con->isPost && isset($_POST['image_sort']) && $new_keys = explode(',',$_POST
     $user = $user_logic->getOneUser($authManager->uid);
 
     require_once('simulator/logic.php');
-    $simulator_logic = new simulatorLogic();
+    $simulator_logic = new simulatorLogic(TRUE);
     $simulator = $simulator_logic->getAppSimulator($sid);
 
     $new_user_images = array();

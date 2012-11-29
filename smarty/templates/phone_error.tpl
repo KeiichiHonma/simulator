@@ -11,11 +11,11 @@
     <div id="iphone">
         <div id="app">
             <div class="error-box">
-                <div class="phone-warning">
-                {foreach from=$errorlist key="key" item="value" name="errorlist"}
-                {$value}<br />
-                {/foreach}
-                </div>
+                    <div class="phone-warning">
+                    {foreach from=$errorlist key="key" item="value" name="errorlist"}
+                    {$value}<br />
+                    {/foreach}
+                    </div>
             </div>
             <div id="flickable">
                 <ul id="flickable_ul">

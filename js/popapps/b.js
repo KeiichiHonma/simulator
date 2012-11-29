@@ -1,1 +1,0 @@
-var popapps_math = 0.33;

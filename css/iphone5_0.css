@@ -1,5 +1,5 @@
 #iphone {
-    background:url("/img/phone/iphone5.png") 0px 89px no-repeat;
+    background:url("/img/phone/iphone5_black_vertical.png") 0px 89px no-repeat;
     width:240px;
     height:593px;
     padding:0px;
@@ -7,7 +7,7 @@
 }
 
 #iphone-home {
-    background:url("/img/phone/iphone5.png") 0px 0px no-repeat;
+    background:url("/img/phone/iphone5_black_vertical.png") 0px 0px no-repeat;
     width:240px;
     height:504px;
     padding:0px;
@@ -17,26 +17,27 @@
 #app{
     position: relative;
     top:0px;
-    left:18px;
+    left:21px;
 }
 
 #app-home{
     position: relative;
     top:0px;
-    left:18px;
-    padding-top:72px;
+    left:21px;
+    padding-top:75px;
 }
 
 .error-box{
-    margin-bottom:72px;
+    margin-bottom:75px;
 }
 
 .top-box{
-    margin-bottom:72px;
+    /*margin-bottom:72px;*/
+    margin-bottom:75px;
 }
 #flickable {
-    width: 208px;
-    height: 370px;
+    width: 200px;
+    height: 357px;
     /*border: 1px solid #CCC;*/
     overflow: hidden;
     float: left;
@@ -45,7 +46,7 @@
 }
 #flickable ul {
     list-style: none;
-    width:624px;
+    width:600px;
     margin: 0;
     padding:0;
 }
@@ -56,8 +57,8 @@
 }
 #flickable .block {
     color: #FFFFFF;
-    width: 208px;
-    height: 370px;
+    width: 200px;
+    height: 357px;
     text-align:center;
     float:left;
     margin: 0;
@@ -65,8 +66,8 @@
 }
 
 #flickable .block .logo{
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     float:left;
     margin: 16px 0px 0px 8px;
     padding:0;
@@ -86,7 +87,8 @@
 
 #select_box {
     position:relative;
-    top:-430px;
+    /*top:-430px;*/
+    top:-420px;
     left:0px;
     padding: 0px;
     margin: 10px 0px 0px 10px;
@@ -132,13 +134,25 @@
 #select9:hover {background-color:#FFFFFF}
 
 #powered {
-    color: #1b508c;
+    color: #ffffff;
     font-size:12px;
     position:relative;
-    top:5px;
+    top:8px;
     left:85px;
 }
 
 #powered a{
-    color: #1b508c;
+    color: #ffffff;
+}
+
+#powered-home {
+    color: #ffffff;
+    font-size:12px;
+    position:relative;
+    top:15px;
+    left:55px;
+}
+
+#powered-home a{
+    color: #ffffff;
 }

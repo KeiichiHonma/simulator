@@ -1,40 +1,6 @@
 img {
     border: 0;
 }
-.phone-info, .phone-success, .phone-warning, .phone-error, .phone-validation {
-    border: 1px solid;
-    margin: 0px 0px;
-    padding:5px 5px 5px 50px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-}
-.phone-info {
-    color: #00529B;
-    background-color: #BDE5F8;
-    background-image: url('/img/phone/info.png');
-}
-.phone-success {
-    color: #4F8A10;
-    background-color: #DFF2BF;
-    background-image:url('/img/phone/success.png');
-}
-.phone-warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-    background-image: url('/img/phone/warning.png');
-}
-.phone-error {
-    color: #D8000C;
-    background-color: #FFBABA;
-    background-image: url('/img/phone/error.png');
-}
-/*.arrow_box {
-        padding: 0px;
-        width: 208px;
-        height: 83px;
-        border-radius: 6px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
-}*/
 
 .arrow_box {
         padding: 0px;
@@ -60,9 +26,42 @@ img {
 
 .error-box{
     width:208px;
-    /*height:75px;*/
     height:89px;
     font-size: 77%;
+}
+
+.phone-info, .phone-success, .phone-warning, .phone-error, .phone-validation {
+    /*border: 1px solid;*/
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    width: 151px;
+    height: 78px;
+    margin: 0px;
+    padding:5px 5px 5px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.phone-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('/img/phone/info.png');
+}
+.phone-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('/img/phone/success.png');
+}
+.phone-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('/img/phone/warning.png');
+    background-position:5px 5px;
+}
+.phone-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('/img/phone/error.png');
 }
 
 .top-box{
@@ -77,23 +76,9 @@ img {
 }
 
 .top-box td.logo{
-    height:83px;
-    padding:0px 0px 0px 2px;
+    padding:3px 0px 3px 2px;
 }
 
-.top-box td.logo2{
-    height:35px;
-    padding:2px 0px 0px 0px;
-}
-
-.top-box td.title{
-    padding:0px 0px 0px 2px;
-}
-
-.top-box td.title div {
-    padding:3px 0px;
-    text-align:center;
-    height:40px;
-    width:131px;
-    overflow:hidden;
+.top-box td.appstore{
+    padding:0px 2px 0px 0px;
 }

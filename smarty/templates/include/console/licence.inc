@@ -1,7 +1,12 @@
-<div class="boxTemp box-detail">
+<div class="boxTemp box-detail detail0">
     <h3>Plan & Limits</h3>
-    {if $is_free}{$smarty.const.NAME_LICENCE_FREE}{/if}
     <div class='info'>
+    {if $is_free}
+        <div class='item clearfix'>
+            <div class='plan'>{$smarty.const.NAME_LICENCE_FREE}</div>
+        </div>
+    {/if}
+
         <div class='item clearfix'>
             <div class='label'>Use App</div>
             <div class='value'>{$use_licence}</div>
@@ -18,7 +23,7 @@
                     <a href="/paypal/{if $debug}sandbox/{/if}basic">{$smarty.const.NAME_LICENCE_BASIC} (${$smarty.const.COST_LICENCE_BASIC} / {if !$is_free}+{/if}{$smarty.const.MAX_LICENCE_BASIC}App)</a>
                     <div class='details'>
                     {if $is_free}
-                    5アプリまで登録可能。画像の追加削除が可能。
+                    5アプリまで登録可能。<br />画像の追加削除が可能。
                     {else}
                     登録アプリ数を5追加します。
                     {/if}
@@ -28,7 +33,7 @@
                     <a href="/paypal/{if $debug}sandbox/{/if}advance">{$smarty.const.NAME_LICENCE_ADVANCE} (${$smarty.const.COST_LICENCE_ADVANCE} / {if !$is_free}+{/if}{$smarty.const.MAX_LICENCE_ADVANCE}App)</a>
                     <div class='details'>
                     {if $is_free}
-                    10アプリまで登録可能。画像の追加削除が可能。
+                    10アプリまで登録可能。<br />画像の追加削除が可能。
                     {else}
                     登録アプリ数を10追加します。
                     {/if}

@@ -14,10 +14,11 @@ class simulatorTable extends tableManager
             array('column'=>'link',              'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'scroll',            'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'position',          'as'=>null,                      'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
+            array('column'=>'direction',         'as'=>null,                      'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
             array('column'=>'mobile_images',     'as'=>'simulator_mobile_images', 'type'=>COMMON, 'input'=>FALSE,  'group'=>null),
             array('column'=>'console_images',    'as'=>'simulator_console_images','type'=>COMMON, 'input'=>FALSE,  'group'=>null),
-            array('column'=>'direction',         'as'=>null,                      'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
-            array('column'=>'validate',          'as'=>null,                      'type'=>COMMON, 'input'=>FALSE, 'group'=>null)
+            array('column'=>'licence',           'as'=>null,                      'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
+            array('column'=>'validate',          'as'=>'simulator_validate',      'type'=>COMMON, 'input'=>TRUE, 'group'=>null)
         );
     
     static public function get($type = COMMON){

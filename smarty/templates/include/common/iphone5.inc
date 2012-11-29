@@ -3,8 +3,9 @@
         <div class="top-box">
             <div class="arrow_box">
                 <table>
-                <tr><td rowspan=2 class="logo"><img src="{$iphone.logo.transformations_url}" width="75" height="75" /></td><td class="logo2" align="center"><a href="{$iphone.link}" target="_blank"><img src="/img/phone/appstore.gif"  width="105" height="35" alt="" /></a></td></tr>
-                <tr><td class="title"><div>{$iphone.title}</div></td></tr>
+                <tr><td class="logo"><img src="{$iphone.logo.transformations_url}" width="75" height="75" /></td>
+                <td class="appstore" align="center"><a href="{$iphone.link}" target="_blank"><img src="/img/phone/appstore.gif" /></a></td>
+                </tr>
                 </table>
             </div>
         </div>
@@ -26,6 +27,6 @@
                 {/section}
             {/if}
         </ul>
-        <div id="powered">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>
+        {if strcasecmp($iphone.licence,$smarty.const.LICENCE_FREE) == 0}<div id="powered">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>{/if}
     </div>
 </div>

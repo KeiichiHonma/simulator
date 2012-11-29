@@ -40,11 +40,11 @@ class utilManager
         $string = 'w_';
         $width_per =  round($max_image_size['max_width'] / $width,2);
         $height_per =  round($max_image_size['max_height'] / $height,2);
-        if($width_per > 1){
+        if($width_per >= 1){
             //倍率そのまま
-            if($height_per > 1){
+            if($height_per >= 1){
                 //倍率そのまま
-                return 1;
+                return $string.'1.0';
             }else{
                 $new_height = ceil($width_per * $height);
                 
@@ -80,14 +80,20 @@ class utilManager
     }
     
     static private function getMaxImageSize($direction){
-        if($direction === DIRECTION_HORIZON ){
-            $max_width = 370;
-            $max_height = 208;
+        if(strcasecmp($direction,DIRECTION_HORIZON) == 0 ){
+/*            $max_width = 370;
+            $max_height = 208;*/
+            $max_width = 357;
+            $max_height = 200;
         }else{
-            $max_width = 208;
-            $max_height = 370;
+            $max_width = 200;
+            $max_height = 357;
         }
         return array('max_width'=>$max_width,'max_height'=>$max_height);
+    }
+    
+    static public function test($cloudinary,$direction){
+        return utilManager::getCloudinaryFit($cloudinary['width'],$cloudinary['height'],utilManager::getMaxImageSize($direction));
     }
     
     static public function getMobileImageParam($cloudinary,$direction = DIRECTION_VERTICAL){
@@ -165,6 +171,8 @@ class utilManager
         $iphone['position'] = $simulator[0]['col_position'];
         //direction
         $iphone['direction'] = $simulator[0]['col_direction'];
+        //licence
+        $iphone['licence'] = $simulator[0]['col_licence'];
         return $iphone;
     }
     
@@ -180,5 +188,44 @@ class utilManager
         }
         return $iphone;
     }
+    
+    static public function getPopAppsURL($sid,$simulator){
+        //popapps url make
+        $popapps_url = SIMURLSSL.'/popapps?sid='.$sid;
+
+        //direction
+        if( strcasecmp($simulator[0]['col_direction'],DIRECTION_HORIZON) == 0 ){
+            $popapps_url .= '&d='.$simulator[0]['col_direction'];
+        }
+
+        //position
+        if( strcasecmp($simulator[0]['col_position'],POSITION_RIGHT) != 0 ){
+            $popapps_url .= '&p='.$simulator[0]['col_position'];
+        }
+
+        //scroll
+        if( strcasecmp($simulator[0]['col_scroll'],SCROLL_BOTTOM) != 0 ){
+            $popapps_url .= '&s='.$simulator[0]['col_scroll'];
+        }
+        return $popapps_url;
+    }
+
+    static public function getPopAppsHomeURL($uid,$user){
+        $home_url =  SIMURLSSL.'/popapps_home?uid='.$uid;
+        
+        //position
+        if( strcasecmp($user[0]['col_position'],POSITION_RIGHT) != 0 ){
+            $home_url .= '&p='.$user[0]['col_position'];
+        }
+
+        //scroll
+        if( strcasecmp($user[0]['col_scroll'],SCROLL_BOTTOM) != 0 ){
+            $home_url .= '&s='.$user[0]['col_scroll'];
+        }
+        return $home_url;
+    }
+
+
+
 }
 ?>

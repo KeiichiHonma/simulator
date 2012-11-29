@@ -1,14 +1,20 @@
 <?php
+require_once('fw/prepend.php');
+
+//demo?
+if( isset($_GET['demo']) && strcasecmp($_GET['demo'],0) == 0 ){
+    $con->append('phone_demo');
+    die();
+}
+
 /*
 $_GETで取得可能
 $_SERVER['HTTP_REFERER']でセキュリティチェック
 */
-
 if( !isset($_SERVER['HTTP_REFERER']) && !isset($_GET['sid']) || !is_numeric($_GET['sid']) ){
     die();
 }
 
-require_once('fw/prepend.php');
 require_once('fw/utilManager.php');
 require_once('simulator/logic.php');
 $simulator_logic = new simulatorLogic();
@@ -32,7 +38,5 @@ if($iphone['mobile']['count_screenshots'] == 0){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_SCREENSHOTS_EXISTS,true);
 }
-
-//$con->append('phone/'.$page);
 $con->append();
 ?>

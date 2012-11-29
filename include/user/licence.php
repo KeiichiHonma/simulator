@@ -16,9 +16,8 @@ class userLicence
     }
     
     public function updateMaxLicence($uid,$item_name){
-        $user = $this->logic->getOneUser($uid);
-        if($user){
-            $this->user = $user;
+        $this->user = $this->logic->getOneUser($uid);
+        if($this->user){
             switch ($item_name){
                 case NAME_LICENCE_BASIC:
                     $plus = MAX_LICENCE_BASIC;
@@ -30,7 +29,7 @@ class userLicence
                     $plus = 0;
                 break;
             }
-            $new_max_licence = $user[0]['col_max_licence'] == MAX_LICENCE_FREE ? 0 + $plus : $user[0]['col_max_licence'] + $plus;
+            $new_max_licence = $this->user[0]['col_max_licence'] == MAX_LICENCE_FREE ? 0 + $plus : $this->user[0]['col_max_licence'] + $plus;
             $r = $this->handle->updateMaxLicenceRow($uid,$new_max_licence);
             if(!$r){
                 return false;
@@ -44,22 +43,22 @@ class userLicence
         $this->user = $this->logic->getOneUser($uid);
         if($this->user){
             global $con;
-            $this->use_licence = $user[0]['col_use_licence'];
-            $this->max_licence = $user[0]['col_max_licence'];
+            $this->use_licence = $this->user[0]['col_use_licence'];
+            $this->max_licence = $this->user[0]['col_max_licence'];
         
             //app add check
-            if($user[0]['col_use_licence'] < $user[0]['col_max_licence']){
+            if($this->user[0]['col_use_licence'] < $this->user[0]['col_max_licence']){
                 $this->is_add = true;
                 $con->t->assign('is_app_add',true);
             }
             //plan check
-            if($user[0]['col_max_licence'] == 1){
+            if($this->user[0]['col_max_licence'] == 1){
                 $con->t->assign('is_free',true);
                 $con->t->assign('max_licence',1);
             }else{
-                $con->t->assign('max_licence',$user[0]['col_max_licence']);
+                $con->t->assign('max_licence',$this->user[0]['col_max_licence']);
             }
-            $con->t->assign('use_licence',$user[0]['col_use_licence']);
+            $con->t->assign('use_licence',$this->user[0]['col_use_licence']);
         }
 
     }

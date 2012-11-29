@@ -77,6 +77,13 @@ define('SCROLL_HALF',      2);
 define('SCROLL_BOTTOM',    3);
 define('SCROLL_END',       4);
 
+//scroll name
+define('SCROLL_FIRST_NAME',     'Beginning');
+define('SCROLL_TOP_NAME',       'Upper');
+define('SCROLL_HALF_NAME',      'Half');
+define('SCROLL_BOTTOM_NAME',    'Lower');
+define('SCROLL_END_NAME',       'Page End');
+
 //position
 define('POSITION_LEFT',      0);
 define('POSITION_CENTER',     1);

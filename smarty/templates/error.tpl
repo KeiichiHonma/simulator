@@ -11,5 +11,5 @@
 {foreach from=$errorlist key="key" item="value" name="errorlist"}
 {$value|nl2br}<br />
 {/foreach}
-  </body>
+</body>
 </html>

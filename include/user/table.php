@@ -10,7 +10,7 @@ class userTable extends tableManager
             array('column'=>'fbid',              'as'=>null,        'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
             array('column'=>'name',              'as'=>null,        'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
             array('column'=>'mail',              'as'=>null,        'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
-            array('column'=>'title',             'as'=>null,        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
+            array('column'=>'title',             'as'=>null,        'type'=>COMMON, 'input'=>FALSE, 'group'=>null),
             array('column'=>'scroll',            'as'=>null,        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'position',          'as'=>null,        'type'=>COMMON, 'input'=>TRUE,  'group'=>null),
             array('column'=>'user_images',       'as'=>null,        'type'=>COMMON, 'input'=>FALSE, 'group'=>null),

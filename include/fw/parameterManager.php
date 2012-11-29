@@ -69,6 +69,12 @@ class parameterManager
         if($bl) $this->set('mtime',$time);
     }
 
+    //special更新の場合。_idの指定なし
+    protected function readyUpdateSpecialParameter($bl = TRUE,$time = null){
+        $time = is_null($time) ? time() : $time;
+        if($bl) $this->set('mtime',$time);
+    }
+
     protected function readyDeleteParameter($oid){
         $this->oid = $oid;
     }

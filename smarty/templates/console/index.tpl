@@ -48,7 +48,7 @@ $(function() {
 
                     {if $is_app_add}
                     <div class="btn">
-                        <span><a href="/console/new/"><img src="/img/common/create_off.png" alt="Create"></a></span>
+                        <span><a href="/console/popapps/new/"><img src="/img/common/create_off.png" alt="Create"></a></span>
                     </div>
                     {/if}
                     {if $simulators}
@@ -57,7 +57,7 @@ $(function() {
                     <tr>
                     <td>{if !is_null($simulator.simulator_mobile_images)}<img src="{$simulator.simulator_mobile_images|getCloudinaryLogo}" width="35" height="35" />{else}<img src="{$simulator.application_mobile_images|getCloudinaryLogo}" width="35" height="35" />{/if}</td>
                     <td>
-                    <a href="/console/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>
+                    <a href="/console/popapps/view/sid/{$simulator.simulator_id}">{$simulator.col_name}</a>
                     </td>
                     </tr>
                     {/foreach}
@@ -82,6 +82,7 @@ $(function() {
                                 <div class="phone-home">
                                     {include file="include/common/iphone5_home.inc"}
                                 </div>
+                                <div class="console-action"><a href="/console/home_preview" target="_blank">Preview...</a></div>
                             </td>
                             {if $user_display_count > 2}
                             <td>
@@ -94,58 +95,76 @@ $(function() {
                             {/if}
                         </tr>
                     </table>
-                    <div class='embed_code'>
-                    <textarea rows="5"><script type='text/javascript' src='{$home_url|escape:"html"}'></script></textarea>
-                    <br />上記のコードをウェブサイトに設置します。
-                    </div>
-                    <div class="console-action"><a href="/console/home_preview" target="_blank">Preview...</a></div>
                 </div>
             </div>
         </div>
 
         <div class='fl'>
             <div class="boxArea">
+{if $use_licence > 1}
                 <div class="boxTemp box-sort-home">
                     <h3>app Sort</h3>
                     <p>You will forever be available to purchase at a time. There will be no monthly fee or renewal fee.</p>
-
-<table align="center">
-    <tr>
-        {if $user_display_count > 2}
-        <td valign="top">
-            <ul id="display_number">
-                {section name=cnt start=1  loop=$user_display_count}
-                    <li{if $smarty.section.cnt.index==1 } class="ndd1"{/if}>{$smarty.section.cnt.index}</li>
-                {/section}
-            </ul>
-        </td>
-        {/if}
-        <td>
-            <form action="/console/sort" id="image_sort_form" method="post">
-                <ul id="sort" class="sortable grid">
-                {if $iphone.user_images_chunk}
-                    {foreach from=$iphone.user_images_chunk key="key" item="user_images" name="user_images_chunk"}
-                    
-                        {foreach from=$user_images key="sid" item="user_images" name="user_images"}
-                        <li id="sort_{$user_images.public_id}" class="{$sid}"><img src="{$user_images.thumbnail_url}" /></li>
-                        {/foreach}
-                        {*{if $user_display_count > 2 && !$smarty.foreach.user_images_chunk.last}<li class="line"></li>{/if}*}
-                        
-                    {/foreach}
-                {/if}
-                </ul>
-                <div class='sort_btn'>
-                <input type="hidden" id="image_sort" name="image_sort" />
-                <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-                <input type="image" id="image_sort_submit" alt="Save" src="/img/common/save_off.png" />
+                    <table align="center">
+                        <tr>
+                            {if $user_display_count > 2}
+                            <td valign="top">
+                                <ul id="display_number">
+                                    {section name=cnt start=1  loop=$user_display_count}
+                                        <li{if $smarty.section.cnt.index==1 } class="ndd1"{/if}>{$smarty.section.cnt.index}</li>
+                                    {/section}
+                                </ul>
+                            </td>
+                            {/if}
+                            <td>
+                                <form action="/console/sort" id="image_sort_form" method="post">
+                                    <ul id="sort" class="sortable grid">
+                                    {if $iphone.user_images_chunk}
+                                        {foreach from=$iphone.user_images_chunk key="key" item="user_images" name="user_images_chunk"}
+                                        
+                                            {foreach from=$user_images key="sid" item="user_images" name="user_images"}
+                                            <li id="sort_{$user_images.public_id}" class="{$sid}"><img src="{$user_images.thumbnail_url}" /></li>
+                                            {/foreach}
+                                            {*{if $user_display_count > 2 && !$smarty.foreach.user_images_chunk.last}<li class="line"></li>{/if}*}
+                                            
+                                        {/foreach}
+                                    {/if}
+                                    </ul>
+                                    <div class='sort_btn'>
+                                    <input type="hidden" id="image_sort" name="image_sort" />
+                                    <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
+                                    <input type="image" id="image_sort_submit" alt="Save" src="/img/common/save_off.png" />
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-            </form>
-        </td>
-    </tr>
-</table>
-
-
-
+{/if}
+                <div class="boxTemp box-setting-home">
+                    <h3>Home Display Settings</h3>
+                    <div class='info'>
+                        <div class='item clearfix'>
+                            <div class='label'>Domain</div>
+                            <div class='value'>設定済みのドメイン全て</div>
+                        </div>
+                        <div class='item clearfix'>
+                            <div class='label'>Scroll</div>
+                            <div class='value'>{if strcasecmp($user.0.col_scroll,$smarty.const.SCROLL_END) == 0}{$smarty.const.SCROLL_END_NAME}{elseif strcasecmp($user.0.col_scroll,$smarty.const.SCROLL_BOTTOM) == 0}{$smarty.const.SCROLL_BOTTOM_NAME}{elseif strcasecmp($user.0.col_scroll,$smarty.const.SCROLL_HALF) == 0}{$smarty.const.SCROLL_HALF_NAME}{elseif strcasecmp($user.0.col_scroll,$smarty.const.SCROLL_TOP) == 0}{$smarty.const.SCROLL_TOP_NAME}{else}{$smarty.const.SCROLL_FIRST_NAME}{/if}</div>
+                        </div>
+                        <div class='item clearfix'>
+                            <div class='label'>Position</div>
+                            <div class='value'>{if strcasecmp($user.0.col_position,$smarty.const.POSITION_RIGHT) == 0}right{elseif strcasecmp($user.0.col_position,$smarty.const.POSITION_CENTER) == 0}center{else}left{/if}</div>
+                        </div>
+                        <div class='item clearfix'>
+                            <div class='label'>code</div>
+                            <div class='value'>
+                            <textarea class="embed_code" rows="5"><script type='text/javascript' src='{$home_url|escape:"html"}'></script></textarea>
+                            <br />上記のコードをウェブサイトに設置します。
+                            </div>
+                        </div>
+                        <div class="console-action"><a href="/console/settings">Manage Settings...</a></div>
+                    </div>
                 </div>
             </div>
         </div>

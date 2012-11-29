@@ -69,15 +69,6 @@
     margin:10px 0px;
 }
 
-#contents .boxArea .box-phone-vertical .embed_code textarea{
-    clear:both;
-    width:350px;
-    height:auto;
-    border: 1px solid #CCCCCC;
-    font-weight:normal;
-    font-size:14px;
-}
-
 #contents .boxArea .box-phone-horizon{
     margin:5px;
     padding:0px 5px 5px 5px;
@@ -90,14 +81,30 @@
 
 #contents .boxArea .box-detail{
     margin:5px;
+}
+
+#contents .boxArea .detail0{
     width: 260px;
 }
+
+#contents .boxArea .detail1{
+    width: 310px;
+}
+
 #contents .boxArea .box-sort{
     position: relative;
     margin:5px;
     padding:0px 5px 5px 5px;
-    width: 250px;
     text-align:center;
+}
+
+#contents .boxArea .sort0{
+    float:left;
+    width: 250px;
+}
+
+#contents .boxArea .sort1{
+    width: 300px;
 }
 
 #contents .boxArea .box-sort-home{
@@ -110,9 +117,17 @@
 
 #contents .boxArea .box-setting{
     float: right;
-    width: 440px;
     margin:5px;
 }
+
+#contents .boxArea .setting0{
+    width: 440px;
+}
+
+#contents .boxArea .setting1{
+    width: 460px;
+}
+
 #contents .boxArea .box-setting .embed_code {
     clear:both;
     width:350px;
@@ -121,6 +136,24 @@
     font-weight:normal;
     font-size:14px;
 }
+
+#contents .boxArea .box-setting-home{
+    position: relative;
+    margin:5px;
+    padding:0px 5px 5px 5px;
+    width: 310px;
+    text-align:center;
+}
+
+#contents .boxArea .box-setting-home .embed_code {
+    clear:both;
+    width:240px;
+    height:auto;
+    border: 1px solid #CCCCCC;
+    font-weight:normal;
+    font-size:14px;
+}
+
 #contents .boxArea .box-manage-setting{
     width: 710px;
     margin:5px;
@@ -146,28 +179,76 @@
 #contents .boxArea div p {
     padding: 5px 16px 5px;
 }
+
 #contents .boxArea .box-images
 {
-    width:715px;
     margin:5px;
 }
 
+#contents .boxArea .images0
+{
+    width:715px;
+}
 
+#contents .boxArea .images1
+{
+    width:665px;
+}
+
+#contents .boxArea .image-section {
+    overflow: hidden;
+    margin: 0px auto;
+    padding: 0px 0px 20px;
+    position: relative;
+}
+
+#contents .boxArea .section0 {
+    width:705px;
+}
+
+#contents .boxArea .section1 {
+    width:650px;
+    margin-left:15px;
+}
+
+ul#files{
+    list-style:none;
+    padding:0;
+    margin:0;
+    margin: auto;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ul#files li{
+    float:left;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    margin: 6px;
+    padding: 6px;
+}
+
+ul#files li a{
+    height:32px;
+    color: #dc1501;
+}
+
+#contents .boxArea .section0 ul#files li{
+    min-height: 150px;
+}
+
+#contents .boxArea .section1 ul#files li{
+    min-height: 110px;
+}
 
 #contents .boxArea .info {
     overflow: hidden;
     margin: 5px 0;
     padding: 12px 16px 0px;
-}
-
-#contents .boxArea .image {
-    overflow: hidden;
-    margin: 0px auto;
-    width:705px;
-    /*padding: 0px 5px 20px;*/
-    padding: 0px 0px 20px;
-    position: relative;
-    /*border: 1px solid #CCCCCC;*/
 }
 
 #contents .boxArea .info .item {
@@ -179,7 +260,14 @@
     font-size:11px;
     font-weight:bold;
     color:#215b98;
-}#contents .boxArea .info .item .value {
+}
+#contents .boxArea .info .item .plan {
+    float: left;
+    font-size:16px;
+    font-weight:bold;
+    color: #f08e02;
+}
+#contents .boxArea .info .item .value {
     float: right;
     font-weight: bold;
     color: #555;
@@ -253,30 +341,6 @@
 }
 #status{
     font-family:Arial; padding:5px;
-}
-ul#files{
-    list-style:none;
-    padding:0;
-    margin:0;
-    margin: auto;
-    padding: 0;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-ul#files li{
-    float:left;
-    border: 1px solid #CCC;
-    background: #F6F6F6;
-    margin: 7px;
-    padding: 7px;
-}
-ul#files li a{
-    height:32px;
-    color: #dc1501;
 }
 
 .success{
@@ -363,12 +427,15 @@ ul#files li a{
 
 /* chooseApp
 --------------------------------------------------*/
-#contents .chooseApp {
+#contents .chooseApp{
     margin:5px;
+    /*border: 1px solid #CCC;*/
 }
-#contents .chooseApp .boxTemp {
-    width: 260px;
-    text-align: center;
+
+#contents .chooseApp .boxTemp{
+    width:260px;
+    text-align:center;
+    border: 1px solid #CCC;
 }
 
 #contents .chooseApp .title {

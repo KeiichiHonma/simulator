@@ -17,6 +17,7 @@ class userHandle extends handleManager
 
     public function updateRow($uid){
         $this->parameter->setUpdate($uid);
+        //$this->setDebug();
         return parent::updateRow(T_USER,$this->parameter);
     }
 

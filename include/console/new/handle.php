@@ -3,6 +3,7 @@ include('fw/analyze.php');
 require_once('application/check.php');
 require_once('simulator/check.php');
 require_once "fw/cloudinaryUploader.php";
+require_once('simulator/logic.php');
 class newHandle extends analyze
 {
     private $user;
@@ -31,6 +32,8 @@ class newHandle extends analyze
         $this->max_licence = $user[0]['col_max_licence'];
         $this->use_licence = $user[0]['col_use_licence'];
         
+        $this->readyHandle();
+
         if($this->method == 'analyze'){
             $this->doAnalyze();
         }elseif($this->method == 'create'){
@@ -42,28 +45,41 @@ class newHandle extends analyze
         }
     }
     
-    private function doAnalyze(){
+    private function readyHandle(){
+        //check
         checkItunesURL::checkError();
         $is_check = checkItunesURL::safeExit();
         if($is_check){
-            $this->analyze_result = $this->analyzeHtmlSource($this->itunes_url);
-            if(!$this->analyze_result){
-                //解析できなかった
-                //error追加
-                checkItunesURL::$error['analyze'] = 'can\'t analyze';
-                $is_check = checkItunesURL::safeExit();
-            }else{
-                //iphone画面用にセット
-                $this->setIphone();
-                
-                //次のページ用にdefaultセット
-                $_POST['title'] = $this->iphone['title'];
-                $_POST['link'] = $this->iphone['link'];
-                $_POST['scroll'] = SCROLL_BOTTOM;
-                $_POST['position'] = POSITION_RIGHT;
-                global $con;
-                $con->t->assign('page_analyze',TRUE);
+            $this->checkItunesID();//error throwしてます
+            $simulator_logic = new simulatorLogic();
+            $simulator = $simulator_logic->getUserItunesSimulator($this->user[0]['_id'],$this->itunes_id);
+            //重複アプリ
+            if($simulator){
+                require_once('fw/errorManager.php');
+                errorManager::throwError(E_CMMN_DUPLICATION_SIM);
             }
+        }
+
+    }
+    
+    private function doAnalyze(){
+        $this->analyze_result = $this->analyzeHtmlSource($this->itunes_url);
+        if(!$this->analyze_result){
+            //解析できなかった
+            //error追加
+            checkItunesURL::$error['analyze'] = 'can\'t analyze';
+            $is_check = checkItunesURL::safeExit();
+        }else{
+            //iphone画面用にセット
+            $this->setIphone();
+            
+            //次のページ用にdefaultセット
+            $_POST['title'] = $this->iphone['title'];
+            $_POST['link'] = $this->iphone['link'];
+            $_POST['scroll'] = SCROLL_BOTTOM;
+            $_POST['position'] = POSITION_RIGHT;
+            global $con;
+            $con->t->assign('page_analyze',TRUE);
         }
     }
     private function doCreate(){
@@ -82,19 +98,29 @@ class newHandle extends analyze
                 //追加処理開始
                 $this->createStart();
             }
+        }else{
+            $this->analyze_result = $this->analyzeHtmlSource($this->itunes_url);
+            if(!$this->analyze_result){
+                //ここで解析できなかった場合エラーで停止
+                require_once('fw/errorManager.php');
+                errorManager::throwError(E_CMMN_HANDLE_ITUNES_STOP);
+            }else{
+                //iphone画面用にセット
+                $this->setIphone();
+            }
         }
+        
         //errorなので戻るページ
         global $con;
         $con->t->assign('page_analyze',TRUE);
     }
     
     private function createStart(){
-        $this->checkItunesID();//error throwしてます
         $this->applicationSection();
         $this->simulatorSection();
         $this->userSection();
         global $con;
-        $con->safeExitRedirect('/console/view/sid/'.$this->sid);
+        $con->safeExitRedirect('/console/popapps/view/sid/'.$this->sid);
     }
     
     private function applicationSection(){
@@ -134,7 +160,6 @@ class newHandle extends analyze
     }
 
     private function simulatorSection(){
-        require_once('simulator/logic.php');
         $simulator_logic = new simulatorLogic();
         $simulator = $simulator_logic->getUserAppSimulator($this->user[0]['_id'],$this->aid);
 
@@ -145,10 +170,10 @@ class newHandle extends analyze
             //simulator add の場合 basic plan以降の人だけがcloudinaryを使う
             if($this->max_licence > 1){
                 $this->makeImages();
-                $this->sid = $simulator_handle->addRow($this->user[0]['_id'],$this->aid,$this->mobile_images,$this->console_images,$this->direction);
+                $this->sid = $simulator_handle->addRow($this->user[0]['_id'],$this->aid,$this->mobile_images,$this->console_images,$this->direction,LICENCE_BASIC);
             }else{
                 //無料プランの人は画像nullで追加
-                $this->sid = $simulator_handle->addRow($this->user[0]['_id'],$this->aid,null,null);
+                $this->sid = $simulator_handle->addRow($this->user[0]['_id'],$this->aid,null,null,$this->direction,LICENCE_FREE);
             }
             
             //ここでhome画面用の画像アップ

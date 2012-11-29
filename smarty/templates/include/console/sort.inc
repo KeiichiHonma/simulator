@@ -1,7 +1,7 @@
-<div class="boxTemp box-sort{if $simulator.0.col_direction != DIRECTION_HORIZON} fl{/if}">
+<div class="boxTemp box-sort  sort{$iphone.direction|default:0}">
     <h3>images Sort</h3>
     <p>You will forever be available to purchase at a time. There will be no monthly fee or renewal fee.</p>
-    <form action="/console/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
+    <form action="/console/popapps/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
         <ul id="sort" class="sortable grid">
         {if $iphone.console.screenshots}
             {foreach from=$iphone.console.screenshots key="key" item="screenshot" name="screenshots"}
