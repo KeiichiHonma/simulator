@@ -44,5 +44,6 @@ if( !$isOK ){
 //home画面
 $iphone = utilManager::getIphoneHome($user);
 $con->t->assign('iphone',$iphone);
+$con->t->assign('is_home',0);
 $con->append();
 ?>

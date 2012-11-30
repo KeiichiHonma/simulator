@@ -211,8 +211,8 @@ class utilManager
     }
 
     static public function getPopAppsHomeURL($uid,$user){
-        $home_url =  SIMURLSSL.'/popapps_home?uid='.$uid;
-        
+        //$home_url =  SIMURLSSL.'/popapps_home?uid='.$uid;
+        $home_url =  SIMURLSSL.'/popapps?uid='.$uid;
         //position
         if( strcasecmp($user[0]['col_position'],POSITION_RIGHT) != 0 ){
             $home_url .= '&p='.$user[0]['col_position'];

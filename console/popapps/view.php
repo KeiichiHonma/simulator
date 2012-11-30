@@ -29,5 +29,6 @@ if($simulator[0]['col_direction'] == DIRECTION_HORIZON){
 }else{
     $page = 'vertical';
 }
+$con->t->assign('is_console_phone',0);
 $con->append('console/popapps/'.$page);
 ?>

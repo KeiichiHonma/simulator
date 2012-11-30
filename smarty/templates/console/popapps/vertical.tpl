@@ -8,7 +8,7 @@
 <link href="/css/console.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/sortable0.css" rel="stylesheet" type="text/css" media="all" />
 {include file="include/common/iphone_header.inc"}
-{literal}
+{*{literal}
 <style type="text/css">
 .arrow_box {
         -moz-border-radius-topleft: 4px;
@@ -20,7 +20,7 @@
         border: 1px solid #CCCCCC;
 }
 </style>
-{/literal}
+{/literal}*}
 
 <script>
 var popapps_screenshots_count = {$count_screenshots}

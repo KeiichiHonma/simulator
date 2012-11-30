@@ -1,6 +1,6 @@
     <div id="iphone">
         <div id="app">
-            <div class="top-box">
+            <div id="top-box">
                 <div style="float: left;"><img src="{$iphone.logo.transformations_url}" width="75" height="75" alt="" /></div>
                 <div width="125">{$iphone.title}<br /><a href="{$iphone.link}" target="_blank"><img src="/img/common/install_btn.png"  width="125" height="23" alt="" /></a></div>
             </div>

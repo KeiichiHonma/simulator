@@ -1,11 +1,11 @@
 <div id="iphone">
     <div id="app">
-        <div class="top-box">
+        <div id="top-box">
             <div class="arrow_box">
                 <table>
                 <tr><td class="logo"><img src="{$iphone.logo.transformations_url}" width="75" height="75" /></td>
                 <td class="appstore" align="center"><a href="{$iphone.link}" target="_blank"><img src="/img/phone/appstore.gif" /></a>
-                {if strcasecmp($iphone.licence,$smarty.const.LICENCE_FREE) == 0}<br /><div id="powered"><a href="http://simulator.813.co.jp/" target="_blank">powered by pop Apps</a></div>{/if}
+                {if strcasecmp($iphone.licence,$smarty.const.LICENCE_FREE) == 0}<br /><div class="powered"><a href="http://simulator.813.co.jp/" target="_blank">powered by pop Apps</a></div>{/if}
                 </td>
                 </tr>
                 </table>

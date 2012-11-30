@@ -10,7 +10,7 @@
 <body style="padding:0;margin:0;">
     <div id="iphone">
         <div id="app">
-            <div class="error-box">
+            <div id="error-box">
                     <div class="phone-warning">
                     {foreach from=$errorlist key="key" item="value" name="errorlist"}
                     {$value}<br />

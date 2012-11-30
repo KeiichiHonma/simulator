@@ -61,7 +61,7 @@ define('IPHONE5_HORIZON_WIDTH',   504);
 define('IPHONE5_HORIZON_HEIGHT',   329);
 
 define('IPHONE5_HOME_WIDTH',   504);
-define('IPHONE5_HOME_HEIGHT',   504);
+define('IPHONE5_HOME_HEIGHT',   593);
 
 //max image count
 define('MAX_IMAGE_COUNT',   9);

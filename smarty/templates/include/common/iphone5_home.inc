@@ -1,5 +1,5 @@
-<div id="iphone-home">
-    <div id="app-home">
+<div id="iphone">
+    <div id="app">
 
         <div id="flickable">
             <ul id="flickable_ul">
@@ -7,7 +7,7 @@
                 <li>
                     <div class="block">
                     {foreach from=$user_images key="sid" item="user_images" name="user_images"}
-                    <div class="logo">{if $is_console}<img src="{$user_images.secure_url}" width="40" height="40" />{else}<a href="/phone?sid={$sid}"><img src="{$user_images.secure_url}" width="40" height="40" /></a>{/if}</div>
+                    <div class="logo">{if $is_console}<img src="{$user_images.secure_url}" width="40" height="40" />{else}<a href="/phone?sid={$sid}&home_p={$iphone.position}"><img src="{$user_images.secure_url}" width="40" height="40" /></a>{/if}</div>
                     {/foreach}
                     </div>
                 </li>
@@ -22,6 +22,5 @@
             {/section}
         </ul>
         {/if}
-        {*{if  $iphone.user_display_count == 2}<div id="powered-home">powered by<br /><a href="http://simulator.813.co.jp/" target="_blank">pop Apps</a></div>{/if}*}
     </div>
 </div>

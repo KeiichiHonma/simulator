@@ -14,40 +14,24 @@
 <!-- js -->
 {include file="include/common/javascript.inc"}
 
-<link href="/css/demo/popapps.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/demo/setting/02.css" rel="stylesheet" type="text/css" media="all" />
-
-<script src="/js/demo/scroll/f.js" type="text/javascript"></script>
-<script src="/js/demo/direction/0.js" type="text/javascript"></script>
-<script src="/js/demo/popapps.js" type="text/javascript"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/js/jquery.flickable-1.0b3-jq1.6.js" type="text/javascript"></script>
 
-<script src="/js/demo/iphone.js" type="text/javascript"></script>
-<link href="/css/demo/iphone.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/demo/iphone5_0.css" rel="stylesheet" type="text/css" media="all" />
+{* demo1 *}
+<script src="/js/iphone5.php?demo=1" type="text/javascript"></script>
+<link href="/css/iphone.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/iphone5.php?d=0&p=0&c=0&demo=1" rel="stylesheet" type="text/css" media="screen" />
+{* demo1はmobile-boxなし *}
+{*<link rel='stylesheet' href='/css/popapps.php?p=2&demo=1' type='text/css' media='screen' />*}
+<script type='text/javascript' src='/js/popapps.php?d=0&s=0&demo=1&speed=600'></script>
 
-{*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="/js/jquery.flickable-1.0b3-jq1.6.js" type="text/javascript"></script>
-<script src="/js/iphone.js" type="text/javascript"></script>
-<link href="/css/iphone.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/iphone5_0.css" rel="stylesheet" type="text/css" media="all" />*}
-
-{*<link href="/css/frame/setting/02.css" rel="stylesheet" type="text/css" media="all" />*}
-
-<link href="/css/demo2/popapps.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/demo2/setting/10.css" rel="stylesheet" type="text/css" media="all" />
-
-<script src="/js/demo2/scroll/h.js" type="text/javascript"></script>
-<script src="/js/demo2/direction/1.js" type="text/javascript"></script>
-<script src="/js/demo2/popapps.js" type="text/javascript"></script>
-
-<script src="/js/demo2/iphone.js" type="text/javascript"></script>
-<link href="/css/demo2/iphone.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/demo2/iphone5_1.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/demo2/frame/setting/10.css" rel="stylesheet" type="text/css" media="all" />
-
+{* demo2 *}
+<script src="/js/iphone5.php?demo=2" type="text/javascript"></script>
+<link href="/css/iphone.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/iphone5.php?d=1&p=0&demo=2" rel="stylesheet" type="text/css" media="screen" />
+<link rel='stylesheet' href='/css/popapps.php?p=0&d=1&demo=2' type='text/css' media='screen' />
+<script type='text/javascript' src='/js/popapps.php?d=1&s=2&demo=2'></script>
 </head>
 
 <body>
@@ -58,15 +42,13 @@
             <h1>Watch the iphone app before installing.</h1>
             <p>Can appear as if there in front of the user's actual iphone, conjures up images of apps available, we encourage the installation.</p>
         </div>
-        <div class="demo-section">
+        <div class="demo1_section">
             {include file="include/demo/demo1.inc"}
         </div>
 
     </div>
 </div>
 {include file="include/demo/demo2.inc"}
-{*<script type='text/javascript' src='https://simulator.813.co.jp/popapps_home?uid=1&s=2'></script>
-*}
 <!-- 
 //////////////////////////////////////////////////////////////////////////////
 contents
@@ -249,6 +231,5 @@ contents
     </div>
 </div>
 {include file="include/common/footer.inc"}
-<script type='text/javascript' src='https://simulator.813.co.jp/popapps_home?uid=1&s=4'></script>
 </body>
 </html>

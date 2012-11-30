@@ -1,1 +1,0 @@
-var popapps_pos = '-240px';

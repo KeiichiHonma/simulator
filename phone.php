@@ -1,12 +1,6 @@
 <?php
 require_once('fw/prepend.php');
 
-//demo?
-if( isset($_GET['demo']) && strcasecmp($_GET['demo'],0) == 0 ){
-    $con->append('phone_demo');
-    die();
-}
-
 /*
 $_GETで取得可能
 $_SERVER['HTTP_REFERER']でセキュリティチェック
@@ -40,5 +34,26 @@ if($iphone['mobile']['count_screenshots'] == 0){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_SCREENSHOTS_EXISTS,true);
 }
+
+//positionの指定。各アプリをhomeと同じに強制的にするため
+if( isset($_GET['home_p']) && is_numeric($_GET['home_p']) ){
+    switch ($_GET['home_p']){
+        case POSITION_LEFT:
+            $home_p = POSITION_LEFT;
+        break;
+        case POSITION_CENTER:
+            $home_p = POSITION_CENTER;
+        break;
+        case POSITION_RIGHT:
+            $home_p = POSITION_RIGHT;
+        break;
+        default:
+            $home_p = POSITION_RIGHT;
+        break;
+    }
+    $con->t->assign('home_p',$home_p);
+}
+
+
 $con->append();
 ?>

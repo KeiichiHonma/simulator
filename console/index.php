@@ -24,5 +24,7 @@ $simulator_logic = new simulatorLogic(TRUE);
 $simulators = $simulator_logic->getUserSimulator($authManager->uid);
 
 $con->t->assign('simulators',$simulators);
+$con->t->assign('is_console_phone',0);
+$con->t->assign('is_home',0);
 $con->append();
 ?>

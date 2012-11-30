@@ -7,6 +7,5 @@
 </head>
 <body class="demo">
 <script type='text/javascript' src='{$popapps_url}'></script>
-{*<script type='text/javascript' src='{$smarty.const.SIMURL}/popapps?sid=5'></script>*}
 </body>
 </html>
