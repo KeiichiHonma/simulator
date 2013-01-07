@@ -5,13 +5,21 @@ require_once('fw/authManager.php');
 $authManager = new authManager();
 $authManager->validateLogin(TRUE);
 
+require_once('user/licence.php');
+$user_licence = new userLicence();
+$user_licence->setUserLicence($authManager->uid);
+if(!$user_licence->user){
+    require_once('fw/errorManager.php');
+    errorManager::throwError(E_CMMN_USER_EXISTS);
+}
+
 require_once('simulator/logic.php');
 $simulator_logic = new simulatorLogic(TRUE);
 $simulator = $simulator_logic->getAppSimulator($sid);
 
 if(!$simulator){
     require_once('fw/errorManager.php');
-    errorManager::throwError(E_CMMN_APP_EXISTS);
+    errorManager::throwError(E_CMMN_POPAPPS_EXISTS);
 }
 $con->t->assign('simulator',$simulator);
 

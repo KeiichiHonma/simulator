@@ -18,6 +18,7 @@ class container
     public $isPost = FALSE;
     public $ini;
     public $isDebug = FALSE;
+    public $isPaypalSandbox = FALSE;
     public $isStage = FALSE;
     public $isMaintenance = FALSE;
     public $isConsole = FALSE;
@@ -31,7 +32,6 @@ class container
     
     public $isIluna = FALSE;//メンテナンス中の表示
 
-    //携帯でfiles配下の画像を表示するための設定。ステージングと本番で設定が異なるため、init処理で設定しています。
     public $url;
     public $m_url;
     public $absolute_path;//相対パスだとm.を見てしまうため、絶対パスとして持っている必要があるため
@@ -63,25 +63,68 @@ class container
             $this->base = new base();
             $this->tail_number = time();
             $this->t->assign('tail_number',$this->tail_number);//末尾の数字
+            include('fw/css_path.php');
+            $this->t->assign('path',$path);
+            $this->t->assign('ssl_path',$ssl_path);
+            
+        }
+    }
+
+    public function throwExceptionError($e,$isThrow = TRUE){
+        require_once('fw/mailManager.php');
+        $mailManager = new mailManager();
+        $mailManager->sendHalt($e);
+        if($isThrow){
+            require_once('fw/errorManager.php');
+            errorManager::throwError(E_CMMN_REQUEST_ERROR);
         }
     }
 
     //ドメイン版
     private function checkLocale(){
         switch ($_SERVER['SERVER_NAME']){
+            case SERVER_NAME_REDIRECT:
+                //環境変数自動判定
+                $this->checkLanguage();
+                
+                define('LOCALE',LOCALE_JA);//日本語
+                $this->t->assign('ssl_path',LOCALE.'_JP');//facebook対応
+            break;
+            
             case SERVER_NAME_JA:
                 define('LOCALE',LOCALE_JA);//日本語
+                $this->t->assign('ssl_path',LOCALE.'_JP');//facebook対応
             break;
 
             default:
                 define('LOCALE',LOCALE_EN);//英語
+                $this->t->assign('og_locale',LOCALE.'_US');//facebook対応
             break;
         }
         if(file_exists($_SERVER['DOCUMENT_ROOT'].'/include/locale/'.LOCALE.$_SERVER['SCRIPT_NAME'])){
             require_once('locale/'.LOCALE.$_SERVER['SCRIPT_NAME']);//ファイル別翻訳ファイル
         }
-
         $this->locale = $locale;//翻訳内容
+    }
+
+    private function checkLanguage(){
+        if(strlen($_SERVER['HTTP_ACCEPT_LANGUAGE']) > 0 ){
+            $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            foreach ($languages as $language) {
+                if (preg_match('/^ja/i', $language)) {
+                    header( "HTTP/1.1 301 Moved Permanently" );
+                    header("Location: ".'http://'.SERVER_NAME_JA.'/');
+                    die();
+                }else{
+                    header( "HTTP/1.1 301 Moved Permanently" );
+                    header("Location: ".'http://'.SERVER_NAME_EN.'/');
+                    die();
+                }
+            }
+        }else{
+            define('LOCALE',LOCALE_EN);//英語
+            $this->t->assign('og_locale',LOCALE.'_US');//facebook対応
+        }
     }
 
     //locale 変数 変更
@@ -111,28 +154,28 @@ class container
 
     private function checkIni(){
         $this->ini = parse_ini_file(SETTING_INI, true);
+
         if($this->ini['common']['isDebug'] == 0){//本番
             $this->isDebug = FALSE;
-            if($this->ini['common']['isStage'] == 1){//ステージングサーバモード
-                $this->isStage = TRUE;
-                define('SERVER_NAME_JA',      'ja.wtc.813.co.jp');
-                define('SERVER_NAME_EN',      'wtc.813.co.jp');
-                $this->t->assign('stage',$this->isStage);
-            }else{
-                define('SERVER_NAME_JA',      'ja.wtc.com');
-                define('SERVER_NAME_CN',      'www.wtc.com');
-            }
+            define('SERVER_NAME_REDIRECT','popapp-simulator.com');
+            define('SERVER_NAME_JA',      'ja.popapp-simulator.com');
+            define('SERVER_NAME_EN',      'www.popapp-simulator.com');
         }elseif($this->ini['common']['isDebug'] == 1){//デバッグモード
             $this->isDebug = TRUE;
-            if($this->ini['common']['isStage'] == 1){//ステージングサーバモード
-                    $this->isStage = TRUE;
-                    define('SERVER_NAME_JA',      'ja.wtc.813.co.jp');
-                    define('SERVER_NAME_CN',      'wtc.813.co.jp');
-                    $this->t->assign('stage',$this->isStage);
-            }else{
-
-            }
+            define('SERVER_NAME_REDIRECT','simulator.813.co.jp');
+            define('SERVER_NAME_JA',      'ja.simulator.813.co.jp');
+            define('SERVER_NAME_EN',      'www.simulator.813.co.jp');
         }
+        $this->t->assign('debug',$this->isDebug);
+        
+        //paypal////////////////////////////////////////////////////////////////////////
+        if( strcasecmp($this->ini['paypal']['sandbox'],1) == 0){
+            $this->isPaypalSandbox = TRUE;
+        }else{
+            $this->isPaypalSandbox = FALSE;
+        }
+        $this->t->assign('paypal_sandbox',$this->isPaypalSandbox);
+        
         define('SIMURL',            'http://'.$_SERVER['SERVER_NAME']);
         define('SIMURLSSL',         'https://'.$_SERVER['SERVER_NAME']);
 
@@ -153,7 +196,7 @@ class container
                 die();
             }
         }
-        $this->t->assign('debug',$this->isDebug);
+        
     }
 
     public function safeExitRedraw(){

@@ -36,7 +36,7 @@ define('HDOM_INFO_ENDSPACE',7);
 function file_get_html() {
     $dom = new simple_html_dom;
     $args = func_get_args();
-    $dom->load(call_user_func_array('file_get_contents', $args), true);
+    @$dom->load(call_user_func_array('file_get_contents', $args), true);
     return $dom;
 }
 

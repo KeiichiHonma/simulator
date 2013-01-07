@@ -5,13 +5,13 @@ $locale = array
     (
         'scroll'=>array
         (
-            'must'=>'必須です。',
-            'int'=>'不正な値です。',
+            'must'=>'It is an indispensable item.',
+            'int'=>'A value is invalid.',
         ),
         'position'=>array
         (
-            'must'=>'必須です。',
-            'int'=>'不正な値です。',
+            'must'=>'It is an indispensable item.',
+            'int'=>'A value is invalid.',
         )
     )
 );

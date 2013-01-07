@@ -1,1 +1,1 @@
-{if $is_auth}<li><a href="/console/">Dashboard{*{$smarty.session.SIM_USER_NAME}*}</a></li>{else}<li class="fb"><a href="/auth/facebook"><img src="/img/common/icon_header_01.jpg" alt="facebook" />Sign in</a></li>{/if}
+{if $is_auth}<li class="head"><a href="/console/">{$locale.g_dashboard}{*{$smarty.session.SIM_USER_NAME}*}</a></li><li><a href="/logout">{$locale.g_signout}</a></li>{else}<li class="fb head"><a href="/auth/facebook"><img src="{$path}icon_header_01.jpg" alt="facebook" />{$locale.g_signin}</a></li>{/if}

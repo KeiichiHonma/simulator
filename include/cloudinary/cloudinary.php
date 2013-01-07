@@ -1,10 +1,12 @@
 <?php
 
 class Cloudinary {
-    //private static $config = NULL;
-    private static $config = array("cloud_name" => 'hachione',
-                            "api_key" => '324965291459876',
-                            "api_secret" => '4A5t3S1oWMb6k2XPMXcFymaLD0w');
+    private static $config = NULL;
+    //private static $config = array("cloud_name" => 'hachione',"api_key" => '324965291459876',"api_secret" => '4A5t3S1oWMb6k2XPMXcFymaLD0w');
+    
+    private static $sandbox_config = array("cloud_name" => 'hachione',"api_key" => '324965291459876',"api_secret" => '4A5t3S1oWMb6k2XPMXcFymaLD0w');
+    private static $real_config = array("cloud_name" => 'popapps',"api_key" => '355889415697687',"api_secret" => 'AENhnige8X6K0W8dwCY8kpTr1ds');
+    
     const SHARED_CDN = "d3jpl91pxevbkh.cloudfront.net";
     public static $JS_CONFIG_PARAMS = array("api_key", "cloud_name", "private_cdn", "secure_distribution", "cdn_subdomain");
 
@@ -12,6 +14,24 @@ class Cloudinary {
         if (self::$config == NULL) {
             self::reset_config();
         }
+
+        if(is_file('/app/www/include/setting.ini')){
+            $ini = parse_ini_file('/app/www/include/setting.ini', true);
+        }else{
+            $ini = FALSE;
+        }
+        
+        if(!$ini){
+            self::$config = self::$real_config;
+        }else{
+            //debug
+            if(strcasecmp($ini['cloudinary']['sandbox'],1) == 0){
+                self::$config = self::$sandbox_config;
+            }else{
+                self::$config = self::$real_config;
+            }
+        }
+
         if ($values != NULL) {
             self::$config = array_merge(self::$config, $values);
         }

@@ -255,29 +255,6 @@ class checkManager
         }
     }
 
-    //NGワード
-    static protected function checkDenyWord($param,$arg){
-        global $ng_pattern;
-        if(!isset($ng_pattern)){
-            require_once('fw/denyWord.php');//なぜか動作しない
-        }
-        $n = count($ng_pattern);
-        for($i = 0; $i < $n ; $i++){
-            $deny_flag = preg_match('('.$ng_pattern[$i].')',$param,$match);
-            if( $deny_flag != 0){
-                self::$deny_word = $match[0];
-                self::$extends .= '「'.self::$deny_word.'」';
-                //メール送信///////////////////////////
-                require_once('fw/mailManager.php');
-                $mailManager = new mailManager();
-                $mailManager->sendDenyWord(self::$deny_word);
-                return FALSE;
-            }
-        }
-
-        return TRUE;
-    }
-
     /*define('STATUS_STOP',  0);
     define('STATUS_READY',  1);
     define('STATUS_PUBLIC',  2);

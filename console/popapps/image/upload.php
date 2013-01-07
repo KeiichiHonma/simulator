@@ -6,7 +6,7 @@ $authManager = new authManager();
 $bl = $authManager->validateLogin();
 if($bl){
     // list of valid extensions, ex. array("jpeg", "xml", "bmp")
-    $allowedExtensions = array("jpeg", "jpg", "gif");
+    $allowedExtensions = array("jpeg", "jpg", "gif","png");
     // max file size in bytes
     $sizeLimit = 0.5 * 1024 * 1024;
 

@@ -1,5 +1,6 @@
 <?php
-define('SETTING_INI',         'setting.ini');
+//define('SETTING_INI',         'setting.ini');
+define('SETTING_INI',         '/app/www/include/setting.ini');
 define('APP_NAME',       'popApps');
 define('SITE_NAME'    , 'popApps');
 define('LOCALE_EN',           'en');
@@ -43,6 +44,12 @@ define('COST_LICENCE_BASIC',     9);
 define('COST_LICENCE_ADVANCE',   15);
 define('COST_LICENCE_PLUS',      9);
 
+//licence cost ja
+define('COST_LICENCE_FREE_JA',      0);
+define('COST_LICENCE_BASIC_JA',     1000);
+define('COST_LICENCE_ADVANCE_JA',   1500);
+define('COST_LICENCE_PLUS_JA',      1000);
+
 //max licence
 define('MAX_LICENCE_FREE',      1);
 define('MAX_LICENCE_BASIC',     5);
@@ -78,11 +85,26 @@ define('SCROLL_BOTTOM',    3);
 define('SCROLL_END',       4);
 
 //scroll name
-define('SCROLL_FIRST_NAME',     'Beginning');
-define('SCROLL_TOP_NAME',       'Upper');
-define('SCROLL_HALF_NAME',      'Half');
-define('SCROLL_BOTTOM_NAME',    'Lower');
-define('SCROLL_END_NAME',       'Page End');
+/*define('SCROLL_TOP_NAME',       'Top');
+define('SCROLL_ONE_THIRD_NAME', 'One third from top');
+define('SCROLL_MIDDLE_NAME',    'Middle');
+define('SCROLL_TWO_THIRD_NAME', 'Two thirds from top');
+define('SCROLL_BOTTOM_NAME',    'Bottom');*/
+
+//ja
+/*define('SCROLL_TOP_NAME_JA',       '最初から表示');
+define('SCROLL_ONE_THIRD_NAME_JA', 'トップから1/3で表示');
+define('SCROLL_MIDDLE_NAME_JA',    '中間で表示');
+define('SCROLL_TWO_THIRD_NAME_JA', 'トップから2/3で表示');
+define('SCROLL_BOTTOM_NAME_JA',    'ページの終わりで表示');*/
+
+//position name
+/*define('POSITION_LEFT_NAME',       'Left');
+define('POSITION_RIGHT_NAME',      'Right');*/
+
+//ja
+/*define('POSITION_LEFT_NAME_JA',       '左側');
+define('POSITION_RIGHT_NAME_JA',      '右側');*/
 
 //position
 define('POSITION_LEFT',      0);
@@ -96,4 +118,5 @@ define('DIRECTION_HORIZON',     1);
 
 //logo
 define('CLOUDINARY_LOGO_SETTING',      'w_75,h_75,c_fill,r_12');
+define('CLOUDINARY_LOGO_LITTLE_SETTING',      'w_35,h_35,c_fill,r_7');
 ?>

@@ -81,7 +81,61 @@ $(function() {
                 <?php echo $head; ?>popapps_showFlag = false;
                 <?php echo $head; ?>popapps_simulator.stop().animate({'bottom' : <?php echo $head; ?>popapps_pos}, <?php echo $head; ?>popapps_speed);
             }else if ( (<?php echo $head; ?>popapps_scrollheight - <?php echo $head; ?>popapps_scrollPosition) / <?php echo $head; ?>popapps_scrollheight <= <?php echo $head; ?>popapps_math) {
-                if (<?php echo $head; ?>popapps_showFlag == false) {
+
+<?php
+$is_demo = FALSE;
+// demo2 1/3 -up 2/3 - down
+if($head == 'demo2_'){
+    $is_demo = TRUE;
+echo '
+                if ( (demo2_popapps_scrollheight - demo2_popapps_scrollPosition) / demo2_popapps_scrollheight <= 0.33) {
+                    //console.log( (demo2_popapps_scrollheight - demo2_popapps_scrollPosition) / demo2_popapps_scrollheight);
+                    if (demo2_popapps_showFlag) {
+                        if (demo2_openFlug) {
+                            demo2_panelSwitch();
+                            demo2_openFlug = false;
+                        }
+                        demo2_popapps_showFlag = false;
+                        demo2_popapps_simulator.stop().animate({\'bottom\' : demo2_popapps_pos}, demo2_popapps_speed);
+                    }
+                }
+';
+// demo3 1/3 -up middle - down
+}elseif($head == 'demo3_'){
+    $is_demo = TRUE;
+echo '
+                if ( (demo3_popapps_scrollheight - demo3_popapps_scrollPosition) / demo3_popapps_scrollheight <= 0.5) {
+                    //console.log( (demo3_popapps_scrollheight - demo3_popapps_scrollPosition) / demo3_popapps_scrollheight);
+                    if (demo3_popapps_showFlag) {
+                        if (demo3_openFlug) {
+                            demo3_panelSwitch();
+                            demo3_openFlug = false;
+                        }
+                        demo3_popapps_showFlag = false;
+                        demo3_popapps_simulator.stop().animate({\'bottom\' : demo3_popapps_pos}, demo3_popapps_speed);
+                    }
+                }
+';
+// demo4 middle -up 2/3 - down
+}elseif($head == 'demo4_'){
+    $is_demo = TRUE;
+echo '
+                if ( (demo4_popapps_scrollheight - demo4_popapps_scrollPosition) / demo4_popapps_scrollheight <= 0.33) {
+                    //console.log( (demo4_popapps_scrollheight - demo4_popapps_scrollPosition) / demo4_popapps_scrollheight);
+                    if (demo4_popapps_showFlag) {
+                        if (demo4_openFlug) {
+                            demo4_panelSwitch();
+                            demo4_openFlug = false;
+                        }
+                        demo4_popapps_showFlag = false;
+                        demo4_popapps_simulator.stop().animate({\'bottom\' : demo4_popapps_pos}, demo4_popapps_speed);
+                    }
+                }
+';
+}
+
+?>
+                <?php if($is_demo) echo 'else '; ?>if (<?php echo $head; ?>popapps_showFlag == false) {
                     if (<?php echo $head; ?>openFlug == false) {
                         <?php echo $head; ?>panelSwitch();
                         <?php echo $head; ?>openFlug = true;
@@ -89,7 +143,7 @@ $(function() {
                     <?php echo $head; ?>popapps_showFlag = true;
                     <?php echo $head; ?>popapps_simulator.stop().animate({'bottom' : '5px'}, <?php echo $head; ?>popapps_speed);
                 }
-            } else {
+            }else {
                 if (<?php echo $head; ?>popapps_showFlag) {
                     if (<?php echo $head; ?>openFlug) {
                         <?php echo $head; ?>panelSwitch();

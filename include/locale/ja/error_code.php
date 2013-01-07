@@ -1,69 +1,64 @@
 <?php
 // --------------------------
-// 共通エラー
+// english
 // --------------------------
 
 //エラー宣言
-define('E_CMMN_URL_WRONG',                 'KUJAPAN_CMMN_00001');
-define('E_CMMN_TOKEN_WRONG',               'KUJAPAN_CMMN_00002');
-define('E_CMMN_SHOP_EXISTS',               'KUJAPAN_CMMN_00003');
-define('E_CMMN_REQUEST_ERROR',             'KUJAPAN_CMMN_00004');
-define('E_CMMN_INITIALIZE_RAND',           'KUJAPAN_CMMN_00005');
-define('E_CMMN_VALIDATE_TIME',             'KUJAPAN_CMMN_00006');
+define('E_CMMN_URL_WRONG',                 'SIM_CMMN_00001');
+define('E_CMMN_TOKEN_WRONG',               'SIM_CMMN_00002');
+define('E_CMMN_REQUEST_ERROR',             'SIM_CMMN_00003');
+define('E_CMMN_HANDLE_APP_STOP',           'SIM_CMMN_00004');
+define('E_CMMN_HANDLE_SIM_STOP',           'SIM_CMMN_00005');
+define('E_CMMN_POPAPPS_EXISTS',            'SIM_CMMN_00006');
+define('E_CMMN_INITIALIZE',                'SIM_CMMN_00007');
+define('E_CMMN_REQUIRED_PARAMETER',        'SIM_CMMN_00008');
+
+define('E_CMMN_HANDLE_USER_STOP',          'SIM_CMMN_00009');
+define('E_CMMN_LICENCE_OVER',              'SIM_CMMN_00010');
+define('E_CMMN_HANDLE_ITUNES_STOP',        'SIM_CMMN_00011');
+define('E_PHONE_SCREENSHOTS_OVER',         'SIM_CMMN_00012');
+define('E_CMMN_USER_EXISTS',               'SIM_CMMN_00013');
+define('E_CMMN_SORT_IMAGES_STOP',          'SIM_CMMN_00014');
+define('E_CMMN_SORT_USERS_STOP',           'SIM_CMMN_00015');
+define('E_CMMN_DUPLICATION_SIM',           'SIM_CMMN_00016');
+define('E_CMMN_SCREENSHOTS_HORIZON',       'SIM_CMMN_00017');
+define('E_CMMN_SCREENSHOTS_VERTICAL',      'SIM_CMMN_00018');
+define('E_CMMN_REQUIRED_LOGIN',            'SIM_CMMN_00019');
+define('E_CMMN_PROMO_EXISTS',              'SIM_CMMN_00020');
+define('E_CMMN_PROMO_USED',                'SIM_CMMN_00021');
+
+//phone error
+define('E_PHONE_POPAPPS_EXISTS',              'SIM_PHONE_00001');
+define('E_PHONE_DOMAIN_EXISTS',               'SIM_PHONE_00002');
+define('E_PHONE_SCREENSHOTS_EXISTS',          'SIM_PHONE_00003');
 
 //エラーメッセージ
-define('KUJAPAN_CMMN_00001',               'URLが不正です。');
-define('KUJAPAN_CMMN_00002',               '不正なリクエストです。クッキーが有効になっていない可能性があります。ブラウザの設定をご確認ください。');
-define('KUJAPAN_CMMN_00003',               '店舗が削除されたか存在しません。');
-define('KUJAPAN_CMMN_00004',               '現在、サーバーが混んでおります。しばらく経ってから、もう一度お試しください。');
-define('KUJAPAN_CMMN_00005',               '初期化中に不明なエラーが発生しました。弊社サポートセンターまでご連絡くださいませ。');
-define('KUJAPAN_CMMN_00006',               'クーポン発行可能な期間が過ぎています。<br />発行可能な期間は初回ログイン時より3か月となっております。<br />再度ご購入いただきますようお願いいたします。');
-
-// --------------------------
-// USERエラー 認証
-// --------------------------
-//エラー宣言
-define('E_AUTH_NG',                        'KUJAPAN_AUTH_00001');
-
-//エラーメッセージ
-define('KUJAPAN_AUTH_00001',               'ログインアカウント、あるいは、ログインパスワードが間違っています。');
+define('SIM_CMMN_00001',               'URLが不正です。');
+define('SIM_CMMN_00002',               '不正なリクエストです。クッキーが有効になっていない可能性があります。ブラウザの設定をご確認ください。');
+define('SIM_CMMN_00003',               '現在、サーバーが混んでおります。しばらく経ってから、もう一度お試しください。');
+define('SIM_CMMN_00004',               'アプリの登録ができませんでした。再度実行してください。');
+define('SIM_CMMN_00005',               'popAppsの登録ができませんでした。再度実行してください。');
+define('SIM_CMMN_00006',               'アプリが削除されたか存在しません。');
+define('SIM_CMMN_00007',               '初期化中に不明なエラーが発生しました。popAppsサポートまでご連絡くださいませ。');
+define('SIM_CMMN_00008',               '必要なパラメータが指定されていません。');
+define('SIM_CMMN_00009',               'ユーザー情報の更新ができませんでした。再度実行してください。');
+define('SIM_CMMN_00010',               'ライセンスを超過しています。追加ライセンスを購入してください。');
+define('SIM_CMMN_00011',               'itunesに掲載されているアプリ情報を取得することができませんでした。');
+define('SIM_CMMN_00012',               'アップロード可能なスクリーンショットの枚数を超えています。');
 
 
-// --------------------------
-// ファイルシステムエラー
-// --------------------------
-define('E_SYSTEM_DIR_NO_EXIST',            'KUJAPAN_SYSTEM_00001');
-define('E_SYSTEM_DIR_NO_WRITE',            'KUJAPAN_SYSTEM_00002');
-define('E_SYSTEM_FILE_NO_WRITE',           'KUJAPAN_SYSTEM_00003');
-define('E_SYSTEM_FILE_EXIST',              'KUJAPAN_SYSTEM_00004');
+define('SIM_CMMN_00013',               'ユーザーが削除されたか存在しません。');
+define('SIM_CMMN_00014',               'スクリーンショットをソートできませんでした。再度実行してください。');
+define('SIM_CMMN_00015',               'ソートできませんでした。再度実行してください。');
+define('SIM_CMMN_00016',               '既に登録済みのアプリです。');
+define('SIM_CMMN_00017',               '横型のスクリーンショットを指定してください。');
+define('SIM_CMMN_00018',               '縦型のスクリーンショットを指定してください。');
+define('SIM_CMMN_00019',               'ログインが必要です。');
+define('SIM_CMMN_00020',               'プロモーションコードが削除されたか存在しません。');
+define('SIM_CMMN_00021',               'ご指定のプロモーションコードは既に使用されています。');
 
-define('E_SYSTEM_FILE_1',                  'KUJAPAN_SYSTEM_00005');//E_SYSTEM_FILE_BASE_SIZE
-define('E_SYSTEM_FILE_2',                  'KUJAPAN_SYSTEM_00006');//E_SYSTEM_FILE_FORM_SIZE
-define('E_SYSTEM_FILE_3',                  'KUJAPAN_SYSTEM_00007');//E_SYSTEM_FILE_PART_UPLOAD
-define('E_SYSTEM_FILE_4',                  'KUJAPAN_SYSTEM_00008');//E_SYSTEM_FILE_ALL_UPLOAD
-
-define('E_SYSTEM_FILE_NOT_COPY',           'KUJAPAN_SYSTEM_00009');
-define('E_CODE_EMPTY',                     'KUJAPAN_SYSTEM_00010');
-define('E_CODE_DUPLICATION',               'KUJAPAN_SYSTEM_00011');
-define('E_MAIL_NOT_SEND',                  'KUJAPAN_SYSTEM_00012');
-define('E_SYSTEM_CSV_WRONG',               'KUJAPAN_SYSTEM_00014');
-define('E_SYSTEM_PARAM_WRONG',             'KUJAPAN_SYSTEM_00015');
-
-
-
-define('KUJAPAN_SYSTEM_00001',              'ディレクトリが存在しません');
-define('KUJAPAN_SYSTEM_00002',              'ディレクトリへの書き込み権限がありません');
-define('KUJAPAN_SYSTEM_00003',              'ファイルへの書き込み権限がありません');
-define('KUJAPAN_SYSTEM_00004',              '既にファイルが存在しています');
-define('KUJAPAN_SYSTEM_00005',              '！基本ファイルサイズの制限値を超えています');
-define('KUJAPAN_SYSTEM_00006',              '！フォームファイルサイズの制限値を超えています');
-define('KUJAPAN_SYSTEM_00007',              '！一部分のみしかアップロードされていませんでした');
-define('KUJAPAN_SYSTEM_00008',              '！ファイルは必須です。ファイルがアップロードされませんでした');
-define('KUJAPAN_SYSTEM_00009',              'ファイルコピーに失敗しました');
-define('KUJAPAN_SYSTEM_00010',              'コードが入力されていません');
-define('KUJAPAN_SYSTEM_00011',              'コードが重複しています');
-define('KUJAPAN_SYSTEM_00012',              'メールの送信に失敗しました．');
-define('KUJAPAN_SYSTEM_00014',              'CSVファイルが不正です');
-define('KUJAPAN_SYSTEM_00015',              'パラメータが不正です');
-
+//電話エラーメッセージ 3行まで
+define('SIM_PHONE_00001',               'popAppsが削除されたか存在しません。');
+define('SIM_PHONE_00002',               'popAppsを利用できるWebサイトではありません。登録したWebサイトURLをご確認ください。');
+define('SIM_PHONE_00003',               'スクリーンショットが削除されたか存在しません。');
 ?>

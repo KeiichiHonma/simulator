@@ -1,11 +1,13 @@
 <?php
 require_once('paypal/prepend.php');
 $is_notify = true;
+
 // STEP 1: Read POST data
 
 // reading posted data from directly from $_POST causes serialization 
 // issues with array data in POST
 // reading raw POST data from input stream instead. 
+
 $raw_post_data = file_get_contents('php://input');
 $raw_post_array = explode('&', $raw_post_data);
 $myPost = array();
@@ -14,6 +16,7 @@ foreach ($raw_post_array as $keyval) {
   if (count($keyval) == 2)
      $myPost[$keyval[0]] = urldecode($keyval[1]);
 }
+
 // read the post from PayPal system and add 'cmd'
 $req = 'cmd=_notify-validate';
 if(function_exists('get_magic_quotes_gpc')) {
@@ -71,6 +74,9 @@ if (strcmp ($res, "VERIFIED") == 0) {
     require_once('paypal/common_process.php');
 } else if (strcmp ($res, "INVALID") == 0) {
     // log for manual investigation
-    mail($notify_email, "INVALID", "$res");
+    //mail($notify_email, "INVALID", "$res");
+    require_once('fw/mailManager.php');
+    $mailManager = new mailManager();
+    $mailManager->sendHalt("INVALID\n".$res);
 }
 ?>

@@ -15,7 +15,8 @@
 .connected li, .sortable li, .exclude li, .handles li {
     list-style: none;
     border: 1px solid #CCC;
-    background: #F6F6F6;
+    /*background: #F6F6F6;*/
+    background: #FFFFFF;
     margin: 5px;
     padding: 5px;
 }

@@ -12,7 +12,7 @@ $simulator = $simulator_logic->getAppSimulator($sid);
 
 if(!$simulator){
     require_once('fw/errorManager.php');
-    errorManager::throwError(E_CMMN_APP_EXISTS);
+    errorManager::throwError(E_CMMN_POPAPPS_EXISTS);
 }
 $con->t->assign('simulator',$simulator);
 //popapps url make

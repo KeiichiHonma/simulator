@@ -31,7 +31,11 @@ class cloudinaryUploader {
   string(96) "https://d3jpl91pxevbkh.cloudfront.net/hachione/image/upload/v1351851921/q9umj3c4zyze65tqjmme.jpg"
 }*/
     }
-    
+
+    public function c_test() {
+        return Cloudinary\Uploader::test();
+    }
+
     public function destroy($public_id, $options = array()) {
         return Cloudinary\Uploader::destroy($public_id,$options);
     }

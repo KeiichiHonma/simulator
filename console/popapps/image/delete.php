@@ -14,7 +14,7 @@ if($bl){
     $result = $destroy->handleCloudinaryDestroy($_POST['public_id'],$_POST['sid']);
     echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 }else{
-    echo json_encode(array('error' => true, 'mes' => 'Must Login'));
+    echo json_encode(array('error' => true, 'mes' => constant(E_CMMN_REQUIRED_LOGIN)));
 }
 die();
 ?>

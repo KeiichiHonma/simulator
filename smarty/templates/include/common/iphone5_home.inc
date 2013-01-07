@@ -1,6 +1,5 @@
 <div id="iphone">
     <div id="app">
-
         <div id="flickable">
             <ul id="flickable_ul">
                 {foreach from=$iphone.user_images_chunk key="key" item="user_images" name="user_images_chunk"}
@@ -18,7 +17,7 @@
         <div style="clear:both;"></div>
         <ul id="select_box">
             {section name=cnt start=1  loop=$iphone.user_display_count}
-                <li id="select_box_{$smarty.section.cnt.index}"><a href="#" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a></li>
+                <li id="select_box_{$smarty.section.cnt.index}"><a href="javascript:void(0);" id="select{$smarty.section.cnt.index}">{$smarty.section.cnt.index}</a></li>
             {/section}
         </ul>
         {/if}

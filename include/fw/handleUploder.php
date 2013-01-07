@@ -268,36 +268,46 @@ class handleUploader {
         $simulator_logic = new simulatorLogic();
 
         $simulator = $simulator_logic->getOneSimulator($_POST['sid']);
-        if(!$simulator) return array('error' => 'No popApps');
+        if(!$simulator){
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_CMMN_POPAPPS_EXISTS));
+        }
         
         //枚数チェック
         $mobile_images = unserialize($simulator[0]['col_mobile_images']);
         $console_images = unserialize($simulator[0]['col_console_images']);
         if( count( $console_images['screenshots'] ) > 9){
-            return array('error' => 'It is over the number of pictures.');
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_PHONE_SCREENSHOTS_OVER));
         }
         
         
         //縦横チェック
         list($width, $height, $type, $attr) = getimagesize( $_FILES['uploadfile']['tmp_name'] );
         if($simulator[0]['col_direction'] == DIRECTION_HORIZON && $width < $height){
-            return array('error' => 'Please specify a picture with long width.');
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_CMMN_SCREENSHOTS_HORIZON));
         }
 
         if($simulator[0]['col_direction'] == DIRECTION_VERTICAL && $width > $height){
-            return array('error' => 'Please specify a picture with long height.');
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_CMMN_SCREENSHOTS_VERTICAL));
         }
 
         $ext = ($ext == '') ? $ext : '.' . $ext;
         $this->uploadName = $filename . $ext;
         require "fw/cloudinaryUploader.php";
-        $cloudinary = cloudinaryUploader::upload($_FILES['uploadfile']['tmp_name']);
-        //$cloudinary = true;
-        //if ($this->file->save($uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext)){
+        try {
+            $cloudinary = cloudinaryUploader::upload($_FILES['uploadfile']['tmp_name']);
+        } catch (Exception $e) {
+            return array('error'=> 'Could not save uploaded file.' .'The upload was cancelled, or server error encountered');
+            $con->throwExceptionError($e,FALSE);
+        }
         if ($cloudinary){
             global $con;
             if( !isset($_SESSION[SESSION_U_UID]) ){
-                return array('error' => 'Must Login');
+                require_once('fw/errorManager.php');
+                return array('error' => constant(E_CMMN_REQUIRED_LOGIN));
             }
             
             //simulatorテーブルに画像を追加
@@ -313,7 +323,12 @@ class handleUploader {
             $sid = $simulator_handle->updateImagesRow($simulator[0]['_id'],$mobile_images,$console_images);
             if(!$sid){
                 //rollback
-                cloudinaryUploader::rollback($mobile_images);
+                try {
+                    cloudinaryUploader::rollback($mobile_images);
+                } catch (Exception $e) {
+                    return array('error'=> 'Could not save uploaded file.');
+                    $con->throwExceptionError($e,FALSE);
+                }
                 return array('error'=> 'Could not save uploaded file.');
             }
             $con->safeExit();//commit
@@ -327,11 +342,23 @@ class handleUploader {
 class handleDestroy {
 
     function handleCloudinaryDestroy($public_id,$sid){
-        if(!isset($sid) || !is_numeric($sid)) return array('error' => 'No sid.');
-        if (!$public_id) return array('error' => 'No files.');
+        
+        if(!isset($sid) || !is_numeric($sid)){
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_CMMN_REQUIRED_PARAMETER));
+        }
+        if (!$public_id){
+            require_once('fw/errorManager.php');
+            return array('error' => constant(E_CMMN_REQUIRED_PARAMETER));
+        }
         
         require "fw/cloudinaryUploader.php";
-        $cloudinary = cloudinaryUploader::destroy($public_id);
+        try {
+            $cloudinary = cloudinaryUploader::destroy($public_id);
+        } catch (Exception $e) {
+            return array('error'=> 'Could not delete file.' .'The upload was cancelled, or server error encountered');
+            $con->throwExceptionError($e,FALSE);
+        }
         if ($cloudinary){
             global $con;
             if( !isset($_SESSION[SESSION_U_UID]) ){
@@ -341,7 +368,6 @@ class handleDestroy {
             //simulatorテーブルに画像を追加
             require_once('simulator/logic.php');
             $simulator_logic = new simulatorLogic();
-            //$simulator = $simulator_logic->getUserSimulator($_SESSION[SESSION_U_UID]);//applicationも入ってます。
             $simulator = $simulator_logic->getOneSimulator($sid);
             
             $mobile_images = unserialize($simulator[0]['col_mobile_images']);
@@ -366,7 +392,7 @@ class handleDestroy {
             $con->safeExit();//commit
             return array('success'=>true,'public_id'=>$public_id);
         } else {
-            return array('error'=> 'Could not save uploaded file.' .'The upload was cancelled, or server error encountered');
+            return array('error'=> 'Could not delete file.' .'The upload was cancelled, or server error encountered');
         }
     }
 }

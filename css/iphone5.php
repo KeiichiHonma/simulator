@@ -1,5 +1,6 @@
 <?php
 header('content-type: text/css');
+include('fw/css_path.php');//css path
 require_once('fw/define.php');
 
 //接頭辞
@@ -11,8 +12,7 @@ if( isset($_GET['demo']) && is_numeric($_GET['demo']) ){
 }
 
 if( !isset($_GET['d']) ) $_GET['d'] = DIRECTION_VERTICAL;
-
-$iphone_image = '/img/phone/iphone5_black_vertical.png';
+$iphone_image = $ssl_path.'iphone5_black_vertical.png';
 $iphone_image_position = '89px';
 switch ($_GET['d']){
     case DIRECTION_VERTICAL:
@@ -27,7 +27,7 @@ switch ($_GET['d']){
         $css_no = '0';
     break;
     case DIRECTION_HORIZON:
-        $iphone_image = '/img/phone/iphone5_black_horizon.png';
+        $iphone_image = $ssl_path.'iphone5_black_horizon.png';
         $width = IPHONE5_HORIZON_WIDTH;
         $height = IPHONE5_HORIZON_HEIGHT;
         $image_position = '75px';

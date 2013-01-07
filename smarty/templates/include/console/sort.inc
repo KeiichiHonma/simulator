@@ -1,6 +1,13 @@
-<div class="boxTemp box-sort  sort{$iphone.direction|default:0}">
-    <h3>images Sort</h3>
-    <p>You will forever be available to purchase at a time. There will be no monthly fee or renewal fee.</p>
+<div class="boxTemp box-sort sort{$iphone.direction|default:0}">
+    <h3>{$locale.sort_title}</h3>
+    {if !$is_free}
+        <p>{$locale.sort_text|nl2br}</p>
+    {else}
+        <p>{$locale.upgrade_sort_text}
+        {include file="include/console/upgrade_simple.inc"}
+        </p>
+        
+    {/if}
     <form action="/console/popapps/image/sort/sid/{$simulator.0.simulator_id}" id="image_sort_form" method="post">
         <ul id="sort" class="sortable grid">
         {if $iphone.console.screenshots}
@@ -9,11 +16,12 @@
             {/foreach}
         {/if}
         </ul>
+        {if !$is_free}
         <div class='sort_btn'>
         <input type="hidden" id="image_sort" name="image_sort" />
         <input type="hidden" name="csrf_ticket" value="{$csrf_ticket}" />
-        {*<input type="button" value="submit" id="image_sort_submit" />*}
-        <input type="image" id="image_sort_submit" alt="Save" src="/img/common/save_off.png" />
+        <input type="image" id="image_sort_submit" alt="Save" src="{$path}save_off.png" />
         </div>
+        {/if}
     </form>
 </div>

@@ -1,6 +1,5 @@
 <?php
 namespace Cloudinary {
-
     class Uploader {
         public static function build_upload_params(&$options)
         {
@@ -21,6 +20,16 @@ namespace Cloudinary {
         {
             $params = Uploader::build_upload_params($options);
             return Uploader::call_api("upload", $params, $options, $file);
+        }
+
+        public static function test()
+        {
+            $return_error = false;
+            if ($return_error) {
+                $result["error"]["http_code"] = $code;
+            } else {
+                throw new \Exception('errorerrorerrorerrorerrorerrorerrorerrorerror');
+            }
         }
 
         public static function destroy($public_id, $options = array())
@@ -103,11 +112,6 @@ namespace Cloudinary {
             $params = array_filter($params);
             $api_url = \Cloudinary::cloudinary_api_url($action, $options);
             $ch = curl_init($api_url);
-/*$test = is_file('/usr/local/apache2/htdocs/simulator/cloudinary/logo2.png');
-var_dump($test);
-die();
-var_dump($file);
-die();*/
             if ($file) {
                 if (!preg_match('/^https?:/', $file) && $file[0] != "@") {
                     $params["file"] = "@" . $file;
@@ -117,10 +121,11 @@ die();*/
             }
 
             curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+            //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 120);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
@@ -153,6 +158,9 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             }
             return $result;
         }
+
+
+
         protected static function build_eager(&$transformations) {
             $eager = array();
             foreach (\Cloudinary::build_array($transformations) as $trans) {

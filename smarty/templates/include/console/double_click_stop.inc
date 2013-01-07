@@ -19,8 +19,13 @@ $(function(){
 });
 $(function(){
     $('#next_submit').click(function() {
+        if($('form input').val() == ''){
+            alert('Please input a value.');
+            return false;
+        }
         $('#next_submit').hide();
-        $('<img src="/img/common/ajax-loader.gif" />').appendTo('#loader');
+        $('#loader').css("background-image","url(/img/common/ajax-loader.gif)");
+        $('#loader-text').text("Please be patioent.We are now loading.");
         $(this).click(function () {
             alert(submit_error_message);
             return false;
@@ -29,16 +34,20 @@ $(function(){
 });
 $(function(){
     $('#create_submit').click(function() {
+        if($('form input').val() == ''){
+            alert('Please input a value.');
+            return false;
+        }
         $('#create_submit').hide();
         $('#previous_submit').hide();
-        $('<img src="/img/common/ajax-loader.gif" />').appendTo('#loader');
+        $('#loader').css("background-image","url(/img/common/ajax-loader.gif)");
+        $('#loader-text').text("Please be patioent.We are now loading.");
         $(this).click(function () {
             alert(submit_error_message);
             return false;
         });
     });
 });
-
 
 
 </script>

@@ -15,22 +15,28 @@ class userLicence
         $this->handle = new userHandle();
     }
     
-    //public function updateMaxLicence($uid,$item_name){
-    public function updateMaxLicence($uid,$item_number){
+    public function updateMaxLicence($uid,$item_number,$promo = FALSE){
         $this->user = $this->logic->getOneUser($uid);
         if($this->user){
-            switch ($item_number){
-                case LICENCE_BASIC:
-                    $plus = MAX_LICENCE_BASIC;
-                break;
-                case LICENCE_ADVANCE:
-                    $plus = MAX_LICENCE_ADVANCE;
-                break;
-                default:
-                    $plus = 0;
-                break;
+            if(!$promo){
+                switch ($item_number){
+                    case LICENCE_BASIC:
+                        $plus = MAX_LICENCE_BASIC;
+                    break;
+                    case LICENCE_ADVANCE:
+                        $plus = MAX_LICENCE_ADVANCE;
+                    break;
+                    default:
+                        $plus = 0;
+                    break;
+                }
+            }elseif(isset($promo[0]['col_plus_licence']) && is_numeric($promo[0]['col_plus_licence'])){
+                $plus = $promo[0]['col_plus_licence'];
+            }else{
+                $plus = 0;
             }
-            $new_max_licence = $this->user[0]['col_max_licence'] == MAX_LICENCE_FREE ? 0 + $plus : $this->user[0]['col_max_licence'] + $plus;
+
+            $new_max_licence = $this->user[0]['col_max_licence'] == MAX_LICENCE_FREE ? MAX_LICENCE_FREE + $plus : $this->user[0]['col_max_licence'] + $plus;
             $r = $this->handle->updateMaxLicenceRow($uid,$new_max_licence);
             if(!$r){
                 return false;

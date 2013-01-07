@@ -13,6 +13,18 @@ define('A_SIMULATOR',          's');
 define('T_PAYPAL_PAYMENT',          'simulator.tab_paypal_payment_info');
 define('A_PAYPAL_PAYMENT',          'P');
 
+define('T_FAQ',          'simulator.tab_faq');
+define('A_FAQ',          'f');
+
+//simulator
+define('T_PROMO',          'simulator.tab_promo');
+define('A_PROMO',          'p');
+
+//simulator
+define('T_USE_PROMO',          'simulator.tab_use_promo');
+define('A_USE_PROMO',          'up');
+
+
 define('MINIMUM',        0);//最小カラム
 define('COMMON',         1);//通常含めるカラム
 define('DETAIL',         2);//詳細に含めるカラム

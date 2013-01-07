@@ -80,7 +80,7 @@
     // default spinner options
     $.fn.spinner.defaults = {
         position    : 'center'       // left, right, center
-        , img       : '/img/common/spinner.gif' // path to spinner img
+        , img       : 'http://res.cloudinary.com/popapps/image/upload/spinner.gif' // path to spinner img
         , height    : 26            // height of spinner img
         , width     : 26            // width of spinner img
         , zIndex    : 1001          // z-index of spinner

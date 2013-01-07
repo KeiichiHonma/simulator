@@ -1,0 +1,12 @@
+@charset "utf-8";
+body { font-family: Helvetica,Helvetica,sans-serif;}
+h2,h3 { font-family: 'Bree Serif', Helvetica,Helvetica,sans-serif;}
+
+.settings_section .row  h4
+{
+    font-family: 'Bree Serif',Helvetica,Helvetica,sans-serif;
+}
+
+#topCommonArea .left h1 {
+    font-family: 'Bree Serif', Helvetica,Helvetica,sans-serif;
+}

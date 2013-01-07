@@ -16,7 +16,7 @@ $user = $user_logic->getOneUser($_GET['uid']);
 
 if(!$user){
     require_once('fw/errorManager.php');
-    errorManager::throwError(E_CMMN_USER_EXISTS);
+    errorManager::throwError(E_CMMN_USER_EXISTS,true);
 }
 
 //url
@@ -30,7 +30,7 @@ if(!$simulators){
 }
 $isOK = FALSE;
 foreach ($simulators as $key => $simulator){
-    if( !utilManager::checkDomain($simulator[0]['col_url'],$_SERVER['HTTP_REFERER']) ){
+    if( utilManager::checkDomain($simulator[0]['col_url'],$_SERVER['HTTP_REFERER']) ){
         $isOK = TRUE;
         break;
     }

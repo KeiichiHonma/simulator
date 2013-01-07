@@ -1,0 +1,38 @@
+<?php
+$locale = array
+(
+    'simulator' => array
+    (
+        'title'=>array
+        (
+            'must'=>'必須項目です。',
+            'length'=>'文字数が不正です。'
+        ),
+        'url'=>array
+        (
+            'must'=>'必須項目です。',
+            'url_validate'=>'URLが不正です。'
+        ),
+        'link'=>array
+        (
+            'must'=>'必須項目です。',
+            'url_validate'=>'URLが不正です。'
+        ),
+        'scroll'=>array
+        (
+            'must'=>'必須項目です。',
+            'int'=>'値が不正です。',
+        ),
+        'position'=>array
+        (
+            'must'=>'必須項目です。',
+            'int'=>'値が不正です。',
+        ),
+        'direction'=>array
+        (
+            'must'=>'必須項目です。',
+            'int'=>'値が不正です。',
+        ),
+    )
+);
+?>

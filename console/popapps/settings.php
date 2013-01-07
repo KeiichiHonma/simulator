@@ -10,7 +10,7 @@ $simulator_logic = new simulatorLogic(TRUE);
 $simulator = $simulator_logic->getAppSimulator($sid);
 if(!$simulator){
     require_once('fw/errorManager.php');
-    errorManager::throwError(E_CMMN_APP_EXISTS);
+    errorManager::throwError(E_CMMN_POPAPPS_EXISTS);
 }
 $con->t->assign('simulator',$simulator);
 
@@ -30,7 +30,13 @@ if($con->isPost){
             require_once "fw/cloudinaryUploader.php";
             $mobile_images = unserialize($simulator[0]['simulator_mobile_images']);
             $console_images = unserialize($simulator[0]['simulator_console_images']);
-            cloudinaryUploader::rollback($mobile_images['screenshots']);
+            //rollback
+            try {
+                cloudinaryUploader::rollback($mobile_images['screenshots']);
+            } catch (Exception $e) {
+                $con->throwExceptionError($e);
+            }
+            
             $mobile_images['screenshots'] = array();
             $console_images['screenshots'] = array();
         }

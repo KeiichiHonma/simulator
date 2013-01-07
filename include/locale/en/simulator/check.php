@@ -5,33 +5,33 @@ $locale = array
     (
         'title'=>array
         (
-            'must'=>'必須です。',
-            'length'=>'長さが不正です。'
+            'must'=>'It is an indispensable item.',
+            'length'=>'The number of characters is invalid. '
         ),
         'url'=>array
         (
-            'must'=>'必須です。',
-            'url_validate'=>'URLが不正です'
+            'must'=>'It is an indispensable item.',
+            'url_validate'=>'This URL is invalid.'
         ),
         'link'=>array
         (
-            'must'=>'必須です。',
-            'url_validate'=>'URLが不正です'
+            'must'=>'It is an indispensable item.',
+            'url_validate'=>'This URL is invalid.'
         ),
         'scroll'=>array
         (
-            'must'=>'必須です。',
-            'int'=>'不正な値です。',
+            'must'=>'It is an indispensable item.',
+            'int'=>'A value is invalid.',
         ),
         'position'=>array
         (
-            'must'=>'必須です。',
-            'int'=>'不正な値です。',
+            'must'=>'It is an indispensable item.',
+            'int'=>'A value is invalid.',
         ),
         'direction'=>array
         (
-            'must'=>'必須です。',
-            'int'=>'不正な値です。',
+            'must'=>'It is an indispensable item.',
+            'int'=>'A value is invalid.',
         ),
     )
 );

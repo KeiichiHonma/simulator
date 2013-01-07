@@ -31,7 +31,6 @@ define('DATABASE_ASC', FALSE);//昇順
 class database
 {
     //DB
-    //private $strHostName      = 'instance30581.db.xeround.com:18158';
     private $strHostName;
     private $strDBName        = "simulator";
     private $strUser          = "xe_hachione";
@@ -54,21 +53,31 @@ class database
         }else{
             $ini = FALSE;
         }
-        
-        
+
         //本番
         if(!$ini){
-            $this->strHostName = 'localhost';
+            $this->strHostName = 'instance30585.db.xeround.com:19794';
         }else{
-            if($ini['common']['isDebug'] == 0){
-                $this->strHostName = 'instance30585.db.xeround.com:19794';
+            //test//////////////////////////////////////////////////////////////////////////////////////
+/*            if(strcasecmp($ini['xeround']['sandbox'],1) == 0){
+                $this->strHostName = 'instance30581.db.xeround.com:18158';//xeround sandbox
             }else{
-                if($ini['db']['xeround'] == 0){
-                    $this->strHostName = 'localhost';
+                $this->strHostName = 'instance30585.db.xeround.com:19794';
+            }*/
+            if(strcasecmp($ini['common']['isDebug'],1) == 0){
+                //xeround debug
+                if(strcasecmp($ini['xeround']['sandbox'],1) == 0){
+                    $this->strHostName = 'instance30581.db.xeround.com:18158';//xeround sandbox
                 }else{
-                    $this->strHostName = 'instance30581.db.xeround.com:18158';
+                    $this->strHostName = 'localhost';//hermes
                 }
-                
+            }else{
+                //xeround debug
+                if(strcasecmp($ini['xeround']['sandbox'],1) == 0){
+                    $this->strHostName = 'instance30581.db.xeround.com:18158';//xeround sandbox
+                }else{
+                    $this->strHostName = 'instance30585.db.xeround.com:19794';
+                }
             }
         }
         $blnStatus = TRUE;
@@ -157,7 +166,13 @@ class database
         }
         if($con->db->cloudinary_image){
             require_once "fw/cloudinaryUploader.php";
-            cloudinaryUploader::rollback($con->db->cloudinary_image);
+            //rollback
+            try {
+                cloudinaryUploader::rollback($con->db->cloudinary_image);
+            } catch (Exception $e) {
+                $con->throwExceptionError($e);
+            }
+            
         }
         $this->rollback();//ロールバック
         

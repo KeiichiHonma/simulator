@@ -33,8 +33,8 @@ class apiManager
             $this->secret = 'a04baf149f04a22cc2731d99fcc3900d';
         }else{
             //本番
-            //$this->appId = '474881109223560';
-            //$this->secret = 'ed7b39a2cbdebbe177a3601e5a94e990';
+            $this->appId = '450158261698811';
+            $this->secret = '084eb8c11004d4e4e1ca976b047c55d1';
         }
 
         $this->facebook = new Facebook(

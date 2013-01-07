@@ -1,8 +1,9 @@
 <?php
+include('fw/css_path.php');//css path
 require_once('fw/define.php');
 print "var fqdn = '".$_SERVER['SERVER_NAME']."';";
 print "window.jQuery || document.write(\"<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js'></script>\");";
-print "if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('iPad') > 0 || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {";
+print "if ( navigator.userAgent.indexOf('Android') > 0 || navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('iPad') > 0 ) {";
 print "} else {";
 
 //iphone direction
@@ -60,6 +61,6 @@ if( isset($_GET['sid']) && is_numeric($_GET['sid']) ){
 }else{
     die();
 }
-print "document.write(\"<link rel='stylesheet' href='https://\"+fqdn+\"/css/popapps.php?p=".$_GET['p']."&d=".$_GET['d']."' type='text/css' media='screen' /><script type='text/javascript' src='https://\"+fqdn+\"/js/popapps.php?d=".$_GET['d']."&s=".$_GET['s']."'></script><div id='popapps-mobile-box'><div id='up-btn'><img src='https://\"+fqdn+\"/img/phone/up.png' /></div><div id='down-btn'><img src='https://\"+fqdn+\"/img/phone/down.png' /></div></div><div id='popapps-frame' style='z-index: 2147483582;width:".$width."px;height:".$height."px;position: fixed;bottom:".$bottom_position."px;".$position.": 5px;padding:0px;margin:0px;'><iframe src='https://\"+fqdn+\"/".$page."' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='".$width."' height='".$height."'></iframe></div>\");";
+print "document.write(\"<link rel='stylesheet' href='https://\"+fqdn+\"/css/popapps.php?p=".$_GET['p']."&d=".$_GET['d']."' type='text/css' media='screen' /><script type='text/javascript' src='https://\"+fqdn+\"/js/popapps.php?d=".$_GET['d']."&s=".$_GET['s']."'></script><div id='popapps-mobile-box'><div id='up-btn'><img src='".$ssl_path."up.png' /></div><div id='down-btn'><img src='".$ssl_path."down.png' /></div></div><div id='popapps-frame' style='z-index: 2147483582;width:".$width."px;height:".$height."px;position: fixed;bottom:".$bottom_position."px;".$position.": 5px;padding:0px;margin:0px;'><iframe src='https://\"+fqdn+\"/".$page."' style='z-index: 1;padding:0;margin:0;' scrolling='no' frameborder='0' width='".$width."' height='".$height."'></iframe></div>\");";
 print "}";
 ?>

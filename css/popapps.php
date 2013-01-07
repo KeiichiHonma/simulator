@@ -1,5 +1,6 @@
 <?php
 header('content-type: text/css');
+include('fw/css_path.php');
 require_once('fw/define.php');
 
 //接頭辞
@@ -62,7 +63,7 @@ switch ($css_no){
     width:62px;
     height:55px;
     cursor: pointer;
-    background: url(https://<?php echo $_SERVER['SERVER_NAME']; ?>/img/phone/mobile_box.png) no-repeat;
+    background: url(<?php echo $ssl_path; ?>mobile_box.png) no-repeat;
     position: fixed;
     <?php echo $position; ?>
     z-index: 2147483583;
@@ -72,8 +73,8 @@ switch ($css_no){
     position: absolute;
     right: 24px;
     top: 24px;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
 }
 
@@ -81,7 +82,7 @@ switch ($css_no){
     position: absolute;
     right: 24px;
     top: 24px;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
 }

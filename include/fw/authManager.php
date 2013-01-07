@@ -34,12 +34,16 @@ class authManager
         }
     }
 
-    public function validateLogin($isMust = false){
+    public function validateLogin($isMust = false,$page = null){
         $is_auth = true;
         if(!$this->isLogin()){
             if($isMust == true){
                 global $con;
-                $con->base->redirectPage('auth/facebook');
+                $get = '';
+                if(!is_null($page)){
+                    $get = '?page='.urlencode($page);
+                }
+                $con->base->redirectPage('auth/facebook'.$get);
             }else{
                 $is_auth = false;
                 return false;
@@ -63,10 +67,13 @@ class authManager
         $con->session->set(SESSION_U_NAME,$name);
     }
 
+    public function logout(){
+        $this->unsetLogin();
+        global $con;
+        $con->safeExitRedirect('/');
+    }
+
     public function unsetLogin(){
-        if (isset($_COOKIE[WTC_SESSION_NAME])) {
-            setcookie(WTC_SESSION_NAME, '', time() - 1800, '/');
-        }
         $_SESSION = array();
         session_destroy();
     }

@@ -9,6 +9,7 @@ class analyze
     private $handleTagList = array('h1','img');
     public $h1_text = FALSE;
     public $screenshots = FALSE;
+    public $tmp_screenshots = FALSE;
     public $logo = FALSE;
     public $its_link = FALSE;
     public $direction = DIRECTION_VERTICAL;
@@ -38,12 +39,14 @@ class analyze
                     */
                     
                     if( strstr($element->alt,'iPhone Screenshot') !== FALSE || strstr($element->alt,'iPhone &#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;') !== FALSE){
-                        $this->screenshots[] = trim($element->src);
+                        //$this->screenshots[] = trim($element->src);
                         //縦横チェック
                         list($width, $height, $type, $attr) = getimagesize( trim($element->src) );
                         if($width > $height){
+                            $this->tmp_screenshots['horizon'][] = trim($element->src);
                             $this->direction_count['horizon']++;
                         }else{
+                            $this->tmp_screenshots['vertical'][] = trim($element->src);
                             $this->direction_count['vertical']++;
                         }
                     }
@@ -62,11 +65,12 @@ class analyze
             }
         }
         //全てOKだったら許可
-        if($this->h1_text && $this->screenshots && $this->logo){
+        if($this->h1_text && $this->tmp_screenshots && $this->logo){
             if($this->direction_count['horizon'] > $this->direction_count['vertical']){
                 $this->direction = DIRECTION_HORIZON;
+                $this->screenshots = $this->tmp_screenshots['horizon'];
             }else{
-            
+                $this->screenshots = $this->tmp_screenshots['vertical'];
             }
             return TRUE;
         }else{

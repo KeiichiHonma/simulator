@@ -25,6 +25,10 @@ class newHandle extends analyze
     
     private $aid;
     
+    //error
+    private $is_check = TRUE;
+    private $analyze_error = "There is no screenshot for iPhone.";
+    
     function __construct($user,$method,$itunes_url){
         $this->user = $user;
         $this->method = $method;
@@ -48,18 +52,20 @@ class newHandle extends analyze
     private function readyHandle(){
         //check
         checkItunesURL::checkError();
-        $is_check = checkItunesURL::safeExit();
-        if($is_check){
+        $this->is_check = checkItunesURL::safeExit();
+        if($this->is_check){
             $this->checkItunesID();//error throwしてます
             $simulator_logic = new simulatorLogic();
             $simulator = $simulator_logic->getUserItunesSimulator($this->user[0]['_id'],$this->itunes_id);
             //重複アプリ
             if($simulator){
                 require_once('fw/errorManager.php');
-                errorManager::throwError(E_CMMN_DUPLICATION_SIM);
+                $error = E_CMMN_DUPLICATION_SIM;
+                checkItunesURL::$error['system'] = constant(E_CMMN_DUPLICATION_SIM);
+                $this->throwError(checkItunesURL::safeExit());
             }
         }
-        return $is_check;
+        return $this->is_check;
     }
     
     private function doAnalyze(){
@@ -67,8 +73,9 @@ class newHandle extends analyze
         if(!$this->analyze_result){
             //解析できなかった or ipad用のアプリだった場合等
             //error追加
-            checkItunesURL::$error['analyze'] = "The appointed application cannot be used. \n A required [iPhone Screenshot] or [logo] were not able to be acquired.";
-            $is_check = checkItunesURL::safeExit();
+            checkItunesURL::$error['system'] = $this->analyze_error;
+            //$this->is_check = checkItunesURL::safeExit();
+            $this->throwError(checkItunesURL::safeExit());
         }else{
             //iphone画面用にセット
             $this->setIphone();
@@ -84,14 +91,15 @@ class newHandle extends analyze
     }
     private function doCreate(){
         checkSimulatorEntry::checkError();
-        $is_check = checkSimulatorEntry::safeExit();
-        if($is_check){
+        $this->is_check = checkSimulatorEntry::safeExit();
+        if($this->is_check){
             $this->analyze_result = $this->analyzeHtmlSource($this->itunes_url);
             if(!$this->analyze_result){
                 //解析できなかった
                 //error追加
-                checkSimulatorEntry::$error['analyze'] = 'can\'t analyze';
-                $is_check = checkSimulatorEntry::safeExit();
+                checkSimulatorEntry::$error['system'] = $this->analyze_error;
+                //$this->is_check = checkSimulatorEntry::safeExit();
+                $this->throwError(checkSimulatorEntry::safeExit());
             }else{
                 //iphone画面用にセット
                 $this->setIphone();
@@ -103,7 +111,9 @@ class newHandle extends analyze
             if(!$this->analyze_result){
                 //ここで解析できなかった場合エラーで停止
                 require_once('fw/errorManager.php');
-                errorManager::throwError(E_CMMN_HANDLE_ITUNES_STOP);
+                checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_ITUNES_STOP);
+                //$this->is_check = checkSimulatorEntry::safeExit();
+                $this->throwError(checkSimulatorEntry::safeExit());
             }else{
                 //iphone画面用にセット
                 $this->setIphone();
@@ -128,9 +138,9 @@ class newHandle extends analyze
         include('application/logic.php');
         $application_logic = new applicationLogic();
         $application = $application_logic->getItunesApp($this->itunes_id);
-        $aid = true;
         //無料ユーザー、有料ユーザーどちらも必ず追加処理をする
         if($application === FALSE){
+        //新しいアプリ
             //無料ユーザー
             if($this->max_licence == 1){
                 $this->makeImages();
@@ -138,8 +148,14 @@ class newHandle extends analyze
             //有料プランの人が追加した場合は画像はnullで追加
             $application_handle = new applicationHandle();
             $this->aid = $application_handle->addRow($this->itunes_id,$this->itunes_url,$this->h1_text,$this->mobile_images,$this->console_images);
-            if(!$this->aid) $this->throwError(E_CMMN_HANDLE_APP_STOP);
+            if(!$this->aid){
+                require_once('fw/errorManager.php');
+                checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_APP_STOP);
+                //$this->is_check = checkSimulatorEntry::safeExit();
+                $this->throwError(checkSimulatorEntry::safeExit());
+            }
         }else{
+        //誰かがアプリ自体は登録してる状態
             //無料ユーザー
             //public_idからapplication table update
             if($this->max_licence == 1){
@@ -150,7 +166,12 @@ class newHandle extends analyze
                 $application_handle = new applicationHandle();
                 //有料プランの人が更新する場合ははない。無料ユーザーの画像が消えてしまうので。
                 $this->aid = $application_handle->updateRow($application[0]['_id'],$this->iphone['title'],$this->mobile_images,$this->console_images);
-                if(!$this->aid) $this->throwError(E_CMMN_HANDLE_APP_STOP);
+                if(!$this->aid){
+                    require_once('fw/errorManager.php');
+                    checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_APP_STOP);
+                    //$this->is_check = checkSimulatorEntry::safeExit();
+                    $this->throwError(checkSimulatorEntry::safeExit());
+                }
             }else{
                 $this->aid = $application[0]['_id'];
             }
@@ -179,7 +200,12 @@ class newHandle extends analyze
             //ここでhome画面用の画像アップ
             $this->makeUserImages($this->sid);
             
-            if(!$this->sid) $this->throwError(E_CMMN_HANDLE_SIM_STOP);
+            if(!$this->sid){
+                require_once('fw/errorManager.php');
+                checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_SIM_STOP);
+                //$this->is_check = checkSimulatorEntry::safeExit();
+                $this->throwError(checkSimulatorEntry::safeExit());
+            }
             //ライセンス更新が必要
             $this->user_licence_update = true;
         }else{
@@ -198,36 +224,96 @@ class newHandle extends analyze
             $uid = $user_handle->updateUseLicenceImagesRow($this->user[0]['_id'],$this->use_licence + 1,$this->user_images);
         }
         
-        if(!$uid) $this->throwError(E_CMMN_HANDLE_USER_STOP);
+        if(!$uid){
+            require_once('fw/errorManager.php');
+            checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_USER_STOP);
+            //$this->is_check = checkSimulatorEntry::safeExit();
+            $this->throwError(checkSimulatorEntry::safeExit());
+        }
     }
     
     private function makeImages($old_mobile_images = null){
         //screenshots
-        $i = 0;
-        foreach ($this->screenshots as $url){
-            $public_id = isset($old_mobile_images['screenshots'][$i]) ? $old_mobile_images['screenshots'][$i]['public_id'] : null;
-            $cloudinary = cloudinaryUploader::upload($url,$public_id);
-            $this->mobile_images['screenshots'][$i] = utilManager::getMobileImageParam($cloudinary,$this->direction);
-            $this->console_images['screenshots'][$i] = utilManager::getConsoleImageParam($cloudinary,$this->direction);
-            $i++;
-        }
-        
-        //logo
-        $public_id = isset($old_mobile_images['logo']['public_id']) ? $old_mobile_images['logo']['public_id'] : null;
-        $cloudinary = cloudinaryUploader::upload($this->logo,$public_id);
-        $this->mobile_images['logo'] = utilManager::getLogoParam($cloudinary);
+            $i = 0;
+            foreach ($this->screenshots as $url){
+                $public_id = isset($old_mobile_images['screenshots'][$i]) ? $old_mobile_images['screenshots'][$i]['public_id'] : null;
+                try {
+                    $cloudinary = cloudinaryUploader::upload($url,$public_id);
+                } catch (Exception $e) {
+                    global $con;
+                    //rollback
+                    try {
+                        if(!is_null($this->mobile_images)) cloudinaryUploader::rollback($this->mobile_images);
+                        if(!is_null($this->user_images)) cloudinaryUploader::rollback($this->user_images);
+                    } catch (Exception $e) {
+                        $con->throwExceptionError($e);
+                    }
+                    $con->throwExceptionError($e);
+                }
+                $this->mobile_images['screenshots'][$i] = utilManager::getMobileImageParam($cloudinary,$this->direction);
+                $this->console_images['screenshots'][$i] = utilManager::getConsoleImageParam($cloudinary,$this->direction);
+                $i++;
+            }
+            
+            //logo
+            $public_id = isset($old_mobile_images['logo']['public_id']) ? $old_mobile_images['logo']['public_id'] : null;
+            try {
+                $cloudinary = cloudinaryUploader::upload($this->logo,$public_id);
+            } catch (Exception $e) {
+                global $con;
+                //rollback
+                try {
+                    if(!is_null($this->mobile_images)) cloudinaryUploader::rollback($this->mobile_images);
+                    if(!is_null($this->user_images)) cloudinaryUploader::rollback($this->user_images);
+                } catch (Exception $e) {
+                    $con->throwExceptionError($e);
+                }
+                $con->throwExceptionError($e);
+            }
+            $this->mobile_images['logo'] = utilManager::getLogoParam($cloudinary);
+
         global $con;
-        $con->db->cloudinary_image = $mobile_images;//rollback 準備
+        $con->db->cloudinary_image = $this->mobile_images;//rollback 準備
     }
 
     private function makeUserImages($sid){
-        $this->user_images = is_null($this->user[0]['col_user_images']) ? array() : unserialize($this->user[0]['col_user_images']);
+        //$this->user_images = is_null($this->user[0]['col_user_images']) ? array() : unserialize($this->user[0]['col_user_images']);
+        $old_user_images = is_null($this->user[0]['col_user_images']) ? array() : unserialize($this->user[0]['col_user_images']);
         //home画面用logo = 背景色に黒を設定
-        $public_id = isset($this->user_images[$sid]['public_id']) ? $this->user_images[$sid]['public_id'] : null;
-        $im_logo_url = SIMURL.'/im/logo?url='.urlencode($this->logo);
-        $im_logo_cloudinary = cloudinaryUploader::upload($im_logo_url,$public_id);
+        //$public_id = isset($this->user_images[$sid]['public_id']) ? $this->user_images[$sid]['public_id'] : null;
+        $public_id = isset($old_user_images[$sid]['public_id']) ? $old_user_images[$sid]['public_id'] : null;
+        //$im_logo_url = SIMURL.'/im/logo?url='.urlencode($this->logo);
+        
+        $handle = fopen($this->logo, 'rb');
+        $image = new Imagick();
+        $image->readImageFile($handle);
+        //$image->thumbnailImage(75, 75,true);
+        $image->thumbnailImage(57, 57,true);
+        $image->roundCorners(5, 5);
+        $image->paintOpaqueImage(new ImagickPixel('rgba( 0, 0, 0, 0.0)'), new ImagickPixel('black'), 0);
+        $fname = pathinfo($this->logo,PATHINFO_BASENAME);
+        $image->writeImages('/tmp/'.$fname, true);
+
+        try {
+            //$im_logo_cloudinary = cloudinaryUploader::upload($im_logo_url,$public_id);
+            $im_logo_cloudinary = cloudinaryUploader::upload('/tmp/'.$fname,$public_id);
+        } catch (Exception $e) {
+            global $con;
+            //rollback
+            try {
+                if(!is_null($this->mobile_images)) cloudinaryUploader::rollback($this->mobile_images);
+                if(!is_null($this->user_images)) cloudinaryUploader::rollback($this->user_images);
+            } catch (Exception $e) {
+                $con->throwExceptionError($e);
+            }
+            $con->throwExceptionError($e);
+        }
+        @unlink('/tmp/'.$fname);
+
         $con->db->cloudinary_image[] = $im_logo_cloudinary;
-        //$this->user_images[$sid] = $im_logo_cloudinary;
+        
+        //upしてから変数にセット。全部消してしまうため
+        $this->user_images = $old_user_images;
         $this->user_images[$sid] = utilManager::getUserImageParam($im_logo_cloudinary,$this->mobile_images['logo']);
         $this->user_image_update = true;
     }
@@ -259,12 +345,22 @@ class newHandle extends analyze
         $con->t->assign('iphone',$this->iphone);
     }
 
-    private function throwError($error){
-        //rollback
-        if(!is_null($this->mobile_images)) cloudinaryUploader::rollback($this->mobile_images);
-        if(!is_null($this->user_images)) cloudinaryUploader::rollback($this->user_images);
-        require_once('fw/errorManager.php');
-        errorManager::throwError(constant($error));
+    private function throwError($bl){
+        //require_once('fw/errorManager.php');
+        //errorManager::throwError(constant($error));
+        if(!$bl){
+            global $con;
+            //rollback
+            try {
+                if(!is_null($this->mobile_images)) cloudinaryUploader::rollback($this->mobile_images);
+                if(!is_null($this->user_images)) cloudinaryUploader::rollback($this->user_images);
+            } catch (Exception $e) {
+                $con->throwExceptionError($e);
+            }
+            $con->t->assign('page_analyze',FALSE);
+            $con->append();
+            die();
+        }
     }
 
     private function checkItunesID(){
@@ -281,7 +377,10 @@ class newHandle extends analyze
         }else{
             //itunes id 取得失敗
             require_once('fw/errorManager.php');
-            errorManager::throwError(E_CMMN_HANDLE_ITUNES_STOP);
+            //errorManager::throwError(E_CMMN_HANDLE_ITUNES_STOP);
+            checkSimulatorEntry::$error['system'] = constant(E_CMMN_HANDLE_ITUNES_STOP);
+            //$this->is_check = checkSimulatorEntry::safeExit();
+            $this->throwError(checkSimulatorEntry::safeExit());
         }
     }
 }

@@ -564,7 +564,6 @@ $(function(){
             
             var opts = {
                 onStart: function() {
-                    //$('#upload_btn').hide();
                     $('#parent_upload').css('visibility','hidden');
                 },
                 onFinish: function() {
@@ -594,17 +593,14 @@ $(function(){
                 $(this).sb();
             } else{
                 alert(responseObj.error);
-                $('<li></li>').appendTo('#files').text(responseObj.error).addClass('error');
+                //$('<li></li>').appendTo('#files').text(responseObj.error).addClass('error');
             }
             $('#upload').spinner('remove');
             popapps_screenshots_count = popapps_screenshots_count + 1;
             if( popapps_screenshots_count >= 9 ){
-                //$('#upload_btn').hide();
                 $('#parent_upload').css('visibility','hidden');
             }else{
                 $('#parent_upload').css('visibility','visible');
-                //$('#upload_btn').show();
-                //$('#upload').attr("disabled",false);
             }
         }
     });

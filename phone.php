@@ -22,8 +22,6 @@ if(!$simulator){
 }
 
 //実行サーバーと同じドメインだったらOK
-//if( stristr( $_SERVER['HTTP_REFERER'],$_SERVER['SERVER_NAME']) === FALSE && stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_url'] ) === FALSE ){
-//if( stristr( $_SERVER['HTTP_REFERER'],$simulator[0]['col_url'] ) !== FALSE ){
 if( !utilManager::checkDomain($simulator[0]['col_url'],$_SERVER['HTTP_REFERER']) ){
     require_once('fw/errorManager.php');
     errorManager::throwError(E_PHONE_DOMAIN_EXISTS,true);

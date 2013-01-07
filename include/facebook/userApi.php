@@ -1,6 +1,6 @@
 <?php
 require_once('facebook/apiManager.php');
-class userApi  extends apiManager
+class userApi extends apiManager
 {
     public $fql_number_user;
     public $fql_number_user_friend;

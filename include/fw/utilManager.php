@@ -134,7 +134,8 @@ class utilManager
             'version'=>$cloudinary['version'],
             'secure_url'=>$cloudinary['secure_url'],
             'thumbnail_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array('t_admin_thumbnail')),
-            'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING))
+            'transformations_url'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_SETTING)),
+            'transformations_url_little'=>utilManager::getCloudinaryTransformationsURL($cloudinary['secure_url'],array(CLOUDINARY_LOGO_LITTLE_SETTING))
         );
     }
 
@@ -239,13 +240,14 @@ class utilManager
 
         //domain取得
         $seiki2 = '@^(?:https?://)?([^/]+)@i';
-        if ($url_domain = preg_match($seiki2, $url)) {
+        if (preg_match($seiki2, $url,$match)) {
+            $url_domain = $match[1];
         } else {
             return FALSE;
         }
-
         $seiki2 = '@^(?:https?://)?([^/]+)@i';
-        if ($referer_domain = preg_match($seiki2, $referer)) {
+        if (preg_match($seiki2, $referer,$match)) {
+            $referer_domain = $match[1];
         } else {
             return FALSE;
         }
